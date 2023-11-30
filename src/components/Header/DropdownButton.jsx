@@ -1,21 +1,26 @@
-import { useState } from "react";
-import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import PropTypes from 'prop-types';
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
+import { useState } from 'react';
 
 const DropdownButton = (props) => {
-  const title = props.title
+  const { title } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative flex flex-col items-center rounded-lg">
-      <button 
-        onClick={() => setIsOpen((prev) => !prev)} 
-        className="p-4 w-fit flex items-center justify-between font-semibold tracking-tighter"
+    <div>
+      <button
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="p-4  flex items-center justify-end "
       >
         {title}
-        {!isOpen ? <FaCaretDown /> : <FaCaretUp /> }
+        {!isOpen ? <FaCaretDown /> : <FaCaretUp />}
       </button>
     </div>
-  )
-}
+  );
+};
+
+DropdownButton.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default DropdownButton;

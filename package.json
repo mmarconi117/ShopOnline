@@ -59,7 +59,6 @@
     "jest-environment-jsdom": "^27.4.3",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
-    "vite": "^5.0.0",
-    "vite-jest": "workspace:*"
+    "vite": "^5.0.0"
   }
 }

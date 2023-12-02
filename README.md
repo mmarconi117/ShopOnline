@@ -50,13 +50,6 @@ A super admin user is for SONNY administrators to perform all CRUD functions wit
   - Verify that app is forwarded to the Home page.
   - Verify that "Shop Online New York Admin" appears in the header.
 
-#### Products admin - Sellers
-
-- Verify that the products table is empty and the page section loaded without issue.
-- Click on the plus button to create a new product.
-  - Verify that the new product was added to the list.
-- Create two more products (to be used for later testing).
-
 #### User admin - Buyers
 
 - Click on the Register page link.
@@ -79,28 +72,35 @@ A super admin user is for SONNY administrators to perform all CRUD functions wit
 - Logout from the app.
 
 ---
+#### Products admin - Sellers
 
-#### Products - Buyer
-
-- Login to the app with a chapter admin account.
-  - Verify that app is forwarded to the Courses page.
-  - Verify that the member chapter name appears in the header.
-  - Verify that the assigned chapter course (as created above) is visible for the user.
-- Click on the course link.
-  - Verify that the course materials appear on the table.
-- Click on both of the course material links.
-  - Verify that the links open in a new tab/window in the browser.
+- Verify that the products table is empty and the page section loaded without issue.
+- Click on the Add Product button to create a new product.
+  - Verify that the new product was added to the list.
+- Create two more products (to be used for later testing).
 
 #### Products - Seller
 
-- Login to the app with a chapter admin account.
-  - Verify that app is forwarded to the Courses page.
-  - Verify that the member chapter name appears in the header.
-  - Verify that the assigned chapter course (as created above) is visible for the user.
-- Click on the course link.
-  - Verify that the course materials appear on the table.
-- Click on both of the course material links.
-  - Verify that the links open in a new tab/window in the browser.
+- Login to the app with a verified seller account.
+  - Verify that app is forwarded to the seller dashboard.
+  - Verify that the seller name appears in the header.
+  - Verify that the analytics and order stats are visible for the user.
+- Click on the List of Products link.
+    - Verify that app is forwarded to the list of products.
+  - Verify that the products appear on the table.
+- Click on the products links.
+  - Verify that the app is forwarded to the product details page.
+  - Verify that total sales, type, ratings, inventory, revenue, and gross profit appears in the product details page.
+  - Verify that the published status appears within the button in the upper right of the product details page.
+- Click on the carousel arrows under product photo.
+  - Verify that the product photo changes to selected photo.
+- Click on the See 230 Ratings link.
+  - Verify that the links open in a new tab/window in the browser to see full ratings and reviews.
+- Click on the Go Back to data table link.
+  - Verify that the app is forward to the list of products page.
+- Click on the Delete Product button.
+  - Verify that the app is forward to the list of products page.
+  - Verify that an alert saying "{product name} deleted" appears at the top of the page.
 
 #### User profile
 
@@ -143,7 +143,30 @@ A super admin user is for SONNY administrators to perform all CRUD functions wit
 
   ### Seller User Flow
 
-
+- Login to the app with a seller account.
+  - Verify that app is forwarded to the unverified home page.
+  - Verify that the seller name appears in the header.
+  - Verify that the 3 verification steps are visible for the user.
+- Login to the app with a verified seller account.
+  - Verify that app is forwarded to the verified home page.
+  - Verify that the seller name appears in the header.
+  - Verify that the Add your items button are enabled for the user.
+- Click on Payments link.
+  - Verify that the app is forwarded to the payments page.
+- Click on Activity Feed link.
+  - Verify that app is forwarded to the list of products page and activity is highlighted.
+  - Verify that the links forward the app to the product details page with activity highlighted.
+- Click on Ratings & Reviews link.
+  - Verify that the app is forwarded to the Ratings & Reviews page.
+  - Verify that the links open in a new tab/window in the browser to see full reviews.
+- Click on Order List link.
+  - Verify that app is forwarded to the list of orders page.
+- Click on Returns & Refunds link.
+  - Verify that app is forwarded to the list of returns & refunds page.
+- Click on Disputes link.
+  - Verify that app is forwarded to the disputes page.
+- Logout of the app with a seller account.
+  - Verify that app is forwarded to the login page.
 
 #### User profile
 

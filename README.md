@@ -44,16 +44,113 @@ The following section provides a comprehensive list of tests that should be perf
 
 ### Super Administrator
 
-- TBA
+A super admin user is for SONNY administrators to perform all CRUD functions within the app.
 
-### Buyer
+- Login to the app with a super admin account.
+  - Verify that app is forwarded to the Home page.
+  - Verify that "Shop Online New York Admin" appears in the header.
 
-- TBA
+#### Products admin - Sellers
 
-### Seller
+- Verify that the products table is empty and the page section loaded without issue.
+- Click on the plus button to create a new product.
+  - Verify that the new product was added to the list.
+- Create two more products (to be used for later testing).
 
-- TBA
+#### User admin - Buyers
 
+- Click on the Register page link.
+- Fill out form and click on the create account button to create a new buyer account.
+- Verify that the new buyer is added to the table on the buyers page.
+- Verify that the new buyer is directed to the home page.
+
+#### User admin - Sellers
+
+- Click on the Register page link.
+- Fill out form and click on the create account button to create a new seller account.
+- Verify that the new seller is added to the table on the sellers page.
+- Verify that the new seller is directed to the seller dashboard.
+
+#### User profile
+
+- Click on the profile link.
+- Update the user name.
+  - Verify that the new name appears in the app.
+- Logout from the app.
+
+---
+
+#### Products - Buyer
+
+- Login to the app with a chapter admin account.
+  - Verify that app is forwarded to the Courses page.
+  - Verify that the member chapter name appears in the header.
+  - Verify that the assigned chapter course (as created above) is visible for the user.
+- Click on the course link.
+  - Verify that the course materials appear on the table.
+- Click on both of the course material links.
+  - Verify that the links open in a new tab/window in the browser.
+
+#### Products - Seller
+
+- Login to the app with a chapter admin account.
+  - Verify that app is forwarded to the Courses page.
+  - Verify that the member chapter name appears in the header.
+  - Verify that the assigned chapter course (as created above) is visible for the user.
+- Click on the course link.
+  - Verify that the course materials appear on the table.
+- Click on both of the course material links.
+  - Verify that the links open in a new tab/window in the browser.
+
+#### User profile
+
+- Click on the profile link.
+- Update the user email address.
+- Logout from the app.
+
+---
+
+### Buyer User Flow
+
+- Login to the app with a buyer account.
+  - Verify that app is forwarded to the home page.
+  - Verify that the buyer name appears in the header.
+  - Verify that the featured products are visible for the user.
+- Click on a product link.
+  - Verify that app is forwarded to the products details page.
+  - Verify that the product details are available.
+- Click on reviews.
+  - Verify that the reviews show in an abbreviated manner.
+  - Verify that the links open in a new tab/window in the browser to see full reviews.
+- Click on the add to cart button.
+  - Verify that the cart shows a "1" on the cart icon.
+  - Verify that the cart table shows the product object.
+- Click on the cart icon.
+  - Verify that app is forwarded to the cart page.
+  - Verify that the cart shows the product added.
+- Click on the checkout button.
+  - Verify that app is forwarded to the checkout page.
+  - Verify that payment details and shipping address details can be filled out and saved.
+- Click on the place order button with incorrect payment details.
+  - Verify that app shows the error alert saying "payment failed".
+  - Verify that payment details shows errors where needed.
+- Click on the place order button with correct payment details.
+  - Verify that app is forwarded to the order details page.
+  - Verify that app shows the confirmation alert saying "payment successful".
+  - Verify that app shows tracking information.
+- Logout of the app with a buyer account.
+  - Verify that app is forwarded to the login page.
+
+  ### Seller User Flow
+
+
+
+#### User profile
+
+- Click on the profile link.
+- Update the user email address.
+  - Verify that the new email address appears on screen in the app.
+- Logout from the app.
 ---
 
 ### Testing Cleanup

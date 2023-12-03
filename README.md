@@ -2,32 +2,50 @@
 
 _Supporting Our New York Neighborhoods Year-Round - SONNY_
 
+Shop Online New York is an e-commerce business dedicated solely to serving the needs and wants of the people living in and around New York. We are a local business for local people! We understand the inhabitants and rhythm of the city that never sleeps and we are here to cater exclusively to them. Shop Online New York strives to directly challenge the impersonality of giant online retailers. We are New York, for New York.
+
 ## Deployed Project
+
+TBA
 
 ## App Details
 
 ### Stack
 
-#### React + Vite
+##### React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##### React Router 6.4
 
-Currently, two official plugins are available:
+##### Yup Validation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##### Authentication TBA
+
 
 ### User Types
+
+##### Super Administrator
+
+##### Buyer
+
+##### Seller
 
 ## Setup Requirements
 
 ### Frontend
 
-TBA
+1. Clone to your local environment or git pull origin main
+    - If you already have the repository cloned to your local environment, you can git pull origin main
+2. npm i 
+    - This installs all dependencies for the application
+3. npm run dev
+    - This starts the development server
+4. npm run test
+    - This starts the tests suites for the application
 
 ### Backend
 
-TBA
+Refer to the ReadME in the SONNY BE repository for more information
+[Backend Repo](https://github.com/ShopOnlineNewYork/SonnyNY-BE)
 
 ## QA Test Cases
 

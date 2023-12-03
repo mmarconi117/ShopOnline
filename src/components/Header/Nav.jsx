@@ -1,7 +1,6 @@
 import DropdownButton from "./DropdownButton";
 import account from "../../assets/ICONS/Outline/account.svg";
 import hamburgerMenu from "../../assets/ICONS/Outline/hamburgerMenu.svg";
-import mobileLogo from "../../assets/ICONS/Outline/mobileLogo.svg";
 import cart from "../../assets/ICONS/Outline/cart.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -45,7 +44,7 @@ export default function Nav() {
                     <li onClick={()=> {setMenu("sell")}}><Link to="/sellers" style={{textDecoration: 'none'}}>Sell</Link>{menu==="sell" ? <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]"/> : <></>}</li>
                     <li onClick={()=> {setMenu("language")}}><Link to="/language" style={{textDecoration: 'none'}}>English/US</Link>{menu==="language" ? <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]"/> : <></>}</li>
                     <li onClick={()=> {setMenu("help")}}><Link to="/help" style={{textDecoration: 'none'}}>Help</Link>{menu==="help" ? <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]"/> : <></>}</li>
-                    <li onClick={()=> {setMenu("account")}}><Link to="/account" style={{textDecoration: 'none'}}>Account</Link>{menu==="account" ? <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]"/> : <></>}</li>
+                    <li onClick={()=> {setMenu("account")}}><Link to="/account" style={{textDecoration: 'none'}}> <img src={account}/> Account</Link>{menu==="account" ? <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]"/> : <></>}</li>
                 </ul>
             </div>
 

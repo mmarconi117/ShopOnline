@@ -1,6 +1,6 @@
-import Header from "../../components/Header/Header";
-/*import Footer from "../../components/Footer/Footer.jsx";*/
-import Footer from '../../components/Footer/Footer';
+import Header from "../../components/Header/Header.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
+/*import Footer from '../../components/Footer/Footer';*/
 /*import { Menu } from "../../components/Menu/Menu.jsx";
 import { Explore } from "../../components/Explore/Explore.jsx";*/
 import TopsRow from "../../components/Tops/Tops.jsx";

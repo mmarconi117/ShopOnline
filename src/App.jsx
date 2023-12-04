@@ -6,12 +6,6 @@ import Header from './components/Header/Header';
 import Cart from './pages/Buyers/CartPage';
 
 function App() {
-  const carts = [
-    { id: 1, product: { avatar: '...', name: 'Product 1', description: '...', price: 10 }, number_of_product: 2 },
-    { id: 2, product: { avatar: '...', name: 'Product 2', description: '...', price: 20 }, number_of_product: 1 },
-    // ...more cart items
-  ];
-
   return (
     <>
       <div>

@@ -12,7 +12,6 @@ const router = createBrowserRouter(
       
       {/* Home Page Routing */}
       <Route path='' element={<Homepage/>}/>
-      <Route path='getverified' element={<GetVerified/>}/>
 
       {/* Product Catalogue Routing */}
       <Route path='ListOfProducts' element={<ListOfProducts />} />

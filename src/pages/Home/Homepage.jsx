@@ -1,12 +1,16 @@
-import React from 'react'
-import GetVerified from '../../assets/ICONS/GetVerifide.svg'
+import React, { useEffect, useState } from 'react'
+import GetVerifiedIcon from '../../assets/ICONS/GetVerifide.svg'
 import Paid from '../../assets/ICONS/Paid.svg'
 import Shipping from '../../assets/ICONS/Shipping.svg'
-import { Link } from 'react-router-dom'
+import GetVerified from './GetVerified'
 
 function Homepage() {
+    const [showModal, setShowModal] = useState(false);   
+    
     return (
+        
         <div className="self-center flex w-[967px] max-w-full flex-col items-stretch mt-4 px-5">
+            {showModal && <GetVerified setShowModal={setShowModal} />}
             <div className="text-zinc-800 text-base leading-6 whitespace-nowrap max-md:max-w-full">
                 Welcome Joe,
             </div>
@@ -18,6 +22,7 @@ function Homepage() {
                     Learn more
                 </div>
             </div>
+            
             <div className="mt-4 max-md:max-w-full">
                 <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
                     <div className="flex flex-col items-center w-[33%] max-md:w-full max-md:ml-0">
@@ -28,17 +33,20 @@ function Homepage() {
                             <div className=" self-stretch flex grow basis-[0%] flex-col">
                                 <img
                                     loading="lazy"
-                                    src={GetVerified}
+                                    src={GetVerifiedIcon}
                                     className="aspect-square object-contain object-center w-12 overflow-hidden self-center max-w-full"
                                 />
                                 <p className="text-zinc-700 text-center text-[16px] leading-6 mt-6">
                                     Add your business info to complete our quick-check verification
                                 </p>
-                                <Link to='/getverified'>
-                                <button className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center mt-6 px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5">
+                                
+                                <button 
+                                className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center mt-6 px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5"
+                                onClick={() => setShowModal(true)}
+                                >
                                     Get verified
                                 </button>
-                                </Link>
+                                
                             </div>
                         </div>
                     </div>

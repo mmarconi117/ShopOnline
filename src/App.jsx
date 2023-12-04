@@ -13,7 +13,7 @@ function App() {
           <Header />
           <Routes>
             <Route exact path='/' element={<LandingPage />}/>
-            <Route path='/cart' element={<Cart initialCarts={carts} />}/>
+            <Route path='/cart' element={<Cart/>}/>
             <Route path='/sellers' element="#"/>
             <Route path='/help' element="#"/>
             <Route path='/language' element="#"/>

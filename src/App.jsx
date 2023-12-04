@@ -1,5 +1,5 @@
 import LandingPage from './pages/Buyers/LandingPage';
-import SubCategory from './pages/Buyers/Subcat/SubCategory';
+import SubCategory from './pages/Buyers/SubCategory';
 import './index.css'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 

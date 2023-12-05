@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Cart from './pages/Buyers/CartPage';
+import LoginPage from './pages/Buyers/LoginPage';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
             <Route path='/language' element="#"/>
             <Route path='/account' element="#"/>
             <Route path='/app' element="#"/>
+            <Route path='/login' element={<LoginPage/>}/>
+            <Route path='/signup' element="#"/>
           </Routes>
         </Router>
         

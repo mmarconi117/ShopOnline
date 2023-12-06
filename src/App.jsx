@@ -4,9 +4,9 @@ import './index.css'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import Header from './components/Header/Header';
+import Cart from './pages/Buyers/CartPage';
 
 function App() {
-
   return (
     <>
       <div>
@@ -15,6 +15,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={<LandingPage />}/>
             <Route path='/subcategories' element={<SubCategory/>}/>
+            <Route path='/cart' element={<Cart/>}/>
             <Route path='/sellers' element="#"/>
             <Route path='/help' element="#"/>
             <Route path='/language' element="#"/>

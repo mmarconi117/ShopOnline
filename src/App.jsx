@@ -1,4 +1,5 @@
-import LandingPage from './pages/Buyers/LandingPage'
+import LandingPage from './pages/Buyers/LandingPage';
+import SubCategory from './pages/Buyers/SubCategory';
 import './index.css'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
@@ -13,6 +14,7 @@ function App() {
           <Header />
           <Routes>
             <Route exact path='/' element={<LandingPage />}/>
+            <Route path='/subcategories' element={<SubCategory/>}/>
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/sellers' element="#"/>
             <Route path='/help' element="#"/>

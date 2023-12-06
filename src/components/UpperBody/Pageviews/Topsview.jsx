@@ -4,15 +4,14 @@ function Topsview(){
     //React Router element that helps to navigate between pages
     const navigate = useNavigate();
 
-    const Swimwearview = () => {
-    // Perform the logic for checkout (replace with your desired implementation)
-    // 
-        navigate('/swimwearview')
+    const Topsview = () => {
+    // function that navigates to tops page
+        navigate('/topsview')
     };
 
     return(
         <div className="buttonview" style={{float: "left", padding: 10}}>
-            <button href="#" onClick={Swimwearview}>Swimwear</button>
+            <button href="#" onClick={Topsview}>Tops</button>
         </div>
     );
 }

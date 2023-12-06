@@ -6,8 +6,7 @@ function Jumpsuitsview(){
     const navigate = useNavigate();
 
     const Jumpsuitsview = () => {
-    // Perform the logic for checkout (replace with your desired implementation)
-    // 
+    // function that navigates to jumpsuits page
         navigate('/jumpsuitsview')
     };
 

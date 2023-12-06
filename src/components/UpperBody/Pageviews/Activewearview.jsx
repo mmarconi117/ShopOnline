@@ -5,8 +5,7 @@ function Activewearview(){
     const navigate = useNavigate();
 
     const Activewearview = () => {
-    // Perform the logic for checkout (replace with your desired implementation)
-    // 
+    // function that navigates to activewear page
         navigate('/activewearview')
     };
 

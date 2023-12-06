@@ -5,8 +5,7 @@ function Bottomsview(){
     const navigate = useNavigate();
 
     const Bottomsview = () => {
-    // Perform the logic for checkout (replace with your desired implementation)
-    // 
+    // function that navigates to bottoms page
         navigate('/bottomsview')
     };
 

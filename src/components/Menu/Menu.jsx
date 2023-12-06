@@ -11,71 +11,75 @@ import { LuHammer } from "react-icons/lu";
 
 
 
-
-
-
 const Menu = () => {
 
-    const category = [
+
+    const categories = [
         {
-            womens: {
-                img: <PiDressLight/>,
-                title: "Women's Fashion"
-            },
-            mens: {
-                img: <RiShirtLine />,
-                title: "Men's Fashion"
-            },
-            phone: {
-                img: <MdOutlinePhoneAndroid />,
-                title: "Phones & Accessories"
-            },
-            office: {
-                img: <AiOutlineLaptop />,
-                title: "Computer, Office & Security"
-            },
-            jewelry: {
-                img: <FiWatch />,
-                title: "Jewelry & Watches"
-            },
-            furniture: {
-                img: <PiArmchair />,
-                title: "Home & Appliances"
-            },
-            kids: {
-                img: <LuSailboat />,
-                title: "Toys, Kids & Babies"
-            },
-            outdoor: {
-                img: <TfiBasketball />,
-                title: "Outdoor, Fun & Sports"
-            },
-            automotive: {
-                img: <IoCarSportOutline />,
-                title: "Automotive"
-            },
-            tools: {
-                img: <LuHammer />,
-                title: "Tools & Home Improvement"
-            }
-    
+          id: 'womens',
+          img: <PiDressLight />,
+          title: "Women's Fashion"
+        },
+        {
+          id: 'mens',
+          img: <RiShirtLine />,
+          title: "Men's Fashion"
+        },
+        {
+          id: 'phone',
+          img: <MdOutlinePhoneAndroid />,
+          title: "Phones & Accessories"
+        },
+        {
+          id: 'office',
+          img: <AiOutlineLaptop />,
+          title: "Computer, Office & Security"
+        },
+        {
+          id: 'jewelry',
+          img: <FiWatch />,
+          title: "Jewelry & Watches"
+        },
+        {
+          id: 'furniture',
+          img: <PiArmchair />,
+          title: "Home & Appliances"
+        },
+        {
+          id: 'kids',
+          img: <LuSailboat />,
+          title: "Toys, Kids & Babies"
+        },
+        {
+          id: 'outdoor',
+          img: <TfiBasketball />,
+          title: "Outdoor, Fun & Sports"
+        },
+        {
+          id: 'automotive',
+          img: <IoCarSportOutline />,
+          title: "Automotive"
+        },
+        {
+          id: 'tools',
+          img: <LuHammer />,
+          title: "Tools & Home Improvement"
         }
-    ]
+      ];
 
-    return ( 
+      return (
         <div>
-            {category.map((item) => {
+          {categories.map((item, index)=> {
+            return (
+              <div key={index}>
                 <div>
-                    <div>
-                        <img src={item.tools.img}/>
-                        <p>{item.title}</p>
-
-                        console.log(category[0].img)
-                    </div>
+                  {item.title}
                 </div>
-            })}
+                <img src={item.img} alt="Image"/>
+              </div>
+            )
+          })}
         </div>
-     );
-}
- 
-export default Menu;
+       )
+    }
+      export default Menu;

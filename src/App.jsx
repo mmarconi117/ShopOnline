@@ -3,6 +3,7 @@ import Layout from './Layout/Layout'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 
 import { Homepage, GetVerified, ListOfProducts, ActivityFeed, UploadProduct, OrderList,ReturnsAndRefunds, Disputes, Overview, Payments, RatingsAndReviews } from './pages'
+import ProductDetail from './pages/ProductCatalogue/ProductDetail'
 
 
 
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
 
       {/* Product Catalogue Routing */}
       <Route path='ListOfProducts' element={<ListOfProducts />} />
+      <Route path="ProductDetail/:id" element={<ProductDetail />} />
       <Route path='ActivityFeed' element={<ActivityFeed />} />
       <Route path='UploadProduct' element={<UploadProduct />} />
 

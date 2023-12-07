@@ -42,6 +42,7 @@ function GetVerified({ setShowModal }) {
                   <div className="text-stone-950 text-xs font-semibold leading-4 whitespace-nowrap">
                     Country/Region of incorporation
                   </div>
+                  
                   <select className="justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] flex gap-5 mt-2 px-4 py-3 border-solid text-zinc-500 text-md font-semibold leading-4 whitespace-nowrap my-auto">
                     <option className="font-semibold text-[16px]">
                       United Sates

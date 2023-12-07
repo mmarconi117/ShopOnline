@@ -4,6 +4,8 @@ import GetVerified from './Home/GetVerified'
 import ListOfProducts from './ProductCatalogue/ListOfProducts'
 import ActivityFeed from './ProductCatalogue/ActivityFeed'
 import UploadProduct from './ProductCatalogue/UploadProduct'
+import ProductDetail from './ProductCatalogue/ProductDetail'
+import FeedDetail from './ProductCatalogue/FeedDetail'
 
 import OrderList from './OrderManagement/OrderList'
 import ReturnsAndRefunds from './OrderManagement/ReturnsAndRefunds'
@@ -19,6 +21,8 @@ export {
   ListOfProducts,
   ActivityFeed,
   UploadProduct,
+  ProductDetail,
+  FeedDetail,
   OrderList,
   ReturnsAndRefunds,
   Disputes,

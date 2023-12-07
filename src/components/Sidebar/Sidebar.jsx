@@ -32,9 +32,9 @@ function Sidebar() {
                     </div>
                     </Link>
                     <Link to='ActivityFeed'>
-                    <div className="text-zinc-400 text-xs leading-4 whitespace-nowrap ml-6 mt-6 self-start max-md:ml-2.5">
-                        Activity Feed
-                    </div>
+                        <div className="text-zinc-400 text-xs leading-4 whitespace-nowrap ml-6 mt-6 self-start max-md:ml-2.5">
+                            Activity Feed
+                        </div>
                     </Link>
                     <Link to='UploadProduct'>
                     <div className="text-zinc-400 text-xs leading-4 whitespace-nowrap ml-6 mt-6 self-start max-md:ml-2.5">

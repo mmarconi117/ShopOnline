@@ -3,10 +3,6 @@ import SearchIcons from '../../assets/ICONS/SearchIcons.svg'
 import ArrowDown from '../../assets/ICONS/ArrowDown.svg'
 import Filter from '../../assets/ICONS/Filter.svg'
 import Sort from '../../assets/ICONS/Sort.svg'
-import GreenCheck from '../../assets/green-check.png'
-import RedX from '../../assets/red-x.png'
-import Info from '../../assets/Info.png'
-
 import { Link } from 'react-router-dom';
 
 
@@ -168,14 +164,6 @@ function ListOfProducts() {
                       <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="bg-yellow-600 rounded text-white ml-5 w-[25px] h-[25px]">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                       </svg>
-
-
-                      
-
-
-                      {/* <img src={GreenCheck} className='w-[30px] h-[30px] ml-5' />
-                      <img src={RedX} className='w-[30px] h-[30px] ml-5' />
-                      <img src={Info} className='w-[30px] h-[30px] ml-5' /> */}
                       </div>
                     </td>
                   </tr>
@@ -198,8 +186,6 @@ function ListOfProducts() {
                   1
                 </div>
               ))}
-
-
               <div
                 className={`cursor-pointer text-zinc-800 text-sm leading-5 self-center my-auto opacity-50`}
               >
@@ -209,8 +195,6 @@ function ListOfProducts() {
           </div>
         </div>
       </div>
-
-
     </div>
   )
 }

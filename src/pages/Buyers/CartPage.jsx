@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+
 import { useState, useEffect } from 'react';
 import Footer from '../../components/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -94,8 +94,8 @@ function Cart() {
         <div className="cart">
           {carts.length > 0 ? (
             <>
-              {carts.map((item) => (
-                <div key={item.id} style={{ border: "1px solid #e5e5e5", marginBottom: "10px" }}>
+              {carts.map((item, index) => (
+                <div key={index} style={{ border: "1px solid #e5e5e5", marginBottom: "10px" }}>
                   <img src={item.product.avatar} alt={item.product.name} />
                   <div className="info">
                     <h3>{item.product.name}</h3>
@@ -154,8 +154,6 @@ function Cart() {
   );
 }
 
-Cart.propTypes = {
-  auth: PropTypes.object.isRequired,
-};
+
 
 export default Cart;

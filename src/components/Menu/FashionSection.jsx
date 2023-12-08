@@ -3,7 +3,7 @@ import fashionWoman from "./assets/fashionWoman.png";
 import clothes from "./assets/clothes.png";
 export const FashionSection = () => {
   return (
-    <div className="flex flex-col flex-1 gap-6 pt-3">
+    <div className="flex flex-col flex-1 gap-6 pt-4">
       <div className="items-start justify-around hidden gap-6 md:flex">
         <div className="text-zinc-800 text-base font-bold font-['Roboto'] leading-tight">
           Plus

@@ -3,7 +3,7 @@ import SubCategory from './pages/Buyers/SubCategory';
 import './index.css'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-import Header from './components/Header/Header';
+// import Header from './components/Header/Header';
 import Cart from './pages/Buyers/CartPage';
 import LoginPage from './pages/Buyers/LoginPage';
 import SignupPage from './pages/Buyers/SignupPage';
@@ -11,9 +11,11 @@ import SignupPage from './pages/Buyers/SignupPage';
 function App() {
   return (
     <>
+    
       <div>
+        
         <Router>
-          <Header />
+          
           <Routes>
             <Route exact path='/' element={<LandingPage />}/>
             <Route path='/subcategories' element={<SubCategory/>}/>

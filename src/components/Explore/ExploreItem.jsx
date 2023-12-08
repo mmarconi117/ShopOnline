@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 
 export  const ExploreItem = ({src,title}) => {
   return (
@@ -10,3 +10,7 @@ export  const ExploreItem = ({src,title}) => {
 
 }
 
+ExploreItem.propTypes = {
+  src: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};

@@ -40,7 +40,7 @@ export const FashionSection = () => {
         </div>
 
         <div className="relative">
-          <div className="w-[40%] h-[40%] left-[37%] top-[10%] absolute opacity-90 bg-amber-200 rounded-full" />
+          <div className="w-[30%] h-[40%] left-[42%] top-[10%] absolute opacity-90 bg-amber-200 rounded-full" />
 
           <img
             className="object-cover mix-blend-hard-light"

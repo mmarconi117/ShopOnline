@@ -19,14 +19,14 @@ export const FashionSection = () => {
       </div>
 
 
-      <div className="max-h-[368px] min-h-[184px] relative bg-white rounded-[10px] items-end flex justify-between">
+      <div className="max-h-[368px] min-h-[184px] relative bg-white rounded-[10px] items-end flex justify-between ">
         <div className="relative">
           <div className="left-[20%] top-[23%] absolute flex-col justify-start items-start gap-2 inline-flex">
             <div className=" text-blue-400 text-[39px] font-bold font-['Roboto'] leading-[46.80px] max-md:text-[29px] whitespace-nowrap">
               Style & Fashion
             </div>
 
-            <div className="w-[90px] h-3 bg-amber-300 rounded-sm" />
+            <div className="w-[265px] h-3 bg-amber-300 rounded-sm" />
           </div>
           <img src={clothes} />
         </div>
@@ -40,7 +40,7 @@ export const FashionSection = () => {
         </div>
 
         <div className="relative">
-          <div className="w-[40%] h-[50%] left-[37%] top-[10%] absolute opacity-90 bg-amber-200 rounded-full" />
+          <div className="w-[40%] h-[40%] left-[37%] top-[10%] absolute opacity-90 bg-amber-200 rounded-full" />
 
           <img
             className="object-cover mix-blend-hard-light"

@@ -13,22 +13,22 @@ const PaymentSocial = () => {
 
   return (
     <div className="flex flex-col self-center">
-      <div className="flex flex-col items-start gap-12">
+      <div className="flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:justify-between md:gap-12">
         <div className="flex flex-col gap-4">
           <div className="text-[#605D64] font-[Roboto] text-xl font-bold leading-[120%]">Follow us on</div>
-          <div className="flex gap-2">
+          <div className="flex gap-4">
             {socialMedia.map((media, index) => (
-                <div key={index}>
-                  <img src={media} alt="" className="w-8 h-8" />
-                </div>
+              <div key={index}>
+                <img src={media} alt="" className="w-8 h-8" />
+              </div>
             ))}
           </div>
         </div>
-        <div>
+        <div className="mt-4 sm:mt-0">
           <div className="text-[#605D64] font-[Roboto] text-xl font-bold leading-[120%]">PAYMENT METHODS</div>
-          <div className="flex gap-8">
+          <div className="flex gap-4">
             {payments.map((pay, index) => (
-              <div key={index}> 
+              <div key={index}>
                 <img src={pay} alt="" className="w-8 h-8" />
               </div>
             ))}

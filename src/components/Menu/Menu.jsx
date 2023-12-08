@@ -9,9 +9,7 @@ import { LuSailboat } from 'react-icons/lu';
 import { TfiBasketball } from 'react-icons/tfi';
 import { IoCarSportOutline } from 'react-icons/io5';
 import { LuHammer } from 'react-icons/lu';
-import { FashionSection } from './FashionSection';
 
-// import { WelcomeSection } from './WelcomeSection';
 
 const Menu = () => {
   const categories = [
@@ -69,13 +67,12 @@ const Menu = () => {
 
   return (
     <div>
-     {/* <WelcomeSection></WelcomeSection> */}
-      <FashionSection></FashionSection>
+    
      
       <div>
         {categories.map((item, index) => {
           return (
-            <div key={index} style={{display: 'flex'}}>
+            <div key={index} style={{display: 'flex', marginLeft:'20px'}}>
               {item.img} 
               <div>  {item.title}</div>
               

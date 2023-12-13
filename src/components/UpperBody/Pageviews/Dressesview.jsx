@@ -10,7 +10,7 @@ function Dressesview(){
     };
 
     return(
-        <div className="buttonview text-[25px] leading-[30px]" >
+        <div>
             <button href="#" onClick={Dressesview}>Dresses</button>
         </div>
     );

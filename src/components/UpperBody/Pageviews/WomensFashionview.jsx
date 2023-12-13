@@ -14,7 +14,7 @@ function WomensFashionview(){
     return(
         <div className="buttonview" >
             {/* Missing Logo */}
-            <div className="text-[31px] leading-[37.2px] whitespace-nowrap font-bold">Women's Fashion</div>
+            <div className="text-[31px] text-[#313133] leading-[37.2px] whitespace-nowrap font-bold">Women's Fashion</div>
         </div>
     );
 }

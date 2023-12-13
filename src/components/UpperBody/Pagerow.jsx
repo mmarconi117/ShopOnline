@@ -9,7 +9,7 @@ import Swimwearview from "./Pageviews/Swimwearview";
 function Pagerow() {
   return (
     <div
-      className="pagerow w-[1432px] h-auto my-[60px] mx-auto flex justify-between gap-[102px] overflow-hidden"
+      className="pagerow w-[95%] h-auto my-[60px] mx-auto flex justify-between items-center font-normal text-[25px] text-[#48464C] leading-[30px]"
     >
       <Form></Form>
       <Topsview></Topsview>

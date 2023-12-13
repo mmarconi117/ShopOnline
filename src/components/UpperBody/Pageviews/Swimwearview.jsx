@@ -11,7 +11,7 @@ function Swimwearview(){
     };
 
     return(
-        <div className="buttonview text-[25px] leading-[30px]" >
+        <div>
             <button href="#" onClick={Swimwearview}>Swimwear</button>
         </div>
     );

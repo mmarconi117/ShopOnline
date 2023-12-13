@@ -6,7 +6,7 @@ import accountbox from '../../assets/ICONS/cartPageicon/accountbox.svg'
 import leftnavigate from '../../assets/ICONS/cartPageicon/leftarrow.svg'
 import rightnavigate from '../../assets/ICONS/cartPageicon/rightarrow.svg'
  import leftbasedonreviw from '../../assets/ICONS/cartPageicon/leftbasedonreviw.svg'
- import rightsidebasedon from '../../assets/ICONS/cartPageicon/rightsidebase don.svg'
+ import rightsidebasedon from '../../assets/ICONS/cartPageicon/rightsidebasedon.svg'
 
 
 function Cart() {

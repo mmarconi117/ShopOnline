@@ -10,7 +10,7 @@ function Topsview(){
     };
 
     return(
-        <div className="buttonview font-normal text-[25px] leading-[30px]">
+        <div>
             <button href="#" onClick={Topsview}>Tops</button>
         </div>
     );

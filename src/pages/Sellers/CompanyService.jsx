@@ -1,17 +1,138 @@
-import React from "react";
+import user from "../../assets/ICONS/user/user-fill.svg";
+import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
+import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
+import logOut from "../../assets/ICONS/logOut.svg";
+
+import { useEffect, useState } from "react";
 
 const CompanyService = () => {
+  const [input, setInput] = useState("");
+  const [charLong, setCharLong] = useState(false);
+
+  const inputHandler = (e) => {
+    setInput(e.target.value);
+  };
+
+  useEffect(() => {
+    // Check if the input length is greater than 2000
+    if (input.length > 2000) {
+      setCharLong(true);
+    } else {
+      setCharLong(false);
+    }
+  }, [input]);
+
   return (
-    <div className="bg-gray-200 h-screen flex flex-row space-x-2">
+    <div className="bg-gray-100 h-screen flex flex-row space-x-12">
       {/* Dashboard */}
-      <div className="w-72 bg-white flex-col space-y-2">
-        <div></div>
-        <div className="flex flex-col space-y-4"></div>
+      <div className="w-2/5 bg-white flex flex-col space-y-12 ">
+        <div className="flex flex-row mx-8 align-middle mt-6">
+          <img className="h-12" src={user} alt="user" />
+          <div className="ml-7 justify-center  ">
+            <h4 className="font-bold text-xl">Hello,Name</h4>
+            <div>ID:XXXXXXXXX</div>
+          </div>
+          <img
+            src={closeDashboard}
+            className="h-12 ml-20 cursor-pointer"
+            alt="close-dashboard"
+          />
+        </div>
+        <div className="flex flex-col align-middle  text-left space-y-2">
+          <h3 className="font-bold ml-10">Analytics</h3>
+          <div className="ml-20 leading-7 cursor-pointer">
+            <h1>Overview</h1>
+            <h1>Payments</h1>
+            <h1>Activity Feed</h1>
+            <h1>Ratings & Reviews</h1>
+          </div>
+          <h3 className="font-bold ml-10">Product Catalogue</h3>
+          <div className="ml-20 leading-7 cursor-pointer">
+            <h1>List of products</h1>
+            <h1>Upload a Product</h1>
+          </div>
+          <h3 className="font-bold ml-10">Order Management</h3>
+          <div className="ml-20 leading-7 cursor-pointer">
+            <h1>Order List</h1>
+            <h1>Returns & Refunds</h1>
+            <h1>Disputes</h1>
+          </div>
+        </div>
+        <div className="cursor-pointer font-bold ml-10 flex flex-row  space-x-2">
+          <h3 className="mt-8">Sign Out</h3>
+          <img className="mt-8 " src={logOut} alt="logout-user" />
+        </div>
       </div>
       {/* Dashboard */}
-      {/* Company Service form */}
-      <div></div>
-      {/* Company Service form */}
+
+      {/* Navigation */}
+      {/* <div className="flex flex-row space-x-3">
+        <div>
+          <h3>Settings</h3>
+          <img src={navigationArrow} alt="nav-arrow" />
+        </div>
+        <div>
+          <h3>Partner Profile</h3>
+          <img src={navigationArrow} alt="nav-arrow" />
+        </div>
+        <div>
+          <h3>Company Services</h3>
+        </div>
+        <h3>Company Service</h3>
+      </div> */}
+      {/* Navigation */}
+      <div className="flex flex-col w-full">
+        <div className="flex flex-row mt-8 space-x-2">
+          <div className="flex flex-row space-x-4">
+            <h3>Settings</h3>
+            <img src={navigationArrow} alt="" />
+          </div>
+          <div className="flex flex-row space-x-4">
+            <h3>Partner Profile</h3>
+            <img src={navigationArrow} alt="" />
+          </div>
+          <div>
+            <h3 className="font-semibold ">Company Service</h3>
+          </div>
+        </div>
+        <h1 className="my-10 text-2xl font-semibold">Company Service</h1>
+        {/* Company Service form */}
+
+        <div className="w-11/12 h-84   bg-white pl-4 py-4 rounded-md border-t-yellow-500 border-t-4">
+          <h2 className="text-xl">
+            Visit our help center for assistance:{" "}
+            <span className="underline underline-offset-2 cursor-pointer">
+              Help to setup company profile
+            </span>
+          </h2>
+          <textarea
+            type="text"
+            onChange={inputHandler}
+            id="service-input"
+            rows="6"
+            placeholder=" Customer Service Policy"
+            className="p-2 border mt-4 w-5/6  border-slate-400 rounded-md"
+          />
+          {charLong ? (
+            <h4 className="text-sm font-extralight text-red-500">
+              Input is too long
+            </h4>
+          ) : (
+            ""
+          )}
+          <div className="flex flex-row align-middle space-x-28">
+            <div className="text-sm block font-light text-slate-600">
+              Please enter your company’s Customer Service Policy. This will be
+              shown to customers.
+            </div>
+            <div className=" text-slate-600">{input.length}/2000</div>
+          </div>
+          <button className="bg-yellow-500 text-black font-light px-8 py-2 rounded-lg mt-4">
+            Save
+          </button>
+        </div>
+        {/* Company Service form */}
+      </div>
     </div>
   );
 };

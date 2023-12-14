@@ -3,6 +3,7 @@ import FileUpload from '../../assets/ICONS/FileUpload.svg'
 import LeftArrow from '../../assets/ICONS/LeftArrow.svg'
 import RightArrow from '../../assets/ICONS/RightArrow.svg'
 import { Link } from 'react-router-dom'
+import { Input, SelectInput } from '../../components'
 
 function UploadProduct() {
   return (
@@ -65,61 +66,45 @@ function UploadProduct() {
                   <div className="text-zinc-900 text-xl font-medium leading-8 whitespace-nowrap max-md:max-w-full">
                     Product Details
                   </div>
-                  <div className="text-stone-950 text-base leading-5 whitespace-nowrap mt-9 max-md:max-w-full">
-                    Product name
-                  </div>
-                  <input
+                  <Input
+                    lable=" Product name"
                     type="text"
-                    className="rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 h-12 flex-col mt-2 pl-5 pr-5 border-solid max-md:max-w-full"
+                    className=""
                     required
                   />
-                  <div className="text-stone-950 text-base leading-6 whitespace-nowrap mt-7 max-md:max-w-full">
+                  
+                  <div className="text-stone-950 text-[14px] font-semibold leading-6 whitespace-nowrap mt-5 max-md:max-w-full">
                     Description
                   </div>
                   <textarea id="message" rows="4" class="block p-2.5 w-full h-[216px] text-sm text-gray-900 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)]" required ></textarea>
-                  <div className="justify-between items-center flex gap-5 mt-10 max-md:max-w-full max-md:flex-wrap">
-                    <div className="items-stretch flex grow basis-[0%] flex-col my-auto ">
-                      <div className="text-stone-950 text-base leading-6 whitespace-nowrap">
-                        Type
-                      </div>
-                      <select className="justify-between items-cente  flex gap-5 mt-2 pl-2 pr-0 py-2 rounded border-[0.855px] border-solid max-md:pr-5" required>
-                        <option className="text-zinc-500 text-base px-2 py-2">
-                          Home accessories
-                        </option>
-                      </select>
-                    </div>
-                    <div className="items-stretch self-stretch flex grow basis-[0%] flex-col">
-                      <div className="text-stone-950 text-base leading-6 whitespace-nowrap">
-                        Brand
-                      </div>
-                      <select className="justify-between items-cente  flex gap-5 mt-2 pl-2 pr-0 py-2 rounded border-[0.855px] border-solid max-md:pr-5" required>
-                        <option className="text-zinc-500 text-base px-2 py-2">
-                          Select
-                        </option>
-                      </select>
-                    </div>
+                  <div className="justify-between items-center flex gap-5 mt-5 max-md:max-w-full max-md:flex-wrap">
+                  <SelectInput
+                    options={["Home accessories",]}
+                    label="Type"
+                    className=""
+                  />
+                  <SelectInput
+                    options={["Select",]}
+                    label="Brand"
+                    className=""
+                  />
                   </div>
-                  <div className="justify-between items-center flex gap-5 mt-10 max-md:max-w-full max-md:flex-wrap">
-                    <div className="items-stretch flex grow basis-[0%] flex-col my-auto ">
-                      <div className="text-stone-950 text-base leading-6 whitespace-nowrap">
-                        Inventory start at
-                      </div>
-                      <input
-                        type="text"
-                        className="justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 h-12 flex-col mt-2 border-solid max-md:max-w-full pl-2"
-                        required
-                      />
-                    </div>
-                    <div className="items-stretch self-stretch flex grow basis-[0%] flex-col">
-                      <div className="text-stone-950 text-base leading-6 whitespace-nowrap">
-                        Price
-                      </div>
-                      <input
-                        type="text"
-                        className="justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 h-12 flex-col mt-2 border-solid max-md:max-w-full pl-2"
-                        required
-                      />
-                    </div>
+                  <div className="justify-between items-center flex gap-5 mt-5 max-md:max-w-full max-md:flex-wrap">
+                    
+                    <Input
+                      lable="Inventory start at"
+                      type="text"
+                      className=""
+                      required
+                    />             
+                    
+                    <Input
+                      lable="Price"
+                      type="text"
+                      className=""
+                      required
+                    />
+                    
                   </div>
                 </div>
               </div>

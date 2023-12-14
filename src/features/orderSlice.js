@@ -22,7 +22,7 @@ const initialState = {
             paymentMethod: 'Prepaid',
             price: 150,
             deliveryMethod: 'NY Delivery Service',
-            status: 'Panding'
+            status: 'Pending'
         },
         {
             id: 3,            
@@ -55,27 +55,27 @@ export const orderSlice = createSlice({
     initialState,
     reducers: {
         allOrder: (state, action)=>{
-            state.orders = state.orders.filter(order => order.Status === 'Pending' || order.Status === 'Shipped' || order.Status === 'Delivered' || order.Status === 'Errors');
+            state.orders = state.orders.filter(order => order.status === 'Pending' || order.status === 'Shipped' || order.status === 'Delivered' || order.status === 'Errors');
             return state;
         
         },
         pendingOrder: (state, action)=>{
-            state.orders = state.orders.filter(order => order.Status === 'Pending');
+            state.orders = state.orders.filter(order => order.status === 'Pending');
             return state;
 
         },
         shippedOrder: (state, action)=>{
-            state.orders = state.orders.filter(order => order.Status === 'Shipped');
+            state.orders = state.orders.filter(order => order.status === 'Shipped');
             return state;
 
         },
         deliveredOrder: (state, action)=>{
-            state.orders = state.orders.filter(order => order.Status === 'Delivered');
+            state.orders = state.orders.filter(order => order.status === 'Delivered');
             return state;
 
         },
         errorOrder: (state, action)=>{
-            state.orders = state.orders.filter(order => order.Status === 'Errors');
+            state.orders = state.orders.filter(order => order.status === 'Errors');
             return state;
 
         }      

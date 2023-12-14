@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import orderSlice from "../features/orderSlice";
+import rootReducer from "./rootReducer";
 
 
-export const store = configureStore({
-    reducer: orderSlice,
-    devTools: true,
-})
+
+
+const store = configureStore({
+    reducer: rootReducer,
+  });
+  
+  export default store;

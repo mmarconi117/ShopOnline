@@ -1,13 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchIcons from '../../assets/ICONS/SearchIcons.svg'
 import ArrowDown from '../../assets/ICONS/ArrowDown.svg'
 import Filter from '../../assets/ICONS/Filter.svg'
 import Sort from '../../assets/ICONS/Sort.svg'
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchProductData } from '../../features/productDataSlice';
 
 
 function ListOfProducts() {
   const [products, setProducts] = useState([]);
+  const productData = useSelector((state) => state.productData.productData)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProductData());  
+    setProducts(productData);
+  }, [])
 
   return (
     <div className="self-center flex w-[967px] max-w-full flex-col items-stretch mt-4 px-5">
@@ -113,7 +122,7 @@ function ListOfProducts() {
               </tr>
             </thead>
             <tbody className='bg-white border border-black'>
-              {products && products.length > 0 ? (<tr className='w-full h-[200px]'><td colSpan="6" className=' justify-center text-center' >no product found add product here !!
+              {products && products > 0 ? (<tr className='w-full h-[200px]'><td colSpan="6" className=' justify-center text-center' >no product found add product here !!
                 <div className=" mt-2 items-end max-md:px-5 ">
                   <Link to='/UploadProduct'>
                     <button
@@ -126,8 +135,8 @@ function ListOfProducts() {
                 </div>
               </td>
               </tr>)
-                : Array.from({ length: 8 }).map((_, i) => (
-                  <tr key={i}>
+                : products &&  products.map((product) => (
+                  <tr key={product.id}>
                     <td className=" h-[72px] border-r border-black self-center text-center justify-center">
                       <input type='checkbox' className='w-[15px] h-[15px]' />
                     </td>
@@ -137,31 +146,32 @@ function ListOfProducts() {
                       <div className='bg-gray-400 w-[80px] h-[40px]'></div>
                     </td>
                     <td className="w-[186px] h-[72px] border-r border-black self-center text-center justify-center">
-                      9999999
+                      {product.id}
                     </td>
                     <td className="w-[186px] h-[72px] border-r border-black self-center text-center justify-center">
-                      <Link to={`/ProductDetail/${i}`}>
-                        Facial Moisturizer
+                      <Link to={`/ProductDetail/${product.id}`}>
+                        {product.title}
                       </Link>
                     </td>
                     <td className="w-[186px] h-[72px] border-r border-black self-center text-center justify-center">
-                      Beauty
+                      {product.category}
                     </td>
                     <td className="w-[186px] h-[72px] border-r border-black self-center text-center justify-center">
-                      9999
+                      {product.price}
                     </td>
                     <td className="w-[180px] h-[72px] border-r border-black self-center text-center justify-center">
                       <div className='flex'>
 
-                      <svg  fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="bg-green-600 rounded text-white ml-5 w-[25px] h-[25px]">
+                      <svg  fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="bg-green-600 rounded text-white hover:bg-green-700 ml-5 w-[25px] h-[25px]">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
+                      
 
-                      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="bg-red-600 rounded text-white ml-5 w-[25px] h-[25px]">
+                      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="bg-red-600 rounded text-white ml-5 w-[25px] h-[25px] hover:bg-red-700">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                       </svg>
 
-                      <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="bg-yellow-600 rounded text-white ml-5 w-[25px] h-[25px]">
+                      <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="bg-yellow-600 rounded text-white ml-5 w-[25px] h-[25px] hover:bg-yellow-700">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                       </svg>
                       </div>
@@ -181,6 +191,7 @@ function ListOfProducts() {
 
               {Array.from({ length: 1 }).map((_, i) => (
                 <div
+                key={i}
                   className={`cursor-pointer text-white text-center text-base leading-6 whitespace-nowrap bg-zinc-800 self-stretch aspect-square justify-center items-center h-10 pl-3.5 pr-5 rounded-xl`}
                 >
                   1

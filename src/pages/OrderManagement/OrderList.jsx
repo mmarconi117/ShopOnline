@@ -13,7 +13,7 @@ function OrderList() {
     setOrders(order)
   }
   const handlePending = () => {
-    setOrders(order.filter(order => order.status == 'Panding'))
+    setOrders(order.filter(order => order.status == 'Pending'))
   }
   const handleShipped = () => {
     setOrders(order.filter(order => order.status == 'Shipped'))
@@ -93,7 +93,8 @@ function OrderList() {
             className="text-neutral-400  text-sm leading-8 whitespace-nowrap bg-zinc-200 grow justify-center items-center pl-0 pr-0 py-0 rounded-2xl self-end"
             onClick={handlePending}
           >
-            Pending ( {(order.filter(order => order.status == 'Panding').length)} )
+            Pending 
+            ( {(order.filter(order => order.status == 'Pending').length)} )
           </button>
           <button
             type="button"
@@ -148,9 +149,7 @@ function OrderList() {
           
           <select className="select select-bordered border w-full flex justify-between gap-5 pl-4 pr-32 py-5 rounded-md border-solid items-center max-md:pl-5">
               <option>Order action</option>              
-            </select>
-
-          
+            </select>          
           <button className="text-zinc-500 text-base leading-6 whitespace-nowrap items-center bg-stone-300 self-center justify-center my-auto p-3 rounded-md max-md:pl-5">
             GO
           </button>

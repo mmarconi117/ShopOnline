@@ -117,6 +117,7 @@ const CompanyService = () => {
               type="text"
               onChange={inputHandler}
               id="service-input"
+              value={input}
               rows="6"
               placeholder=" Customer Service Policy"
               className="p-2 border mt-4 w-5/6  border-slate-400 rounded-md"

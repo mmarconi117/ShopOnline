@@ -2,25 +2,32 @@ import user from "../../assets/ICONS/user/user-fill.svg";
 import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
 import logOut from "../../assets/ICONS/logOut.svg";
-
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import store from "../../store";
+import { useSelector } from "react-redux";
+import { setCharLong, setInput } from "../../reducers/companyServiceReducer";
 
 const CompanyService = () => {
-  const [input, setInput] = useState("");
-  const [charLong, setCharLong] = useState(false);
+  const input = useSelector((state) => state.companyService.input);
+  const charLong = useSelector((state) => state.companyService.charLong);
 
   const inputHandler = (e) => {
-    setInput(e.target.value);
+    store.dispatch(setInput(e.target.value));
   };
 
   useEffect(() => {
     // Check if the input length is greater than 2000
     if (input.length > 2000) {
-      setCharLong(true);
+      store.dispatch(setCharLong(true));
     } else {
-      setCharLong(false);
+      store.dispatch(setCharLong(false));
     }
   }, [input]);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    store.dispatch(setInput(""));
+  };
 
   return (
     <div className="bg-gray-100 h-screen flex flex-row space-x-12">
@@ -105,31 +112,33 @@ const CompanyService = () => {
               Help to setup company profile
             </span>
           </h2>
-          <textarea
-            type="text"
-            onChange={inputHandler}
-            id="service-input"
-            rows="6"
-            placeholder=" Customer Service Policy"
-            className="p-2 border mt-4 w-5/6  border-slate-400 rounded-md"
-          />
-          {charLong ? (
-            <h4 className="text-sm font-extralight text-red-500">
-              Input is too long
-            </h4>
-          ) : (
-            ""
-          )}
-          <div className="flex flex-row align-middle space-x-28">
-            <div className="text-sm block font-light text-slate-600">
-              Please enter your company’s Customer Service Policy. This will be
-              shown to customers.
+          <form onSubmit={handleFormSubmit}>
+            <textarea
+              type="text"
+              onChange={inputHandler}
+              id="service-input"
+              rows="6"
+              placeholder=" Customer Service Policy"
+              className="p-2 border mt-4 w-5/6  border-slate-400 rounded-md"
+            />
+            {charLong ? (
+              <h4 className="text-sm font-extralight text-red-500">
+                Input is too long
+              </h4>
+            ) : (
+              ""
+            )}
+            <div className="flex flex-row align-middle space-x-28">
+              <div className="text-sm block font-light text-slate-600">
+                Please enter your company’s Customer Service Policy. This will
+                be shown to customers.
+              </div>
+              <div className=" text-slate-600">{input.length}/2000</div>
             </div>
-            <div className=" text-slate-600">{input.length}/2000</div>
-          </div>
-          <button className="bg-yellow-500 text-black font-light px-8 py-2 rounded-lg mt-4">
-            Save
-          </button>
+            <button className="bg-yellow-500 text-black font-light px-8 py-2 rounded-lg mt-4">
+              Save
+            </button>
+          </form>
         </div>
         {/* Company Service form */}
       </div>

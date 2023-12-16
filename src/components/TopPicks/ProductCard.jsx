@@ -4,7 +4,7 @@ const ProductCard = (props) => {
 
   return (
     <div className="flex w-[219px] px-[10px] pt-[10px] pb-4 flex-col items-start gap-6">
-      <img src={image} alt="Product" />
+      <img src={image} alt={description} />
       <div className="font-[Roboto] text-sm font-normal leading-[20px] text-black">
         {description}
       </div>

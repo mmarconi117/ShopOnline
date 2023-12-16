@@ -55,3 +55,5 @@ export const FashionSection = () => {
     </span>
   );
 };
+
+export default FashionSection;

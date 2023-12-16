@@ -15,10 +15,3 @@ export const cartReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-
-
-export const setInitialCarts = (carts) => ({
-  type: 'SET_CARTS',
-  payload: carts,
-});

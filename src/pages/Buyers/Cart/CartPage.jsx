@@ -2,40 +2,11 @@
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setInitialCarts } from "../../../reducersAndActions/reducers/cartReducer";
 import Footer from "../../../components/Footer/Footer";
-import { useEffect } from "react";
 
-const CartPage = ({ carts, setInitialCarts }) => {
+
+const CartPage = ({ carts, setCarts }) => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const initialData = [
-      {
-        id: 1,
-        product: {
-          avatar: "...",
-          name: "Product 1",
-          description: "...",
-          price: 10,
-        },
-        number_of_product: 2,
-      },
-      {
-        id: 2,
-        product: {
-          avatar: "...",
-          name: "Product 2",
-          description: "...",
-          price: 20,
-        },
-        number_of_product: 1,
-      },
-      // ...more cart items
-    ];
-
-    setInitialCarts(initialData);
-  }, [setInitialCarts]);
 
   const getTotal = () =>
     carts.reduce(
@@ -46,7 +17,7 @@ const CartPage = ({ carts, setInitialCarts }) => {
   const deleteCart = (id) => {
     if (window.confirm("Are you sure to delete this product from the cart?")) {
       const updatedCarts = carts.filter((item) => item.id !== id);
-      setInitialCarts(updatedCarts);
+      setCarts(updatedCarts);
       console.log(`Deleted product with ID: ${id}`);
     }
   };
@@ -55,7 +26,7 @@ const CartPage = ({ carts, setInitialCarts }) => {
     const updatedCarts = carts.map((item) =>
       item.id === id ? { ...item, number_of_product: qty } : item
     );
-    setInitialCarts(updatedCarts);
+    setCarts(updatedCarts);
     console.log(`Updated quantity of product with ID: ${id} to ${qty}`);
   };
 
@@ -138,15 +109,13 @@ const CartPage = ({ carts, setInitialCarts }) => {
 
 CartPage.propTypes = {
   carts: PropTypes.array.isRequired,
-  setInitialCarts: PropTypes.func.isRequired,
+  setCarts: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   carts: state.cartReducer.carts,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setInitialCarts: (initialData) => dispatch(setInitialCarts(initialData)),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartPage);
+
+export default connect(mapStateToProps, {})(CartPage);

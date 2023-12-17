@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import Footer from '../../components/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
-import accountbox from '../../assets/ICONS/cartPageicon/accountbox.svg'
-import leftnavigate from '../../assets/ICONS/cartPageicon/leftarrow.svg'
-import rightnavigate from '../../assets/ICONS/cartPageicon/rightarrow.svg'
- import leftbasedonreviw from '../../assets/ICONS/cartPageicon/leftbasedonreviw.svg'
- import rightsidebasedon from '../../assets/ICONS/cartPageicon/rightsidebasedon.svg'
+// import accountbox from '../../assets/ICONS/cartPageicon/accountbox.svg'
+// import leftnavigate from '../../assets/ICONS/cartPageicon/leftarrow.svg'
+// import rightnavigate from '../../assets/ICONS/cartPageicon/rightarrow.svg'
+//  import leftbasedonreviw from '../../assets/ICONS/cartPageicon/leftbasedonreviw.svg'
+//  import rightsidebasedon from '../../assets/ICONS/cartPageicon/rightsidebasedon.svg'
 
 
 function Cart() {

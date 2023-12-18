@@ -1,5 +1,5 @@
 /*
-This component acts as the man content to the ExplorItem.jsx card.
+This component acts as the main content to the ExplorItem.jsx card.
 This is currently as dynamic as I can get for the time being and still be able to display the information as required by figma. 
 */
 import { ExploreItem } from "./ExploreItem";

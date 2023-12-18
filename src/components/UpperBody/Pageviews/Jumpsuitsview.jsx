@@ -11,8 +11,8 @@ function Jumpsuitsview(){
     };
 
     return(
-        <div className="buttonview" style={{float: "left", padding: 10}}>
-            <button href="#" onClick={Jumpsuitsview}>Jumpsuitsview</button>
+        <div className="buttonview text-[25px] leading-[30px]" >
+            <button href="#" onClick={Jumpsuitsview}>Jumpsuits</button>
         </div>
     );
 }

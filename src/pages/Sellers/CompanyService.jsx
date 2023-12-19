@@ -73,21 +73,6 @@ const CompanyService = () => {
       {/* Dashboard */}
 
       {/* Navigation */}
-      {/* <div className="flex flex-row space-x-3">
-        <div>
-          <h3>Settings</h3>
-          <img src={navigationArrow} alt="nav-arrow" />
-        </div>
-        <div>
-          <h3>Partner Profile</h3>
-          <img src={navigationArrow} alt="nav-arrow" />
-        </div>
-        <div>
-          <h3>Company Services</h3>
-        </div>
-        <h3>Company Service</h3>
-      </div> */}
-      {/* Navigation */}
       <div className="flex flex-col w-full">
         <div className="flex flex-row mt-8 space-x-2">
           <div className="flex flex-row space-x-4">
@@ -103,8 +88,10 @@ const CompanyService = () => {
           </div>
         </div>
         <h1 className="my-10 text-2xl font-semibold">Company Service</h1>
-        {/* Company Service form */}
+      {/* Navigation */}
 
+
+        {/* Company Service form */}
         <div className="w-11/12 h-84   bg-white pl-4 py-4 rounded-md border-t-yellow-500 border-t-4">
           <h2 className="text-xl">
             Visit our help center for assistance:{" "}

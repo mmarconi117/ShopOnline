@@ -1,10 +1,8 @@
 import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 
 const Help = () => {
   return (
     <div>
-      <Header />
       <div>
         <div>My account</div>
         <div>Orders</div>

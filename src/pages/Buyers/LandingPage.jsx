@@ -1,18 +1,21 @@
-import Footer from "../../components/Footer/Footer";
-import Menu from '../../components/Menu/Menu'
-import Header from "../../components/Header/Header";
-import FashionSection from '../../components/Menu/FashionSection'
-import Explore from "../../components/Explore/Explore";
 
+import Menu from '../../components/Menu/Menu';
+import FashionSection from '../../components/Menu/FashionSection';
+import Explore from '../../components/Explore/Explore';
 
-export default function LandingPage() {
+const LandingPage = () => {
   return (
     <div>
-      <Header />
+      <div className="flex">
       <Menu />
-      <FashionSection />
-      <Explore />    
-      <Footer />
+      <div className="ml-4">
+        <FashionSection />
+      </div>
     </div>
+      <Explore />
+    </div>  
+    
   );
-}
+};
+
+export default LandingPage;

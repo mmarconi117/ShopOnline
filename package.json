@@ -15,10 +15,12 @@
     "clearMocks": true,
     "testEnvironment": "node",
     "moduleFileExtensions": [
-      "js", "jsx"
+      "js",
+      "jsx"
     ],
     "testMatch": [
-      "**/*.test.js", "**/*.test.jsx"
+      "**/*.test.js",
+      "**/*.test.jsx"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",

@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import Cart from "./pages/Buyers/Cart/CartPage";
 import LoginPage from "./pages/Buyers/LoginPage";
 import SignupPage from "./pages/Buyers/SignupPage";
+import CompanyService from "./pages/Sellers/CompanyService";
 
 // The App.jsx component is now wrapped in a Layout tag that is used to ensure persistance of the Header and Footer across every page. This was was done to ensure all possible and future routes diplay the same.
 
@@ -26,6 +27,7 @@ function App() {
               <Route path="/app" element="#" />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
+              <Route path="/companyService" element={<CompanyService/>}/>
             </Routes>
           </Layout>
         </Router>

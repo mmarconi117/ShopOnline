@@ -5,7 +5,7 @@ import logOut from "../../assets/ICONS/logOut.svg";
 import { useEffect } from "react";
 import store from "../../store";
 import { useSelector } from "react-redux";
-import { setCharLong, setInput } from "../../reducers/companyServiceReducer";
+import { setCharLong, setInput } from "../../reducersAndActions/actions/companyServiceAction";
 
 const CompanyService = () => {
   const input = useSelector((state) => state.companyService.input);

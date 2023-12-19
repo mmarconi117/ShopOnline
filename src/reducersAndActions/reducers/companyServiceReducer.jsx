@@ -1,13 +1,6 @@
 // companyServiceActions.js
-export const setInput = (input) => ({
-  type: "SET_INPUT",
-  payload: input,
-});
 
-export const setCharLong = (isCharLong) => ({
-  type: "SET_CHAR_LONG",
-  payload: isCharLong,
-});
+import { SET_CHAR_LONG, SET_INPUT } from "../actions";
 
 const initialState = {
   input: "",
@@ -16,9 +9,9 @@ const initialState = {
 
 const companyService = (state = initialState, action) => {
   switch (action.type) {
-    case "SET_INPUT":
+    case SET_INPUT:
       return { ...state, input: action.payload };
-    case "SET_CHAR_LONG":
+    case SET_CHAR_LONG:
       return { ...state, charLong: action.payload };
     default:
       return state;

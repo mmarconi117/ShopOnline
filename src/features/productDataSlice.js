@@ -32,7 +32,7 @@ export const productDataSlice = createSlice({
         builder.addCase(fetchProductData.fulfilled, (state, action) =>{
             state.loading = false;
             state.productData = action.payload;
-        })
+        });
     }
 });
 

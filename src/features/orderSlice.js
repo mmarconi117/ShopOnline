@@ -81,7 +81,7 @@ export const orderSlice = createSlice({
         }      
 
     }
-})
+});
 
 export const { pendingOrder, shippedOrder, deliveredOrder, errorOrder, allOrder } = orderSlice.actions;
 export default orderSlice.reducer;  

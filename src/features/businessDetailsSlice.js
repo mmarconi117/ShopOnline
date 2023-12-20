@@ -8,6 +8,7 @@ const initialState = {
 export const businessDetailsSlice = createSlice({
     name: 'businessDetail',
     initialState,
+    
     reducers: {
         businessDetail: (state, action)=>{
             state.isVerified = true;

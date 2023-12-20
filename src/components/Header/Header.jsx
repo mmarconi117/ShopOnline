@@ -1,38 +1,30 @@
-import React from 'react'
-import UserIcon from '../../assets/ICONS/user/user-1.svg'
-import ArrowDown from '../../assets/ICONS/ArrowDown.svg'
+import LOGO from "../../assets/ICONS/Outline/LOGO.png";
+import search from "../../assets/ICONS/Outline/search.svg";
+import Nav from "./Nav";
+import { Link } from "react-router-dom";
 
-function Header() {
+export default function Header() {
   return (
-    <div className="justify-center bg-white flex flex-col pl-0 pr-10 py-12 items-end max-md:max-w-full max-md:pl-5">
-      <div className="items-stretch flex w-[470px] max-w-full justify-between gap-0 mb-1 max-md:flex-wrap">
-        <div className="items-stretch flex justify-between gap-10 max-md:justify-center">
-          <div className="text-zinc-600 text-base leading-6 whitespace-nowrap">
-            Settings
-          </div>
-          <div className="text-zinc-600 text-base leading-6">Help</div>
-          <div className="text-zinc-600 text-base leading-6 whitespace-nowrap">
-            Notifications
-          </div>
-        </div>
-        <div className="flex items-stretch justify-between gap-1.5 max-md:justify-center">
-          <img
-            loading="lazy"
-            src={UserIcon}
-            className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+    <div>
+      <Nav />
+      <div className="flex items-start justify-center gap-6 py-2">
+        <img src={LOGO} className="hidden lg:flex"></img>
+        <div className="w-[752px] mt-2 h-12 rounded border border-blue-300 justify-between items-center inline-flex">
+          <input
+            type="text"
+            className="text-zinc-400 text-xl font-normal font-['Roboto'] leading-normal w-full h-full"
           />
-          <div className="text-zinc-900 text-base font-medium leading-6 self-center my-auto">
-            John Doe
+          <div className="w-10  self-stretch p-2.5 bg-sky-800 rounded-tr-[5px] rounded-br-[5px] justify-center items-center gap-1.5 flex">
+            <img src={search} className=" w-fit h-fit"></img>
           </div>
-          <img
-            loading="lazy"
-            src={ArrowDown}
-            className="aspect-square object-contain object-center w-4 overflow-hidden self-center shrink-0 max-w-full my-auto"
-          />
         </div>
       </div>
+     
+      <p className="flex items-center justify-center">
+        Take the good times on the go, get the&nbsp;
+        <Link to='/app'><button className="text-orange-500 text-2xl font-500">APP&nbsp;</button></Link>{" "}
+        now!!!
+      </p>
     </div>
-  )
+  );
 }
-
-export default Header

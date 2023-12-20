@@ -1,46 +1,37 @@
-import './index.css'
-import Layout from './Layout/Layout'
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import LandingPage from "./pages/Buyers/LandingPage";
+import SubCategory from "./pages/Buyers/SubCategory";
+import "./index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Cart from "./pages/Buyers/Cart/CartPage";
+import LoginPage from "./pages/Buyers/LoginPage";
+import SignupPage from "./pages/Buyers/SignupPage";
 
-import { Homepage, ListOfProducts, ActivityFeed, UploadProduct, OrderList,ReturnsAndRefunds, Disputes, Overview, Payments, RatingsAndReviews, ProductDetail, FeedDetail } from './pages';
-
-
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element={<Layout />}>
-      
-      {/* Home Page Routing */}
-      <Route path='' element={<Homepage/>}/>
-
-      {/* Product Catalogue Routing */}
-      <Route path='ListOfProducts' element={<ListOfProducts />} />
-      <Route path="ProductDetail/:id" element={<ProductDetail />} />
-      <Route path='ActivityFeed' element={<ActivityFeed />} />
-      <Route path="FeedDetail/:id" element={<FeedDetail />} />
-      <Route path='UploadProduct' element={<UploadProduct />} />
-
-      {/* Order Management Routing */}
-      <Route path='OrderList' element={<OrderList />} />
-      <Route path='ReturnsAndRefunds' element={<ReturnsAndRefunds />} />
-      <Route path='Disputes' element={<Disputes />} />
-
-      {/* Analytics Routing */}
-      <Route path='Overview' element={<Overview />} />
-      <Route path='Payments' element={<Payments />} />
-      <Route path='RatingsAndReviews' element={<RatingsAndReviews />} />
-
-    </Route>
-  )
-)  
+// The App.jsx component is now wrapped in a Layout tag that is used to ensure persistance of the Header and Footer across every page. This was was done to ensure all possible and future routes diplay the same.
 
 function App() {
-
   return (
     <>
-      <RouterProvider router={router} /> 
+      <div>
+        <Router>
+          <Layout> 
+            <Routes>
+              <Route exact path="/" element={<LandingPage />} />
+              <Route path="/subcategories" element={<SubCategory />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/sellers" element="#" />
+              <Route path="/help" element="#" />
+              <Route path="/language" element="#" />
+              <Route path="/account" element="#" />
+              <Route path="/app" element="#" />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+            </Routes>
+          </Layout>
+        </Router>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

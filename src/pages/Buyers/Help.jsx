@@ -4,18 +4,40 @@ const Help = () => {
   return (
     <div>
       <div>
-        <div>My account</div>
-        <div>Orders</div>
-        <div>Payments</div>
-        <div>Pending Reviews</div>
-        <div>Voucher</div>
-        <div>Recently Viewed</div>
-        <div>Notifications</div>
-        <div>Account Management</div>
-        <div>Edit Shipping address</div>
-        <div>Digital service and device Support</div>
-        <div>Customer Service</div>
-        <div>LOGOUT</div>
+        <div>
+          <a href="/account">My account</a>
+        </div>
+        <div>
+          <a href="">Orders</a>
+        </div>
+        <div>
+          <a href="">Payments</a>
+        </div>
+        <div>
+          <a href="">Pending Reviews</a>
+        </div>
+        <div>
+          <a href="">Voucher</a>
+        </div>
+        <div>
+          <a href="">Recently Viewed</a>
+        </div>
+        <div>
+          <a href="">Notifications</a>
+        </div>
+        <div>
+          <a href="">Account Management</a>
+        </div>
+        <div>
+          <a href="">Edit Shipping address</a>
+        </div>
+        <div>
+          <a href="">Digital service and device Support</a>
+        </div>
+        <div>
+          <a href="">Customer Service</a>
+        </div>
+        <button>LOGOUT</button>
       </div>
 
       <div>

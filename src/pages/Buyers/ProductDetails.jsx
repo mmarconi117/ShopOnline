@@ -9,8 +9,7 @@ import PropTypes from "prop-types";
 import Footer from "../../components/Footer/Footer";
 
 function ProductDetails() {
-    const [products, setProduct] = useState([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
-    const [dummyImgsArr, setImages] = useState([
+    const [dummyProducts, setDummyProducts] = useState([
         {
             img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
             price: 25.99,
@@ -61,24 +60,35 @@ function ProductDetails() {
             sold: 4788,
         },
     ]);
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [allSlides, setAllSlides] = useState(0);
-    const [isPreviousSlide, setisPreviousSlide] = useState(true);
-    const [isNextSlide, setisNextSlide] = useState(false);
-    const [copyImgsArr, setCopyImgsArr] = useState([]);
+    // similar products dummy state
+    const [copySimilarDummyProducts, setCopySimilarDummyProducts] = useState([]);
+    // products dummy state
+    const [copyDummyProductImgs, setCopyDummyProductImgs] = useState([]);
+    const [currentSlideSimilarProducts, setCurrentSlideSimilarProducts] = useState(0);
+    const [currentSlideProductImgs, setCurrentSlideProductImgs] = useState(0);
+    const [allSlidesSimilarProducts, setAllSidesSimilarProducts] = useState(0);
+    const [allSlideProductImgs, setAllSlideProductimgs] = useState(0);
+    // similar products slider trigger btns state
+    const [isPreviousSlideSimilarProducts, setIsPreviousSlideSimilarProducts] = useState(true);
+    const [isNextSlideSimilarProducts, setIsNextSlideSimilarProducts] = useState(false);
+    // slider trigger btns state for product imgs
+    const [isPreviousSlideProductImgs, setisPreviousSlideProductImgs] = useState(true);
+    const [isNextSlideProductImgs, setisNextSlideProductImgs] = useState(false);
     const [isHover, setIsHover] = useState(false);
     const [qty, setQty] = useState(1);
-    const [urlsNavigated, setUrlsNavigated] = useState([]);
+    const [breadCrumb, setBreadCrumb] = useState([]);
     // current urls e.g /products/product-details
     const currentUrl = useHref();
 
     useEffect(() => {
         // navigate();
         setUrlsPath();
-        const copy = dummyImgsArr.slice(0, 5);
-        const allSlides = Math.ceil(dummyImgsArr.length / 5);
-        setCopyImgsArr(copy);
-        setAllSlides(allSlides);
+        const copy = dummyProducts.slice(0, 5);
+        const allSlides = Math.ceil(dummyProducts.length / 5);
+        setCopyDummyProductImgs(copy);
+        setCopySimilarDummyProducts(copy);
+        setAllSidesSimilarProducts(Math.ceil(dummyProducts.length / 5));
+        setAllSlideProductimgs(Math.ceil(dummyProducts.length / 5));
     }, []);
 
     const setUrlsPath = () => {
@@ -96,7 +106,7 @@ function ProductDetails() {
                 }
             }
         }
-        setUrlsNavigated(paths);
+        setBreadCrumb(paths);
     };
 
     const incrementQty = () => {
@@ -127,25 +137,57 @@ function ProductDetails() {
         setIsHover(false);
     };
 
-    const slideController = (slideIndex) => {
-        onChangeSlide(slideIndex);
-        slideIndex < 1 ? setisPreviousSlide(true) : setisPreviousSlide(false);
-        slideIndex + 1 < allSlides ? setisNextSlide(false) : setisNextSlide(true);
+    const slideController = (slideIndex, isSimilarProducts) => {
+        onChangeSlide(slideIndex, isSimilarProducts);
+        if (slideIndex < 1) {
+            setIsPreviousSlideSimilarProducts(true);
+            setisPreviousSlideProductImgs(true);
+        } else {
+            setIsPreviousSlideSimilarProducts(false);
+            setisPreviousSlideProductImgs(false);
+        }
+        // similar products trigger btns disabled, slider controller
+        if (slideIndex + 1 < allSlidesSimilarProducts) {
+            setIsNextSlideSimilarProducts(false);
+        } else {
+            setIsNextSlideSimilarProducts(true);
+        }
+        // product imgs trigger btns disabled, slider controller
+        if (slideIndex + 1 < allSlideProductImgs) {
+            setisNextSlideProductImgs(false);
+        } else {
+            setisNextSlideProductImgs(true);
+        }
     };
 
-    const onChangeSlide = (slideIndex) => {
+    const onChangeSlide = (slideIndex, isSimilarProducts) => {
         const startIndex = slideIndex * 5;
         let endIndex = startIndex + 5;
 
-        if (endIndex > dummyImgsArr.length) {
-            endIndex = dummyImgsArr.length;
+        if (endIndex > dummyProducts.length) {
+            endIndex = dummyProducts.length;
         }
-        const newResult = dummyImgsArr.slice(startIndex, endIndex);
-        setCopyImgsArr(newResult);
-        setCurrentSlide(slideIndex);
+        const newResult = dummyProducts.slice(startIndex, endIndex);
+        if (isSimilarProducts) {
+            setCurrentSlideSimilarProducts(slideIndex);
+            setCopySimilarDummyProducts(newResult);
+        } else {
+            setCopyDummyProductImgs(newResult);
+            setCurrentSlideProductImgs(slideIndex);
+        }
     };
 
-    const imagesComp = copyImgsArr.map((product, index) => {
+    const dummyImgsComp = copyDummyProductImgs.map((product, index) => {
+        return (
+            <div
+                key={index}
+                style={{ width: "10%", marginRight: "2%" }}
+            >
+                <img src={product.img} />
+            </div>
+        );
+    });
+    const imagesComp = copySimilarDummyProducts.map((product, index) => {
         return (
             <div
                 style={{
@@ -189,7 +231,7 @@ function ProductDetails() {
             </div>
         );
     });
-    const urlsNavigatedComp = urlsNavigated.map((path, index) => {
+    const breadCrumbComp = breadCrumb.map((path, index) => {
         return (
             <a
                 href={path.url}
@@ -260,7 +302,7 @@ function ProductDetails() {
                     id="navigation-history-container"
                     style={{ margin: "1rem" }}
                 >
-                    {urlsNavigatedComp}
+                    {breadCrumbComp}
                 </div>
                 {/* Product images and Description container */}
                 <div style={{ display: "flex", justifyContent: "center" }}>
@@ -276,16 +318,59 @@ function ProductDetails() {
                         <div
                             id="product-images"
                             className="flex"
-                            style={{ width: "100%" }}
+                            style={{ width: "100%", marginTop: "2rem" }}
                         >
-                            {products.map((product) => (
-                                <div
-                                    key={product.id}
-                                    style={{ width: "10%", marginRight: "2%" }}
+                            <div style={{ margin: "auto 1.25rem" }}>
+                                <button
+                                    type="button"
+                                    disabled={isPreviousSlideProductImgs}
+                                    onClick={() => {
+                                        slideController(currentSlideProductImgs - 1, false);
+                                    }}
                                 >
-                                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg" />
-                                </div>
-                            ))}
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth={1.5}
+                                        stroke="currentColor"
+                                        dataSlot="icon"
+                                        className="w-6 h-6"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M15.75 19.5 8.25 12l7.5-7.5"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                            {dummyImgsComp}
+                            <div style={{ margin: "auto 1.25rem" }}>
+                                <button
+                                    type="button"
+                                    disabled={isNextSlideProductImgs}
+                                    onClick={() => {
+                                        slideController(currentSlideProductImgs + 1, false), false;
+                                    }}
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth={1.5}
+                                        stroke="currentColor"
+                                        dataSlot="icon"
+                                        className="w-6 h-6"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     {/* Product description div */}
@@ -693,9 +778,9 @@ function ProductDetails() {
                         <div style={{ margin: "auto 25px" }}>
                             <button
                                 type="button"
-                                disabled={isPreviousSlide}
+                                disabled={isPreviousSlideSimilarProducts}
                                 onClick={() => {
-                                    slideController(currentSlide - 1);
+                                    slideController(currentSlideSimilarProducts - 1, true);
                                 }}
                             >
                                 <svg
@@ -728,9 +813,9 @@ function ProductDetails() {
                         <div style={{ margin: "auto 25px" }}>
                             <button
                                 type="button"
-                                disabled={isNextSlide}
+                                disabled={isNextSlideSimilarProducts}
                                 onClick={() => {
-                                    slideController(currentSlide + 1);
+                                    slideController(currentSlideSimilarProducts + 1, true);
                                 }}
                             >
                                 <svg

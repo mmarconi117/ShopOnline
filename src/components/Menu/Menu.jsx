@@ -76,8 +76,8 @@ const Menu = () => {
   ];
 
   return (
-    <div className="flex flex-col">
-      <p className="pt-3 pb-6 ml-4 text-lg font-bold">Categories</p>
+    <div className="flex flex-col rounded-[10px] pr-3 bg-white pl-3 mb-16 mt-6">
+      <p className="pt-2 pb-4 ml-4 text-lg font-bold">Categories</p>
       {categories.map((item, index) => (
         <div key={index} className="flex items-center ml-4 pb-4">
           <img src={item.img} alt={item.title} className="w-6 h-6 mr-2" />

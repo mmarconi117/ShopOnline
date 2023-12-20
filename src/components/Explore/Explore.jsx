@@ -6,22 +6,21 @@ import { ExploreItem } from "./ExploreItem";
 import { BaseImagesAndCategories } from "./BaseImagesAndCategories";
 
 export const Explore = () => {
-  
   const exploreItems = BaseImagesAndCategories.map((item, i) => {
     return (
       <span key={i}>
         <ExploreItem key={i} src={item.img} title={item.category} />
       </span>
-    )
-  })
+    );
+  });
 
   return (
-    <section className="flex h-fit px-0 pb-6 flex-col items-start justify-center gap-[18px] flex-1 bg-[#BAD9E8]">
-      <div className="text-zinc-800 text-xl font-bold font-'Arial' leading-normal tracking-tight pt-3 pl-3">
+    <section className="flex flex-col h-fit mx-4 pt-3 pb-12 gap-5 flex-1 bg-[#BAD9E8] sm:mx-0 sm:px-6">
+      <div className="text-zinc-800 text-xl font-bold font-['Arial'] leading-6 tracking-tight pt-3 hidden sm:block">
         Explore our Top Categories
       </div>
 
-      <div className="grid w-full max-sm:grid-flow-col max-sm:grid-rows-2 max-sm:pl-6 max-sm:overflow-x-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-9 items-center pl-3 pr-3">
+      <div className="max-sm:columns-2 sm:grid sm:gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {exploreItems}
       </div>
     </section>

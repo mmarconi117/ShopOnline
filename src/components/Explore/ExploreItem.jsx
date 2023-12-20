@@ -2,18 +2,14 @@ import PropTypes from 'prop-types';
 
 export const ExploreItem = ({ src, title }) => {
   return (
-    <a
-      href='#'
-      className="flex flex-col pb-1 px-[10px] justify-between items-center bg-[#FBFDFE] rounded-md shadow-md"
-      style={{ boxShadow: '4px 6px 8px rgba(0, 0, 0, 0.5)', textDecoration: 'none' }}
-    >
+    <a href='#' className='block mb-4 px-6 sm:px-4 md:px-2 break-inside-avoid-column'>
       <img
         src={src}
         alt=""
-        className="w-[195px] h-[190px] rounded-md"
-        style={{ borderRadius: '10px', marginTop: '20px' }}
+        className="w-full sm:h-[179px] sm:object-cover sm:border-[1px] mb-5 mx-auto"
+        
       />
-      <div className="text-[#2284B6] text-center text-xl font-semibold font-[Roboto]">{title}</div>
+      <div className="text-[#0F1111] text-base sm:text-xl text-center font-normal sm:font-semibold font-Roboto leading-5 sm:leading-6 whitespace-nowrap">{title}</div>
     </a>
   );
 };

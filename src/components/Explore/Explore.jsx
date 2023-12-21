@@ -15,12 +15,12 @@ export const Explore = () => {
   });
 
   return (
-    <section className="flex flex-col h-fit mx-4 pt-3 pb-12 gap-5 flex-1 bg-[#BAD9E8] sm:mx-0 sm:px-6">
-      <div className="text-zinc-800 text-xl font-bold font-['Arial'] leading-6 tracking-tight pt-3 hidden sm:block">
+    <section className="w-full h-fit flex flex-col py-8 px-4 md:pt-9 md:px-0 gap-5 bg-[#BAD9E8] overflow-auto">
+      <div className="text-[#313133] text-base font-medium md:font-bold md:text-2xl font-Roboto leading-6 tracking-tight md:pl-10">
         Explore our Top Categories
       </div>
 
-      <div className="max-sm:columns-2 sm:grid sm:gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <div className="grid gap-2 md:gap-5 grid-cols-6 w-max xl:w-full md:pl-10 md:pr-3">
         {exploreItems}
       </div>
     </section>

@@ -12,7 +12,7 @@ import groceries from './assets/groceries.png';
 import otherCategories from './assets/otherCategories.png';
 import skinCare from './assets/skinCare.png';
 import wristWatches from './assets/wristWatches.png'
-import mensSneakers from './assets/sneakers.png'
+import mensSneakers from './assets/mens_sneakers.png' // Added correct photo
 import health from './assets/health.png'
 
 export const BaseImagesAndCategories = [

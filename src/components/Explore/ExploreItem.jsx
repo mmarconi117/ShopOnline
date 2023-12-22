@@ -4,16 +4,14 @@ export const ExploreItem = ({ src, title }) => {
   return (
     <a
       href='#'
-      className="flex flex-col pb-1 px-[5px] justify-between items-center bg-[#FBFDFE] rounded-md shadow-md"
-      style={{ boxShadow: '4px 6px 8px rgba(0, 0, 0, 0.5)', textDecoration: 'none' }}
+      className="relative group flex flex-col justify-between items-center bg-[#FBFDFE] rounded-md shadow-lg  hover:shadow-gray-700"
     >
       <img
         src={src}
         alt=""
-        className="w-[195px] h-[190px] rounded-md"
-        style={{ borderRadius: '10px', margin: '20px' }}
+        className="w-full h-[220px] rounded-md group-hover:opacity-25 transition-opacity duration-300 ease-in-out m-3 px-4"
       />
-      {/* <div className="text-[#2284B6] text-center text-xl font-semibold font-[Roboto]">{title}</div> */}
+      <div className="absolute opacity-0 group-hover:opacity-100 bottom-[85px] text-zinc-800 pt-3 pb-3 text-center text-3xl font-semibold font-[Roboto]">{title}</div>
     </a>
   );
 };

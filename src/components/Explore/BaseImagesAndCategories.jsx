@@ -33,15 +33,15 @@ export const BaseImagesAndCategories = [
     img: furniture,
   },
   {
-    category: 'Wristwatches',
+    category: 'Watches',
     img: wristWatches,
   },
   {
-    category: `Men's sneakers`,
+    category: `Men's Shoes`,
     img: mensSneakers,
   },
   {
-    category: 'Groceries',
+    category: 'Grocery',
     img: groceries,
   },
   {
@@ -49,7 +49,7 @@ export const BaseImagesAndCategories = [
     img: health,
   },
   {
-    category: 'Electronics',
+    category: 'Tech',
     img: electronics,
   },
   {
@@ -57,11 +57,11 @@ export const BaseImagesAndCategories = [
     img: skinCare,
   },
   {
-    category: 'Bags & Shoes',
+    category: `Women's Shoes`,
     img: bagsAndShoes,
   },
   {
-    category: 'Other categories',
+    category: 'Other',
     img: otherCategories,
   },
   

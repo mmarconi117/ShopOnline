@@ -18,8 +18,8 @@ export const Item = ({ src, description, price }) => {
         {description}
       </div>
       <div className="flex items-start font-[Roboto] text-left">
-        <span>{`from $`}</span>
-        <p className="text-blue-500 font-semibold">{price}</p>
+        <span>{`from`}</span>
+        <p className="text-blue-500 font-semibold text-lg pl-1">{`$${price}`}</p>
       </div>
     </a>
     

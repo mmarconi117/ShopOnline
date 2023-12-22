@@ -7,8 +7,11 @@ const LoginPage = () => {
   const socialMedia = [facebook, instagram, linkedin, twitter];
 
   return (
-    <div className="flex flex-col items-center mb-8 font-['Roboto'] max-sm:px-4 max-sm:py-12">
+    <div className="flex flex-col items-center gap-5 sm:gap-0 mb-8 font-['Roboto'] max-sm:px-4 max-sm:py-12">
       <div className="flex flex-col gap-4 p-4 text-center">
+        <h1 className="text-[#2284B6]">LOGO</h1>
+        <h3 className="sm:text-xl">Welcome to xxxx</h3>
+        <p className="text-xs sm:text-base">Type your e-mail or phone number to log in to your account.</p>
       </div>
       <div className="flex flex-col max-w-[704px] w-full border-0 sm:border-[0.5px] sm:border-[#938F96] sm:p-10">
         <form action="" className="flex flex-col gap-5 max-sm:gap-6 leading-6">

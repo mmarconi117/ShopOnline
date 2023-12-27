@@ -1,25 +1,18 @@
-import Menu from '../../components/Menu/Menu';
-import FashionSection from '../../components/Menu/FashionSection';
-import Explore from '../../components/Explore/Explore';
-import Welcome from '../../components/Menu/Welcome';
-import EmptySpaceToBeFilledIn from '../../components/Menu/EmptySpaceToBeFilledIn';
+import Footer from "../../components/Footer/Footer";
+import Menu from '../../components/Menu/Menu'
+import Header from "../../components/Header/Header";
+import FashionSection from '../../components/Menu/FashionSection'
+import Explore from "../../components/Explore/Explore";
 
-const LandingPage = () => {
+
+export default function LandingPage() {
   return (
-    <div className='bg-gray-100'>
-      <div className="flex ml-5">
-        <Menu />
-        <div className="flex ml-4">
-          <div>
-           <FashionSection /> 
-           <EmptySpaceToBeFilledIn/>
-          </div>
-          <Welcome />
-        </div>
-      </div>
-      <Explore />
-    </div>  
+    <div>
+      <Header />
+      <Menu />
+      <FashionSection />
+      <Explore />    
+      <Footer />
+    </div>
   );
-};
-
-export default LandingPage;
+}

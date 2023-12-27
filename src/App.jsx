@@ -2,11 +2,11 @@ import LandingPage from "./pages/Buyers/LandingPage";
 import SubCategory from "./pages/Buyers/SubCategory";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./Layout";
 import Cart from "./pages/Buyers/Cart/CartPage";
 import LoginPage from "./pages/Buyers/LoginPage";
 import SignupPage from "./pages/Buyers/SignupPage";
 import Help from "./pages/Buyers/Help";
+import CompanyService from "./pages/Sellers/CompanyService";
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
               <Route path="/app" element="#" />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
+              <Route path="/companyService" element={<CompanyService/>}/>
             </Routes>
           </Layout>
         </Router>

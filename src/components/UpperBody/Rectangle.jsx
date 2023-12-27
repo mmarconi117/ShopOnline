@@ -1,9 +1,9 @@
-function Rectangle(){
-    return(
-        <div className="bluerectangle" style={{width: "90%", height: 300, backgroundColor: "#E2EFF6", float: "left", marginLeft: "5%", marginRight: "5%"}}>
-            
-        </div>
-    );
+function Rectangle() {
+  return (
+    <div
+      className="w-[95%] h-[404px] bg-[#E2EFF6] mx-auto rounded-[12px]"
+    ></div>
+  );
 }
 
 export default Rectangle;

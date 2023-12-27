@@ -7,7 +7,8 @@ import Header from './components/Header/Header';
 import Cart from './pages/Buyers/CartPage';
 import LoginPage from './pages/Buyers/LoginPage';
 import SignupPage from './pages/Buyers/SignupPage';
-import ProductDetails from "./pages/Buyers/ProductDetails";
+import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
+import Footer from "./components/Footer/Footer";
 
 function App() {
     return (
@@ -62,6 +63,7 @@ function App() {
                             element={<SignupPage />}
                         />
                     </Routes>
+                    <Footer />
                 </Router>
             </div>
         </>

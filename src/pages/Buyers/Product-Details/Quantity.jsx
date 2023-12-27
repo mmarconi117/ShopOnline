@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, amount } from "../../../reducers/productQty";
+import { increment, decrement, amount } from "../../../reducers/product";
 
 const Quantity = ({ product }) => {
-    const { qty } = useSelector((state) => state.productQty);
+    const { qty } = useSelector((state) => state.product);
     const dispatch = useDispatch();
 
     const styles = {

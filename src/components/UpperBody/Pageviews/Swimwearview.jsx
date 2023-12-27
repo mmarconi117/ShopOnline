@@ -11,7 +11,7 @@ function Swimwearview(){
     };
 
     return(
-        <div className="buttonview" style={{float: "left", padding: 10}}>
+        <div>
             <button href="#" onClick={Swimwearview}>Swimwear</button>
         </div>
     );

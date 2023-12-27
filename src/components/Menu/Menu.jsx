@@ -1,89 +1,85 @@
-import womensIcon from '../../assets/ICONS/categories icon/womens-dress.svg';
-import mensIcon from '../../assets/ICONS/categories icon/Mens-Fashion.svg';
-import phoneIcon from '../../assets/ICONS/categories icon/Phones-and-Telecommunication.svg';
-import autoIcon from '../../assets/ICONS/categories icon/Automobiles-and-Motorcycle.svg';
-import bagsIcon from '../../assets/ICONS/categories icon/Bag-and-Shoes.svg';
-import computerIcon from '../../assets/ICONS/categories icon/Computer-Office-and-Security.svg';
-import homeIcon from '../../assets/ICONS/categories icon/Home-Pet-and-Appliances.svg';
-import jewelryIcon from '../../assets/ICONS/categories icon/Jewelry-and-Watches.svg';
-import outdoorsIcon from '../../assets/ICONS/categories icon/Outdoor-fun-and-sport.svg';
-import toolIcon from '../../assets/ICONS/categories icon/Tools-and-Home-Improvement.svg';
-import toysIcon from '../../assets/ICONS/categories icon/Toys-Kids-and-Babies.svg';
-import consumerIcon from '../../assets/ICONS/categories icon/Consumer-Electronics.svg'
+
+import { PiDressLight } from 'react-icons/pi';
+import { RiShirtLine } from 'react-icons/ri';
+import { MdOutlinePhoneAndroid } from 'react-icons/md';
+import { AiOutlineLaptop } from 'react-icons/ai';
+import { FiWatch } from 'react-icons/fi';
+import { PiArmchair } from 'react-icons/pi';
+import { LuSailboat } from 'react-icons/lu';
+import { TfiBasketball } from 'react-icons/tfi';
+import { IoCarSportOutline } from 'react-icons/io5';
+import { LuHammer } from 'react-icons/lu';
+
 
 const Menu = () => {
   const categories = [
     {
-      id: 'Womens fashion',
-      img: womensIcon,
+      id: 'womens',
+      img: <PiDressLight />,
       title: "Women's Fashion",
     },
     {
       id: 'mens',
-      img: mensIcon,
+      img: <RiShirtLine />,
       title: "Men's Fashion",
     },
     {
       id: 'phone',
-      img: phoneIcon,
+      img: <MdOutlinePhoneAndroid />,
       title: 'Phones & Accessories',
     },
     {
       id: 'office',
-      img: computerIcon,
+      img: <AiOutlineLaptop />,
       title: 'Computer, Office & Security',
     },
     {
-      id: 'electronics',
-      img: consumerIcon,
-      title: 'Consumer Electronics',
-    },
-    {
       id: 'jewelry',
-      img: jewelryIcon,
+      img: <FiWatch />,
       title: 'Jewelry & Watches',
     },
     {
       id: 'furniture',
-      img: homeIcon,
+      img: <PiArmchair />,
       title: 'Home & Appliances',
     },
     {
-      id: 'bagsAndShoes',
-      img: bagsIcon,
-      title: 'Bags & Shoes',
-    },
-    {
       id: 'kids',
-      img: toysIcon,
+      img: <LuSailboat />,
       title: 'Toys, Kids & Babies',
     },
     {
       id: 'outdoor',
-      img: outdoorsIcon,
+      img: <TfiBasketball />,
       title: 'Outdoor, Fun & Sports',
     },
     {
       id: 'automotive',
-      img: autoIcon,
+      img: <IoCarSportOutline />,
       title: 'Automotive',
     },
     {
       id: 'tools',
-      img: toolIcon,
+      img: <LuHammer />,
       title: 'Tools & Home Improvement',
     },
   ];
 
   return (
-    <div className="flex flex-col rounded-[10px] pr-3 bg-white pl-3 mb-16 mt-6">
-      <p className="pt-2 pb-4 ml-4 text-lg font-bold">Categories</p>
-      {categories.map((item, index) => (
-        <div key={index} className="flex items-center ml-4 pb-4">
-          <img src={item.img} alt={item.title} className="w-6 h-6 mr-2" />
-          <div>{item.title}</div>
-        </div>
-      ))}
+    <div>
+    
+     
+      <div>
+        {categories.map((item, index) => {
+          return (
+            <div key={index} style={{display: 'flex', marginLeft:'20px'}}>
+              {item.img} 
+              <div>  {item.title}</div>
+              
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

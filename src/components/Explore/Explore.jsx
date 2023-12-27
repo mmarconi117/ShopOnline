@@ -6,7 +6,7 @@ import { ExploreItem } from "./ExploreItem";
 import { BaseImagesAndCategories } from "./BaseImagesAndCategories";
 
 export const Explore = () => {
-  
+
   const exploreItems = BaseImagesAndCategories.map((item, i) => {
     return (
       <span key={i}>
@@ -16,7 +16,7 @@ export const Explore = () => {
   })
 
   return (
-    <section className="flex pb-6 flex-col items-start justify-center gap-[18px] flex-1 bg-[#BAD9E8]">
+    <section className="flex pb-6 flex-col items-start justify-center gap-[18px] flex-1 bg-emerald-300">
       <div className="text-zinc-800 text-xl font-bold font-'Arial' leading-normal tracking-tight pb-2 pt-6 pl-3">
         Explore our Top Categories
       </div>

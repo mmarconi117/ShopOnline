@@ -9,7 +9,7 @@ import UpperBody from "../../components/UpperBody/UpperBody.jsx";
 //this is a comment
 function SubCategory() {
     return (
-      <>
+      <div className="bg-[#f5f5f9]">
         <UpperBody></UpperBody>
         <TopsRow></TopsRow>
         <BottomsRow></BottomsRow>
@@ -18,7 +18,7 @@ function SubCategory() {
         <ActivewearRow></ActivewearRow>
         <SwimwearRow></SwimwearRow>
         <Footer />
-      </>
+      </div>
     );
   }
   

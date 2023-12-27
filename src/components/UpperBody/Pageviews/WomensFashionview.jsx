@@ -12,8 +12,9 @@
 
 function WomensFashionview(){
     return(
-        <div className="buttonview" style={{float: "left", padding: 10}}>
-            <h1>Women's Fashion</h1>
+        <div className="buttonview" >
+            {/* Missing Logo */}
+            <div className="text-[31px] text-[#313133] leading-[37.2px] whitespace-nowrap font-bold">Women's Fashion</div>
         </div>
     );
 }

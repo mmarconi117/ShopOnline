@@ -10,8 +10,8 @@ function Activewearview(){
     };
 
     return(
-        <div className="buttonview" style={{float: "left", padding: 10}}>
-            <button href="#" onClick={Activewearview}>Activewearview</button>
+        <div>
+            <button href="#" onClick={Activewearview}>Activewear</button>
         </div>
     );
 }

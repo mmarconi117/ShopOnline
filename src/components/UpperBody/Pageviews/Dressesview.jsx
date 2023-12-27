@@ -10,8 +10,8 @@ function Dressesview(){
     };
 
     return(
-        <div className="buttonview" style={{float: "left", padding: 10}}>
-            <button href="#" onClick={Dressesview}>Dressesview</button>
+        <div>
+            <button href="#" onClick={Dressesview}>Dresses</button>
         </div>
     );
 }

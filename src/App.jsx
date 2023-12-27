@@ -2,12 +2,11 @@ import LandingPage from "./pages/Buyers/LandingPage";
 import SubCategory from "./pages/Buyers/SubCategory";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-// import Header from './components/Header/Header';
 import Cart from "./pages/Buyers/Cart/CartPage";
 import LoginPage from "./pages/Buyers/LoginPage";
 import SignupPage from "./pages/Buyers/SignupPage";
 import CompanyService from "./pages/Sellers/CompanyService";
+import Layout from "./Layout";
 
 function App() {
   return (

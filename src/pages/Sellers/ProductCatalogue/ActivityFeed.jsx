@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import SearchIcons from '../../assets/ICONS/SearchIcons.svg'
 import ArrowDown from '../../assets/ICONS/ArrowDown.svg'
 import Filter from '../../assets/ICONS/Filter.svg'
@@ -160,16 +160,6 @@ function ActivityFeed() {
               >
                 Prev
               </div>
-
-              {Array.from({ length: 1 }).map((_, i) => (
-                <div
-                  className={`cursor-pointer text-white text-center text-base leading-6 whitespace-nowrap bg-zinc-800 self-stretch aspect-square justify-center items-center h-10 pl-3.5 pr-5 rounded-xl`}
-                >
-                  1
-                </div>
-              ))}
-
-
               <div
                 className={`cursor-pointer text-zinc-800 text-sm leading-5 self-center my-auto opacity-50`}
               >

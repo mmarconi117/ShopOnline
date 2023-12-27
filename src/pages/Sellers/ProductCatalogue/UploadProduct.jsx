@@ -1,4 +1,4 @@
-import React from 'react'
+
 import FileUpload from '../../assets/ICONS/FileUpload.svg'
 import LeftArrow from '../../assets/ICONS/LeftArrow.svg'
 import RightArrow from '../../assets/ICONS/RightArrow.svg'
@@ -36,12 +36,12 @@ function UploadProduct() {
               <div className="flex flex-col items-stretch w-[28%] max-md:w-full max-md:ml-0 ">
                 <div className="flex flex-col items-center max-md:mt-9">
 
-                  <label for="dropzone-file" class="bg-stone-300 flex w-[250px] max-w-full flex-col justify-center items-center px-16 py-12 max-md:px-5 cursor-pointer">
+                  <label htmlFor="dropzone-file" className="bg-stone-300 flex w-[250px] max-w-full flex-col justify-center items-center px-16 py-12 max-md:px-5 cursor-pointer">
                     <img loading="lazy"
                       src={FileUpload}
                       className="aspect-square object-contain object-center w-[109px] overflow-hidden max-w-full mt-6 mb-5"
                     />
-                    <input id="dropzone-file" type="file" class="hidden" />
+                    <input id="dropzone-file" type="file" className="hidden" />
                   </label>
 
                   <div className=" w-[250px] max-w-full justify-center items-center self-stretch flex gap-3 mt-7 max-md:justify-center">
@@ -76,7 +76,7 @@ function UploadProduct() {
                   <div className="text-stone-950 text-[14px] font-semibold leading-6 whitespace-nowrap mt-5 max-md:max-w-full">
                     Description
                   </div>
-                  <textarea id="message" rows="4" class="block p-2.5 w-full h-[216px] text-sm text-gray-900 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)]" required ></textarea>
+                  <textarea id="message" rows="4" className="block p-2.5 w-full h-[216px] text-sm text-gray-900 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)]" required ></textarea>
                   <div className="justify-between items-center flex gap-5 mt-5 max-md:max-w-full max-md:flex-wrap">
                   <SelectInput
                     options={["Home accessories",]}

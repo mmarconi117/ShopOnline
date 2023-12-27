@@ -2,13 +2,12 @@ import LandingPage from "./pages/Buyers/LandingPage";
 import SubCategory from "./pages/Buyers/SubCategory";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./Layout";
+
+// import Header from './components/Header/Header';
 import Cart from "./pages/Buyers/Cart/CartPage";
 import LoginPage from "./pages/Buyers/LoginPage";
 import SignupPage from "./pages/Buyers/SignupPage";
 import CompanyService from "./pages/Sellers/CompanyService";
-
-// The App.jsx component is now wrapped in a Layout tag that is used to ensure persistance of the Header and Footer across every page. This was was done to ensure all possible and future routes diplay the same.
 
 function App() {
   return (

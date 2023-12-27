@@ -1,3 +1,4 @@
+
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
@@ -151,7 +152,6 @@ function Cart() {
                   $15.99
                 </div>
               </div>
-
               <div className="justify-between items-center self-stretch flex gap-5 mt-8">
                 <div className="text-zinc-700 text-xl leading-6 whitespace-nowrap my-auto">
                   Subtotal: ${Total}
@@ -180,6 +180,7 @@ function Cart() {
               </div>
 
               <div className="justify-center items-center bg-zinc-100 self-stretch flex gap-2.5 mt-8 px-20 py-2.5 rounded-md max-md:px-5">
+
                 <img
                   className="aspect-square object-contain object-center w-6 overflow-hidden self-stretch shrink-0 max-w-full"
                   src={rightnavigate}
@@ -299,12 +300,15 @@ function Cart() {
 
           {/* Returns are easy container*/}
           <div className="flex flex-col items-stretch w-[33%] ml-5 max-md:w-full max-md:ml-0">
+
             <div className="Returns bg-white flex flex-col items-stretch w-full mt-7 pl-8 pr-20 pt-7 pb-11 max-md:max-w-full max-md:mt-10 max-md:px-5">
+
               <div className="text-zinc-800 text-2xl font-semibold leading-10 whitespace-nowrap max-md:mr-1.5">
                 Returns are easy
               </div>
               <div>
                 <span className="text-cyan-600 text-base leading-6 underline max-w-[368px] mt-7 max-md:mr-1 text-zinc-800">
+
                   Free return within 15 days for Official Store items and 7 days
                   for other eligible items.
                 </span>
@@ -312,6 +316,7 @@ function Cart() {
                   href="#"
                   className="text-cyan-600 text-base leading-6 underline max-w-[368px] mt-7 max-md:mr-1 text-zinc-800"
                 >
+
                   See more
                   <br />
                 </span>
@@ -325,6 +330,7 @@ function Cart() {
 
       {/*---- supposed second row of  div end ---*/}
 
+
       {/* supposed third row of  div  of Based on vived  */}
 
       <div className="self-stretch flex w-full flex-col items-stretch mt-28 px-10 max-md:max-w-full max-md:mt-10 max-md:px-5">
@@ -332,12 +338,14 @@ function Cart() {
           Based on recently viewed
         </div>
         <div className="items-stretch flex justify-between gap-5 mt-9 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
+
           {/*---- first image in base on vive---*/}
           <div className="items-stretch bg-white flex grow basis-[0%] flex-col pt-2.5 pb-4 px-2.5 rounded-md">
             <div className="bg-zinc-300 flex flex-col justify-center pr-16 py-12 rounded-md items-start max-md:pr-5">
               <img
                 src={leftbasedonreviw}
                 alt=""
+
                 className="aspect-square object-contain object-center w-[62px] overflow-hidden max-w-full mt-11 mb-4 max-md:mt-10"
               />
             </div>
@@ -409,6 +417,7 @@ function Cart() {
           <div className="items-stretch bg-white flex grow basis-[0%] flex-col pt-2.5 pb-4 px-2.5 rounded-md">
             <div className="bg-zinc-300 flex flex-col justify-center pl-16 py-12 rounded-md items-end max-md:pl-5">
               <img
+
                 src={rightsidebasedon}
                 className="aspect-square object-contain object-center w-[62px] overflow-hidden max-w-full mt-11 mb-4 max-md:mt-10"
               />

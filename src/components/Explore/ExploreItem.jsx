@@ -2,14 +2,18 @@ import PropTypes from 'prop-types';
 
 export const ExploreItem = ({ src, title }) => {
   return (
-    <a href='#' className='block w-40 md:w-48 mb-4 px-2 py-2 md:p-[10px] md:pb-[20px] bg-[#FBFDFE] rounded'>
+    <a
+      href='#'
+      className="relative group flex flex-col justify-between items-center bg-[#FBFDFE] rounded-md shadow-lg  hover:shadow-gray-700"
+    >
       <img
         src={src}
         alt=""
-        className="w-full h-[179px] object-cover mb-3 rounded"
-        
+        className="w-full h-[220px] rounded-md group-hover:opacity-50 transition-opacity duration-300 ease-in-out m-3 pl-1 pr-"
       />
-      <div className="text-[#2284B6] text-base sm:text-xl text-center font-medium md:font-semibold font-Roboto leading-5 md:leading-6 whitespace-nowrap">{title}</div>
+      <div className="absolute opacity-0 group-hover:opacity-100 bottom-16 text-[#2284B6] pt-3 pb-3 text-center text-3xl font-semibold font-[Roboto]">
+        {title}
+      </div>
     </a>
   );
 };

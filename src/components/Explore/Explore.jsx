@@ -15,8 +15,10 @@ export const Explore = () => {
   });
 
   return (
-    <section className="w-full h-fit flex flex-col py-8 px-4 md:pt-9 md:px-0 gap-5 bg-[#BAD9E8] overflow-auto">
-      <div className="text-[#313133] text-base font-medium md:font-bold md:text-2xl font-Roboto leading-6 tracking-tight md:pl-10">
+
+    <section className="flex pb-6 flex-col items-start justify-center gap-[18px] flex-1 bg-emerald-300">
+      <div className="text-zinc-800 text-xl font-bold font-'Arial' leading-normal tracking-tight pb-2 pt-6 pl-3">
+
         Explore our Top Categories
       </div>
 

@@ -20,10 +20,6 @@ function GetVerified({ setShowModal }) {
     console.log(businessDetailsdata)
   };
 
-
-
-
-
   useEffect(() => {
     document.getElementById('modal').showModal();
 

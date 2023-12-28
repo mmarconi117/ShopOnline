@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import{ useState } from 'react'
 import GetVerifiedIcon from '../../assets/ICONS/GetVerifide.svg'
 import Paid from '../../assets/ICONS/Paid.svg'
 import Shipping from '../../assets/ICONS/Shipping.svg'

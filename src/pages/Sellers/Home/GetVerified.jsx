@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import eye from '../../assets/ICONS/eye.svg'
-import info from '../../assets/ICONS/info.svg'
+import PropTypes from "prop-types";
 
 import { Input, SelectInput } from '../../components'
 import {businessDetail} from '../../features/businessDetailsSlice';
@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 function GetVerified({ setShowModal }) {
-  const [isVerified, setIsVerified] = useState(false);
+  const [isVerified] = useState(false);
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
 
@@ -271,15 +271,11 @@ function GetVerified({ setShowModal }) {
       </dialog>
     </div>
 
-
-
-
-
-
-
-
-
   );
+}
+
+GetVerified.propTypes = {
+  setShowModal: PropTypes.string.isRequired,
 }
 
 export default GetVerified;

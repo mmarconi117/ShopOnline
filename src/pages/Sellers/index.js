@@ -1,3 +1,4 @@
+
 import Homepage from './Home/Homepage'
 import GetVerified from './Home/GetVerified'
 
@@ -29,4 +30,5 @@ export {
   Overview,
   Payments,
   RatingsAndReviews,
-}
+};
+

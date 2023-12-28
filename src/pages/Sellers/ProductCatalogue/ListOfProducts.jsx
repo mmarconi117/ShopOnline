@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import SearchIcons from "../../assets/ICONS/SearchIcons.svg";
 import ArrowDown from "../../assets/ICONS/ArrowDown.svg";
@@ -245,3 +246,4 @@ function ListOfProducts() {
 }
 
 export default ListOfProducts;
+

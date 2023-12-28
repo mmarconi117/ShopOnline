@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from 'react'
+<<<<<<< HEAD
+import{ useState } from 'react'
+=======
+import { useState } from 'react'
+>>>>>>> b3f7d3bb29ecc49c6d9a04bf1502e7209eb62dfd
 import GetVerifiedIcon from '../../assets/ICONS/GetVerifide.svg'
 import Paid from '../../assets/ICONS/Paid.svg'
 import Shipping from '../../assets/ICONS/Shipping.svg'

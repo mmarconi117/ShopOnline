@@ -1,4 +1,3 @@
-import account from "../../assets/ICONS/Outline/account.svg";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -73,7 +72,7 @@ export default function Nav() {
           >
             <Link to="/account" style={{ textDecoration: "none" }}>
               {" "}
-              <img src={account} /> Account
+               Account
             </Link>
             {menu === "account" ? (
               <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]" />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import RightArrow from '../../assets/ICONS/RightArrow.svg'
 
 import { DataGrid } from '@mui/x-data-grid';
@@ -27,12 +27,9 @@ function OrderList() {
 
 
   useEffect(() => {
-    setOrders(order)
-
-    return () => {
-
-    }
-  }, [])
+    setOrders(order);
+  
+  }, [order]);
 
 
 

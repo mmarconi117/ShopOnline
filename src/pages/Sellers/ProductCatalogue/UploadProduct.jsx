@@ -74,7 +74,6 @@ function UploadProduct() {
                     className=""
                     required
                   />
-
                   <div className="text-stone-950 text-[14px] font-semibold leading-6 whitespace-nowrap mt-5 max-md:max-w-full">
                     Description
                   </div>

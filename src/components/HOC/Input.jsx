@@ -1,7 +1,7 @@
 import React, {forwardRef} from 'react'
 
 const Input = forwardRef(function Input({
-    lable,
+    label,
     type='text',
     className= '',
     ...props
@@ -9,12 +9,12 @@ const Input = forwardRef(function Input({
     return(
         <div className='w-full items-stretch flex grow basis-[0%] flex-col mt-6'>
             {
-                lable && 
+                label && 
                 <label
-                htmlFor={lable} 
+                htmlFor={label} 
                 className='text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap'                
                 >
-                    {lable}
+                    {label}
                 </label>
             }
             <input

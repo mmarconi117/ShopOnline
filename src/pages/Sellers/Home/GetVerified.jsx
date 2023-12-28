@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import eye from '../../assets/ICONS/eye.svg'
+import eye from '../../../assets/ICONS/eye.svg'
 import PropTypes from "prop-types";
 
-import { Input, SelectInput } from '../../components'
+import { Input, SelectInput } from '../../../components'
 import {businessDetail} from '../../features/businessDetailsSlice';
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";

@@ -8,11 +8,7 @@ import SignupPage from "./pages/Buyers/SignupPage";
 import Help from "./pages/Buyers/Help";
 import CompanyService from "./pages/Sellers/CompanyService";
 import Layout from "./Layout";
-<<<<<<< HEAD
-import Homepage from "./pages/Sellers/Home/Homepage";
-=======
 import Homepage from "./pages/Sellers";
->>>>>>> acec7c8ec8827cdf0efaa1789eeb7f5e0da02633
 
 function App() {
   return (
@@ -24,11 +20,7 @@ function App() {
               <Route exact path="/" element={<LandingPage />} />
               <Route path="/subcategories" element={<SubCategory />} />
               <Route path="/cart" element={<Cart />} />
-<<<<<<< HEAD
-              <Route path="/sellers" element= {<Homepage />} />
-=======
               <Route path="/sellers" element={<Homepage />} />
->>>>>>> acec7c8ec8827cdf0efaa1789eeb7f5e0da02633
               <Route path="/help" element={<Help />} />
               <Route path="/language" element="#" />
               <Route path="/account" element="#" />

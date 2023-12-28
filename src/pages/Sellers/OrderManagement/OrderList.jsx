@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import RightArrow from '../../assets/ICONS/RightArrow.svg'
+import RightArrow from '../../../assets/ICONS/RightArrow.svg'
 
 import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux'

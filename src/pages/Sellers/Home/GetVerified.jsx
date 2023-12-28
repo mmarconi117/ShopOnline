@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import eye from '../../assets/ICONS/eye.svg'
+import eye from '../../../assets/ICONS/eye.svg'
 import PropTypes from "prop-types";
 
 import { Input, SelectInput } from '../../components'

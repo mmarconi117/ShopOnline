@@ -1,18 +1,7 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react'
-// import GetVerifiedIcon from '../../assets/ICONS/GetVerifide.svg'
-// import Paid from '../../assets/ICONS/Paid.svg'
-// import Shipping from '../../assets/ICONS/Shipping.svg'
-=======
-<<<<<<< HEAD
 import{ useState } from 'react'
-=======
-import { useState } from 'react'
->>>>>>> b3f7d3bb29ecc49c6d9a04bf1502e7209eb62dfd
 import GetVerifiedIcon from '../../assets/ICONS/GetVerifide.svg'
 import Paid from '../../assets/ICONS/Paid.svg'
 import Shipping from '../../assets/ICONS/Shipping.svg'
->>>>>>> acec7c8ec8827cdf0efaa1789eeb7f5e0da02633
 import GetVerified from './GetVerified'
 
 function Homepage() {

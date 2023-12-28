@@ -2,7 +2,6 @@
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../../components/Footer/Footer";
 
 
 const CartPage = ({ carts, setCarts }) => {
@@ -102,7 +101,6 @@ const CartPage = ({ carts, setCarts }) => {
           <div>See more</div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

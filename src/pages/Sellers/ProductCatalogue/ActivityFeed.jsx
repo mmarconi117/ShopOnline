@@ -7,8 +7,10 @@ import Sort from '../../assets/ICONS/Sort.svg'
 import { Link } from 'react-router-dom';
 
 
-function ActivityFeed() {
-  const [products, setProducts] = useState([]);
+function ActivityFeed() 
+{
+  const [products] = useState([]); 
+  
   return (
     <div className="self-center flex w-[967px] max-w-full flex-col items-stretch mt-4 px-5">
       <div className="flex flex-col mt-0 px-0 max-md:max-w-full max-md:px-0">
@@ -114,7 +116,8 @@ function ActivityFeed() {
                   no product found !!                
               </td>
               </tr>)
-                : Array.from({ length: 8 }).map((_, i) => (
+                : Array.from({ length: 8 }).map((_product, i) => (
+
                   <tr key={i}>
                     
                     <td className="w-[186px] h-[72px] border-r border-black justify-center text-center">

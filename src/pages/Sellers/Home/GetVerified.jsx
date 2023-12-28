@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import eye from '../../assets/ICONS/eye.svg'
-import info from '../../assets/ICONS/info.svg'
+// import eye from '../../assets/ICONS/eye.svg'
+// import info from '../../assets/ICONS/info.svg'
 
-import { Input, SelectInput } from '../../components'
-import {businessDetail} from '../../features/businessDetailsSlice';
-import { useForm } from "react-hook-form";
-import { useSelector, useDispatch } from "react-redux";
+// import { Input, SelectInput } from '../../components'
+// import {businessDetail} from '../../../features/businessDetailsSlice';
+// import { useForm } from "react-hook-form";
+// import { useSelector, useDispatch } from "react-redux";
 
 
 function GetVerified({ setShowModal }) {

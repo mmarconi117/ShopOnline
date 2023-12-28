@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import GetVerifiedIcon from '../../assets/ICONS/GetVerifide.svg'
-import Paid from '../../assets/ICONS/Paid.svg'
-import Shipping from '../../assets/ICONS/Shipping.svg'
+// import GetVerifiedIcon from '../../assets/ICONS/GetVerifide.svg'
+// import Paid from '../../assets/ICONS/Paid.svg'
+// import Shipping from '../../assets/ICONS/Shipping.svg'
 import GetVerified from './GetVerified'
 
 function Homepage() {

@@ -8,6 +8,7 @@ import SignupPage from "./pages/Buyers/SignupPage";
 import Help from "./pages/Buyers/Help";
 import CompanyService from "./pages/Sellers/CompanyService";
 import Layout from "./Layout";
+import Homepage from "./pages/Sellers/Home/Homepage";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
               <Route exact path="/" element={<LandingPage />} />
               <Route path="/subcategories" element={<SubCategory />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/sellers" element="#" />
+              <Route path="/sellers" element= {<Homepage />} />
               <Route path="/help" element={<Help />} />
               <Route path="/language" element="#" />
               <Route path="/account" element="#" />

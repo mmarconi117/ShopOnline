@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import SearchIcons from '../../assets/ICONS/SearchIcons.svg'
 import ArrowDown from '../../assets/ICONS/ArrowDown.svg'
 import Filter from '../../assets/ICONS/Filter.svg'
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 function ActivityFeed() {
-  const [products, setProducts] = useState([]);
+  const [products] = useState([]); 
   return (
     <div className="self-center flex w-[967px] max-w-full flex-col items-stretch mt-4 px-5">
       <div className="flex flex-col mt-0 px-0 max-md:max-w-full max-md:px-0">
@@ -114,7 +114,7 @@ function ActivityFeed() {
                   no product found !!                
               </td>
               </tr>)
-                : Array.from({ length: 8 }).map((_, i) => (
+                : Array.from({ length: 8 }).map((_product, i) => (
                   <tr key={i}>
                     
                     <td className="w-[186px] h-[72px] border-r border-black justify-center text-center">
@@ -160,16 +160,6 @@ function ActivityFeed() {
               >
                 Prev
               </div>
-
-              {Array.from({ length: 1 }).map((_, i) => (
-                <div
-                  className={`cursor-pointer text-white text-center text-base leading-6 whitespace-nowrap bg-zinc-800 self-stretch aspect-square justify-center items-center h-10 pl-3.5 pr-5 rounded-xl`}
-                >
-                  1
-                </div>
-              ))}
-
-
               <div
                 className={`cursor-pointer text-zinc-800 text-sm leading-5 self-center my-auto opacity-50`}
               >

@@ -1,16 +1,9 @@
-// import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
+import { setProductDetailsReducer } from "./productReducer";
+import { setCartReducer } from "./cartReducer";
 
-// const rootReducer = combineReducers({
-//   //add reducers as needed here
-// });
-
-// export default rootReducer;
-
-import { combineReducers } from "@reduxjs/toolkit";
-import productReducer from "./product";
-
-const rootReducer = combineReducers({
-    product: productReducer,
+export const rootReducer = combineReducers({
+    setProductDetailsReducer,
+    setCartReducer,
 });
-
 export default rootReducer;

@@ -9,8 +9,29 @@ import LoginPage from './pages/Buyers/LoginPage';
 import SignupPage from './pages/Buyers/SignupPage';
 import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 import Footer from "./components/Footer/Footer";
+import { connect } from "react-redux";
+import { setProductDetails, incrementQty } from "./actions/setProduct";
+import { addToCart, removeFromCart } from "./actions/cart";
+import { useEffect } from "react";
 
-function App() {
+const mapStateToProps = (state) => {
+    return {
+        productTest: state.setProductDetailsReducer,
+        cartTest: state.setCartReducer,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+    incrementQty: () => dispatch(incrementQty(1)),
+    addToCart: (data) => dispatch(addToCart(data)),
+    removeFromCart: (data) => dispatch(removeFromCart(data)),
+});
+
+function App(props) {
+    console.log(props);
+    // useEffect(()=> {
+    //     this.props
+    // },[])
     return (
         <>
             <div>
@@ -28,11 +49,11 @@ function App() {
                         />
                         <Route
                             path="/product-details"
-                            element={<ProductDetails />}
+                            element={<ProductDetails product={props} />}
                         />
                         <Route
                             path="/cart"
-                            element={<Cart />}
+                            element={<Cart cart={props.cartTest} />}
                         />
                         <Route
                             path="/sellers"
@@ -69,5 +90,5 @@ function App() {
         </>
     );
 }
-
-export default App
+export default connect(mapStateToProps,mapDispatchToProps)(App)
+// export default App

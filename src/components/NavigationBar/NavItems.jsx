@@ -24,11 +24,9 @@ const NavItems = () => {
                 rel="stylesheet"
                 href=""
                 className="mr-5 cursor-pointer"
+                key={link.id}
             >
-                <div
-                    className="relative inline-block text-left"
-                    key={index}
-                >
+                <div className="relative inline-block text-left">
                     <div>
                         <button
                             type="button"

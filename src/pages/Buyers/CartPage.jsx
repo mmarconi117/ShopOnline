@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react';
 import Footer from '../../components/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 
-function Cart() {
+function Cart(props) {
   //Product's inside cart. This is array which is initilized in useEffects
   const [carts, setCarts] = useState([]);
+  console.log(props,"cart page");
 
   //React Router element that helps to navigate between pages
   const navigate = useNavigate();
@@ -154,8 +155,8 @@ function Cart() {
   );
 }
 
-Cart.propTypes = {
-  auth: PropTypes.object.isRequired,
-};
+// Cart.propTypes = {
+//   auth: PropTypes.object.isRequired,
+// };
 
 export default Cart;

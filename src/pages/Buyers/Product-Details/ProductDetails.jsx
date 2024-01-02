@@ -12,8 +12,9 @@ import Quantity from "./Quantity";
 import ProductColors from "./ProductColors";
 import AboutProduct from "./AboutProduct";
 
-function ProductDetails() {
+function ProductDetails({ product: { addToCart, productTest, removeFromCart } }) {
     const [breadCrumb, setBreadCrumb] = useState([]);
+    const [qty, setQty] = useState(1);
     // current urls e.g /products/product-details
     const currentUrl = useHref();
 
@@ -37,6 +38,22 @@ function ProductDetails() {
             }
         }
         setBreadCrumb(paths);
+    };
+
+    const incrementQty = () => {
+        setQty(qty + 1);
+    };
+
+    const decrementQty = () => {
+        if (qty <= 1) {
+            setQty(1);
+        } else {
+            setQty(qty - 1);
+        }
+    };
+
+    const updateQtyOnChange = (e) => {
+        setQty(e.target.value);
     };
 
     const breadCrumbComp = breadCrumb.map((path, index) => {
@@ -85,10 +102,7 @@ function ProductDetails() {
                     {/* Product description div */}
                     <div style={{ width: "100%" }}>
                         <div id="product-desc-div">
-                            <p style={{ fontSize: "2rem" }}>
-                                COSMO COS-DIS6502 24 in. Dishwasher in Fingerprint Resistant
-                                Stainless Steel with Stainless Steel Tub
-                            </p>
+                            <p style={{ fontSize: "2rem" }}>{productTest.description}</p>
                         </div>
                         {/* Product rating, cost and discounts, color and quantity */}
                         <div>
@@ -144,7 +158,7 @@ function ProductDetails() {
                                     <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                 </svg>
                                 <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                    4.95
+                                    {productTest.ratings}
                                 </p>
                                 <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
                                     out of
@@ -154,7 +168,7 @@ function ProductDetails() {
                                 </p>
                                 <div>
                                     <a className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                                        117 reviews
+                                        {productTest.reviews} reviews
                                     </a>
                                     <a className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                                         108+ orders
@@ -176,7 +190,7 @@ function ProductDetails() {
                                         style={{ fontSize: "2.25rem", fontWeight: "600" }}
                                         id="product-cost"
                                     >
-                                        $178
+                                        ${productTest.price}
                                     </p>
                                 </div>
                                 <div style={{ marginLeft: "5%" }}>
@@ -199,14 +213,19 @@ function ProductDetails() {
                                             backgroundColor: "#f2f2f2",
                                         }}
                                     >
-                                        20% off
+                                        {productTest.discount}% off
                                     </p>
                                 </div>
                             </div>
                             {/* Product Colors Div */}
-                            <ProductColors />
+                            <ProductColors colors={productTest.colors} />
                             {/* Product quantity div */}
-                            <Quantity />
+                            <Quantity
+                                qty={qty}
+                                incrementQty={incrementQty}
+                                decrementQty={decrementQty}
+                                updateQtyOnChange={updateQtyOnChange}
+                            />
                             {/* Shipping Product div */}
                             <div id="shipping-div">
                                 <div
@@ -260,6 +279,10 @@ function ProductDetails() {
                             <button
                                 type="button"
                                 style={styles.addToCartBtn}
+                                onClick={() => {
+                                    let product = { ...productTest, qty };
+                                    addToCart(product);
+                                }}
                             >
                                 Add to cart
                             </button>

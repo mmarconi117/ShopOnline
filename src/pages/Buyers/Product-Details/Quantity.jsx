@@ -1,10 +1,6 @@
-import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, amount } from "../../../reducers/product";
+import { useState } from "react";
 
-const Quantity = ({ product }) => {
-    const { qty } = useSelector((state) => state.product);
-    const dispatch = useDispatch();
-
+const Quantity = ({ qty, incrementQty, decrementQty, updateQtyOnChange }) => {
     const styles = {
         button: {
             display: "inline-block",
@@ -18,7 +14,7 @@ const Quantity = ({ product }) => {
     return (
         <div style={{ margin: "10% auto" }}>
             <div style={{ marginBottom: "1%" }}>
-                <p style={{ fontSize: "2rem" }}>Quantity</p>
+                <p style={{ fontSize: "2rem" }}>Quantity </p>
             </div>
             <div
                 style={{
@@ -33,7 +29,7 @@ const Quantity = ({ product }) => {
                         className="cursor-pointer"
                         style={styles.button}
                         type="button"
-                        onClick={() => dispatch(decrement())}
+                        onClick={decrementQty}
                     >
                         -
                     </button>
@@ -46,7 +42,7 @@ const Quantity = ({ product }) => {
                             id="price"
                             className="block w-full rounded-md border-0 py-2 text-black-900 ring-1 ring-inset ring-gray-300 placeholder:text-black-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
                             value={qty}
-                            onChange={() => dispatch(amount())}
+                            onChange={(e) => updateQtyOnChange(e)}
                         />
                     </div>
                 </div>
@@ -55,7 +51,8 @@ const Quantity = ({ product }) => {
                         className="cursor-pointer"
                         style={styles.button}
                         type="button"
-                        onClick={() => dispatch(increment())}
+                        // onClick={() => dispatch(increment())}
+                        onClick={incrementQty}
                     >
                         +
                     </button>
@@ -64,5 +61,5 @@ const Quantity = ({ product }) => {
         </div>
     );
 };
-
+// export default connect(mapStateToProps,mapDispatchToProps)(Quantity)
 export default Quantity;

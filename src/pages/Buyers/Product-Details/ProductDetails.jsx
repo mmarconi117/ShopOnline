@@ -12,7 +12,8 @@ import Quantity from "./Quantity";
 import ProductColors from "./ProductColors";
 import AboutProduct from "./AboutProduct";
 
-function ProductDetails({ product: { addToCart, productTest, removeFromCart } }) {
+function ProductDetails({ product: { product }, addToCart }) {
+    // let product = productTest.product;
     const [breadCrumb, setBreadCrumb] = useState([]);
     const [qty, setQty] = useState(1);
     // current urls e.g /products/product-details
@@ -102,7 +103,7 @@ function ProductDetails({ product: { addToCart, productTest, removeFromCart } })
                     {/* Product description div */}
                     <div style={{ width: "100%" }}>
                         <div id="product-desc-div">
-                            <p style={{ fontSize: "2rem" }}>{productTest.description}</p>
+                            <p style={{ fontSize: "2rem" }}>{product.description}</p>
                         </div>
                         {/* Product rating, cost and discounts, color and quantity */}
                         <div>
@@ -158,7 +159,7 @@ function ProductDetails({ product: { addToCart, productTest, removeFromCart } })
                                     <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                 </svg>
                                 <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                    {productTest.ratings}
+                                    {product.ratings}
                                 </p>
                                 <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
                                     out of
@@ -168,7 +169,7 @@ function ProductDetails({ product: { addToCart, productTest, removeFromCart } })
                                 </p>
                                 <div>
                                     <a className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                                        {productTest.reviews} reviews
+                                        {product.reviews} reviews
                                     </a>
                                     <a className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                                         108+ orders
@@ -190,7 +191,7 @@ function ProductDetails({ product: { addToCart, productTest, removeFromCart } })
                                         style={{ fontSize: "2.25rem", fontWeight: "600" }}
                                         id="product-cost"
                                     >
-                                        ${productTest.price}
+                                        ${product.price}
                                     </p>
                                 </div>
                                 <div style={{ marginLeft: "5%" }}>
@@ -213,12 +214,12 @@ function ProductDetails({ product: { addToCart, productTest, removeFromCart } })
                                             backgroundColor: "#f2f2f2",
                                         }}
                                     >
-                                        {productTest.discount}% off
+                                        {product.discount}% off
                                     </p>
                                 </div>
                             </div>
                             {/* Product Colors Div */}
-                            <ProductColors colors={productTest.colors} />
+                            <ProductColors colors={product.colors} />
                             {/* Product quantity div */}
                             <Quantity
                                 qty={qty}
@@ -280,8 +281,8 @@ function ProductDetails({ product: { addToCart, productTest, removeFromCart } })
                                 type="button"
                                 style={styles.addToCartBtn}
                                 onClick={() => {
-                                    let product = { ...productTest, qty };
-                                    addToCart(product);
+                                    let productTest = { ...product, qty };
+                                    addToCart(productTest);
                                 }}
                             >
                                 Add to cart

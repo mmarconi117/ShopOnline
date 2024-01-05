@@ -1,9 +1,15 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Nav() {
   const [menu, setMenu] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogout = () => {
+    // Add logic to handle user logout
+    setIsAuthenticated(false);
+    // Additional logout logic, e.g., clearing user data from state or local storage
+  };
 
   return (
     <div>
@@ -65,20 +71,24 @@ export default function Nav() {
               <></>
             )}
           </li>
-          <li
-            onClick={() => {
-              setMenu("account");
-            }}
-          >
-            <Link to="/account" style={{ textDecoration: "none" }}>
-              {" "}
-               Account
-            </Link>
-            {menu === "account" ? (
-              <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]" />
-            ) : (
-              <></>
-            )}
+          <li>
+            <div style={{ position: "relative", display: "flex" }}>
+              <button className="dropbtn">
+                {isAuthenticated ? "Account" : ""}
+              </button>
+              <div className="dropdown-content">
+                {isAuthenticated && (
+                  <>
+                    <Link to="/settings">Settings</Link>
+                    <Link to="/info">Info</Link>
+                    <Link to="/orders">Orders</Link>
+                    <button onClick={handleLogout}>Logout</button>
+                    {/* Add other menu items as needed */}
+                  </>
+                )}
+                {!isAuthenticated && <Link to="/login">Login</Link>}
+              </div>
+            </div>
           </li>
         </ul>
       </div>

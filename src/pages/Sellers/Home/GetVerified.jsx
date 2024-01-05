@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import eye from "../../../assets/ICONS/eye.svg";
 import PropTypes from "prop-types";
 import { SET_BUSINESS_DETAILS } from "../../../reducersAndActions/actions";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 
 function GetVerified({ setShowModal }) {

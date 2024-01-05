@@ -5,7 +5,7 @@ import Filter from "../../assets/ICONS/Filter.svg";
 import Sort from "../../assets/ICONS/Sort.svg";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProductData } from "../../../features/productDataSlice";
+
 
 function ListOfProducts() {
   const [products, setProducts] = useState([]);

@@ -2,7 +2,7 @@ import FileUpload from "../../../assets/ICONS/FileUpload.svg";
 import LeftArrow from "../../../assets/ICONS/LeftArrow.svg";
 import RightArrow from "../../../assets/ICONS/RightArrow.svg";
 import { Link } from "react-router-dom";
-import { Input, SelectInput } from "../../../components";
+
 
 function UploadProduct() {
   return (

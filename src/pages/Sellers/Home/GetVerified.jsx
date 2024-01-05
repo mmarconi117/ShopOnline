@@ -42,10 +42,12 @@ const businessDetailsdata = useSelector((state) => state.businessDetailsReducer)
                 </form>
               </div>
             </div>
-            {isVerified && isVerified ? <div className="items-start bg-white flex grow basis-[0%] flex-col mt-10 px-6 py-7 rounded-md max-md:max-w-full max-md:px-5">You have already verified</div> : (<>
 
-              <div className="text-zinc-800 text-base font-semibold leading-6 whitespace-nowrap mt-5 max-md:max-w-full">
-                Get Verified!
+
+            {isVerified && isVerified ? (
+              <div className="items-start bg-white flex grow basis-[0%] flex-col mt-10 px-6 py-7 rounded-md max-md:max-w-full max-md:px-5">
+                You have already verified
+
               </div>
 
               <form onSubmit={handleSubmit(businessData)} className="flex flex-wrap">

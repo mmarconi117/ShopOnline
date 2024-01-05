@@ -3,10 +3,6 @@ import FileUpload from "../../../assets/ICONS/FileUpload.svg";
 import LeftArrow from "../../../assets/ICONS/LeftArrow.svg";
 import RightArrow from "../../../assets/ICONS/RightArrow.svg";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-=======
-// import { Input, SelectInput } from "../../../components";
->>>>>>> 614debdb3986b97e94f88a7ece5d23b2762165cf
 
 
 function UploadProduct() {

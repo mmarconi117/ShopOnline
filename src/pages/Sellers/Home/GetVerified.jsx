@@ -184,23 +184,26 @@ function GetVerified({ setShowModal }) {
                       </label>
                     </div>
                     <div className="justify-between items-stretch self-stretch flex gap-5 mt-8 max-md:max-w-full max-md:flex-wrap">
-                      <Input
-                        lable="Primary contact number"
-                        type="text"
-                        className=""
-                        {...register("primaryContactNumber", {
-                          required: true,
-                        })}
-                      />
-                      <Input
-                        lable="Website URL"
-                        type="url"
-                        className=""
-                        placeholder="http://www.example.com"
-                        {...register("websiteUrl", {
-                          required: true,
-                        })}
-                      />
+                    <label htmlFor="primaryContactNumber">Primary contact number</label>
+                       <input
+                       id="primaryContactNumber"
+                       type="text"
+                       className=""
+                       {...register("primaryContactNumber", {
+                         required: true,
+                       })}
+                     />
+                    
+                     <label htmlFor="websiteUrl">Website URL</label>
+                     <input
+                       id="websiteUrl"
+                       type="url"
+                       className=""
+                       placeholder="http://www.example.com"
+                       {...register("websiteUrl", {
+                         required: true,
+                       })}
+                     />
                     </div>
                     <div className="justify-between items-stretch self-stretch flex gap-5 mt-8 max-md:max-w-full max-md:flex-wrap">
                       <SelectInput

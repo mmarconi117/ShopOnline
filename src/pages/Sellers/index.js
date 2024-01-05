@@ -11,9 +11,9 @@ import OrderList from "./OrderManagement/OrderList";
 import ReturnsAndRefunds from "./OrderManagement/ReturnsAndRefunds";
 import Disputes from "./OrderManagement/Disputes";
 
-import Overview from "../Sellers/Analytics/Overview";
-import Payments from "../Sellers/Analytics/Payments";
-import RatingsAndReviews from "../Sellers/Analytics/RatingsAndReviews";
+import Overview from '../Analytics/Overview'
+import Payments from '../Analytics/Payments'
+import RatingsAndReviews from '../Analytics/RatingsAndReviews'
 
 export {
   Homepage,

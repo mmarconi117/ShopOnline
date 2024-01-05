@@ -12,14 +12,16 @@ const Layout = ({ children }) => {
     return (
     <div>
         <Header />
-            {children};
+            {children}
         <Footer />
     </div>
     );
 };
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
 };
 
+
 export default Layout;
+

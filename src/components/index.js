@@ -7,7 +7,4 @@ export {
     Sidebar,
     Header,
     Signout,
-    Input,
-    Button,
-    SelectInput,
 }

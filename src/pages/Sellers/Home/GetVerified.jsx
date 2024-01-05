@@ -47,9 +47,11 @@ function GetVerified({ setShowModal }) {
               </div>
             </div>
 
+
             {isVerified && isVerified ? (
               <div className="items-start bg-white flex grow basis-[0%] flex-col mt-10 px-6 py-7 rounded-md max-md:max-w-full max-md:px-5">
                 You have already verified
+
               </div>
             ) : (
               <>

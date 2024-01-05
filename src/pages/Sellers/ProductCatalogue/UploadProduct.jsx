@@ -1,7 +1,12 @@
+
 import FileUpload from "../../../assets/ICONS/FileUpload.svg";
 import LeftArrow from "../../../assets/ICONS/LeftArrow.svg";
 import RightArrow from "../../../assets/ICONS/RightArrow.svg";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
+=======
+// import { Input, SelectInput } from "../../../components";
+>>>>>>> 614debdb3986b97e94f88a7ece5d23b2762165cf
 
 
 function UploadProduct() {
@@ -14,7 +19,9 @@ function UploadProduct() {
               Adding New Products
             </div>
             <div className="self-stretch flex items-stretch justify-between gap-5">
+
               <Link to="/ListOfProducts">
+
                 <button
                   type="button"
                   className="shadow-sm text-zinc-700 text-center text-sm  whitespace-nowrap grow justify-center px-8 py-2 border-[0.75px] border-solid border-black max-md:px-5"
@@ -116,3 +123,4 @@ function UploadProduct() {
 }
 
 export default UploadProduct;
+

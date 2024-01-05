@@ -1,12 +1,12 @@
 
 import { useState, useEffect } from "react";
-import SearchIcons from "../../assets/ICONS/SearchIcons.svg";
-import ArrowDown from "../../assets/ICONS/ArrowDown.svg";
-import Filter from "../../assets/ICONS/Filter.svg";
-import Sort from "../../assets/ICONS/Sort.svg";
+import SearchIcons from "../../../assets/ICONS/SearchIcons.svg";
+import ArrowDown from "../../../assets/ICONS/ArrowDown.svg";
+import Filter from "../../../assets/ICONS/Filter.svg";
+import Sort from "../../../assets/ICONS/Sort.svg";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProductData } from "../../../features/productDataSlice";
+// import { fetchProductData } from "../../../features/productDataSlice";
 
 function ListOfProducts() {
   const [products, setProducts] = useState([]);

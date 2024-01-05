@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import RightArrow from '../../assets/ICONS/RightArrow.svg';
+import RightArrow from '../../../assets/ICONS/RightArrow.svg';
 import { DataGrid } from '@mui/x-data-grid';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -9,7 +9,7 @@ import {
   shippedOrder,
   deliveredOrder,
   errorOrder,
-} from '../../../reducersAndActions/actions/';
+} from '../../../reducersAndActions/actions/ordersAction';
 
 function OrderList() {
   const dispatch = useDispatch();

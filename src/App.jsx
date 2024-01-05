@@ -8,7 +8,7 @@ import SignupPage from "./pages/Buyers/SignupPage";
 import Help from "./pages/Buyers/Help";
 import CompanyService from "./pages/Sellers/CompanyService";
 import Layout from "./Layout";
-import Homepage from "./pages/Sellers";
+import Homepage from "./pages/Sellers/Home/Homepage";
 
 function App() {
   return (

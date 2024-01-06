@@ -9,7 +9,7 @@ export const ExploreItem = ({ src, title }) => {
       <img
         src={src}
         alt=""
-        className="w-full h-[220px] rounded-md group-hover:opacity-50 transition-opacity duration-300 ease-in-out m-3 pl-1 pr-"
+        className="w-full h-[220px] rounded-md group-hover:opacity-20 transition-opacity duration-300 ease-in-out mx-1 "
       />
       <div className="absolute opacity-0 group-hover:opacity-100 bottom-16 pt-3 pb-3 text-center text-3xl font-semibold font-[Roboto]">
         {title}

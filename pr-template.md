@@ -1,9 +1,6 @@
 ## Description:
 
-- I did some modification on the seeders from the 4th seeder to the 8th seeder and on some migration files also because because there was a lot of things in them causing errors, and then made the seeders from 9 to 11 and moved the empty seeders to a file called tempSeeders 
-because they're causing errors when we run the seeds while they're empty
-
-- Installed the version 5.5.3 of faker package inside the backend folder because the version was installed was empty and not working which is @6.6.6 and it was installed out of backend folder
+- 
 
 Fixes # (The errors in seeders 4-8)
 

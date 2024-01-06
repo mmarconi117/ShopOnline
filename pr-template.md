@@ -2,7 +2,6 @@
 
 - 
 
-Fixes # (The errors in seeders 4-8)
 
 ## Loom Video:
 - Paste Loom link here

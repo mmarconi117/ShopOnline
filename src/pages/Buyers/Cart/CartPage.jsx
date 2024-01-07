@@ -36,7 +36,7 @@ const CartPage = ({ carts, setCarts }) => {
       <div className="flex px-4 pt-8 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
 
         {/* List of orders */}
-        <div className="col-start-1 col-end-3 bg-blue-200 lg:h-[759px]">
+        <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-blue-200 lg:h-[759px]">
           {carts.length > 0 ? (
             <>
               {carts.map((item, index) => (
@@ -75,7 +75,7 @@ const CartPage = ({ carts, setCarts }) => {
               ))}
             </>
           ) : (
-            "No products in your cart"
+            <p className="self-center text-xl font-semibold lg:text-2xl lg:font-bold">No products in your cart</p>
           )} 
         </div>
         <div className="flex flex-col items-start gap-8 lg:gap-5 col-start-3 col-end-4">

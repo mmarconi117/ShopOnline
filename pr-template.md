@@ -8,9 +8,7 @@
 
 ## Type of change
 
-Please put options that are relevant.
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
 
 ## Checklist:
 

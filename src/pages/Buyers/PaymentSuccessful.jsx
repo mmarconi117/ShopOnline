@@ -7,8 +7,8 @@ const PaymentSuccessful = () => {
         <p>Your tracking number is: {123456}</p>
         <p>Thank you for shopping see you soon!</p>
 
-        <button>Shop Again</button>
-        <button>Print Receipt</button>
+        <button><a href="/">Shop Again</a></button>
+        <button><a href="">Print Receipt</a></button>
     </div>
   )
 }

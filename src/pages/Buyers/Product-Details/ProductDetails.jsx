@@ -1,6 +1,9 @@
 // modules
 import { useState, useEffect } from "react";
 import { useNavigate, useHref } from "react-router-dom";
+import ShippingIcon from "../../../assets/ICONS/Shipping.svg";
+import infoIcon from "../../../assets/ICONS/info.svg";
+// ("/home/jonathan/Documents/PERN-Stack-Intern/SonnyNY/src/assets/ICONS/Shipping.svg");
 
 import PropTypes from "prop-types";
 
@@ -12,8 +15,53 @@ import Quantity from "./Quantity";
 import ProductColors from "./ProductColors";
 import AboutProduct from "./AboutProduct";
 
-function ProductDetails({ product: { product }, addToCart }) {
+function ProductDetails() {
     // let product = productTest.product;
+    const product = {
+        id: 1,
+        imgs: [
+            {
+                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            },
+            {
+                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            },
+            {
+                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            },
+            {
+                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            },
+            {
+                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            },
+            {
+                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            },
+            {
+                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            },
+        ],
+        colors: [
+            {
+                red: "red",
+            },
+            {
+                blue: "blue",
+            },
+            {
+                green: "green",
+            },
+        ],
+        price: 178,
+        discount: 20,
+        description:
+            "COSMO COS-DIS6502 24 in. Dishwasher in Fingerprint Resistant Stainless Steel with Stainless Steel Tub",
+        ratings: 4.7,
+        sold: 4788,
+        reviews: 117,
+    };
+
     const [breadCrumb, setBreadCrumb] = useState([]);
     const [qty, setQty] = useState(1);
     // current urls e.g /products/product-details
@@ -101,7 +149,7 @@ function ProductDetails({ product: { product }, addToCart }) {
                     {/* Product Images */}
                     <ProductImgs />
                     {/* Product description div */}
-                    <div style={{ width: "100%" }}>
+                    <div style={{ width: "75%" }}>
                         <div id="product-desc-div">
                             <p style={{ fontSize: "2rem" }}>{product.description}</p>
                         </div>
@@ -218,60 +266,70 @@ function ProductDetails({ product: { product }, addToCart }) {
                                     </p>
                                 </div>
                             </div>
-                            {/* Product Colors Div */}
-                            <ProductColors colors={product.colors} />
-                            {/* Product quantity div */}
-                            <Quantity
-                                qty={qty}
-                                incrementQty={incrementQty}
-                                decrementQty={decrementQty}
-                                updateQtyOnChange={updateQtyOnChange}
-                            />
+                            {/* Product colors & Product quantity component */}
+                            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                {/* Product Colors Div */}
+                                <ProductColors colors={product.colors} />
+                                {/* Product quantity div */}
+                                <Quantity
+                                    qty={qty}
+                                    incrementQty={incrementQty}
+                                    decrementQty={decrementQty}
+                                    updateQtyOnChange={updateQtyOnChange}
+                                />
+                            </div>
                             {/* Shipping Product div */}
                             <div id="shipping-div">
                                 <div
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        margin: "10% auto",
-                                    }}
+                                    className="flex items-center "
+                                    style={{ margin: "5% auto" }}
                                 >
-                                    <p style={{ fontSize: "2rem" }}>Ship to:</p>
-                                    <div id="shipping-map-icon-div">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            strokeWidth={1.5}
-                                            stroke="currentColor"
-                                            className="w-10 h-10"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                                            />
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                                            />
-                                        </svg>
+                                    <div className="mr-1">
+                                        <img
+                                            className="w-5"
+                                            src={infoIcon}
+                                        />
                                     </div>
-                                    <p>Brooklyn</p>
+                                    <div
+                                        className="flex"
+                                        style={{ marginRight: "25%" }}
+                                    >
+                                        <p className="mr-2 text-xl">Ship to:</p>
+                                        <p className=" text-xl">Brooklyn</p>
+                                    </div>
+                                    <div id="shipping-cost-div">
+                                        <p className="text-red-700 text-xl">Shipping: $5</p>
+                                    </div>
                                 </div>
 
                                 <div
-                                    id="shipping-cost-div"
-                                    style={{ margin: "2% auto" }}
+                                    id="shipping-brief-details-div"
+                                    className="w-1/2 mb-24"
                                 >
-                                    <p style={{ fontSize: "2rem" }}>Shipping: $5</p>
-                                </div>
-                                <div id="shipping-brief-details-div">
-                                    <span>
-                                        From China to Nigeria via xxxx Standard Shipping Estimated
-                                        delivery on May 15
+                                    <span className="text-lg">
+                                        Available at a lower price from{" "}
+                                        <a
+                                            className="border-b-1 border-sky-500 text-blue-700"
+                                            href="/"
+                                        >
+                                            other seller
+                                        </a>{" "}
+                                        that may not offer free shipping
                                     </span>
+                                </div>
+                                <div className="flex ">
+                                    <div className="mr-5 ">
+                                        <input
+                                            className="w-6 h-6"
+                                            style={{
+                                                verticalAlign: "middle",
+                                            }}
+                                            type="checkbox"
+                                        />
+                                    </div>
+                                    <div className="">
+                                        <p className="text-lg text-blue-700">Apply Coupon</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

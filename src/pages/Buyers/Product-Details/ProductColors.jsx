@@ -13,20 +13,18 @@ const ProductColors = ({ product }) => {
 
     const styles = {
         colorOptionsDiv: {
-            width: "50%",
+            // width: "50%",
             display: "flex",
             justifyContent: "flex-start",
         },
         colorOptionDiv: {
-            padding: "5px",
-            width: "25%",
-            marginRight: "5%",
-            border: isHover ? "1px solid black" : "none",
+            // padding: "1rem",
+            marginRight: "1rem",
         },
         colorOptionItem: {
-            borderRadius: "5%",
+            borderRadius: ".5rem",
             border: "1px solid black",
-            padding: "10px",
+            padding: "1.5rem 2rem",
         },
         blue: {
             backgroundColor: "blue",
@@ -39,7 +37,13 @@ const ProductColors = ({ product }) => {
         },
     };
     return (
-        <div>
+        <div
+            id="product-colors-div"
+            style={{ width: "100%" }}
+        >
+            {/* <div
+                id="product-colors-div"
+            > */}
             <div>
                 <p style={{ fontSize: "1.75rem" }}>Color: White</p>
             </div>
@@ -84,6 +88,7 @@ const ProductColors = ({ product }) => {
                     ></p>
                 </div>
             </div>
+            {/* </div> */}
         </div>
     );
 };

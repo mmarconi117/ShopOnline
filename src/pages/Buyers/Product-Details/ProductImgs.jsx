@@ -1,85 +1,43 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import ProductImage from "../../../assets/IMAGES/Product card/Product image.png";
+import RectanleImg1 from "../../../assets/IMAGES/Product card/Rectangle 12305-1.png";
+import RectangleImg2 from "../../../assets/IMAGES/Product card/Rectangle 12305-2.png";
+import RectangleImg3 from "../../../assets/IMAGES/Product card/Rectangle 12305-3.png";
+import RectangleImg4 from "../../../assets/IMAGES/Product card/Rectangle 12305-4.png";
+import RectangleImg5 from "../../../assets/IMAGES/Product card/Rectangle 12305-5.png";
+import RectangleImg6 from "../../../assets/IMAGES/Product card/Rectangle 12305-6.png";
+import RectangleImg7 from "../../../assets/IMAGES/Product card/Rectangle 12305-7.png";
+import RectangleImg8 from "../../../assets/IMAGES/Product card/Rectangle 12305-8.png";
+import RectangleImg9 from "../../../assets/IMAGES/Product card/Rectangle 12305-9.png";
 
 const ProductImgs = () => {
-    const [dummyProduct, setDummyProduct] = useState([
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 25.99,
-            description: "lorem ipsum ",
-            ratings: 4.7,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 24.99,
-            description: "lorem ipsum ",
-            ratings: 4.6,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 23.99,
-            description: "lorem ipsum ",
-            ratings: 4.5,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 22.99,
-            description: "lorem ipsum ",
-            ratings: 4.4,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 21.99,
-            description: "lorem ipsum ",
-            ratings: 4.4,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 20.99,
-            description: "lorem ipsum ",
-            ratings: 4.3,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 19.99,
-            description: "lorem ipsum ",
-            ratings: 4.2,
-            sold: 4788,
-        },
-    ]);
-
     const [dummyProductImgs, setDummyProductImgs] = useState([
         {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            img: RectanleImg1,
         },
         {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            img: RectangleImg2,
         },
         {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            img: RectangleImg3,
         },
         {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            img: RectangleImg4,
         },
         {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            img: RectangleImg5,
         },
         {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            img: RectangleImg6,
         },
         {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            img: RectangleImg7,
         },
         {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            img: RectangleImg8,
         },
         {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+            img: RectangleImg9,
         },
     ]);
     const [copyDummyImgs, setCopyDummyImgs] = useState([]);
@@ -90,8 +48,8 @@ const ProductImgs = () => {
     const [isNextSlide, setIsNextSlideImgs] = useState(false);
 
     useEffect(() => {
-        const copy = dummyProductImgs.slice(0, 5);
-        const totalSlides = Math.ceil(dummyProductImgs.length / 5);
+        const copy = dummyProductImgs.slice(0, 3);
+        const totalSlides = Math.ceil(dummyProductImgs.length / 3);
         setCopyDummyImgs(copy);
         setTotalSlides(totalSlides);
     }, []);
@@ -111,8 +69,8 @@ const ProductImgs = () => {
     };
 
     const onChangeSlide = (slideIndex) => {
-        const startIndex = slideIndex * 5;
-        let endIndex = startIndex + 5;
+        const startIndex = slideIndex * 3;
+        let endIndex = startIndex + 3;
         if (endIndex > dummyProductImgs) {
             endIndex = dummyProductImgs;
         }
@@ -122,19 +80,23 @@ const ProductImgs = () => {
     };
 
     const dummyImgsComp = copyDummyImgs.map((product, index) => {
+        console.log(product.img);
         return (
             <div
                 key={index}
-                style={{ width: "10%", marginRight: "2%" }}
+                style={{ width: "25%", marginRight: "2%" }}
             >
                 <img src={product.img} />
             </div>
         );
     });
     return (
-        <div style={{ width: "100%" }}>
-            <div id="product-image">
-                <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg" />
+        <div style={{ width: "70%" }}>
+            <div
+                id="product-image"
+                style={{ width: "75%" }}
+            >
+                <img src={ProductImage} />
             </div>
             <div style={{ width: "100%", marginTop: "2rem", display: "flex" }}>
                 <div style={{ margin: "auto 1.25rem" }}>

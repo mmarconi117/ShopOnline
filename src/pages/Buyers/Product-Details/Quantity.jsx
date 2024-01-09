@@ -6,20 +6,24 @@ const Quantity = ({ qty, incrementQty, decrementQty, updateQtyOnChange }) => {
             display: "inline-block",
             textAlign: "center",
             border: "1px solid black",
-            padding: ".375rem .75rem",
+            padding: ".5rem 1rem",
             fontSize: "1.25rem",
+            borderRadius: "10px",
         },
     };
 
     return (
-        <div style={{ margin: "10% auto" }}>
+        <div
+            style={{ width: "100%" }}
+            id="quantity-component"
+        >
             <div style={{ marginBottom: "1%" }}>
                 <p style={{ fontSize: "2rem" }}>Quantity </p>
             </div>
             <div
                 style={{
                     display: "flex",
-                    width: "25%",
+                    width: "50%",
                     justifyContent: "flex-start",
                     alignItems: "center",
                 }}

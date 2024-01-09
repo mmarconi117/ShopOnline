@@ -26,15 +26,15 @@ export default function Header() {
                   </div>
               </div>
           </div>
-         
-      <p className="flex items-center justify-center">
+
+          <p className="flex items-center justify-center">
               Take the good times on the go, get the&nbsp;
               <Link to="/app">
                   <button className="text-orange-500 text-2xl font-500">APP&nbsp;</button>
               </Link>{" "}
               now!!!
           </p>
-          <NavigationBar />
+          {/* <NavigationBar /> */}
       </div>
   );
 }

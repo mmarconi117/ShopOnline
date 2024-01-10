@@ -11,14 +11,14 @@ const Checkout = () => {
       <p>Shipping method</p>
 
       <div>
+        <input type="radio" name="shipping" id="standard" />
         <label htmlFor="standard">Standard Shipping</label>
-        <input type="radio" name="shipping" id="" />
 
+        <input type="radio" name="shipping" id="express" />
         <label htmlFor="express">Express Shipping</label>
-        <input type="radio" name="shipping" id="" />
 
+        <input type="radio" name="shipping" id="overnight" />
         <label htmlFor="express">Overnight Shipping</label>
-        <input type="radio" name="shipping" id="" />
 
         <button>Continue to payment</button>
       </div>

@@ -61,7 +61,7 @@ export let Links = [
     },
     {
         id: 5,
-        name: "Top of Mew York",
+        name: "Top of New York",
         url: "",
         subMenu: false,
         subLinks: [

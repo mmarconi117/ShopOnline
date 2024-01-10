@@ -18,6 +18,7 @@ import Help from "./pages/Buyers/Help";
 import CompanyService from "./pages/Sellers/CompanyService";
 import Layout from "./Layout";
 import Homepage from "./pages/Sellers/Home/Homepage";
+import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/companyService" element={<CompanyService/>}/>
+              <Route path="/paymentSuccess" element={<PaymentSuccessful/>}/>
             </Routes>
           </Layout>
         </Router>

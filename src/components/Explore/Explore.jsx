@@ -4,6 +4,7 @@ This is currently as dynamic as I can get for the time being and still be able t
 */
 import { ExploreItem } from "./ExploreItem";
 import { BaseImagesAndCategories } from "./BaseImagesAndCategories";
+import rightArrow from "../../assets/ICONS/Fill/arrow-right.svg";
 
 export const Explore = () => {
   const exploreItems = BaseImagesAndCategories.map((item, i) => {
@@ -15,16 +16,18 @@ export const Explore = () => {
   });
 
   return (
-
-    <section className="flex pb-6 flex-col items-start justify-center gap-[18px] flex-1 bg-emerald-300">
-      <div className="text-zinc-800 text-xl font-bold font-'Arial' leading-normal tracking-tight pb-2 pt-6 pl-3">
-
-        Explore our Top Categories
+    <section className="bg-[#BAD9E8] w-full flex flex-col items-start justify-center px-4 py-8 gap-2 min-[391px]:pl-10 min-[391px]:pt-9 min-[391px]:gap-[18px] min-[391px]:min-h-[651px] ">
+      <div className="w-full flex justify-between items-center pb-2 pt-6 pl-3">
+        <div className="font-Roboto text-[#313133] text-base font-medium min-[391px]:text-xl min-[391px]:font-bold min-[391px]:leading-normal whitespace-nowrap">Explore our Top Categories</div>
+        <button className="w-6 h-6 min-[391px]:hidden">
+          <img src={rightArrow} alt="right-arrow" className="w-4 h-[14px]"/>
+        </button>
       </div>
-
-      <div className="grid gap-2 md:gap-5 grid-cols-6 w-max xl:w-full md:pl-10 md:pr-3">
+    <div className="w-full overflow-hidden min-[391px]:overflow-x-auto">
+      <div className="min-w-max grid grid-cols-6 gap-x-2 gap-y-6 min-[391px]:gap-y-9 min-[391px]:gap-x-6 overflow-hidden">
         {exploreItems}
       </div>
+    </div>
     </section>
   );
 };

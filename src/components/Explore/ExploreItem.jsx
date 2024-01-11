@@ -4,19 +4,21 @@ export const ExploreItem = ({ src, title }) => {
   return (
     <a
       href='#'
-      className="relative group flex flex-col justify-between items-center bg-[#FBFDFE] rounded-md shadow-lg  hover:shadow-gray-700"
+      className="bg-[#FBFDFE] flex flex-col justify-between items-center w-[175px] h-[235px] rounded p-2 pb-3 gap-3 min-[391px]:w-[219px] min-[391px]:h-auto min-[391px]:p-[10px] min-[391px]:pb-5 min-[391px]:gap-[17px]"
     >
       <img
         src={src}
         alt=""
-        className="w-full h-[220px] rounded-md group-hover:opacity-20 transition-opacity duration-300 ease-in-out mx-1 "
+        className="w-full h-[179px] object-cover rounded-[2px] bg-center bg-no-repeat"
       />
-      <div className="absolute opacity-0 group-hover:opacity-100 bottom-16 pt-3 pb-3 text-center text-3xl font-semibold font-[Roboto]">
+      <div className="text-[#2284B6] font-Roboto text-base font-medium min-[391px]:text-xl min-[391px]:leading-6 min-[391px]:font-semibold">
         {title}
       </div>
     </a>
   );
 };
+
+
 
 ExploreItem.propTypes = {
   src: PropTypes.string.isRequired,

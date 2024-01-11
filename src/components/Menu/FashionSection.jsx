@@ -2,31 +2,29 @@ import fashionWoman from "./assets/fashionWoman.png";
 import clothes from "./assets/clothes.png";
 export const FashionSection = () => {
   return (
-    <span className=" flex flex-col flex-1 gap-6 pt-4">
-      <div className="ml-3 items-start hidden gap-6 md:flex pt-6">
-
-        <div className="text-zinc-800 text-base font-bold font-['Roboto'] leading-tight">
+    <div className="flex flex-col min-[391px]:gap-5">
+      <div className="items-start hidden gap-6 min-[391px]:flex pt-4">
+        <div className="text-[#313133] text-base font-bold font-Roboto leading-[19.2px]">
           Plus
         </div>
-        <div className="text-zinc-800 text-base font-bold font-['Roboto'] leading-tight">
+        <div className="text-[#313133] text-base font-bold font-Roboto leading-[19.2px]">
           Cool Home Gadgets
         </div>
-        <div className="text-zinc-800 text-base font-bold font-['Roboto'] leading-tight">
+        <div className="text-[#313133] text-base font-bold font-Roboto leading-[19.2px]">
           Super Deals
         </div>
-        <div className="text-zinc-800 text-base font-bold font-['Roboto'] leading-tight">
+        <div className="text-[#313133] text-base font-bold font-Roboto leading-[19.2px]">
           New users Zone
         </div>
       </div>
 
-      <div className="ml-3 max-h-[368px] min-h-[184px] relative bg-white rounded-[10px] items-end flex justify-between ">
+      <div className="w-screen h-auto min-[391px]:w-[752px] min-[391px]:min-h-[368px] bg-white rounded-[10px] items-end flex justify-between ">
         <div className="relative">
-          <div className="left-[40%] top-[23%] absolute flex-col justify-start items-start gap-2 inline-flex">
-            <div className="flex text-blue-400 text-[39px] font-bold font-['Roboto'] leading-[46.80px] max-md:text-[29px] whitespace-nowrap ml-[-100px]">
+          <div className="max-w-max left-[18%] top-[23%] absolute flex-col justify-start items-start gap-2 flex">
+            <div className="text-[#55A0C7] tracking-tight text-[19.5px] leading-[23.4px] min-[391px]:text-[39px] min-[391px]:font-bold font-Roboto min-[391px]:leading-[46.8px] max-md:text-[29px] whitespace-nowrap ">
               Style & Fashion
             </div>
-            <div className="ml-[-100px] w-[83px] h-2.5 bg-amber-300 rounded-sm" />
-
+            <div className="w-[45px] h-[6px] bg-[#F0CC58] rounded-[1px] min-[391px]:w-[90px] min-[391px]:h-3 min-[391px]:rounded-sm" />
           </div>
           <img src={clothes} />
         </div>
@@ -39,7 +37,7 @@ export const FashionSection = () => {
           />
         </div>
       </div>
-    </span>
+    </div>
   );
 };
 

@@ -77,7 +77,7 @@ const Menu = () => {
   ];
 
   return (
-    <div className="hidden py-3 flex-col min-w-max rounded-[10px] bg-white gap-3 min-[391px]:flex font-Roboto">
+    <div className="hidden py-3 flex-col min-w-max rounded-[10px] bg-white gap-3 min-[1450px]:flex font-Roboto">
       <p className="py-[6px] px-4 text-xl font-bold leading-6 w-[316px]">Categories</p>
       {categories.map((item, index) => (
         <div key={index} className="flex items-center py-[6px] px-4 gap-5">

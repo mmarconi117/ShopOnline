@@ -9,7 +9,7 @@ export const ExploreItem = ({ src, title }) => {
       <img
         src={src}
         alt=""
-        className="w-full h-[179px] object-cover rounded-[2px] bg-center bg-no-repeat"
+        className="w-full h-[179px] min-[391px]:w-[197px] object-cover rounded-[2px] bg-center bg-no-repeat"
       />
       <div className="text-[#2284B6] font-Roboto text-base font-medium min-[391px]:text-xl min-[391px]:leading-6 min-[391px]:font-semibold">
         {title}

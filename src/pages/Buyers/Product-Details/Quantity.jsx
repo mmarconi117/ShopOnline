@@ -42,8 +42,8 @@ const Quantity = ({ qty, incrementQty, decrementQty, updateQtyOnChange }) => {
                     <div>
                         <input
                             type="number"
-                            name="price"
-                            id="price"
+                            name="quantity"
+                            id="quantity"
                             className="block w-full rounded-md border-0 py-2 text-black-900 ring-1 ring-inset ring-gray-300 placeholder:text-black-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
                             value={qty}
                             onChange={(e) => updateQtyOnChange(e)}
@@ -65,5 +65,4 @@ const Quantity = ({ qty, incrementQty, decrementQty, updateQtyOnChange }) => {
         </div>
     );
 };
-// export default connect(mapStateToProps,mapDispatchToProps)(Quantity)
 export default Quantity;

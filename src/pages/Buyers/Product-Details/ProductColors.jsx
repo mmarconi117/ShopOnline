@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const ProductColors = ({ product }) => {
+const ProductColors = ({ colors }) => {
+    // console.log(colors);
     const [isHover, setIsHover] = useState(false);
 
     const onMouseEnter = () => {
@@ -13,20 +14,18 @@ const ProductColors = ({ product }) => {
 
     const styles = {
         colorOptionsDiv: {
-            width: "50%",
+            // width: "50%",
             display: "flex",
             justifyContent: "flex-start",
         },
         colorOptionDiv: {
-            padding: "5px",
-            width: "25%",
-            marginRight: "5%",
-            border: isHover ? "1px solid black" : "none",
+            // padding: "1rem",
+            marginRight: "1rem",
         },
         colorOptionItem: {
-            borderRadius: "5%",
+            borderRadius: ".5rem",
             border: "1px solid black",
-            padding: "10px",
+            padding: "1.5rem 2rem",
         },
         blue: {
             backgroundColor: "blue",
@@ -38,8 +37,30 @@ const ProductColors = ({ product }) => {
             backgroundColor: "green",
         },
     };
+    const colorsComponent = colors.map((c, index) => {
+        return (
+            <div
+                key={index}
+                style={{
+                    marginRight: "1rem",
+                }}
+            >
+                <p
+                    className="border border-black"
+                    style={{
+                        backgroundColor: c.color,
+                        padding: "1.5rem 2rem",
+                        borderRadius: ".5rem",
+                    }}
+                ></p>
+            </div>
+        );
+    });
     return (
-        <div>
+        <div
+            id="product-colors-div"
+            style={{ width: "100%" }}
+        >
             <div>
                 <p style={{ fontSize: "1.75rem" }}>Color: White</p>
             </div>
@@ -47,42 +68,7 @@ const ProductColors = ({ product }) => {
                 id="colors-options"
                 style={styles.colorOptionsDiv}
             >
-                <div
-                    id="color-option-div"
-                    style={styles.colorOptionDiv}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    key={1}
-                >
-                    <p
-                        className="bg-red-700"
-                        style={styles.colorOptionItem}
-                    ></p>
-                </div>
-                <div
-                    id="color-option-div"
-                    style={styles.colorOptionDiv}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    key={1}
-                >
-                    <p
-                        className="bg-green-700"
-                        style={styles.colorOptionItem}
-                    ></p>
-                </div>
-                <div
-                    id="color-option-div"
-                    style={styles.colorOptionDiv}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    key={1}
-                >
-                    <p
-                        className="bg-blue-700"
-                        style={styles.colorOptionItem}
-                    ></p>
-                </div>
+                {colorsComponent}
             </div>
         </div>
     );

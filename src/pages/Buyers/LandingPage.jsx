@@ -57,23 +57,22 @@ const productDetailItemTest = {
 };
 
 export default function LandingPage() {
-    return (
-        <div className="bg-gray-100">
-            <div className=" flex w-full justify-center ml-3">
-                <Menu />
-                <div className="flex">
-                    <div>
-                        <FashionSection />
-                        <EmptySpaceToBeFilledIn />
-                        <ProductDetails product={productDetailItemTest} />
-                    </div>
-                    <Welcome />
-                </div>
-            </div>
-            <Explore />
-            <PopularItems />
-            <BS_HomeAndOffice />
-            <BS_BeautyandPersonal />
+  return (
+    <div className='bg-gray-100'>
+      <div className="flex w-full justify-center gap-6 min-[1512px]:px-10 min-[1450px]:pt-4 min-[1450px]:pb-[93px] overflow-auto">
+        <Menu />
+        <div>
+          <FashionSection /> 
+          <EmptySpaceToBeFilledIn />
         </div>
-    );
+        <Welcome />
+      </div>
+      <Explore />
+      <div className='flex flex-col items-center min-[1512px]:items-center'>
+        <PopularItems />
+        <BS_HomeAndOffice />
+        <BS_BeautyandPersonal />
+      </div>
+    </div>  
+  );
 }

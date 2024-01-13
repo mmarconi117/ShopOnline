@@ -20,6 +20,8 @@ import Layout from "./Layout";
 import Homepage from "./pages/Sellers/Home/Homepage";
 import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
 import Checkout from "./pages/Buyers/Checkout";
+import AccountSettings from "./pages/Buyers/Account";
+import Account from "./pages/Buyers/Account";
 
 function App() {
   return (
@@ -34,7 +36,7 @@ function App() {
               <Route path="/sellers" element="#" />
               <Route path="/help" element={<Help />} />
               <Route path="/language" element="#" />
-              <Route path="/account" element="#" />
+              <Route path="/account" element={<Account/>} />
               <Route path="/app" element="#" />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />

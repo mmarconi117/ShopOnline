@@ -20,6 +20,7 @@ import Layout from "./Layout";
 import Homepage from "./pages/Sellers/Home/Homepage";
 import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
 import Checkout from "./pages/Buyers/Checkout";
+import ReviewPage from "./pages/Buyers/ReviewPage";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
               <Route path="/companyService" element={<CompanyService/>}/>
               <Route path="/paymentSuccess" element={<PaymentSuccessful/>}/>
               <Route path="/checkout" element={<Checkout/>}/>
+              <Route path="/reviews" element={<ReviewPage/>} />
             </Routes>
           </Layout>
         </Router>

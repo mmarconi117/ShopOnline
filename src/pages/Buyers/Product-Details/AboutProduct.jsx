@@ -107,7 +107,7 @@ const AboutProduct = () => {
                     </div>
                     <div>
                         <ul
-                            className="list-inside p-6 "
+                            className="list-inside list-disc p-6 "
                             style={{ padding: "1.5rem" }}
                         >
                             <li className="py-1.5 px-2">SKU: SH960HA3VFZ94NAFAMZ</li>

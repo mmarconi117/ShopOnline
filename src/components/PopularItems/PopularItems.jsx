@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Item } from "./Item";
 import { Base } from "./Base";
+import  arrow  from "../../assets/ICONS/RightPointer.svg";
 import rightArrow from "../../assets/ICONS/Fill/arrow-right.svg";
 
 export const PopularItems = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const itemsPerSlide = 6;
+  const itemsPerSlide = 2;
 
   const totalSlides = Math.ceil(Base.length / itemsPerSlide);
 
@@ -30,20 +31,43 @@ export const PopularItems = () => {
     );
   });
 
+  const desktopExploreItems = Base.map((item, i) => {
+    return (
+      <Item
+        key={i}
+        src={item.img}
+        description={item.description}
+        price={item.price}
+      />
+    );
+  })
+
   return (
-    <section className=" h-fit px-0 pb-6 flex-col items-start justify-center gap-[18px] pt-8 flex-1 bg-gray-100">
-      <div className="flex w-full">
-        <div className=" text-zinc-800 pb-4 text-xl font-bold font-Arial leading-normal tracking-tight pt-3 pl-3">
+    <section className="relative w-full min-[1512px]:max-w-min flex flex-col items-start pt-8 px-2 pb-2 gap-4  min-[465px]:justify-center min-[465px]:pt-16 min-[465px]:pb-8 min-[465px]:px-10 min-[465px]:gap-6">
+      <div className="w-full flex justify-between items-center">
+        <div className=" text-[#313133] font-Roboto text-base font-medium min-[465px]:text-2xl min-[465px]:font-bold min-[465px]:tracking-[0.18px]">
           Popular items
         </div>
-        <button onClick={nextSlide} className="next-button ml-auto">
-          <img src={rightArrow} alt="right-arrow" />
+        <button className="hidden min-[465px]:block">
+          <img src={rightArrow} alt="right-arrow" className="w-[42px] h-[42px]"/>
         </button>
       </div>
-
-      <div className="carousel flex gap-6 pl-3 items-center">
-        {exploreItems}
+      {/* Mobile Layout */}
+      <div className="min-[465px]:hidden w-full overflow-hidden min-[465px]:overflow-x-auto">
+        <div className="flex gap-2 items-start min-[465px]:items-center min-[465px]:gap-6">
+          {exploreItems}
+        </div>
       </div>
+      {/* Desktop Layout */}
+      <div className="hidden min-[465px]:block w-full overflow-hidden min-[465px]:overflow-x-auto">
+        <div className="flex gap-2 items-start min-[465px]:items-center min-[465px]:gap-6">
+          {desktopExploreItems}
+        </div>
+      </div>
+
+      <button id="next-slide" className="min-[465px]:hidden absolute text-[#7A7A7A] bg-white top-[195px] right-[7%] w-[42px] h-[42px] rounded-full" onClick={nextSlide}>
+          <img src={arrow} alt="right-arrow" className="ml-[3px] w-6 h-7 "/>
+      </button>      
     </section>
   );
 };

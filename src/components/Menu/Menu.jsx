@@ -77,12 +77,12 @@ const Menu = () => {
   ];
 
   return (
-    <div className="w-[20%] flex flex-col rounded-[10px] pr-3 bg-white pl-3 mb-16 mt-6">
-      <p className="pt-2 pb-4 ml-4 text-lg font-bold">Categories</p>
+    <div className="hidden py-3 flex-col min-w-max rounded-[10px] bg-white gap-3 min-[1450px]:flex font-Roboto">
+      <p className="py-[6px] px-4 text-xl font-bold leading-6 w-[316px]">Categories</p>
       {categories.map((item, index) => (
-        <div key={index} className="flex items-center ml-4 pb-4">
-          <img src={item.img} alt={item.title} className="w-6 h-6 mr-2" />
-          <div>{item.title}</div>
+        <div key={index} className="flex items-center py-[6px] px-4 gap-5">
+          <img src={item.img} alt={item.title} className="w-6 h-6" />
+          <div className="text-base leading-[19.2px]">{item.title}</div>
         </div>
       ))}
     </div>

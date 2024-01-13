@@ -12,20 +12,20 @@ import BS_HomeAndOffice from '../../components/BS_HomeAndOffice/PopularItems';
 export default function LandingPage() {
   return (
     <div className='bg-gray-100'>
-      <div className=" flex w-full justify-center ml-3">
+      <div className="flex w-full justify-center gap-6 min-[1512px]:px-10 min-[1450px]:pt-4 min-[1450px]:pb-[93px] overflow-auto">
         <Menu />
-        <div className="flex">
-          <div>
-            <FashionSection /> 
-            <EmptySpaceToBeFilledIn />
-          </div>
-          <Welcome />
+        <div>
+          <FashionSection /> 
+          <EmptySpaceToBeFilledIn />
         </div>
+        <Welcome />
       </div>
       <Explore />
-      <PopularItems />
-      <BS_HomeAndOffice />
-      <BS_BeautyandPersonal />
+      <div className='flex flex-col items-center min-[1512px]:items-center'>
+        <PopularItems />
+        <BS_HomeAndOffice />
+        <BS_BeautyandPersonal />
+      </div>
     </div>  
   );
 }

@@ -6,20 +6,24 @@ const Quantity = ({ qty, incrementQty, decrementQty, updateQtyOnChange }) => {
             display: "inline-block",
             textAlign: "center",
             border: "1px solid black",
-            padding: ".375rem .75rem",
+            padding: ".5rem 1rem",
             fontSize: "1.25rem",
+            borderRadius: "10px",
         },
     };
 
     return (
-        <div style={{ margin: "10% auto" }}>
+        <div
+            style={{ width: "100%" }}
+            id="quantity-component"
+        >
             <div style={{ marginBottom: "1%" }}>
                 <p style={{ fontSize: "2rem" }}>Quantity </p>
             </div>
             <div
                 style={{
                     display: "flex",
-                    width: "25%",
+                    width: "50%",
                     justifyContent: "flex-start",
                     alignItems: "center",
                 }}
@@ -38,8 +42,8 @@ const Quantity = ({ qty, incrementQty, decrementQty, updateQtyOnChange }) => {
                     <div>
                         <input
                             type="number"
-                            name="price"
-                            id="price"
+                            name="quantity"
+                            id="quantity"
                             className="block w-full rounded-md border-0 py-2 text-black-900 ring-1 ring-inset ring-gray-300 placeholder:text-black-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
                             value={qty}
                             onChange={(e) => updateQtyOnChange(e)}
@@ -61,5 +65,4 @@ const Quantity = ({ qty, incrementQty, decrementQty, updateQtyOnChange }) => {
         </div>
     );
 };
-// export default connect(mapStateToProps,mapDispatchToProps)(Quantity)
 export default Quantity;

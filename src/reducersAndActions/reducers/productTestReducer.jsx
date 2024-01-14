@@ -1,40 +1,55 @@
 import { SET_PRODUCT } from "../actions";
+import ProductImgTest from "../../assets/IMAGES/Product card/Rectangle 12305-1.png";
+import ProductImgTest2 from "../../assets/IMAGES/Product card/Rectangle 12305-2.png";
+import ProductImgTest3 from "../../assets/IMAGES/Product card/Rectangle 12305-3.png";
+import ProductImgTest4 from "../../assets/IMAGES/Product card/Rectangle 12305-4.png";
+import ProductImgTest5 from "../../assets/IMAGES/Product card/Rectangle 12305-5.png";
+import ProductImgTest6 from "../../assets/IMAGES/Product card/Rectangle 12305-6.png";
+import ProductImgTest7 from "../../assets/IMAGES/Product card/Rectangle 12305-7.png";
+import ProductImgTest8 from "../../assets/IMAGES/Product card/Rectangle 12305-8.png";
+import ProductImgTest9 from "../../assets/IMAGES/Product card/Rectangle 12305-9.png";
 
 export const initialState = {
     product: {
         id: 1,
         imgs: [
             {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+                img: ProductImgTest,
             },
             {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+                img: ProductImgTest2,
             },
             {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+                img: ProductImgTest3,
             },
             {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+                img: ProductImgTest4,
             },
             {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+                img: ProductImgTest5,
             },
             {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+                img: ProductImgTest6,
             },
             {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+                img: ProductImgTest7,
+            },
+            {
+                img: ProductImgTest8,
+            },
+            {
+                img: ProductImgTest9,
             },
         ],
         colors: [
             {
-                red: "red",
+                color: "red",
             },
             {
-                blue: "blue",
+                color: "blue",
             },
             {
-                green: "green",
+                color: "green",
             },
         ],
         price: 178,

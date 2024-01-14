@@ -1,57 +1,6 @@
 import { useState, useEffect } from "react";
 
-const SimilarProducts = () => {
-    const [similarProducts, setSimilarProducts] = useState([
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 25.99,
-            description: "lorem ipsum ",
-            ratings: 4.7,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 24.99,
-            description: "lorem ipsum ",
-            ratings: 4.6,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 23.99,
-            description: "lorem ipsum ",
-            ratings: 4.5,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 22.99,
-            description: "lorem ipsum ",
-            ratings: 4.4,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 21.99,
-            description: "lorem ipsum ",
-            ratings: 4.4,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 20.99,
-            description: "lorem ipsum ",
-            ratings: 4.3,
-            sold: 4788,
-        },
-        {
-            img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            price: 19.99,
-            description: "lorem ipsum ",
-            ratings: 4.2,
-            sold: 4788,
-        },
-    ]);
+const SimilarProducts = ({ similarProducts }) => {
     const [similarProductsCopy, setSimilarProductsCopy] = useState([]);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [totalSlides, setTotalSlides] = useState(0);
@@ -95,42 +44,26 @@ const SimilarProducts = () => {
     const similarProductsComp = similarProductsCopy.map((product, index) => {
         return (
             <div
-                style={{
-                    width: "15%",
-                    height: "auto",
-                }}
+                className="w-1/6 h-auto p-5 border shadow-md"
                 key={index}
             >
                 <div>
                     <img src={product.img} />
                 </div>
-                <div>
-                    <div style={{ margin: "10px auto" }}>
-                        <p style={{ fontSize: "1.25rem" }}>${product.price}</p>
-                    </div>
+                <div className="mt-5">
                     <div>
-                        <p>{product.description}</p>
+                        <p>
+                            Lorem ipsum dolor sit amet, dolor sit amet, consectetur
+                            {/* {product.description} */}
+                        </p>
                     </div>
-                    <div style={{ display: "flex" }}>
-                        <span style={{ fontSize: ".75rem" }}>{product.sold} sold</span>
-                        <div
-                            className="flex items-center"
-                            style={{ marginLeft: "5px", marginRight: "5px" }}
-                        >
-                            <svg
-                                className="w-3 h-3 text-yellow-300 me-1"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor"
-                                viewBox="0 0 22 20"
-                            >
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                            </svg>
+                    <div className="my-2.5 mx-auto flex ">
+                        <div className="mr-2 ">
+                            <p className=""> From </p>
                         </div>
-                        <span style={{ fontSize: ".75rem" }}>{product.ratings}</span>
-                    </div>
-                    <div>
-                        <span>Free shipping</span>
+                        <div>
+                            <p className="text-xl font-bold text-red-600">${product.price}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,18 +74,20 @@ const SimilarProducts = () => {
         //  {/* Similar Products slide show */}
 
         <div
+            className="my-16 mx-auto h-auto"
             id="similar-products-div"
-            style={{ width: "100%", height: "auto", margin: "10% auto" }}
+            style={{ width: "85%" }}
         >
-            <div style={{ width: "100%", height: "auto", margin: "5% auto" }}>
-                <p style={{ fontSize: "2rem" }}>You may also like</p>
+            <div className="w-full h-auto my-16 mx-auto">
+                <p className="text-3xl font-bold">Based on recently viewed</p>
             </div>
 
             {/* Similar product items list */}
-            <div style={{ display: "flex" }}>
-                <div style={{ margin: "auto 25px" }}>
+            <div className="flex">
+                <div className="my-auto mx-4">
                     <button
                         type="button"
+                        className="hover:cursor-pointer"
                         disabled={isPreviousSlide}
                         onClick={() => {
                             slideController(currentSlide - 1, true);
@@ -175,18 +110,10 @@ const SimilarProducts = () => {
                         </svg>
                     </button>
                 </div>
-                <div
-                    style={{
-                        width: "100%",
-                        height: "auto",
-                        display: "flex",
-                        justifyContent: "space-evenly",
-                    }}
-                >
-                    {similarProductsComp}
-                </div>
-                <div style={{ margin: "auto 25px" }}>
+                <div className="w-full h-auto flex justify-evenly">{similarProductsComp}</div>
+                <div className="my-auto mx-4">
                     <button
+                        className="hover:cursor-pointer"
                         type="button"
                         disabled={isNextSlide}
                         onClick={() => {

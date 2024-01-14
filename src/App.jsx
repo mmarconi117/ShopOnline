@@ -23,6 +23,7 @@ import Checkout from "./pages/Buyers/Checkout";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 
 function App() {
+
   return (
     <>
       <div>

@@ -20,70 +20,74 @@ import Layout from "./Layout";
 import Homepage from "./pages/Sellers/Home/Homepage";
 import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
 import Checkout from "./pages/Buyers/Checkout";
+import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
 
 function App() {
-
-  return (
-      <>
-          <div>
-              <Router>
-                  <Layout>
-                      <Routes>
-                          <Route
-                              exact
-                              path="/"
-                              element={<LandingPage />}
-                          />
-                          <Route
-                              path="/subcategories"
-                              element={<SubCategory />}
-                          />
-                          <Route
-                              path="/cart"
-                              element={<Cart />}
-                          />
-                          <Route
-                              path="/product-details"
-                              element={<ProductDetails />}
-                          />
-                          <Route
-                              path="/sellers"
-                              element="#"
-                          />
-                          <Route
-                              path="/help"
-                              element={<Help />}
-                          />
-                          <Route
-                              path="/language"
-                              element="#"
-                          />
-                          <Route
-                              path="/account"
-                              element="#"
-                          />
-                          <Route
-                              path="/app"
-                              element="#"
-                          />
-                          <Route
-                              path="/login"
-                              element={<LoginPage />}
-                          />
-                          <Route
-                              path="/signup"
-                              element={<SignupPage />}
-                          />
-                          <Route
-                              path="/companyService"
-                              element={<CompanyService />}
-                          />
-                      </Routes>
-                  </Layout>
-              </Router>
-          </div>
-      </>
-  );
+    return (
+        <>
+            <div>
+                <Router>
+                    <Layout>
+                        <Routes>
+                            <Route
+                                exact
+                                path="/"
+                                element={<LandingPage />}
+                            />
+                            <Route
+                                path="/subcategories"
+                                element={<SubCategory />}
+                            />
+                            <Route
+                                path="/cart"
+                                element={<Cart />}
+                            />
+                            <Route
+                                path="/product-details"
+                                element={<ProductDetails />}
+                            />
+                            <Route
+                                path="/product-catalogue"
+                                element={<ProductCatalogue />}
+                            />
+                            <Route
+                                path="/sellers"
+                                element="#"
+                            />
+                            <Route
+                                path="/help"
+                                element={<Help />}
+                            />
+                            <Route
+                                path="/language"
+                                element="#"
+                            />
+                            <Route
+                                path="/account"
+                                element="#"
+                            />
+                            <Route
+                                path="/app"
+                                element="#"
+                            />
+                            <Route
+                                path="/login"
+                                element={<LoginPage />}
+                            />
+                            <Route
+                                path="/signup"
+                                element={<SignupPage />}
+                            />
+                            <Route
+                                path="/companyService"
+                                element={<CompanyService />}
+                            />
+                        </Routes>
+                    </Layout>
+                </Router>
+            </div>
+        </>
+    );
 }
 
 export default App;

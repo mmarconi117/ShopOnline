@@ -10,56 +10,58 @@ import ProductImgTest8 from "../../assets/IMAGES/Product card/Rectangle 12305-8.
 import ProductImgTest9 from "../../assets/IMAGES/Product card/Rectangle 12305-9.png";
 
 export const initialState = {
-    product: {
-        id: 1,
-        imgs: [
-            {
-                img: ProductImgTest,
-            },
-            {
-                img: ProductImgTest2,
-            },
-            {
-                img: ProductImgTest3,
-            },
-            {
-                img: ProductImgTest4,
-            },
-            {
-                img: ProductImgTest5,
-            },
-            {
-                img: ProductImgTest6,
-            },
-            {
-                img: ProductImgTest7,
-            },
-            {
-                img: ProductImgTest8,
-            },
-            {
-                img: ProductImgTest9,
-            },
-        ],
-        colors: [
-            {
-                color: "red",
-            },
-            {
-                color: "blue",
-            },
-            {
-                color: "green",
-            },
-        ],
-        price: 178,
-        discount: 20,
-        description:
-            "COSMO COS-DIS6502 24 in. Dishwasher in Fingerprint Resistant Stainless Steel with Stainless Steel Tub",
-        ratings: 4.7,
-        sold: 4788,
-        reviews: 117,
-    },
+    product: [
+        {
+            id: 1,
+            imgs: [
+                {
+                    img: ProductImgTest,
+                },
+                {
+                    img: ProductImgTest2,
+                },
+                {
+                    img: ProductImgTest3,
+                },
+                {
+                    img: ProductImgTest4,
+                },
+                {
+                    img: ProductImgTest5,
+                },
+                {
+                    img: ProductImgTest6,
+                },
+                {
+                    img: ProductImgTest7,
+                },
+                {
+                    img: ProductImgTest8,
+                },
+                {
+                    img: ProductImgTest9,
+                },
+            ],
+            colors: [
+                {
+                    color: "red",
+                },
+                {
+                    color: "blue",
+                },
+                {
+                    color: "green",
+                },
+            ],
+            price: 178,
+            discount: 20,
+            description:
+                "COSMO COS-DIS6502 24 in. Dishwasher in Fingerprint Resistant Stainless Steel with Stainless Steel Tub",
+            ratings: 4.7,
+            sold: 4788,
+            reviews: 117,
+        },
+    ]
 };
 
 export const productTestReducer = (state = initialState, action) => {

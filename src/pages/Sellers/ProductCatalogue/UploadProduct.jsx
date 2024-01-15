@@ -1,14 +1,38 @@
-
+import { useState } from "react";
 import FileUpload from "../../../assets/ICONS/FileUpload.svg";
 import LeftArrow from "../../../assets/ICONS/LeftArrow.svg";
 import RightArrow from "../../../assets/ICONS/RightArrow.svg";
 import { Link } from "react-router-dom";
 
+import { SET_PRODUCT } from "../../../reducersAndActions/actions";
+import { useSelector, useDispatch } from "react-redux";
+
+
 
 function UploadProduct() {
+  const [productData, setProductData] = useState({
+    productName: '',
+    description: '',
+    type: '',
+    brand: '',
+    inventory: '',
+    price: '',
+  });
+
+  const dispatch = useDispatch();
+  
+  const productDetails = useSelector((state) => state.productTestReducer.product);
+
+  const productDataHandler = (e) => {
+    e.preventDefault();
+    dispatch({ type: SET_PRODUCT, payload: productData });
+    console.log(productDetails);
+  
+  }
   return (
     <div className="self-center flex w-full max-w-full flex-col items-stretch  px-8">
       <div className="flex flex-col items-stretch max-md:max-w-full">
+        <form onSubmit={productDataHandler}>
         <div className="bg-white self-center flex w-full max-w-[1141px] flex-col items-stretch mt-7 pl-12 rounded-3xl max-md:max-w-full max-md:pl-5">
           <div className="flex w-full justify-between gap-5 pr-9 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 mt-11">
             <div className="text-stone-950 text-xl font-medium leading-8 grow whitespace-nowrap">
@@ -16,8 +40,7 @@ function UploadProduct() {
             </div>
             <div className="self-stretch flex items-stretch justify-between gap-5">
 
-              <Link to="/ListOfProducts">
-
+              <Link to="/sellers/ListOfProducts">
                 <button
                   type="button"
                   className="shadow-sm text-zinc-700 text-center text-sm  whitespace-nowrap grow justify-center px-8 py-2 border-[0.75px] border-solid border-black max-md:px-5"
@@ -26,7 +49,7 @@ function UploadProduct() {
                 </button>
               </Link>
               <button
-                type="button"
+                type="submit"
                 className="shadow-sm text-zinc-700 text-center text-sm  whitespace-nowrap grow justify-center px-8 py-2 border-[0.75px] border-solid border-black max-md:px-5"
               >
                 Upload
@@ -71,12 +94,19 @@ function UploadProduct() {
                   <div className="text-zinc-900 text-xl font-medium leading-8 whitespace-nowrap max-md:max-w-full">
                     Product Details
                   </div>
-                  <Input
-                    lable=" Product name"
-                    type="text"
-                    className=""
-                    required
-                  />
+                  <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                      Product name
+                    </label>
+
+                    <input 
+                      type="text" 
+                      className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                      required
+                      value={productData.productName}
+                      onChange={(e) => setProductData({ ...productData, productName: e.target.value })} 
+                    />
+                  </div>
                   <div className="text-stone-950 text-[14px] font-semibold leading-6 whitespace-nowrap mt-5 max-md:max-w-full">
                     Description
                   </div>
@@ -85,34 +115,79 @@ function UploadProduct() {
                     rows="4"
                     className="block p-2.5 w-full h-[216px] text-sm text-gray-900 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)]"
                     required
+                    value={productData.description}
+                    onChange={(e) => setProductData({ ...productData, description: e.target.value })}
                   ></textarea>
-                  <div className="justify-between items-center flex gap-5 mt-5 max-md:max-w-full max-md:flex-wrap">
-                    <SelectInput
-                      options={["Home accessories"]}
-                      label="Type"
-                      className=""
-                    />
-                    <SelectInput
-                      options={["Select"]}
-                      label="Brand"
-                      className=""
-                    />
-                  </div>
-                  <div className="justify-between items-center flex gap-5 mt-5 max-md:max-w-full max-md:flex-wrap">
-                    <Input
-                      lable="Inventory start at"
-                      type="text"
-                      className=""
-                      required
-                    />
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                      <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                        Type
+                      </label>
 
-                    <Input lable="Price" type="text" className="" required />
+                      <select 
+                        className="justify-between items-center rounded borde flex gap-5 mt-2 px-4 py-3 border-solid text-zinc-500 text-xs font-semibold leading-4 my-auto"
+                        required
+                        value={productData.type}
+                        onChange={(e) => setProductData({ ...productData, type: e.target.value })}
+                      >
+                        <option value="HomeAccessories">Home accessories</option>
+                        <option value="MobileAccessories">Mobile accessories</option>
+                        <option value="ComputerAccessories">Computer accessories</option>
+                      </select>
+                    </div>
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                      Brand
+                    </label>
+
+                      <select 
+                        className="justify-between items-center rounded borde flex gap-5 mt-2 px-4 py-3 border-solid text-zinc-500 text-xs font-semibold leading-4 my-auto"
+                        required
+                        value={productData.brand}
+                        onChange={(e) => setProductData({ ...productData, brand: e.target.value })}
+                      >
+                        <option value="">Select</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Hp">HP</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                      <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                      Inventory start at
+                      </label>
+
+                      <input 
+                        type="text" 
+                        className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                        required
+                        value={productData.inventory}
+                        onChange={(e) => setProductData({ ...productData, inventory: e.target.value })} 
+                      />
+
+                    </div>
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                    Price
+                    </label>
+
+                    <input 
+                      type="text" 
+                      className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                      required
+                      value={productData.price}
+                      onChange={(e) => setProductData({ ...productData, price: e.target.value })} 
+                    />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        </form>
       </div>
     </div>
   );

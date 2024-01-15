@@ -2,8 +2,10 @@
 import LeftArrow from '../../../assets/ICONS/LeftArrow.svg'
 import RightArrow from '../../../assets/ICONS/RightArrow.svg'
 import Ratings from '../../../assets/ICONS/Ratings.svg'
+import { useParams } from 'react-router-dom';
 
 function FeedDetail() {
+    const { id } = useParams();
     return (
         <div className="self-center flex w-full max-w-full flex-col items-stretch mt-4 px-5 overflow-hidden">
             <div className="flex flex-col py-0 px-0 max-md:max-w-full max-md:px-0">

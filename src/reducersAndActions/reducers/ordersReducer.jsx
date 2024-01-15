@@ -2,7 +2,50 @@ import * as actionTypes from '../actions';
 
 const initialState = {
   orders: [
-    // ... your initial orders array
+    {
+      id: 1, 
+      orderNumber: 34567899080,
+      shop: "OAK Sh...",
+      orderDate: "7 Jul 23 | 14:00",
+      updateDate: "7 Jul 23 | 14:00",
+      paymentMethod:"Prepaid",
+      price: 150,
+      deliveryMethod: "NY Delivery Service",
+      status: 'Shipped'
+    },
+    {
+      id: 2, 
+      orderNumber: 34567899080,
+      shop: "OAK Sh...",
+      orderDate: "7 Jul 23 | 14:00",
+      updateDate: "7 Jul 23 | 14:00",
+      paymentMethod:"Prepaid",
+      price: 150,
+      deliveryMethod: "NY Delivery Service",
+      status: 'Pending'
+    },
+    {
+      id: 3, 
+      orderNumber: 34567899080,
+      shop: "OAK Sh...",
+      orderDate: "7 Jul 23 | 14:00",
+      updateDate: "7 Jul 23 | 14:00",
+      paymentMethod:"Prepaid",
+      price: 150,
+      deliveryMethod: "NY Delivery Service",
+      status: 'Errors'
+    },
+    {
+      id: 4, 
+      orderNumber: 34567899080,
+      shop: "OAK Sh...",
+      orderDate: "7 Jul 23 | 14:00",
+      updateDate: "7 Jul 23 | 14:00",
+      paymentMethod:"Prepaid",
+      price: 150,
+      deliveryMethod: "NY Delivery Service",
+      status: 'Delivered'
+    },
   ],
 };
 

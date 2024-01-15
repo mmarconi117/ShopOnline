@@ -48,8 +48,8 @@ export const BS_BeautyAndPersonal = () => {
         <div className=" text-[#313133] font-Roboto text-base font-medium min-[465px]:text-2xl min-[465px]:font-bold min-[465px]:tracking-[0.18px]">
           Best sellers in Beauty & Personal Care
         </div>
-        <button className="hidden min-[465px]:block">
-          <img src={rightArrow} alt="right-arrow" className="w-[42px] h-[42px]"/>
+        <button className="min-[465px]:hidden w-6 h-6">
+          <img src={rightArrow} alt="right-arrow"/>
         </button>
       </div>
       {/* Mobile Layout */}

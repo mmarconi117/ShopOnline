@@ -20,7 +20,7 @@ export const Explore = () => {
       <div className="w-full flex justify-between items-center">
         <div className="font-Roboto text-[#313133] text-base font-medium min-[391px]:text-xl min-[391px]:font-bold min-[391px]:leading-normal whitespace-nowrap">Explore our Top Categories</div>
         <button className="w-6 h-6 min-[391px]:hidden">
-          <img src={rightArrow} alt="right-arrow" className="w-4 h-[14px]"/>
+          <img src={rightArrow} alt="right-arrow"/>
         </button>
       </div>
     <div className="w-full overflow-x-auto">

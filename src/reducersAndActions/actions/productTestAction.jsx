@@ -1,10 +1,10 @@
-import { SET_PRODUCT, GET_PRODUCT } from ".";
+import * as actionTypes from ".";
 
 export const setProductDetails = (data) => ({
-    type: SET_PRODUCT,
+    type: actionTypes.SET_PRODUCT,
     payload: data,
 });
 
 export const getProductDetails = () => ({
-    type: GET_PRODUCT,
+    type: actionTypes.GET_PRODUCT,
 });

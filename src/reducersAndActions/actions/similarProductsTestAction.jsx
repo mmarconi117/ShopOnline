@@ -1,5 +1,5 @@
-import { GET_SIMILAR_PRODUCTS } from ".";
+import * as actionTypes from ".";
 
 export const getSimilarProducts = () => ({
-    type: GET_SIMILAR_PRODUCTS,
+    type: actionTypes.GET_SIMILAR_PRODUCTS,
 });

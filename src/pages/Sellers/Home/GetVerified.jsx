@@ -1,0 +1,389 @@
+import { useEffect, useState } from "react";
+import eye from '../../../assets/ICONS/eye.svg'
+import PropTypes from "prop-types";
+import { SET_BUSINESS_DETAILS } from "../../../reducersAndActions/actions";
+import { useSelector, useDispatch } from "react-redux";
+
+
+function GetVerified({ setShowModal }) {
+  const [isVerified] = useState(false);
+  const [formData, setFormData] = useState({
+    countryOfIncorporation: '',
+    taxid: '',
+    businessName: '',
+    businessAddress: '',
+    state: '',
+    city: '',
+    postalCode: '',
+    contactNumber: '',
+    websiteUrl: '',
+    grossValue: '',
+    performingcategory: '',
+    displayName: '',
+    customerServiceNumber: '',
+    customerServiceEmail: '',
+    termsAndconditions: false,
+
+  });
+  const dispatch = useDispatch();
+  
+  const businessDetailsdata = useSelector((state) => state.businessDetailsReducer);
+
+  const businessData = async (e) => {
+    e.preventDefault()
+    dispatch({ type: SET_BUSINESS_DETAILS, payload: formData });
+    console.log(businessDetailsdata)
+  };
+
+  useEffect(() => {
+    document.getElementById('modal').showModal();
+
+  }, [])
+
+  return (
+    <div className="self-center flex max-w-full flex-col items-stretch mt-0 px-0">
+      <dialog id="modal" className="modal w-[60%] px-5 py-5 bg-[#e3e3e3] border border-5 border-white ">
+        <div className="modal-box">
+          <div className="modal-action ">
+            <div className="items-stretch flex justify-between gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+              <div className="text-zinc-800 text-base leading-6 whitespace-nowrap">
+                Welcome Joe,
+              </div>
+              <div className="text-zinc-800 text-center text-sm font-semibold leading-6 underline whitespace-nowrap">
+                <form method="dialog">
+                  <button className="btn bg-white text-zinc-800 rounded-full w-5 text-base" onClick={() => setShowModal(false)}>X</button>
+                </form>
+              </div>
+            </div>
+
+            {isVerified && isVerified ? <div className="items-start bg-white flex grow basis-[0%] flex-col mt-10 px-6 py-7 rounded-md max-md:max-w-full max-md:px-5">You have already verified</div> : (<>
+
+              <div className="text-zinc-800 text-base font-semibold leading-6 whitespace-nowrap mt-5 max-md:max-w-full">
+                Get Verified!
+
+              </div>
+
+              <form onSubmit={businessData} className="flex flex-wrap">
+
+                <div className="items-start bg-white flex grow basis-[0%] flex-col px-6 py-6 mt-5 rounded-md max-md:max-w-full max-md:px-5">
+                  <div className="text-zinc-600 text-base font-medium leading-6 self-stretch whitespace-nowrap max-md:max-w-full">
+                    Get yourself verified and start your business as a seller
+                  </div>
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                      <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                        Country/Region of incorporation
+                      </label>
+
+                      <select 
+                      className="justify-between items-center rounded borde flex gap-5 mt-2 px-4 py-3 border-solid text-zinc-500 text-xs font-semibold leading-4 my-auto"
+                      value={formData.countryOfIncorporation}
+                      onChange={(e) => setFormData({ ...formData, countryOfIncorporation: e.target.value })}
+  
+                      >
+                        <option value="">Select Country</option>
+                        <option value="United Sates">United Sates</option>
+                      </select>
+                    </div>
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                      <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                        US Tax ID (TIN)
+                      </label>
+                      <input 
+                      type="text" 
+                      className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                      value={formData.taxid}
+                      onChange={(e) => setFormData({ ...formData, taxid: e.target.value })}
+                      />
+                    </div>
+                  </div>
+                  <div className="text-zinc-600 text-xs leading-5 self-stretch whitespace-nowrap mt-5 max-md:max-w-full">
+                    Your U.S. Tax classification isW9
+                  </div>
+                  <div className="bg-zinc-100 self-stretch shrink-0 h-px mt-5 max-md:max-w-full" />
+
+
+                  <div className="text-zinc-900 text-xl font-medium leading-8 self-stretch whitespace-nowrap mt-5 max-md:max-w-full">
+                    Business Details
+                  </div>
+                  <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                      Legal business name
+                    </label>
+
+                    <input 
+                      type="text" 
+                      className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5" 
+                      value={formData.businessName}
+                      onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
+                    />
+                  </div>
+
+                  <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                    Business address
+                    </label>
+
+                    <input 
+                      type="text" 
+                      className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5" 
+                      value={formData.businessAddress}
+                      onChange={(e) => setFormData({ ...formData, businessAddress: e.target.value })}  
+                    />
+                  </div>
+
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                      <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                        Country/Region
+                      </label>
+
+                      <select 
+                        className="justify-between items-center rounded borde flex gap-5 mt-2 px-4 py-3 border-solid text-zinc-500 text-xs font-semibold leading-4 my-auto"
+                        value={formData.country}
+                        onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                      >
+                        <option value="">Select Country</option>
+                        <option value="United Sates">United Sates</option>
+                      </select>
+                    </div>
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                      State
+                    </label>
+
+                      <select 
+                        className="justify-between items-center rounded borde flex gap-5 mt-2 px-4 py-3 border-solid text-zinc-500 text-xs font-semibold leading-4 my-auto"
+                        value={formData.state}
+                        onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                      >
+                        <option value="">Select State</option>
+                          <option value="Alabama">Alabama</option>
+                          <option value="Alaska">Alaska</option>
+                          <option value="Arizona">Arizona</option>
+                          <option value="Arkansas">Arkansas</option>
+                          <option value="California">California</option>
+                          <option value="Colorado">Colorado</option>
+                          <option value="Connecticut">Connecticut</option>
+                          <option value="Delaware">Delaware</option>
+                          <option value="Florida">Florida</option>
+                          <option value="Georgia">Georgia</option>
+                          <option value="Hawaii">Hawaii</option>
+                          <option value="Idaho">Idaho</option>
+                          <option value="Illinois">Illinois</option>
+                          <option value="Indiana">Indiana</option>
+                          <option value="Iowa">Iowa</option>
+                          <option value="Kansas">Kansas</option>
+                          <option value="Kentucky">Kentucky</option>
+                          <option value="Louisiana">Louisiana</option>
+                          <option value="Maine">Maine</option>
+                          <option value="Maryland">Maryland</option>
+                          <option value="Massachusetts">Massachusetts</option>
+                          <option value="Michigan">Michigan</option>
+                          <option value="Minnesota">Minnesota</option>
+                          <option value="Mississippi">Mississippi</option>
+                          <option value="Missouri">Missouri</option>
+                          <option value="Montana">Montana</option>
+                          <option value="Nebraska">Nebraska</option>
+                          <option value="Nevada">Nevada</option>
+                          <option value="New Hampshire">New Hampshire</option>
+                          <option value="New Jersey">New Jersey</option>
+                          <option value="New Mexico">New Mexico</option>
+                          <option value="New York">New York</option>
+                          <option value="North Carolina">North Carolina</option>
+                          <option value="North Dakota">North Dakota</option>
+                          <option value="Ohio">Ohio</option>
+                          <option value="Oklahoma">Oklahoma</option>
+                          <option value="Oregon">Oregon</option>
+                          <option value="Pennsylvania">Pennsylvania</option>
+                          <option value="Rhode Island">Rhode Island</option>
+                          <option value="South Carolina">South Carolina</option>
+                          <option value="South Dakota">South Dakota</option>
+                          <option value="Tennessee">Tennessee</option>
+                          <option value="Texas">Texas</option>
+                          <option value="Utah">Utah</option>
+                          <option value="Vermont">Vermont</option>
+                          <option value="Virginia">Virginia</option>
+                          <option value="Washington">Washington</option>
+                          <option value="West Virginia">West Virginia</option>
+                          <option value="Wisconsin">Wisconsin</option>
+                          <option value="Wyoming">Wyoming</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                      <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                      City
+                      </label>
+
+                      <input 
+                        type="text" 
+                        className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5" 
+                        value={formData.city}
+                        onChange={(e) => setFormData({ ...formData, city: e.target.value })}  
+                      />
+                    </div>
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                    Postal/Zip code
+                    </label>
+
+                    <input 
+                      type="text" 
+                      className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                      value={formData.postalCode}
+                      onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}  
+                    />
+                    </div>
+                  </div>
+
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                      <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                      Primary contact number
+                      </label>
+
+                      <input 
+                        type="text" 
+                        className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                        value={formData.contactNumber}
+                        onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })} 
+                      />
+                    </div>
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                    Website URL
+                    </label>
+
+                    <input 
+                      type="url" 
+                      className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                      placeholder="http://www.example.com" 
+                      value={formData.websiteUrl}
+                      onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
+                    />
+                    </div>
+                  </div>
+
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                      <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                      Yearly gross merchandise value (GMV)
+                      </label>
+
+                      <input 
+                        type="text" 
+                        className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                        value={formData.grossValue}
+                        onChange={(e) => setFormData({ ...formData, grossValue: e.target.value })} 
+                      />
+                    </div>
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                    Highest performing category
+                    </label>
+
+                    <input 
+                      type="text" 
+                      className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                      value={formData.performingcategory}
+                      onChange={(e) => setFormData({ ...formData, performingcategory: e.target.value })}  
+                    />
+                    </div>
+                  </div>
+
+                  <div className="bg-zinc-100 self-stretch shrink-0 h-px mt-6 max-md:max-w-full" />
+                  <div className="text-zinc-900 text-xl font-medium leading-8 self-stretch whitespace-nowrap mt-5 max-md:max-w-full">
+                    Seller profile
+                  </div>
+                  <div className="text-zinc-600 text-xs leading-5 self-stretch whitespace-nowrap mt-2.5 max-md:max-w-full">
+                    This info is public. We share it to build your trust with customers.
+                  </div>
+                  <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                    Display name on Website
+                    </label>
+
+                    <input 
+                      type="text" 
+                      className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                      value={formData.displayName}
+                      onChange={(e) => setFormData({ ...formData, displayName: e.target.value })} 
+                    />
+                  </div>
+
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                      <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                      Customer service phone number
+                      </label>
+
+                      <input 
+                        type="text" 
+                        className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                        value={formData.customerServiceNumber}
+                        onChange={(e) => setFormData({ ...formData, customerServiceNumber: e.target.value })} 
+                      />
+                    </div>
+                    <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
+                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                    Customer service email address.
+                    </label>
+
+                    <input 
+                      type="email" 
+                      className="w-full h-10 justify-between items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] self-stretch flex shrink-0 flex-col mt-2 border-solid max-md:max-w-full pl-5"
+                      value={formData.customerServiceEmail}
+                      onChange={(e) => setFormData({ ...formData, customerServiceEmail: e.target.value })} 
+                    />
+                    </div>
+                  </div>
+                  <div className="justify-center items-stretch flex flex-row gap-2 mt-6 p-0 self-start">
+                  <input 
+                    type="checkbox" 
+                    className="" 
+                    checked={formData.termsAndconditions}
+                    onChange={(e) => setFormData({ ...formData, termsAndconditions: e.target.checked })}  
+                  />
+                    <div className="text-black text-base self-center grow whitespace-nowrap">
+                      I agree to the terms & conditions
+                    </div>
+                  </div>
+                  <div className="bg-zinc-100 self-stretch shrink-0 h-px mt-8 max-md:max-w-full" />
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-8 pl-20 max-md:max-w-full max-md:flex-wrap max-md:pl-5">
+                    <button
+                      type="button"
+                      className="shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-zinc-700 text-center text-sm font-semibold  whitespace-nowrap border-[color:var(--color-styles-neutral-600,#79767D)] grow justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Save & close
+                    </button>
+
+                    <button
+                      type="submit"
+                      className="shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-white text-center text-sm font-semibold  whitespace-nowrap bg-zinc-500 grow justify-center px-8 py-2 rounded-[30px] max-md:px-5"
+                    >
+                      Submit for riview pointer
+                    </button>
+
+                  </div>
+                </div>
+              </form>
+            </>
+            )}
+          </div>
+        </div>
+      </dialog>
+    </div>
+  );
+}
+
+GetVerified.propTypes = {
+  setShowModal: PropTypes.func.isRequired,
+}
+
+export default GetVerified;

@@ -68,7 +68,7 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
                     <p>1-24 of over 10,300 results</p>
                 </div>
                 {/* bread crumb  */}
-                <div className="border-2">{breadCrumbComp}</div>
+                <div className="">{breadCrumbComp}</div>
                 {/* sort products by */}
                 <SortProducts />
             </div>

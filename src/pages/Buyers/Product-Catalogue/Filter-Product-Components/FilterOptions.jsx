@@ -12,7 +12,7 @@ const FilterOptions = () => {
         >
             <div
                 id="filter-options-container"
-                className="border-2 border-black shadow-md rounded-xl"
+                className="border-2 shadow-xl rounded-2xl"
             >
                 <FilterByBrand />
                 <FilterByPrice />

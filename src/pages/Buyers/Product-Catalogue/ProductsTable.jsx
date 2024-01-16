@@ -89,7 +89,7 @@ const ProductsTable = ({ products }) => {
     return (
         <div
             id="products-table-component"
-            className="border-2 border-red-600 w-4/5"
+            className=" w-4/5"
         >
             <div className="w-full h-auto flex  flex-wrap">{catalogueComp}</div>
         </div>

@@ -10,7 +10,7 @@ import Footer from '../src/components/Footer/Footer';
 
 const Layout = ({ children }) => {
     return (
-    <div>
+    <div className='bg-[#F5F5F9]'>
         <Header />
             {children}
         <Footer />

@@ -18,6 +18,8 @@ import AccountSettings from "./pages/Buyers/Account";
 import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import LandingPageforSellers from "./pages/Sellers/LandingPageforSellers";
+import CompanyInfo from "./pages/Sellers/CompanyInfo/CompanyInfo";
+import OnlineFulfillment from "./pages/Sellers/OnlineFulfillment/OnlineFulfillment";
 
 function App() {
 
@@ -25,7 +27,7 @@ function App() {
     <>
       <div>
         <Router>
-          <Layout> 
+          <Layout>
             <Routes>
               <Route exact path="/" element={<LandingPage />} />
               <Route path="/subcategories" element={<SubCategory />} />
@@ -33,14 +35,16 @@ function App() {
               <Route path="/sellers/*" element={<LandingPageforSellers />} />
               <Route path="/help" element={<Help />} />
               <Route path="/language" element="#" />
-              <Route path="/account" element={<Account/>} />
+              <Route path="/account" element={<Account />} />
               <Route path="/app" element="#" />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
-              <Route path="/companyService" element={<CompanyService/>}/>
-              <Route path="/paymentSuccess" element={<PaymentSuccessful/>}/>
-              <Route path="/checkout" element={<Checkout/>}/>
-              <Route path="/reviews" element={<ReviewPage/>} />
+              <Route path="/companyService" element={<CompanyService />} />
+              <Route path="/paymentSuccess" element={<PaymentSuccessful />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/reviews" element={<ReviewPage />} />
+              <Route path="/companyInfo" element={<CompanyInfo />} />
+              <Route path="/onlineFulfillment" element={<OnlineFulfillment />} />
             </Routes>
           </Layout>
         </Router>

@@ -14,7 +14,7 @@ import {
 function OrderList() {
   const dispatch = useDispatch();
   const [orders, setOrdersLocal] = useState([]);
-  const order = useSelector((state) => state.orders.orders);
+  const order = useSelector((state) => state.ordersReducer.orders);
 
   useEffect(() => {
     setOrdersLocal(order);

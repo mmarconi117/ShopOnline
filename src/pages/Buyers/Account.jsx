@@ -9,8 +9,8 @@ import delivery from "../../assets/ICONS/delivery.svg"
 const Account = () => {
   return (
     <div className="w-full flex flex-col gap-4 self-center px-4 pt-6 lg:flex-row lg:justify-center lg:items-start lg:gap-[25px] font-Roboto">
-      <div className="sidebar w-full self-stretch lg:w-[20%] flex flex-col lg:gap-5 p-2 lg:px-8 lg:pt-5 lg:pb-[35px] min-w-max bg-white text-base font-medium">
-        <div className="account flex justify-between lg:justify-start items-start lg:pb-5 lg:border-b border-[#938F96] border-solid">
+      <div className="w-full self-stretch lg:w-[20%] flex flex-col lg:gap-5 p-2 lg:px-8 lg:pt-5 lg:pb-[35px] min-w-max bg-white text-base font-medium">
+        <div className="flex justify-between lg:justify-start items-start lg:pb-5 lg:border-b border-[#938F96] border-solid">
           <div className="flex justify-center items-center gap-[14px]">
             <span className="hidden lg:inline-block">
               <img src={user} alt="user-icon" className="w-6 h-6"/>
@@ -64,8 +64,8 @@ const Account = () => {
           <div className="text-[#E46962]">LOGOUT</div>
         </button>
       </div>
-      <div className="rightSection w-full lg:w-[70%] flex flex-col lg:gap-14">
-        <div className="menu bg-white flex flex-col p-8 pt-7 gap-14 lg:gap-10">
+      <div className="w-full lg:w-[70%] flex flex-col lg:gap-14">
+        <div className="bg-white flex flex-col p-8 pt-7 gap-14 lg:gap-10">
           <div className="hero flex justify-start gap-3 lg:gap-8">
             <img src={group} alt="hero icon" className="w-12 h-12 "/>
             <div className="inline-flex flex-col items-start gap-[2px] lg:gap-1">
@@ -92,7 +92,7 @@ const Account = () => {
 
         <div className="line lg:hidden h-[1px] self-center bg-[#CAC5CD] w-[95%]"></div>
 
-        <div className="shipping-status max-lg:bg-white p-8 pb-12 lg:p-0 flex flex-col gap-5">
+        <div className="max-lg:bg-white p-8 pb-12 lg:p-0 flex flex-col gap-5">
           <div className="flex justify-between items-center lg:px-9 lg:py-4 bg-white">
             <p className=" text-[#313133] font-semibold text-base lg:text-2xl lg:leading-10">My order</p>
             <div className="flex justify-between items-center">

@@ -1,5 +1,6 @@
 import * as React from "react";
 import Sidebar from "./Sidebar/Sidebar";
+import Header from "./Header/Header"
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./Home/Homepage";
 import ListOfProducts from "./ProductCatalogue/ListOfProducts";
@@ -20,9 +21,13 @@ export default function LandingPageforSellers() {
   return (
     <div className="bg-zinc-100">
       <div className="gap-0 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+
         <Sidebar />
+         
         <div className="flex flex-col items-stretch w-[81%] ml-0 max-md:w-full max-md:ml-0">
-          <div className="flex flex-col items-stretch max-md:max-w-full">       
+          <Header />
+          <div className="flex flex-col items-stretch max-md:max-w-full">
+                  
             <Routes>
               <Route path='/' element={<Homepage/>} />
 
@@ -30,8 +35,7 @@ export default function LandingPageforSellers() {
               <Route path='Overview' element={<Overview />} />
               <Route path='Payments' element={<Payments />} />
               <Route path='ActivityFeed/*' element={<ActivityFeed />} />
-              <Route path='ActivityFeed/FeedDetail/:id' element={<FeedDetail />} />
-              
+              <Route path='ActivityFeed/FeedDetail/:id' element={<FeedDetail />} />           
               
               <Route path='RatingsAndReviews' element={<RatingsAndReviews />} />
 
@@ -43,11 +47,6 @@ export default function LandingPageforSellers() {
               <Route path='OrderList' element={<OrderList />} />
               <Route path='ReturnsAndRefunds' element={<ReturnsAndRefunds />} />
               <Route path='Disputes' element={<Disputes />} />
-
-              
-              
-              
-              
             </Routes>
           
           </div>

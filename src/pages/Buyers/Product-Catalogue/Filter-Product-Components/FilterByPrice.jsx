@@ -1,4 +1,37 @@
+import { useState } from "react";
+
 const FilterByPrice = () => {
+    const [rangeMax, setRangeMax] = useState(10000);
+    const [rangeMin, setRangeMin] = useState(rangeMax / 2);
+    const [value, setValue] = useState();
+    const [min, setMin] = useState(rangeMin);
+    const [max, setMax] = useState(rangeMax);
+    const [userInputMin, setUserInputMin] = useState(rangeMin);
+    const [userInputMax, setUserInputMax] = useState(rangeMax);
+
+    const updateRange = (rangeValue) => {
+        setValue(rangeValue);
+        const minDif = Math.abs(rangeValue - rangeMax);
+        console.log(minDif);
+        // setMax(minDif);
+        // setMin(inputValue);
+        setUserInputMax(minDif);
+        setUserInputMin(rangeValue);
+    };
+
+    const userInputUpdateMin = (value) => {
+        setUserInputMin(value);
+    };
+
+    const userInputUpdateMax = (value) => {
+        if (value > rangeMax) {
+            setUserInputMax(rangeMax);
+            setRangeMax(value);
+        } else {
+            setUserInputMax(value);
+        }
+    };
+
     return (
         <div
             id="filter-by-price-component"
@@ -20,34 +53,42 @@ const FilterByPrice = () => {
                 </div>
                 <div className="w-full mb-5">
                     <input
-                        // onChange={(e) => {
-                        //     console.log(e.target.value);
-                        // }}
-                        type="range"
+                        onChange={(e) => {
+                            updateRange(e.target.valueAsNumber);
+                        }}
                         min="0"
-                        max="100"
+                        // minLength={min}
+                        // maxLength={max}
+                        max={rangeMax}
+                        step={"50"}
+                        // value={value}
+                        type="range"
                         className="w-full"
                     />
                 </div>
                 <div className="flex justify-evenly text-center">
                     <div className="border-2 border-gray-300 w-1/2 rounded-md">
-                        <button
-                            type="button"
+                        <input
+                            onChange={(e) => {
+                                userInputUpdateMin(e.target.value);
+                            }}
+                            type="number"
                             className="p-2"
-                        >
-                            Min
-                        </button>
+                            value={userInputMin}
+                        />
                     </div>
                     <div className="w-1/6 ">
                         <p className="p-2">-</p>
                     </div>
                     <div className="border-2 border-gray-300 w-1/2 rounded-md">
-                        <button
-                            type="button"
+                        <input
+                            onChange={(e) => {
+                                userInputUpdateMax(e.target.value);
+                            }}
+                            type="number"
                             className="p-2"
-                        >
-                            Max
-                        </button>
+                            value={userInputMax}
+                        />
                     </div>
                 </div>
             </div>

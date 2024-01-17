@@ -32,21 +32,21 @@ export default function LandingPageforSellers() {
               <Route path='/' element={<Homepage/>} />
 
               {/* Analytics Routing */}
-              <Route path='Overview' element={<Overview />} />
-              <Route path='Payments' element={<Payments />} />
-              <Route path='ActivityFeed/*' element={<ActivityFeed />} />
-              <Route path='ActivityFeed/FeedDetail/:id' element={<FeedDetail />} />           
+              <Route path='/overview' element={<Overview />} />
+              <Route path='/payments' element={<Payments />} />
+              <Route path='/activityfeed/*' element={<ActivityFeed />} />
+              <Route path='/activityfeed/FeedDetail/:id' element={<FeedDetail />} />           
               
-              <Route path='RatingsAndReviews' element={<RatingsAndReviews />} />
+              <Route path='/ratingsandreviews' element={<RatingsAndReviews />} />
 
               {/* Product Catalogue Routing */}
-              <Route path='ListOfProducts' element={<ListOfProducts />} />              
-              <Route path='UploadProduct' element={<UploadProduct />} />
+              <Route path='/listOfproducts' element={<ListOfProducts />} />              
+              <Route path='/uploadproduct' element={<UploadProduct />} />
 
               {/* Order Management Routing */}
-              <Route path='OrderList' element={<OrderList />} />
-              <Route path='ReturnsAndRefunds' element={<ReturnsAndRefunds />} />
-              <Route path='Disputes' element={<Disputes />} />
+              <Route path='/orderlist' element={<OrderList />} />
+              <Route path='/returnsandrefunds' element={<ReturnsAndRefunds />} />
+              <Route path='/disputes' element={<Disputes />} />
             </Routes>
           
           </div>

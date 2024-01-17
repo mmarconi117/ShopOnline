@@ -14,7 +14,6 @@ import Layout from "./Layout";
 
 import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
 import Checkout from "./pages/Buyers/Checkout";
-import AccountSettings from "./pages/Buyers/Account";
 import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import LandingPageforSellers from "./pages/Sellers/LandingPageforSellers";
@@ -42,8 +41,13 @@ function App() {
                 <Route path="/paymentSuccess" element={<PaymentSuccessful/>}/>
                 <Route path="/checkout" element={<Checkout/>}/>
                 <Route path="/reviews" element={<ReviewPage/>} />
+                <Route path="/accountsettings" element={<Account />} />
               </Route>
+
+              
               <Route path="/sellers/*" element={<LandingPageforSellers />} />
+              <Route path="/onlinefulfillment" element={<OnlineFulfillment />} />
+              <Route path="/companyinfo" element={<CompanyInfo />} />
             </Routes>
         </Router>
       </div>

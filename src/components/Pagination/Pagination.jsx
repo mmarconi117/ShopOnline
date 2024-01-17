@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Pagination = ({ products, getCopyProducts, copiedProducts, setTest }) => {
+const Pagination = ({ products, getProductsCopy, productsCopy, isResetPagination }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(12);
     const [totalPages, setTotalPages] = useState(0);
@@ -8,10 +8,12 @@ const Pagination = ({ products, getCopyProducts, copiedProducts, setTest }) => {
     const [isNextBtn, setIsNextBtn] = useState(false);
 
     useEffect(() => {
-        const sliced = products.slice(0, pageSize);
-        getCopyProducts(sliced);
-        setTotalPages(Math.ceil(products.length / pageSize));
-    }, []);
+        // const sliced = products.slice(0, pageSize);
+        // getProductsCopy(sliced);
+        // setTotalPages(Math.ceil(products.length / pageSize));
+        initiatePagination();
+        console.log(isResetPagination);
+    }, [isResetPagination]);
 
     const onChangePage = (pageIndex) => {
         const startIndex = pageIndex * pageSize;
@@ -21,7 +23,14 @@ const Pagination = ({ products, getCopyProducts, copiedProducts, setTest }) => {
             endIndex = products.length;
         }
 
-        getCopyProducts(products.slice(startIndex, endIndex));
+        getProductsCopy(products.slice(startIndex, endIndex));
+    };
+
+    const initiatePagination = () => {
+        const sliced = products.slice(0, pageSize);
+        getProductsCopy(sliced);
+        setTotalPages(Math.ceil(products.length / pageSize));
+        // resetPagination(isResetPagination);
     };
 
     const pagination = (maxPages, pageIndex, isActiveBtn) => {

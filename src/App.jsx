@@ -24,25 +24,25 @@ function App() {
   return (
     <>
       <div>
-        <Router>
-          <Layout> 
+        <Router>          
             <Routes>
-              <Route exact path="/" element={<LandingPage />} />
-              <Route path="/subcategories" element={<SubCategory />} />
-              <Route path="/cart" element={<Cart />} />
+              <Route exact path="" element={<Layout />}> 
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/subcategories" element={<SubCategory />} />
+                <Route path="/cart" element={<Cart />} />                
+                <Route path="/help" element={<Help />} />
+                <Route path="/language" element="#" />
+                <Route path="/account" element={<Account/>} />
+                <Route path="/app" element="#" />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
+                <Route path="/companyService" element={<CompanyService/>}/>
+                <Route path="/paymentSuccess" element={<PaymentSuccessful/>}/>
+                <Route path="/checkout" element={<Checkout/>}/>
+                <Route path="/reviews" element={<ReviewPage/>} />
+              </Route>
               <Route path="/sellers/*" element={<LandingPageforSellers />} />
-              <Route path="/help" element={<Help />} />
-              <Route path="/language" element="#" />
-              <Route path="/account" element={<Account/>} />
-              <Route path="/app" element="#" />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/signup" element={<SignupPage />} />
-              <Route path="/companyService" element={<CompanyService/>}/>
-              <Route path="/paymentSuccess" element={<PaymentSuccessful/>}/>
-              <Route path="/checkout" element={<Checkout/>}/>
-              <Route path="/reviews" element={<ReviewPage/>} />
             </Routes>
-          </Layout>
         </Router>
       </div>
     </>

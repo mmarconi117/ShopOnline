@@ -18,13 +18,15 @@ import AccountSettings from "./pages/Buyers/Account";
 import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import LandingPageforSellers from "./pages/Sellers/LandingPageforSellers";
+import CompanyInfo from "./pages/Sellers/CompanyInfo/CompanyInfo";
+import OnlineFulfillment from "./pages/Sellers/OnlineFulfillment/OnlineFulfillment";
 
 function App() {
 
   return (
     <>
       <div>
-        <Router>          
+          <Router>          
             <Routes>
               <Route exact path="" element={<Layout />}> 
                 <Route path="/" element={<LandingPage />} />

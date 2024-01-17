@@ -11,7 +11,7 @@ import { Outlet } from 'react-router-dom';
 
 const Layout = ({ children }) => {
     return (
-    <div>
+    <div className='bg-[#F5F5F9]'>
         <Header />
             <Outlet />
         <Footer />

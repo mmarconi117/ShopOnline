@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom'
+
 const Account = () => {
   return (
     <div>
       <div>
         <div>
-          <a href="/account">My account</a>
+        <Link to="/account">My account</Link>
         </div>
         <div>
           <a href="">Orders</a>
@@ -12,7 +14,7 @@ const Account = () => {
           <a href="">Payments</a>
         </div>
         <div>
-          <a href="">Pending Reviews</a>
+        <Link  to="/reviews">Pending Reviews</Link>
         </div>
         <div>
           <a href="">Voucher</a>

@@ -10,6 +10,7 @@ import outdoorsIcon from './assets/Icons/Outdoor-fun-and-sport.svg';
 import toolIcon from './assets/Icons/Tools-and-Home-Improvement.svg';
 import toysIcon from './assets/Icons/Toys-Kids-and-Babies.svg';
 import consumerIcon from './assets/Icons/Consumer-Electronics.svg'
+import { Link } from 'react-router-dom'
 
 
 const Menu = () => {
@@ -82,7 +83,7 @@ const Menu = () => {
       {categories.map((item, index) => (
         <div key={index} className="flex items-center py-[6px] px-4 gap-5">
           <img src={item.img} alt={item.title} className="w-6 h-6" />
-          <div className="text-base leading-[19.2px]">{item.title}</div>
+        <Link to="/subcategories">  <div className="text-base leading-[19.2px]">{item.title}</div></Link>
         </div>
       ))}
     </div>

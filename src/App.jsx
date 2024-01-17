@@ -18,7 +18,7 @@ import AccountSettings from "./pages/Buyers/Account";
 import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import LandingPageforSellers from "./pages/Sellers/LandingPageforSellers";
-
+import ProductDetails from "./pages/Buyers/Product-Details/AboutProduct";
 function App() {
 
   return (
@@ -29,6 +29,8 @@ function App() {
             <Routes>
               <Route exact path="/" element={<LandingPage />} />
               <Route path="/subcategories" element={<SubCategory />} />
+              <Route path="/prodcutdetails" element={<ProductDetails />} />
+
               <Route path="/cart" element={<Cart />} />
               <Route path="/sellers/*" element={<LandingPageforSellers />} />
               <Route path="/help" element={<Help />} />

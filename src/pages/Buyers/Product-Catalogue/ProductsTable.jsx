@@ -1,7 +1,18 @@
 import { useState, useEffect } from "react";
 
+// components
+import Pagination from "../../../components/Pagination/Pagination";
+
+
 const ProductsTable = ({ products }) => {
-    const catalogueComp = products.map((product, index) => {
+    const [copyProducts, setCopyProducts] = useState([]);
+
+    // function to get products from children component eg: from pagination copmonent
+    const getCopyProducts = (copiedProducts) => {
+        setCopyProducts(copiedProducts);
+    };
+
+    const catalogueComp = copyProducts.map((product, index) => {
         return (
             <div
                 className="w-1/4 h-auto p-5 mr-12 mb-12 border shadow-md rounded-xl"
@@ -91,7 +102,15 @@ const ProductsTable = ({ products }) => {
             id="products-table-component"
             className=" w-4/5"
         >
-            <div className="w-full h-auto flex  flex-wrap">{catalogueComp}</div>
+            <div className="w-full">
+                <div className="w-full h-auto flex  flex-wrap">{catalogueComp}</div>
+                <div className="w-5/6">
+                    <Pagination
+                        products={products}
+                        getCopyProducts={getCopyProducts}
+                    />
+                </div>
+            </div>
         </div>
     );
 };

@@ -18,7 +18,7 @@ import AccountSettings from "./pages/Buyers/Account";
 import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import LandingPageforSellers from "./pages/Sellers/LandingPageforSellers";
-import ProductDetails from "./pages/Buyers/Product-Details/AboutProduct";
+import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 function App() {
 
   return (

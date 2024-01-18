@@ -7,7 +7,7 @@ import { productCatalogue } from "../../../reducersAndActions/actions/productCat
 
 // components
 import SortProducts from "./SortProducts";
-import FilterOptions from "./Filter-Product-Components/FilterOptions";
+import FilterOptions from "./FilterOptions";
 import TotalResults from "./TotalResults";
 import ProductsTable from "./ProductsTable";
 
@@ -23,8 +23,111 @@ const mapDispatchToProps = (dispatch) => ({
 
 const ProductCatalogue = ({ products: { catalogue } }) => {
     const [breadCrumb, setBreadCrumb] = useState([]);
+    const [productsCopy, setProductsCopy] = useState([]);
+    const [isResetPagination, setIsResetPagination] = useState(true);
+
+    // function to get products from children component eg: from pagination copmonent
+    const getProductsCopy = (copiedProducts) => {
+        setProductsCopy(copiedProducts);
+    };
+
+    const filterByBrand = (brandArr) => {
+        filterBy("brand", brandArr);
+    };
+
+    const filterByBusinessType = (typesArr) => {};
+
+    const filterByPrice = (min, max) => {
+        filterBy("price", [min, max]);
+    };
+
+    const filterByRatings = (ratingsArr) => {
+        filterBy("ratings", ratingsArr);
+    };
+    const filterByCondition = (condition) => {};
 
     const currentUrl = useHref();
+
+    const filterBy = (filterType, filterTypeData) => {
+        let filteredProducts = [];
+        if (productsCopy.length > 0) {
+            switch (filterType) {
+                case "brand":
+                    productsCopy.forEach((product) => {
+                        filterTypeData.forEach((brand) => {
+                            if (brand.name === product.brand) {
+                                filteredProducts.push(product);
+                            }
+                        });
+                    });
+                    setProductsCopy(filteredProducts);
+                    resetPagination();
+                    break;
+                case "price":
+                    const min = filterTypeData[0];
+                    const max = filterTypeData[1];
+                    const filtered = productsCopy.filter(
+                        (product) => product.price >= min && product.price <= max
+                    );
+                    filteredProducts = filtered;
+                    setProductsCopy(filteredProducts);
+                    resetPagination();
+                    break;
+                case "ratings":
+                    productsCopy.forEach((product) => {
+                        arr.forEach((item) => {
+                            if (product.ratings === item.value) {
+                                filteredProducts.push(product);
+                            }
+                        });
+                    });
+                    setProductsCopy(filteredProducts);
+                    resetPagination();
+                    break;
+                default:
+                    return filteredProducts;
+                // break;
+            }
+        } else {
+            switch (filterType) {
+                case "brand":
+                    catalogue.forEach((product) => {
+                        filterTypeData.forEach((brand) => {
+                            if (brand.name === product.brand) {
+                                filteredProducts.push(product);
+                            }
+                        });
+                    });
+                    setProductsCopy(filteredProducts);
+                    resetPagination();
+                    break;
+                case "price":
+                    const filtered = catalogue.filter(
+                        (product) => product.price >= min && product.price <= max
+                    );
+                    filteredProducts = filtered;
+
+                    setProductsCopy(filteredProducts);
+                    resetPagination();
+                    break;
+                case "ratings":
+                    catalogue.forEach((product) => {
+                        arr.forEach((item) => {
+                            if (product.ratings === item.value) {
+                                filteredProducts.push(product);
+                            }
+                        });
+                    });
+                    setProductsCopy(filteredProducts);
+                    resetPagination();
+                    break;
+                default:
+                    return filteredProducts;
+                // break;
+            }
+        }
+        resetPagination();
+    };
 
     useEffect(() => {
         setUrlsHist();
@@ -46,6 +149,10 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
             }
         }
         setBreadCrumb(paths);
+    };
+
+    const resetPagination = () => {
+        setIsResetPagination(!isResetPagination);
     };
 
     const breadCrumbComp = breadCrumb.map((path, index) => {
@@ -75,8 +182,22 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
             {/* total results component */}
             <TotalResults />
             <div className="w-full flex justify-between">
-                <FilterOptions />
-                <ProductsTable products={catalogue} />
+                <FilterOptions
+                    products={catalogue}
+                    productsCopy={productsCopy}
+                    filterByBrand={filterByBrand}
+                    filterByPrice={filterByPrice}
+                    filterByBusinessType={filterByBusinessType}
+                    filterByCondition={filterByCondition}
+                    filterByRatings={filterByRatings}
+                />
+                <ProductsTable
+                    products={catalogue}
+                    getProductsCopy={getProductsCopy}
+                    productsCopy={productsCopy}
+                    resetPagination={resetPagination}
+                    isResetPagination={isResetPagination}
+                />
             </div>
         </div>
     );

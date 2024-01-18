@@ -8,11 +8,7 @@ const Pagination = ({ products, getProductsCopy, productsCopy, isResetPagination
     const [isNextBtn, setIsNextBtn] = useState(false);
 
     useEffect(() => {
-        // const sliced = products.slice(0, pageSize);
-        // getProductsCopy(sliced);
-        // setTotalPages(Math.ceil(products.length / pageSize));
         initiatePagination();
-        console.log(isResetPagination);
     }, [isResetPagination]);
 
     const onChangePage = (pageIndex) => {
@@ -27,10 +23,15 @@ const Pagination = ({ products, getProductsCopy, productsCopy, isResetPagination
     };
 
     const initiatePagination = () => {
-        const sliced = products.slice(0, pageSize);
-        getProductsCopy(sliced);
-        setTotalPages(Math.ceil(products.length / pageSize));
-        // resetPagination(isResetPagination);
+        if (productsCopy.length > 0) {
+            const sliced = productsCopy.slice(0, pageSize);
+            getProductsCopy(sliced);
+            setTotalPages(Math.ceil(productsCopy.length / pageSize));
+        } else {
+            const sliced = products.slice(0, pageSize);
+            getProductsCopy(sliced);
+            setTotalPages(Math.ceil(products.length / pageSize));
+        }
     };
 
     const pagination = (maxPages, pageIndex, isActiveBtn) => {

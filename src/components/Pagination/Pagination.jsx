@@ -53,6 +53,8 @@ const Pagination = ({ products, getProductsCopy, productsCopy, isResetPagination
 
         if (pageIndex === maxPages) {
             setIsNextBtn(true);
+        } else {
+            setIsNextBtn(false)
         }
     };
 

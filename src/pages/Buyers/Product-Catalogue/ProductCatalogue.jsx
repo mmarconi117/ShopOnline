@@ -25,17 +25,26 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
     const [breadCrumb, setBreadCrumb] = useState([]);
     const [productsCopy, setProductsCopy] = useState([]);
     const [isResetPagination, setIsResetPagination] = useState(true);
+    const [totalProducts, setTotalProducts] = useState(catalogue.length);
+    const [totalProductsDisplaying, setTotalProductsDisplaying] = useState(0);
+
+    useEffect(() => {
+        setUrlsHist();
+    }, []);
 
     // function to get products from children component eg: from pagination copmonent
     const getProductsCopy = (copiedProducts) => {
         setProductsCopy(copiedProducts);
+        setTotalProductsDisplaying(copiedProducts.length);
     };
 
     const filterByBrand = (brandArr) => {
         filterBy("brand", brandArr);
     };
 
-    const filterByBusinessType = (typesArr) => {};
+    const filterByBusinessType = (typesArr) => {
+        filterBy("business_type", typesArr);
+    };
 
     const filterByPrice = (min, max) => {
         filterBy("price", [min, max]);
@@ -44,94 +53,77 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
     const filterByRatings = (ratingsArr) => {
         filterBy("ratings", ratingsArr);
     };
-    const filterByCondition = (condition) => {};
+    const filterByCondition = (condition) => {
+        filterBy("condition", condition);
+    };
 
     const currentUrl = useHref();
 
     const filterBy = (filterType, filterTypeData) => {
         let filteredProducts = [];
-        if (productsCopy.length > 0) {
-            switch (filterType) {
-                case "brand":
-                    productsCopy.forEach((product) => {
-                        filterTypeData.forEach((brand) => {
-                            if (brand.name === product.brand) {
-                                filteredProducts.push(product);
-                            }
-                        });
+        // if (productsCopy.length > 0) {
+        switch (filterType) {
+            case "brand":
+                catalogue.forEach((product) => {
+                    filterTypeData.forEach((brand) => {
+                        if (brand.name === product.brand) {
+                            filteredProducts.push(product);
+                        }
                     });
-                    setProductsCopy(filteredProducts);
-                    resetPagination();
-                    break;
-                case "price":
-                    const min = filterTypeData[0];
-                    const max = filterTypeData[1];
-                    const filtered = productsCopy.filter(
-                        (product) => product.price >= min && product.price <= max
-                    );
-                    filteredProducts = filtered;
-                    setProductsCopy(filteredProducts);
-                    resetPagination();
-                    break;
-                case "ratings":
-                    productsCopy.forEach((product) => {
-                        arr.forEach((item) => {
-                            if (product.ratings === item.value) {
-                                filteredProducts.push(product);
-                            }
-                        });
+                });
+                setProductsCopy(filteredProducts);
+                resetPagination();
+                break;
+            case "price":
+                const min = filterTypeData[0];
+                const max = filterTypeData[1];
+                const filtered = catalogue.filter(
+                    (product) => product.price >= min && product.price <= max
+                );
+                filteredProducts = filtered;
+                setProductsCopy(filteredProducts);
+                resetPagination();
+                break;
+            case "ratings":
+                catalogue.forEach((product) => {
+                    filterTypeData.forEach((item) => {
+                        // console.log(product.ratings, item.value);
+                        // console.log(Math.ceil(product.ratings) <= Math.ceil(item.value));
+                        // console.log(Math.ceil(product.ratings), Math.ceil(item.value));
+                        if (Math.ceil(product.ratings) <= Math.ceil(item.value)) {
+                            filteredProducts.push(product);
+                        }
                     });
-                    setProductsCopy(filteredProducts);
-                    resetPagination();
-                    break;
-                default:
-                    return filteredProducts;
-                // break;
-            }
-        } else {
-            switch (filterType) {
-                case "brand":
-                    catalogue.forEach((product) => {
-                        filterTypeData.forEach((brand) => {
-                            if (brand.name === product.brand) {
-                                filteredProducts.push(product);
-                            }
-                        });
+                });
+                setProductsCopy(filteredProducts);
+                resetPagination();
+                break;
+            case "business_type":
+                catalogue.forEach((product) => {
+                    filterTypeData.forEach((item) => {
+                        if (product.businessType.toLowerCase() === item.type) {
+                            filteredProducts.push(product);
+                        }
                     });
-                    setProductsCopy(filteredProducts);
-                    resetPagination();
-                    break;
-                case "price":
-                    const filtered = catalogue.filter(
-                        (product) => product.price >= min && product.price <= max
-                    );
-                    filteredProducts = filtered;
-
-                    setProductsCopy(filteredProducts);
-                    resetPagination();
-                    break;
-                case "ratings":
-                    catalogue.forEach((product) => {
-                        arr.forEach((item) => {
-                            if (product.ratings === item.value) {
-                                filteredProducts.push(product);
-                            }
-                        });
+                });
+                setProductsCopy(filteredProducts);
+                resetPagination();
+                break;
+            case "condition":
+                catalogue.forEach((product) => {
+                    filterTypeData.forEach((item) => {
+                        if (product.condition === item.condition) {
+                            filteredProducts.push(product);
+                        }
                     });
-                    setProductsCopy(filteredProducts);
-                    resetPagination();
-                    break;
-                default:
-                    return filteredProducts;
-                // break;
-            }
+                });
+                setProductsCopy(filteredProducts);
+                resetPagination();
+            default:
+                return filteredProducts;
         }
         resetPagination();
     };
-
-    useEffect(() => {
-        setUrlsHist();
-    }, []);
 
     const setUrlsHist = () => {
         const urls = currentUrl.split("/");
@@ -159,7 +151,7 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
         return (
             <a
                 href={path.url}
-                className="text-xl p-2 5 mr-2 5"
+                className="text-xl p-2 5 mr-2 5 inline-block align-sub"
                 key={index}
             >
                 {path.pathname}
@@ -169,18 +161,20 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
 
     return (
         <div id="product-catalogue-page">
-            {/* upper items  */}
-            <div className="flex justify-between">
+            {/* upper items, total results, breadcrumbs sort by components  */}
+            <div className="flex justify-between mt-10">
                 <div id="total-results">
-                    <p>1-24 of over 10,300 results</p>
+                    <p className="inline-block align-sub">
+                        1-{totalProductsDisplaying} of over {totalProducts} results
+                    </p>
                 </div>
                 {/* bread crumb  */}
-                <div className="">{breadCrumbComp}</div>
+                <div>{breadCrumbComp}</div>
                 {/* sort products by */}
                 <SortProducts />
             </div>
             {/* total results component */}
-            <TotalResults />
+            <TotalResults totalProductsDisplaying={totalProductsDisplaying} />
             <div className="w-full flex justify-between">
                 <FilterOptions
                     products={catalogue}

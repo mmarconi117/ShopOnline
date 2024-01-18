@@ -13,6 +13,7 @@ const FilterByRatings = ({ filterByRatings }) => {
             ratingsArr = update;
             setRatingsArr(update);
         }
+        filterByRatings(ratingsArr);
     };
     return (
         <div
@@ -30,7 +31,7 @@ const FilterByRatings = ({ filterByRatings }) => {
                                 onClick(e.target.checked, e.target.name);
                             }}
                             type="checkbox"
-                            name="4"
+                            name="4.99"
                             className="rounded-xl w-[24px] h-[24px]"
                         />
                     </div>
@@ -77,7 +78,7 @@ const FilterByRatings = ({ filterByRatings }) => {
                                 onClick(e.target.checked, e.target.name);
                             }}
                             type="checkbox"
-                            name="3"
+                            name="3.99"
                             className="rounded-xl w-[24px] h-[24px]"
                         />
                     </div>
@@ -122,7 +123,7 @@ const FilterByRatings = ({ filterByRatings }) => {
                                 onClick(e.target.checked, e.target.name);
                             }}
                             type="checkbox"
-                            name="2"
+                            name="2.99"
                             className="rounded-xl w-[24px] h-[24px]"
                         />
                     </div>
@@ -167,7 +168,7 @@ const FilterByRatings = ({ filterByRatings }) => {
                                 onClick(e.target.checked, e.target.name);
                             }}
                             type="checkbox"
-                            name="1"
+                            name="1.99"
                             className="rounded-xl w-[24px] h-[24px]"
                         />
                     </div>

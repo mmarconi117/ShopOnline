@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 
-const FilterByCondition = ({ products }) => {
+const FilterByCondition = ({ products, filterByCondition }) => {
     const [noDublicate, setNoDublicate] = useState([]);
+
+    useEffect(() => {
+        unique();
+    }, []);
 
     const unique = () => {
         let uniqueConditionArr = [];
@@ -16,9 +20,9 @@ const FilterByCondition = ({ products }) => {
         setNoDublicate(uniqueConditionArr);
     };
 
-    useEffect(() => {
-        unique();
-    }, []);
+    const onClick = (condition) => {
+        filterByCondition([{ condition: condition }]);
+    };
 
     const productsConditionComp = noDublicate.map((product, index) => {
         // console.log(product);
@@ -28,6 +32,9 @@ const FilterByCondition = ({ products }) => {
                 key={index}
             >
                 <button
+                    onClick={() => {
+                        onClick(product.condition);
+                    }}
                     className="text-[#2284B6] text-2xl"
                     type="button"
                     style={{

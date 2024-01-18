@@ -7,12 +7,13 @@ The children prop has been used to collect the needed iformation of each route t
 import PropTypes from 'prop-types';
 import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
+import { Outlet } from 'react-router-dom';
 
 const Layout = ({ children }) => {
     return (
-    <div>
+    <div className='bg-[#F5F5F9]'>
         <Header />
-            {children}
+            <Outlet />
         <Footer />
     </div>
     );

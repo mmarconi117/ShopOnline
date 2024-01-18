@@ -4,15 +4,8 @@ import { useState, useEffect } from "react";
 import Pagination from "../../../components/Pagination/Pagination";
 
 
-const ProductsTable = ({ products }) => {
-    const [copyProducts, setCopyProducts] = useState([]);
-
-    // function to get products from children component eg: from pagination copmonent
-    const getCopyProducts = (copiedProducts) => {
-        setCopyProducts(copiedProducts);
-    };
-
-    const catalogueComp = copyProducts.map((product, index) => {
+const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPagination }) => {
+    const catalogueComp = productsCopy.map((product, index) => {
         return (
             <div
                 className="w-1/4 h-auto p-5 mr-12 mb-12 border shadow-md rounded-xl"
@@ -70,7 +63,7 @@ const ProductsTable = ({ products }) => {
                         </div>
 
                         <div className="flex">
-                            <div>
+                            <div className="text-[#E46962]">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -87,7 +80,7 @@ const ProductsTable = ({ products }) => {
                                 </svg>
                             </div>
                             <div>
-                                <span className="text-[.75rem] text-[#605D64]">
+                                <span className="text-[.75rem] text-[#E46962]">
                                     {product.qty} items left
                                 </span>
                             </div>
@@ -107,7 +100,9 @@ const ProductsTable = ({ products }) => {
                 <div className="w-5/6">
                     <Pagination
                         products={products}
-                        getCopyProducts={getCopyProducts}
+                        getProductsCopy={getProductsCopy}
+                        isResetPagination={isResetPagination}
+                        productsCopy={productsCopy}
                     />
                 </div>
             </div>

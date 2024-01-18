@@ -1,4 +1,23 @@
+import { useState } from "react";
+
 const SortProducts = () => {
+    const [clicked, setClicked] = useState(true);
+    const [menuTitle, setMenuTitle] = useState("Newest");
+    const [subMenuTitle, setSubMenuTitle] = useState("Oldest");
+    const [isOpen, setIsOpen] = useState(false);
+
+    const onClick = () => {
+        if (clicked) {
+            setMenuTitle(subMenuTitle);
+            setSubMenuTitle(menuTitle);
+        } else {
+            setSubMenuTitle(menuTitle);
+            setMenuTitle(subMenuTitle);
+        }
+        // setIsOpen(!isOpen)
+        setClicked(!clicked);
+        setIsOpen(!isOpen);
+    };
     return (
         <div
             id="sort-products"
@@ -17,8 +36,12 @@ const SortProducts = () => {
                         id="menu-button"
                         aria-expanded="true"
                         aria-haspopup="true"
+                        value={menuTitle}
+                        onClick={() => {
+                            setIsOpen(!isOpen);
+                        }}
                     >
-                        Newest
+                        {menuTitle}
                         <svg
                             className="-mr-1 h-5 w-5 text-gray-400"
                             viewBox="0 0 20 20"
@@ -44,62 +67,35 @@ const SortProducts = () => {
       From: "transform opacity-100 scale-100"
       To: "transform opacity-0 scale-95"
   --> */}
-                {/* <div
+                <div
                     className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="menu-button"
                     tabIndex="-1"
-                > */}
-                {/* <div
-                        className="py-1"
-                        role="none"
-                    > */}
-                {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
-                {/* <a
-                            href="#"
-                            className="text-gray-700 block px-4 py-2 text-sm"
-                            role="menuitem"
-                            tabIndex="-1"
-                            id="menu-item-0"
-                        >
-                            Account settings
-                        </a>
-                        <a
-                            href="#"
-                            className="text-gray-700 block px-4 py-2 text-sm"
-                            role="menuitem"
-                            tabIndex="-1"
-                            id="menu-item-1"
-                        >
-                            Support
-                        </a>
-                        <a
-                            href="#"
-                            className="text-gray-700 block px-4 py-2 text-sm"
-                            role="menuitem"
-                            tabIndex="-1"
-                            id="menu-item-2"
-                        >
-                            License
-                        </a>
-                        <form
-                            method="POST"
-                            action="#"
+                >
+                    {isOpen ? (
+                        <div
+                            className="py-1"
                             role="none"
                         >
+                            {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
                             <button
-                                type="submit"
-                                className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
+                                className="w-full block px-4 py-2 text-sm text-[#2284B6] hover:cursor-pointer hover:bg-gray-100"
                                 role="menuitem"
                                 tabIndex="-1"
-                                id="menu-item-3"
+                                id="menu-item-0"
+                                type="button"
+                                value={subMenuTitle}
+                                onClick={onClick}
                             >
-                                Sign out
+                                {subMenuTitle}
                             </button>
-                        </form> */}
-                {/* </div> */}
-                {/* </div> */}
+                        </div>
+                    ) : (
+                        <div></div>
+                    )}
+                </div>
             </div>
         </div>
     );

@@ -13,6 +13,7 @@ import Overview from "./Analytics/Overview";
 import Payments from "./Analytics/Payments";
 import RatingsAndReviews from "./Analytics/RatingsAndReviews";
 import FeedDetail from "./Analytics/FeedDetail";
+import ProductDetail from "./ProductCatalogue/ProductDetail";
 
 
 
@@ -20,11 +21,11 @@ import FeedDetail from "./Analytics/FeedDetail";
 export default function LandingPageforSellers() {
   return (
     <div className="bg-zinc-100">
-      <div className="gap-0 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+      <div className="gap-0 flex max-md:items-stretch max-md:gap-0">
 
         <Sidebar />
          
-        <div className="flex flex-col items-stretch w-[81%] ml-0 max-md:w-full max-md:ml-0">
+        <div className="flex flex-col items-stretch grow">
           <Header />
           <div className="flex flex-col items-stretch max-md:max-w-full">
                   
@@ -42,6 +43,7 @@ export default function LandingPageforSellers() {
               {/* Product Catalogue Routing */}
               <Route path='/listOfproducts' element={<ListOfProducts />} />              
               <Route path='/uploadproduct' element={<UploadProduct />} />
+              <Route path='/product' element={<ProductDetail />} />
 
               {/* Order Management Routing */}
               <Route path='/orderlist' element={<OrderList />} />

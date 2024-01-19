@@ -19,7 +19,7 @@ import ReviewPage from "./pages/Buyers/ReviewPage";
 import LandingPageforSellers from "./pages/Sellers/LandingPageforSellers";
 import CompanyInfo from "./pages/Sellers/CompanyInfo/CompanyInfo";
 import OnlineFulfillment from "./pages/Sellers/OnlineFulfillment/OnlineFulfillment";
-
+import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 function App() {
 
   return (
@@ -30,6 +30,7 @@ function App() {
               <Route exact path="" element={<Layout />}> 
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/subcategories" element={<SubCategory />} />
+                <Route path="/productdetails" element={<ProductDetails />} />
                 <Route path="/cart" element={<Cart />} />                
                 <Route path="/help" element={<Help />} />
                 <Route path="/language" element="#" />

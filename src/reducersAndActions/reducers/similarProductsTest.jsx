@@ -1,4 +1,4 @@
-import { GET_SIMILAR_PRODUCTS } from "../actions";
+import * as actionTypes from "../actions";
 import img from "../../assets/IMAGES/Product card/Rectangle 12305-2.png";
 import img2 from "../../assets/IMAGES/Product card/Rectangle 12305-3.png";
 import img3 from "../../assets/IMAGES/Product card/Rectangle 12305-4.png";
@@ -87,7 +87,7 @@ export const initialState = {
 
 export const similarProductsTestReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_SIMILAR_PRODUCTS:
+        case actionTypes.GET_SIMILAR_PRODUCTS:
             return {
                 ...state,
                 product: action.payload,

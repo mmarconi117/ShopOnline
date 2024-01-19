@@ -1,4 +1,4 @@
-import { SET_PRODUCT } from "../actions";
+import * as actionTypes from "../actions";
 import ProductImgTest from "../../assets/IMAGES/Product card/Rectangle 12305-1.png";
 import ProductImgTest2 from "../../assets/IMAGES/Product card/Rectangle 12305-2.png";
 import ProductImgTest3 from "../../assets/IMAGES/Product card/Rectangle 12305-3.png";
@@ -67,7 +67,7 @@ export const initialState = {
 export const productTestReducer = (state = initialState, action) => {
     // console.log(action.type);
     switch (action.type) {
-        case SET_PRODUCT:
+        case actionTypes.SET_PRODUCT:
             return {
                 ...state,
                 product: action.payload,

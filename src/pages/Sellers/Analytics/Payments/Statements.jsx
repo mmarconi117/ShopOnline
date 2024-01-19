@@ -1,10 +1,6 @@
-function Payments() {
+const Statements = () => {
   return (
     <div className="self-center flex w-[967px] max-w-full flex-col items-stretch mt-4 px-5">
-      <div>Payments</div>
-      <button>Statements</button>
-      <button>Transactions</button>
-
       <div>
         <div>Payment Information</div>
         <div>
@@ -61,7 +57,6 @@ function Payments() {
         </div>
       </div>
 
-
       <div>
         <div>Refunds</div>
         <div>
@@ -94,7 +89,6 @@ function Payments() {
           <p>120000</p>
         </div>
       </div>
-
 
       <div>
         <div>Adjustment</div>
@@ -131,13 +125,11 @@ function Payments() {
           <p>120000</p>
         </div>
 
-
         <div>
           <p>Total</p>
           <p>120000</p>
         </div>
       </div>
-
 
       <div>
         <div>Other activities</div>
@@ -153,6 +145,6 @@ function Payments() {
       </div>
     </div>
   );
-}
+};
 
-export default Payments;
+export default Statements;

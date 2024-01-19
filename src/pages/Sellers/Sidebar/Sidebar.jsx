@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Sidebar() {
     return (
 
-        <div className="flex flex-col items-center w-[19%] max-md:w-full max-md:ml-0">
+        <div className="md:flex flex-col items-center hidden w-[19%] max-md:ml-0 bg-red-200">
             <div className="bg-white flex w-full grow flex-col mx-auto pl-10 pr-20 py-10 max-md:px-5">
 
                 <div className="self-stretch flex flex-col mt-2 pl-9 items-end max-md:mt-10 max-md:pl-5">

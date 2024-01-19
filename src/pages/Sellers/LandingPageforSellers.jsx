@@ -20,14 +20,14 @@ import ProductDetail from "./ProductCatalogue/ProductDetail";
 
 export default function LandingPageforSellers() {
   return (
-    <div className="bg-zinc-100">
-      <div className="gap-0 flex max-md:items-stretch max-md:gap-0">
+    <div className="bg-zinc-100 min-h-max">
+      <div className="gap-0 flex items-stretch max-md:gap-0 h-full">
 
         <Sidebar />
          
-        <div className="flex flex-col items-stretch grow">
+        <div className="flex flex-col items-stretch w-full md:w-[81%]">
           <Header />
-          <div className="flex flex-col items-stretch max-md:max-w-full">
+          <div className="flex flex-col grow items-stretch max-md:max-w-full">
                   
             <Routes>
               <Route path='/' element={<Homepage/>} />
@@ -43,7 +43,6 @@ export default function LandingPageforSellers() {
               {/* Product Catalogue Routing */}
               <Route path='/listOfproducts' element={<ListOfProducts />} />              
               <Route path='/uploadproduct' element={<UploadProduct />} />
-              <Route path='/product' element={<ProductDetail />} />
 
               {/* Order Management Routing */}
               <Route path='/orderlist' element={<OrderList />} />

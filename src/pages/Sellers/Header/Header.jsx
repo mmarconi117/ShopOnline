@@ -4,7 +4,7 @@ import ArrowDown from '../../../assets/ICONS/ArrowDown.svg'
 
 function Header() {
   return (
-    <div className="justify-center bg-white flex flex-col pl-0 pr-10 py-12 items-end max-md:max-w-full max-md:pl-5">
+    <div className="justify-center bg-white flex flex-col pl-0 pr-10 py-6 items-end max-md:max-w-full max-md:pl-5">
       <div className="items-stretch flex w-[470px] max-w-full justify-between gap-0 mb-1 max-md:flex-wrap">
         <div className="items-stretch flex justify-between gap-10 max-md:justify-center">
           <div className="text-zinc-600 text-base leading-6 whitespace-nowrap">

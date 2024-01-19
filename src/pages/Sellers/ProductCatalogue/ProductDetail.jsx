@@ -13,7 +13,6 @@ function ProductDetail() {
                     <span><img src={LeftArrow} alt="left-arrow" /></span>
                     <div>Back</div>
                 </button>
-                {/* Title / Buttons */}
                 <div className="self-center flex flex-col justify-end items-start xl:flex-row w-full max-w-full xl:items-start xl:justify-between mt-5 min-[1350px]:mt-7 ">
                     <div className='flex flex-col w-full'>
                         <div className="text-stone-950 text-xl font-medium leading-8 pt-5">
@@ -37,14 +36,10 @@ function ProductDetail() {
                         </button>
                     </div>
                 </div>
-                {/* Content */}
                 <div className="bg-white self-center w-full max-w-full mt-7 gap-0 px-4 pt-5 pb-20 lg:px-7 min-[1150px]:px-3.5 min-[1150px]:py-2.5 xl:px-7 xl:py-5">
                     <div className="gap-20 min-[1150px]:gap-8 xl:gap-16 flex flex-col min-[1150px]:flex-row items-stretch min-[1150px]:items-start justify-between">
-                        {/*  */}
                         <div className="flex flex-col justify-start self-center min-[1150px]:self-start w-auto min-[1150px]:w-[29%] max-w-[284px] min-w-[250px]">                            
-                            {/* Product Image */}
                             <img src={heels} alt="heels pic" className=' object-cover w-[284px] shrink-0 h-[250px]' />
-                            {/* Slideshow */}
                             <div className=" w-full max-w-full justify-center items-center flex gap-2 xl:gap-3 min-[1350px]:gap-4 mt-7 max-md:justify-center">
                                 <img
                                     loading="lazy"

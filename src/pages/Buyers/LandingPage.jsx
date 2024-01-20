@@ -6,8 +6,7 @@ import Welcome from '../../components/Menu/Welcome';
 import EmptySpaceToBeFilledIn from '../../components/Menu/EmptySpaceToBeFilledIn';
 import PopularItems from '../../components/PopularItems/PopularItems'; // Added PopularItems module
 import BS_BeautyandPersonal from '../../components/BS_BeautyAndPersonal/BS_BeautyAndPersonal'
-import BS_HomeAndOffice from '../../components/BS_HomeAndOffice/PopularItems';
-import ProductDetails from "./Product-Details/ProductDetails";
+import BS_HomeAndOffice from "../../components/BS_HomeAndOffice/PopularItems";
 
 const productDetailItemTest = {
     product: {

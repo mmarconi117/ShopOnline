@@ -24,14 +24,14 @@ function ProductDetail() {
                             </div>
                         </div>
                     </div>
-                    <div className="self-start mt-6 xl:mt-0 z-[1] flex items-stretch justify-between gap-3 xl:gap-5">
-                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap items-stretch rounded-md border border-[#EEC643] justify-center px-4 py-2 sm:px-5 md:px-8 sm:py-4 border-solid">
+                    <div className="self-center min-[390px]:self-start mt-6 xl:mt-0 z-[1] flex flex-col items-stretch justify-center min-[390px]:flex-row min-[390px]:items-stretch min-[390px]:justify-between gap-5 min-[390px]:gap-3 xl:gap-5">
+                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap rounded-md border border-[#EEC643] px-4 py-2 sm:px-5 md:px-8 sm:py-4 border-solid">
                             Archive
                         </button>
-                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap items-stretch rounded-md border border-[#EEC643] justify-center px-4 py-2 sm:px-5 md:px-8 sm:py-4 border-solid">
+                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap rounded-md border border-[#EEC643] px-4 py-2 sm:px-5 md:px-8 sm:py-4 border-solid">
                             Publish/Unpublish
                         </button>
-                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap items-stretch rounded-md bg-[#EEC643] justify-center px-4 sm:px-5 py-2 md:px-8 sm:py-4 border-solid">
+                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap rounded-md bg-[#EEC643] px-4 sm:px-5 py-2 md:px-8 sm:py-4 border-solid">
                             Delete Product
                         </button>
                     </div>

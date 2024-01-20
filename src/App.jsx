@@ -20,6 +20,9 @@ import LandingPageforSellers from "./pages/Sellers/LandingPageforSellers";
 import CompanyInfo from "./pages/Sellers/CompanyInfo/CompanyInfo";
 import OnlineFulfillment from "./pages/Sellers/OnlineFulfillment/OnlineFulfillment";
 import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
+import PaymentServices from "./pages/Sellers/PaymentServices/PaymentServices";
+import TwoStepVerification from "./pages/Sellers/2-StepVerification/TwoStepVerification";
+import Agreements from "./pages/Sellers/Agreements/Agreements";
 function App() {
 
   return (
@@ -49,6 +52,9 @@ function App() {
               <Route path="/sellers/*" element={<LandingPageforSellers />} />
               <Route path="/onlinefulfillment" element={<OnlineFulfillment />} />
               <Route path="/companyinfo" element={<CompanyInfo />} />
+              <Route path="/paymentservices" element={<PaymentServices />} />
+              <Route path="/twostepverification" element={<TwoStepVerification />} />
+              <Route path="/agreements" element={<Agreements />} />
             </Routes>
         </Router>
       </div>

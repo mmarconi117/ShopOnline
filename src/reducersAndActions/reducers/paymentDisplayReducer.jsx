@@ -1,4 +1,5 @@
-// companyServiceActions.js
+import { DISPLAY_STATEMENT, DISPLAY_TRANSACTION } from "../actions";
+
 
 const initialState = {
   display: "DISPLAY_STATEMENT",
@@ -6,11 +7,11 @@ const initialState = {
 
 const paymentDisplay = (state = initialState, action) => {
   switch (action.type) {
-    case "DISPLAY_STATEMENT":
+    case DISPLAY_STATEMENT:
       return {
         display: "STATEMENT",
       };
-    case "DISPLAY_TRANSACTION":
+    case DISPLAY_TRANSACTION:
       return {
         display: "TRANSACTION",
       };

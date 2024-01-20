@@ -40,12 +40,12 @@ function App() {
                             element={<SubCategory />}
                         />
                         <Route
-                            path="/productdetails"
-                            element={<ProductDetails />}
-                        />
-                        <Route
                             path="/product-catalogue"
                             element={<ProductCatalogue />}
+                        />
+                        <Route
+                            path="/productdetails"
+                            element={<ProductDetails />}
                         />
                         <Route
                             path="/cart"
@@ -55,10 +55,11 @@ function App() {
                             path="/help"
                             element={<Help />}
                         />
-                        <Route
+                        {/* untill we are at as tage to implement translation */}
+                        {/* <Route
                             path="/language"
                             element="#"
-                        />
+                        /> */}
                         <Route
                             path="/account"
                             element={<Account />}

@@ -1,19 +1,25 @@
-import React from 'react'
-import UserIcon from '../../../assets/ICONS/user/user-1.svg'
-import ArrowDown from '../../../assets/ICONS/ArrowDown.svg'
+import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom if using it for navigation
+import UserIcon from '../../../assets/ICONS/user/user-1.svg';
+import ArrowDown from '../../../assets/ICONS/ArrowDown.svg';
 
 function Header() {
   return (
     <div className="justify-center bg-white flex flex-col pl-0 pr-10 py-6 items-end max-md:max-w-full max-md:pl-5">
       <div className="items-stretch flex w-[470px] max-w-full justify-between gap-0 mb-1 max-md:flex-wrap">
         <div className="items-stretch flex justify-between gap-10 max-md:justify-center">
-          <div className="text-zinc-600 text-base leading-6 whitespace-nowrap">
+          <Link to="/" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
+            Home
+          </Link>
+          <Link to="/settings" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Settings
-          </div>
-          <div className="text-zinc-600 text-base leading-6">Help</div>
-          <div className="text-zinc-600 text-base leading-6 whitespace-nowrap">
+          </Link>
+          <Link to="/help" className="text-zinc-600 text-base leading-6">
+            Help
+          </Link>
+          <Link to="/notifications" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Notifications
-          </div>
+          </Link>
         </div>
         <div className="flex items-stretch justify-between gap-1.5 max-md:justify-center">
           <img
@@ -32,7 +38,7 @@ function Header() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

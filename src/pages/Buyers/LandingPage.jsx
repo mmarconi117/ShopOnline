@@ -13,9 +13,9 @@ import BS_HomeAndOffice from "../../components/BS_HomeAndOffice/PopularItems";
 export default function LandingPage() {
   return (
     <div className='bg-gray-100'>
-      <div className="flex w-full justify-center gap-6 min-[1512px]:px-10 min-[1450px]:pt-4 min-[1450px]:pb-[93px] overflow-auto">
+      <div className="flex w-full justify-center lg:gap-2 xl:gap-6 min-[1512px]:px-10 lg:pt-4 lg:pb-[93px] overflow-auto">
         <Menu />
-        <div>
+        <div className='flex flex-col items-center justify-start max-xl:gap-32'>
           <FashionSection /> 
           <EmptySpaceToBeFilledIn />
         </div>

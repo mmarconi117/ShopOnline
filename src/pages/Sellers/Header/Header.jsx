@@ -2,12 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom if using it for navigation
 import UserIcon from '../../../assets/ICONS/user/user-1.svg';
 import ArrowDown from '../../../assets/ICONS/ArrowDown.svg';
+import logo from '../../../assets/ICONS/Outline/LOGO.png';
 
-function Header() {
+function Header(props) {
   return (
-    <div className="justify-center bg-white flex flex-col pl-0 pr-10 py-6 items-end max-md:max-w-full max-md:pl-5">
-      <div className="items-stretch flex w-[470px] max-w-full justify-between gap-0 mb-1 max-md:flex-wrap">
-        <div className="items-stretch flex justify-between gap-10 max-md:justify-center">
+    <div className="fixed z-10 top-0 w-full bg-white justify-between flex items-center py-6">
+      <div className='hidden md:block pl-8'>
+        <img src={logo} alt="logo" />
+      </div>
+      <div className='flex md:hidden justify-center items-center pl-16'>
+        <button className='flex flex-col gap-1.5 w-8 active:px-0.5' onClick={props.onClick}>
+          <div className='w-full h-1 bg-black'/>
+          <div className='w-full h-1 bg-black'/>
+          <div className='w-full h-1 bg-black'/>
+        </button>
+      </div>
+      <div className="items-stretch hidden sm:flex justify-between gap-5 pr-4 md:gap-10 md:pr-8">
+        <div className="items-stretch flex justify-between gap-5 md:gap-10 max-md:justify-center">
           <Link to="/" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Home
           </Link>
@@ -27,7 +38,7 @@ function Header() {
             src={UserIcon}
             className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
           />
-          <div className="text-zinc-900 text-base font-medium leading-6 self-center my-auto">
+          <div className="text-zinc-900 whitespace-nowrap text-base font-medium leading-6 self-center my-auto">
             John Doe
           </div>
           <img

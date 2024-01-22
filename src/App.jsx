@@ -21,6 +21,8 @@ import CompanyInfo from "./pages/Sellers/CompanyInfo/CompanyInfo";
 import OnlineFulfillment from "./pages/Sellers/OnlineFulfillment/OnlineFulfillment";
 import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
+import RatingsAndReviews from "./components/R&R/Ratings";
+
 function App() {
     return (
         <div>
@@ -42,6 +44,10 @@ function App() {
                         <Route
                             path="/product-catalogue"
                             element={<ProductCatalogue />}
+                        />
+                        <Route
+                            path="/ratings-reviews"
+                            element={<RatingsAndReviews />}
                         />
                         <Route
                             path="/productdetails"

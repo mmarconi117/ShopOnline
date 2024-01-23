@@ -1,6 +1,6 @@
 // modules
 import { useState, useEffect } from "react";
-import { useNavigate, useHref } from "react-router-dom";
+import { useHref } from "react-router-dom";
 import infoIcon from "../../../assets/ICONS/info.svg";
 
 import { connect } from "react-redux";

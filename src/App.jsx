@@ -23,8 +23,9 @@ import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 import PaymentServices from "./pages/Sellers/PaymentServices/PaymentServices";
 import TwoStepVerification from "./pages/Sellers/2-StepVerification/TwoStepVerification";
 import Agreements from "./pages/Sellers/Agreements/Agreements";
+import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
 function App() {
-
+    
   return (
     <>
       <div>

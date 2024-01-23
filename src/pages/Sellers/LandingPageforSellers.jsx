@@ -11,7 +11,7 @@ import OrderList from "./OrderManagement/OrderList";
 import ReturnsAndRefunds from "./OrderManagement/ReturnsAndRefunds";
 import Disputes from "./OrderManagement/Disputes";
 import Overview from "./Analytics/Overview";
-import Payments from "./Analytics/Payments";
+import Payments from "./Analytics/Payments/Payments";
 import RatingsAndReviews from "./Analytics/RatingsAndReviews";
 import FeedDetail from "./Analytics/FeedDetail";
 import ProductDetail from "./ProductCatalogue/ProductDetail";

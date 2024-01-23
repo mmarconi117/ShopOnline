@@ -49,6 +49,7 @@ function App() {
                 <Route path="/checkout" element={<Checkout/>}/>
                 <Route path="/reviews" element={<ReviewPage/>} />
                 <Route path="/accountsettings" element={<Account />} />
+                <Route path="/ratings-reviews" element={<RatingsAndReviews />} />
               </Route>
 
 

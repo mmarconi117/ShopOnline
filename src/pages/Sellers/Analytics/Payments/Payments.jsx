@@ -1,25 +1,24 @@
-import { useReducer } from "react";
 import Statements from "./Statements";
 import Transactions from "./Transactions";
-import paymentDisplay from "../../../../reducersAndActions/reducers/paymentDisplayReducer";
-import { displayStatement, displayTransaction } from "../../../../reducersAndActions/actions/paymentDisplayAction";
+import { useDispatch, useSelector } from "react-redux";
+import { displayStatement as statement } from "../../../../reducersAndActions/actions/paymentAction";
+import { displayTransaction  as transaction} from "../../../../reducersAndActions/actions/paymentAction";
 function Payments() {
-  const [state, dispatch] = useReducer(paymentDisplay, {
-    display: displayStatement(),
-  });
+  const dispatch = useDispatch();
+  const { displayStatement, displayTransaction } = useSelector(
+    (state) => state.paymentReducer
+  );
   return (
     <>
       <div>Payments</div>
       <div>
-        <button onClick={() => dispatch(displayStatement())}>
-          Statements
-        </button>
-        <button onClick={() => dispatch(displayTransaction())}>
+        <button onClick={() => dispatch(statement())}>Statements</button>
+        <button onClick={() => dispatch(transaction())}>
           Transactions
         </button>
       </div>
-
-      {state.display === "STATEMENT" ? <Statements /> : <Transactions />}
+      
+      {displayStatement ? <Statements /> : (displayTransaction?<Transactions/>:null)}
     </>
   );
 }

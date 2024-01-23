@@ -8,52 +8,7 @@ import PopularItems from '../../components/PopularItems/PopularItems'; // Added 
 import BS_BeautyandPersonal from '../../components/BS_BeautyAndPersonal/BS_BeautyAndPersonal'
 import BS_HomeAndOffice from "../../components/BS_HomeAndOffice/PopularItems";
 
-const productDetailItemTest = {
-    product: {
-        id: 1,
-        imgs: [
-            {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            },
-            {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            },
-            {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            },
-            {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            },
-            {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            },
-            {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            },
-            {
-                img: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-            },
-        ],
-        colors: [
-            {
-                red: "red",
-            },
-            {
-                blue: "blue",
-            },
-            {
-                green: "green",
-            },
-        ],
-        price: 178,
-        discount: 20,
-        description:
-            "COSMO COS-DIS6502 24 in. Dishwasher in Fingerprint Resistant Stainless Steel with Stainless Steel Tub",
-        ratings: 4.7,
-        sold: 4788,
-        reviews: 117,
-    },
-};
+
 
 export default function LandingPage() {
   return (

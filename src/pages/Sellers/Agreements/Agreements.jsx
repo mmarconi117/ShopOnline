@@ -2,7 +2,7 @@ import SideBar from './Components/SideBar/SideBar';
 import Body from './Components/Body/Body';
 import TopBar from './Components/TopBar/TopBar'
 
-function CompanyInfo() {
+function Agreements() {
   return (
     <div className="w-full">
       <TopBar />
@@ -14,5 +14,5 @@ function CompanyInfo() {
   );
 }
 
-export default CompanyInfo;
+export default Agreements;
 

@@ -7,17 +7,18 @@ import ordersReducer from "./ordersReducer";
 import productTestReducer from "./productTestReducer";
 import { similarProductsTestReducer } from "./similarProductsTest";
 import productCatalogueReducer from "./productCatalogue";
-import reviewsReducer from "./reduceReview"; // Add this line
+import paymentReducer from "./paymentReducer";
+
 
 export const rootReducer = combineReducers({
-  cartReducer,
-  companyService,
-  businessDetailsReducer,
-  ordersReducer,
-  productTestReducer,
-  similarProductsTestReducer,
-  productCatalogueReducer,
-  reviews: reviewsReducer, // Add this line with the desired key name for the reviews state
+    cartReducer,
+    companyService,
+    businessDetailsReducer,
+    ordersReducer,
+    productTestReducer,
+    similarProductsTestReducer,
+    productCatalogueReducer,
+    paymentReducer,
 });
 
 export default rootReducer;

@@ -9,21 +9,27 @@ import saved from "../../assets/ICONS/voucher.svg"
 import Recently from "../../assets/ICONS/Recently.svg"
 import logoutred from "../../assets/ICONS/logoutred.svg"
 import arrowDown from "../../assets/ICONS/ArrowDown.svg"
+import { useState } from "react"
 
 
 
 const Help = () => {
-  /*
-
-   */
+  const [dropDown, setDropDown] = useState(false)
+  const showMenu = () => {
+    setDropDown((prev) => !prev)
+  }
   return (
     <div className="relative min-h-max w-full p-12 pt-[72px]">
       <div className="hidden lg:block absolute w-[68px] right-0 bottom-[10px] lg:bottom-[50%]">
         <img src={yellowchat} alt="chat-icon" className="object-contain shrink-0"/>
       </div>
       <div className="gap-5 flex flex-col lg:flex-row items-stretch lg:justify-center lg:items-start">
-        {/* Sidebar */}
-        <div className="bg-white flex flex-col gap-5 items-stretch min-h-max min-w-max w-full lg:w-[340px] px-8 pt-5 pb-9 grow-0">
+        <div className={`flex lg:hidden justify-between bg-white px-8 py-5 ${dropDown ? "mb-[-20px]" : ""} grow-0`}>
+            <div>Menu</div>
+            <div onClick={showMenu}><img src={arrowDown} alt="arrow icon" /></div>
+          </div>
+        {/* Sidebar/ Dropdown Menu */}
+        <div className={`${dropDown ? "max-lg:flex" : "max-lg:hidden"} flex bg-white flex-col gap-5 items-stretch min-h-max min-w-max w-full lg:w-[340px] px-8 pt-5 pb-9 grow-0`}>
           <div className="flex items-stretch justify-start gap-4">
               <img
                 src={myaccout} alt=""
@@ -33,7 +39,7 @@ const Help = () => {
                 <a href="/account">My account</a>
               </div>
           </div>
-          <div className="w-full h-[0.5px] bg-gray-400"/>
+          <div className="hidden lg:block w-full h-[0.5px] bg-gray-400"/>
           <div className="flex items-stretch justify-start gap-4">
               <img
                 src={order} alt="order-icon"
@@ -97,7 +103,7 @@ const Help = () => {
                 <a href="/account">Notifications</a>
               </div>
           </div>
-          <div className="w-full h-[0.5px] bg-gray-400"/>
+          <div className="hidden lg:block w-full h-[0.5px] bg-gray-400"/>
 
           <div className="text-zinc-800 text-base font-medium leading-6">
             <a href="">Account Management</a>
@@ -111,7 +117,7 @@ const Help = () => {
           <div className="text-zinc-800 text-base font-medium leading-6">
             <a href="">Customer Service</a>
           </div>
-          <div className="w-full h-[0.5px] bg-gray-400"/>
+          <div className="hidden lg:block w-full h-[0.5px] bg-gray-400"/>
           <div className="justify-between items-stretch flex gap-3.5 mx-auto">
             <img src={logoutred} alt="logout icon" />
             <div className="text-red-400 text-base font-medium leading-6">LOGOUT</div>
@@ -119,7 +125,6 @@ const Help = () => {
         </div>
         {/* Content */}
         <div className="flex flex-col items-stretch lg:w-full grow gap-7">
-          {/* Top part outer container */}
           <div className="bg-white flex flex-col justify-center items-center px-16 py-8 gap-7">
             <div className="text-neutral-800 text-center text-lg sm:text-2xl leading-8 whitespace-nowrap">
               Need help? Let us help you!

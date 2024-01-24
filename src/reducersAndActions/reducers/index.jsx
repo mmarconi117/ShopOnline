@@ -7,6 +7,7 @@ import ordersReducer from "./ordersReducer";
 import productTestReducer from "./productTestReducer";
 import { similarProductsTestReducer } from "./similarProductsTest";
 import productCatalogueReducer from "./productCatalogue";
+import paymentReducer from "./paymentReducer";
 import feedbackReducer from "./feedbackReducer";
 export const rootReducer = combineReducers({
     cartReducer,
@@ -16,6 +17,7 @@ export const rootReducer = combineReducers({
     productTestReducer,
     similarProductsTestReducer,
     productCatalogueReducer,
+    paymentReducer,
     feedbackReducer,
 });
 

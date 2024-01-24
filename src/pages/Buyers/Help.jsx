@@ -19,15 +19,15 @@ const Help = () => {
     setDropDown((prev) => !prev)
   }
   return (
-    <div className="relative min-h-max w-full p-12 pt-[72px]">
+    <div className="relative min-h-max w-full p-6 pt-9 sm:p-12 sm:pt-[72px]">
       <div className="hidden lg:block absolute w-[68px] right-0 bottom-[10px] lg:bottom-[50%]">
         <img src={yellowchat} alt="chat-icon" className="object-contain shrink-0"/>
       </div>
       <div className="gap-5 flex flex-col lg:flex-row items-stretch lg:justify-center lg:items-start">
-        <div className={`flex lg:hidden justify-between bg-white px-8 py-5 ${dropDown ? "mb-[-20px]" : ""} grow-0`}>
-            <div>Menu</div>
-            <div onClick={showMenu}><img src={arrowDown} alt="arrow icon" /></div>
-          </div>
+        <div className={`flex lg:hidden justify-between items-center bg-white px-8 py-5 ${dropDown ? "mb-[-20px]" : ""} grow-0`}>
+          <div>Menu</div>
+          <div onClick={showMenu}><img src={arrowDown} alt="arrow icon" /></div>
+        </div>
         {/* Sidebar/ Dropdown Menu */}
         <div className={`${dropDown ? "max-lg:flex" : "max-lg:hidden"} flex bg-white flex-col gap-5 items-stretch min-h-max min-w-max w-full lg:w-[340px] px-8 pt-5 pb-9 grow-0`}>
           <div className="flex items-stretch justify-start gap-4">

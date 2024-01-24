@@ -47,7 +47,7 @@ const SideBar = () => {
         </div>
       </div>
 
-      <div className='flex gap-[14px] items-center ml-[40px] mt-[246px] cursor-pointer'>
+      <div className='flex gap-[14px] items-center ml-[40px] mt-[246px] cursor-pointer mb-[43px]'>
         <h4 className='text-[14px] font-semibold text-[#0f1111] font-Roboto cursor-pointer '>Sign Out</h4>
         <img className='w-[17px] h-[16px] cursor-pointer' src={signOut} />
       </div>

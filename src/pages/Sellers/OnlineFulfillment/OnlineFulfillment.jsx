@@ -1,11 +1,16 @@
 import SideBar from './Components/SideBar/SideBar';
 import Body from './Components/Body/Body';
+import TopBar from './Components/TopBar/TopBar'
+
 
 function OnlineFulfillment() {
   return (
-    <div className='flex w-full'>
-      <SideBar />
-      <Body />
+    <div className="w-full">
+      <TopBar />
+      <div className='flex w-[1512px]'>
+        <SideBar />
+        <Body />
+      </div>
     </div>
   );
 }

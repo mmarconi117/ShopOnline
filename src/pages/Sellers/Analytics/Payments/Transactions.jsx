@@ -23,7 +23,7 @@ const Transactions = () => {
         <input type="text" name="" id="" placeholder="Type" className="w-full lg:w-[25%] xl:w-[20%] outline-none border border-solid border-[#AEA9B1] rounded-md p-3" />
       </div>
 
-      <div className="p-3 grow overflow-auto">
+      <div className="p-3 grow overflow-auto bg-white">
         <table className="">
           <thead>
             <tr>

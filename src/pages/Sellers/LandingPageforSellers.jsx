@@ -30,7 +30,7 @@ export default function LandingPageforSellers() {
       <Header onClick={showSideBar}/>
       <div className="w-full flex items-stretch mt-[72px] md:mt-[107px]">
         <Sidebar showBarIsTrue={showBar}/>
-        <div className={`${showBar ? "max-md:opacity-25" : "max-md:opacity-100"} flex flex-col items-stretch w-full md:w-auto grow`} onClick={showBar ? showSideBar : ()=>{}}>
+        <div className={`${showBar ? "max-md:opacity-25" : "max-md:opacity-100"} flex flex-col items-stretch overflow-hidden grow`} onClick={showBar ? showSideBar : ()=>{}}>
           <Routes>
             <Route path='/' element={<Homepage/>} />
 

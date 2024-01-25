@@ -13,8 +13,8 @@ function Payments() {
   const [statementPage, setStatement] = useState(true);
 
   return (
-    <div className="font-Roboto py-8 px-12 flex flex-col item-stretch justify-start gap-9 overflow-hidden">
-      <div className="self-center sm:self-stretch text-[32px] font-semibold leading-[52px] text-[#313133] mb-4">
+    <div className="font-Roboto py-8 px-6 xl:px-12 flex flex-col item-stretch justify-start gap-9 grow">
+      <div className="self-center sm:self-start text-[32px] font-semibold leading-[52px] text-[#313133] mb-4">
         Payments
       </div>
       <div className="flex items-stretch justify-center sm:justify-start gap-4">

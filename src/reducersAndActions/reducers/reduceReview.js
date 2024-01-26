@@ -1,9 +1,6 @@
 const initialState = {
-  reviews: [
-    { id: 1, rating: 4, comment: 'Great product!', date: new Date().toISOString() },
-    { id: 2, rating: 5, comment: 'Excellent quality.', date: new Date().toISOString() },
-    // Add more reviews as needed
-  ],
+  reviews: [],
+  comments: {}, // Add this line to initialize comments
 };
 
 const reviewsReducer = (state = initialState, action) => {
@@ -19,6 +16,23 @@ const reviewsReducer = (state = initialState, action) => {
         reviews: state.reviews.map((review) =>
           review.id === action.payload ? { ...review, liked: !review.liked } : review
         ),
+      };
+    case 'SET_SORT':
+      return {
+        ...state,
+        sortBy: action.payload,
+        reviews: sortRating(state.reviews, action.payload),
+      };
+    case 'ADD_COMMENT':
+      return {
+        ...state,
+        comments: {
+          ...state.comments,
+          [action.payload.reviewId]: {
+            visible: action.payload.comment.visible,
+            text: action.payload.comment.text,
+          },
+        }
       };
     default:
       return state;

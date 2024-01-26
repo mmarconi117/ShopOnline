@@ -1,172 +1,202 @@
 // src/components/R&R/Ratings.jsx
-import picDemo from './assets/picDemo.jpeg'
-import picDemo2 from './assets/picDemo2.jpeg'
-import picDemo3 from './assets/picDemo3.webp'
-
-
-
 import React from 'react';
 import { connect } from 'react-redux';
-import { addReview, toggleLike } from '../../reducersAndActions/actions/reviews';
+import { addReview, toggleLike, setSort, addComment, } from '../../reducersAndActions/actions/reviews'
+import picDemo from './assets/picDemo.jpeg';
+import picDemo2 from './assets/picDemo2.jpeg';
+import picDemo3 from './assets/picDemo3.webp';
 
-class RatingsAndReviews extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            submittedReviews: [],
-        };
-
-        // Bind the handleSubmit method
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    convertToStars(rating) {
+const RatingsAndReviews = ({ reviews, addReview, toggleLike, setSort, addComment, comments }) => {
+    const convertToStars = (rating) => {
         const filledStars = '★'.repeat(rating);
         const emptyStars = '☆'.repeat(5 - rating);
         return filledStars + emptyStars;
-    }
+    };
 
-    calculateReviewStats(reviews) {
-        const totalReviews = reviews.length;
+    const reviewStats = {
+        totalReviews: reviews ? reviews.length : 0,
+        averageRating: reviews && reviews.length > 0 ? reviews.reduce((total, review) => total + review.rating, 0) / reviews.length : 0,
+        // highestRating: reviews && reviews.length > 0 ? Math.max(...reviews.map((review) => review.rating)) : 0,
+        // lowestRating: reviews && reviews.length > 0 ? Math.min(...reviews.map((review) => review.rating)) : 0,
+        // mostLiked: reviews ? reviews.reduce((mostLiked, review) => (review.liked ? mostLiked + 1 : mostLiked), 0) : 0,
+    };
 
-        if (totalReviews > 0) {
-            const sum = reviews.reduce((acc, review) => acc + parseInt(review.rating), 0);
-            const averageRating = sum / totalReviews;
-            return { totalReviews, averageRating };
-        } else {
-            return { totalReviews: 0, averageRating: 0 };
-        }
-    }
-
-    handlePublicComment(review) {
-        // Implement public comment logic here
+    const handlePublicComment = (review) => {
+        addComment(review.id, { visible: true, text: '' });
         console.log('Public Comment:', review);
-    }
-
-    handleDirectMessage(review) {
-        // Implement direct message logic here
-        console.log('Direct Message:', review);
-    }
-
-    handleLike(id) {
-        // Check if the review is already liked
-        const review = this.props.reviews.find((review) => review.id === id);
-        if (review && !review.liked) {
-            // Dispatch the like action only if the review is not already liked
-            this.props.toggleLike(id);
-            console.log(`Liked review with ID: ${id}`);
-        }
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        const rating = e.target.elements.rating.value;
-        const comment = e.target.elements.comment.value;
-        const randomImage = this.getRandomImage()
-
-        // Dispatch the action to add the review to Redux state
-        this.props.addReview({
-            id: this.props.reviews.length + 1,
-            rating,
-            comment,
-            date: new Date().toISOString(),
-            liked: false,
-            image: randomImage,
-        });
-
-        // Update the local state with the submitted review
-        this.setState((prevState) => ({
-            submittedReviews: [...prevState.submittedReviews, { rating, comment, date: new Date().toISOString(), image: randomImage }],
-        }));
-
-        e.target.reset();
-    }
-
-    getRandomImage = () => {
-        const images = [picDemo, picDemo2, picDemo3];
-        const randomIndex = Math.floor(Math.random() * images.length);
-        return images[randomIndex];
       };
 
-    ReviewItem = ({ review }) => (
-        <div key={review.id} style={{ marginBottom: '20px' }}>
-            <img src={review.image} alt="Random" style={{ width: '100px', height: '100px' }} />
-            <p>Rating: {this.convertToStars(review.rating)}</p>
-            <p>{review.comment}</p>
-            <p>{new Date(review.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-            <div style={{ marginTop: '10px' }}>
-                <button onClick={() => this.handlePublicComment(review)} style={{ marginRight: '10px' }}>Public Comment</button>
-                <button onClick={() => this.handleDirectMessage(review)} style={{ marginRight: '10px' }}>Direct Message</button>
-                <button onClick={() => this.handleLike(review.id)} style={{ color: review.liked ? 'red' : 'black' }}>❤️</button>
-            </div>
-            <hr />
-        </div>
-    );
+    const handleDirectMessage = (review) => {
+        console.log('Direct Message:', review);
+    };
+    const handleLike = (reviewId) => {
+        toggleLike(reviewId);
+        console.log('Toggled like for review:', reviewId);
+
+    }
 
 
 
-    render() {
-        const { reviews } = this.props;
-        const { submittedReviews } = this.state;
-        const reviewStats = this.calculateReviewStats(reviews);
+    const handleAddReview = (review) => {
+        addReview(review);
+        console.log('Added review:', review);
+    }
+    const ReviewItem = ({ review}) => {
+        const isCommentBoxVisible = comments && comments[review.id] && comments[review.id].visible;
+        const commentText = comments && comments[review.id] && comments[review.id].text ? comments[review.id].text : '';
+
+        const toggleCommentBox = () => {
+            console.log('Review ID:', review.id);
+            console.log('Comments:', comments);
+
+            if (isCommentBoxVisible) {
+                // If the comment box is visible, hide it
+                console.log('Hiding comment box');
+                addComment(review.id, { visible: false, text: '' });
+            } else {
+                // If the comment box is hidden, show it
+                console.log('Showing comment box');
+                addComment(review.id, { visible: true, text: '' });
+            }
+        };
+
+        const handleCommentChange = (event) => {
+            const newCommentText = event.target.value;
+            console.log('New Comment Text:', newCommentText);
+            addComment(review.id, { visible: true, text: newCommentText });
+          };
+
+        const submitComment = () => {
+            // Dispatch the comment with visibility set to false to hide the comment box after submission
+            addComment(review.id, { visible: false, text: commentText });
+          };
 
         return (
-            <div>
-                <h1 style={{ fontWeight: 'bold' }}>Ratings & Reviews</h1>
-
-                <p>Customers provide Seller ratings and reviews. These ratings and reviews indicate whether you are creating a positive shopping experience for customers.</p>
-
-                <div style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '20px' }}>
-                    <p>Total Reviews: {reviewStats.totalReviews}</p>
-                    <p>Average Rating: {reviewStats.averageRating.toFixed(2)}</p>
-                </div>
-
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        {/* <h2 style={{ fontWeight: 'bold', fontSize: '2rem' }}>Customer Reviews</h2> */}
-                        <label>
-                            Sort By:
-                            <select>
-                                <option value="date">Most Recent</option>
-                                <option value="rating">Rating</option>
-                            </select>
-                        </label>
-                    </div>
-
-                <div>
-                    <h2>Submitted Reviews</h2>
-                    {submittedReviews.map((review, index) => (
-                        <this.ReviewItem key={index} review={review} />
-                    ))}
-                </div>
-
-                <div>
-                    <h2>Add Your Review</h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>
-                            Rating:
-                            <input name="rating" type="number" min="1" max="5" />
-                        </label>
-                        <br />
-                        <label>
-                            Comment:
-                            <textarea name="comment"></textarea>
-                        </label>
-                        <br />
-                        <button type="submit">Submit Review</button>
-                    </form>
-                </div>
+          <div className="review-item">
+            <img src={review.image} alt="Random" style={{ width: '100px', height: '100px' }} />
+            <h3>{review.name}</h3>
+            <p>{convertToStars(review.rating)}</p>
+            <p>{review.comment}</p>
+            <div style={{ marginTop: '10px' }}>
+              <button style={{ marginRight: '10px' }} onClick={() => toggleLike(review.id)}>
+                {review.liked ? 'Dislike' : 'Like'}
+              </button>
+              <button onClick={toggleCommentBox} style={{ marginRight: '10px' }}>
+                {isCommentBoxVisible ? 'Cancel' : 'Public Comment'}
+              </button>
+              <button onClick={() => handleDirectMessage(review)}>Direct Message</button>
             </div>
+            {isCommentBoxVisible && (
+              <div style={{ marginTop: '10px' }}>
+                <textarea
+                  rows="3"
+                  cols="30"
+                  placeholder="Enter your public comment..."
+                  value={commentText}
+                  onChange={handlePublicComment}
+                />
+                <button onClick={submitComment}>Submit Comment</button>
+              </div>
+            )}
+          </div>
         );
+      };
+
+
+
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const getRandomImage = () => {
+            const images = [picDemo, picDemo2, picDemo3];
+            const randomIndex = Math.floor(Math.random() * images.length);
+            return images[randomIndex];
+        };
+        const review = {
+            id: Date.now(),
+            name: event.target.name.value,
+            rating: parseInt(event.target.rating.value),
+            comment: event.target.comment.value,
+            liked: false,
+            image: getRandomImage(),
+        };
+        handleAddReview(review);
+        event.target.reset();
     }
+
+    const handleSortByChange = (newSortBy) => {
+        // Dispatch the setSort action to update the sorting option
+        setSort(newSortBy);
+    };
+
+    return (
+        <>
+            <div className="ratings-and-reviews">
+                <h1>Ratings and Reviews</h1>
+            </div>
+            <div className="review-stats">
+                <p>Total Reviews: {reviewStats.totalReviews}</p>
+                <p>Average Rating: {reviewStats.averageRating.toFixed(2)}</p>
+                {/* <p>Highest Rating: {reviewStats.highestRating}</p>
+                <p>Lowest Rating: {reviewStats.lowestRating}</p>
+                <p>Most Liked: {reviewStats.mostLiked}</p> */}
+            </div>
+            <div className="sort-by-dropdown">
+                <label>Sort by:</label>
+                <select onChange={(e) => handleSortByChange(e.target.value)}>
+                    <option value="default">Default</option>
+                    <option value="recent">Most Recent</option>
+                    <option value="rating">Rating</option>
+                </select>
+            </div>
+
+            <div className="review-form">
+                <form onSubmit={handleSubmit}>
+                    <div style={{ marginTop: '20px' }}>
+                        <label>Name: </label>
+                        <input type="text" name="name" required />
+                    </div>
+                    <div style={{ marginTop: '20px' }}>
+                        <label>Rating: </label>
+                        <input type="number" name="rating" min="1" max="5" required />
+                    </div>
+                    <div style={{ marginTop: '20px' }}>
+                        <label>Comment: </label>
+                        <textarea name="comment" required></textarea>
+                    </div>
+                    <div style={{ marginTop: '20px' }}>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+
+
+            <div className="review-list">
+                {reviews.map((review) => <ReviewItem key={review.id} review={review} comments={comments} />)}
+            </div>
+        </>
+    );
 }
 
 const mapStateToProps = (state) => ({
-    reviews: state.reviews ? state.reviews.reviews : [],
-});
+    reviews: state.reviews?.reviews || [],
+    sortBy: state.reviews?.sortBy || 'default',
+    likes: state.reviews?.likes || [],
+    likedReviews: state.reviews?.likedReviews || [],
+    comments: state.reviews?.comments || {}, // Include comments in mapStateToProps
+  });
+
 
 const mapDispatchToProps = (dispatch) => ({
-    addReview,
-    toggleLike: (reviewId) => dispatch(toggleLike(reviewId))
+    addReview: (review) => dispatch(addReview(review)),
+    toggleLike: (id) => dispatch(toggleLike(id)),
+    setSort: (sortRating) => dispatch(setSort(sortRating)),
+    addComment: (reviewId, comment) => dispatch(addComment(reviewId, comment)),
+    handlePublicComment: (review) => dispatch(addComment(review.id, { visible: true, text: '' })),
+
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(RatingsAndReviews);

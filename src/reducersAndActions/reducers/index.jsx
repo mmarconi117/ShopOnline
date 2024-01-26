@@ -1,4 +1,4 @@
-// rootReducer.js
+
 import { combineReducers } from "redux";
 import cartReducer from "./cartReducer";
 import companyService from "./companyServiceReducer";
@@ -8,9 +8,9 @@ import productTestReducer from "./productTestReducer";
 import { similarProductsTestReducer } from "./similarProductsTest";
 import productCatalogueReducer from "./productCatalogue";
 import paymentReducer from "./paymentReducer";
+import reviewsReducer from "./reduceReview";
 
-
-export const rootReducer = combineReducers({
+const rootReducer = combineReducers({
     cartReducer,
     companyService,
     businessDetailsReducer,
@@ -19,6 +19,9 @@ export const rootReducer = combineReducers({
     similarProductsTestReducer,
     productCatalogueReducer,
     paymentReducer,
+    reviews: reviewsReducer,
+
+
 });
 
 export default rootReducer;

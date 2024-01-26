@@ -1,4 +1,4 @@
-
+// rootReducer.js
 import { combineReducers } from "redux";
 import cartReducer from "./cartReducer";
 import companyService from "./companyServiceReducer";
@@ -7,21 +7,17 @@ import ordersReducer from "./ordersReducer";
 import productTestReducer from "./productTestReducer";
 import { similarProductsTestReducer } from "./similarProductsTest";
 import productCatalogueReducer from "./productCatalogue";
-import paymentReducer from "./paymentReducer";
-import reviewsReducer from "./reduceReview";
+import reviewsReducer from "./reduceReview"; // Add this line
 
-const rootReducer = combineReducers({
-    cartReducer,
-    companyService,
-    businessDetailsReducer,
-    ordersReducer,
-    productTestReducer,
-    similarProductsTestReducer,
-    productCatalogueReducer,
-    paymentReducer,
-    reviews: reviewsReducer,
-
-
+export const rootReducer = combineReducers({
+  cartReducer,
+  companyService,
+  businessDetailsReducer,
+  ordersReducer,
+  productTestReducer,
+  similarProductsTestReducer,
+  productCatalogueReducer,
+  reviews: reviewsReducer, // Add this line with the desired key name for the reviews state
 });
 
 export default rootReducer;

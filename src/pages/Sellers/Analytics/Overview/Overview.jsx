@@ -10,7 +10,7 @@ import OverallSales from "./Components/Overall-sales-graph/OverallSales";
 
 const Overview = () => {
     return (
-        <div className="self-center flex w-3/4 flex-col items-stretch m-5 p-5">
+        <div className="self-center flex w-3/4 flex-col items-stretch m-5 p-5 ">
             <div>
                 <p className="text-2xl font-bold">Overview</p>
             </div>

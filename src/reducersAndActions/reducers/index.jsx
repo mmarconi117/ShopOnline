@@ -17,7 +17,7 @@ export const rootReducer = combineReducers({
   productTestReducer,
   similarProductsTestReducer,
   productCatalogueReducer,
-  reviews: reviewsReducer, // Add this line with the desired key name for the reviews state
+  reviews: reviewsReducer,
 });
 
 export default rootReducer;

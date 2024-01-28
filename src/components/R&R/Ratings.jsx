@@ -1,110 +1,139 @@
-// src/components/R&R/Ratings.jsx
+
 import React from 'react';
 import { connect } from 'react-redux';
-import { addReview, toggleLike, setSort, addComment, } from '../../reducersAndActions/actions/reviews'
+import {
+    addReview,
+    toggleLike,
+    setSort,
+    addComment,
+    addMessage,
+    submitPublicComment,
+    submitDirectMessage,
+} from '../../reducersAndActions/actions/reviews';
 import picDemo from './assets/picDemo.jpeg';
 import picDemo2 from './assets/picDemo2.jpeg';
 import picDemo3 from './assets/picDemo3.webp';
 
-const RatingsAndReviews = ({ reviews, addReview, toggleLike, setSort, addComment, comments }) => {
+const RatingsAndReviews = ({
+    reviews,
+    addReview,
+    toggleLike,
+    setSort,
+    addComment,
+    addMessage,
+    comments,
+    messages,
+    submitPublicComment,
+    submitDirectMessage,
+}) => {
     const convertToStars = (rating) => {
         const filledStars = '★'.repeat(rating);
         const emptyStars = '☆'.repeat(5 - rating);
         return filledStars + emptyStars;
     };
+    const getCurrentMonthAndYear = () => {
+        const currentDate = new Date();
+        const month = currentDate.toLocaleString('default', { month: 'long' });
+        const year = currentDate.getFullYear();
+        return `${month} ${year}`;
+    };
 
     const reviewStats = {
         totalReviews: reviews ? reviews.length : 0,
-        averageRating: reviews && reviews.length > 0 ? reviews.reduce((total, review) => total + review.rating, 0) / reviews.length : 0,
-        // highestRating: reviews && reviews.length > 0 ? Math.max(...reviews.map((review) => review.rating)) : 0,
-        // lowestRating: reviews && reviews.length > 0 ? Math.min(...reviews.map((review) => review.rating)) : 0,
-        // mostLiked: reviews ? reviews.reduce((mostLiked, review) => (review.liked ? mostLiked + 1 : mostLiked), 0) : 0,
+        averageRating:
+            reviews && reviews.length > 0
+                ? reviews.reduce((total, review) => total + review.rating, 0) / reviews.length
+                : 0,
     };
-
-    const handlePublicComment = (review) => {
-        addComment(review.id, { visible: true, text: '' });
-        console.log('Public Comment:', review);
-      };
-
-    const handleDirectMessage = (review) => {
-        console.log('Direct Message:', review);
-    };
-    const handleLike = (reviewId) => {
-        toggleLike(reviewId);
-        console.log('Toggled like for review:', reviewId);
-
-    }
-
 
 
     const handleAddReview = (review) => {
         addReview(review);
-        console.log('Added review:', review);
-    }
-    const ReviewItem = ({ review}) => {
-        const isCommentBoxVisible = comments && comments[review.id] && comments[review.id].visible;
-        const commentText = comments && comments[review.id] && comments[review.id].text ? comments[review.id].text : '';
+    };
+
+    const ReviewItem = ({ review }) => {
+        const isCommentBoxVisible = comments?.[review.id]?.visible || false;
+        const commentText = comments?.[review.id]?.text || '';
+        const isMessageBoxVisible = messages && messages[review.id] && messages[review.id].messageVisible;
+        const messageText = messages && messages[review.id] && messages[review.id].messageText;
+
+
+
 
         const toggleCommentBox = () => {
-            console.log('Review ID:', review.id);
-            console.log('Comments:', comments);
+            addComment(review.id, { visible: !isCommentBoxVisible, text: '' });
+        };
 
-            if (isCommentBoxVisible) {
-                // If the comment box is visible, hide it
-                console.log('Hiding comment box');
-                addComment(review.id, { visible: false, text: '' });
-            } else {
-                // If the comment box is hidden, show it
-                console.log('Showing comment box');
-                addComment(review.id, { visible: true, text: '' });
+        const toggleMessageBox = () => {
+            addMessage(review.id, { messageVisible: !isMessageBoxVisible, messageText: '' });
+          };
+
+        const handleCommentChange = (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const newCommentText = event.target.value;
+                addComment(review.id, { visible: isCommentBoxVisible, text: newCommentText });
             }
         };
 
-        const handleCommentChange = (event) => {
-            const newCommentText = event.target.value;
-            console.log('New Comment Text:', newCommentText);
-            addComment(review.id, { visible: true, text: newCommentText });
-          };
+        const handleMessageChange = (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const newMessageText = event.target.value;
+                addMessage(review.id, { messageVisible: isMessageBoxVisible, messageText: newMessageText });
+            }
+        };
 
         const submitComment = () => {
-            // Dispatch the comment with visibility set to false to hide the comment box after submission
-            addComment(review.id, { visible: false, text: commentText });
-          };
+            submitPublicComment(review.id, commentText);
+        };
+
+        const submitMessage = () => {
+            submitDirectMessage(review.id, messageText);
+        };
 
         return (
-          <div className="review-item">
-            <img src={review.image} alt="Random" style={{ width: '100px', height: '100px' }} />
-            <h3>{review.name}</h3>
-            <p>{convertToStars(review.rating)}</p>
-            <p>{review.comment}</p>
-            <div style={{ marginTop: '10px' }}>
-              <button style={{ marginRight: '10px' }} onClick={() => toggleLike(review.id)}>
-                {review.liked ? 'Dislike' : 'Like'}
-              </button>
-              <button onClick={toggleCommentBox} style={{ marginRight: '10px' }}>
-                {isCommentBoxVisible ? 'Cancel' : 'Public Comment'}
-              </button>
-              <button onClick={() => handleDirectMessage(review)}>Direct Message</button>
+            <div className="review-item">
+                <img src={review.image} alt="Random" style={{ width: '100px', height: '100px' }} />
+                <h3>{review.name}</h3>
+                <p>{convertToStars(review.rating)}</p>
+                <p>{review.comment}</p>
+                <div style={{ marginTop: '10px' }}>
+                    <button style={{ marginRight: '10px' }} onClick={() => toggleLike(review.id)}>
+                        {review.liked ? 'Dislike' : 'Like'}
+                    </button>
+                    <button onClick={toggleCommentBox} style={{ marginRight: '10px' }}>
+                        {isCommentBoxVisible ? 'Cancel' : 'Public Comment'}
+                    </button>
+                    <button onClick={toggleMessageBox} style={{ marginRight: '10px' }}>
+                        {isMessageBoxVisible ? 'Cancel' : 'Direct Message'}
+                    </button>
+                </div>
+                {isCommentBoxVisible && (
+                    <div style={{ marginTop: '10px' }}>
+                        <textarea
+                            rows="3"
+                            cols="30"
+                            placeholder="Enter your public comment..."
+                            onChange={handleCommentChange}
+                        />
+                        <button onClick={submitComment}>Submit Comment</button>
+                    </div>
+                )}
+                {isMessageBoxVisible && (
+                    <div style={{ marginTop: '10px' }}>
+                        <textarea
+                            rows="3"
+                            cols="30"
+                            placeholder="Enter your direct message..."
+                            onChange={handleMessageChange}
+                        />
+                        <button onClick={submitMessage}>Submit Direct Message</button>
+                    </div>
+                )}
             </div>
-            {isCommentBoxVisible && (
-              <div style={{ marginTop: '10px' }}>
-                <textarea
-                  rows="3"
-                  cols="30"
-                  placeholder="Enter your public comment..."
-                  value={commentText}
-                  onChange={handlePublicComment}
-                />
-                <button onClick={submitComment}>Submit Comment</button>
-              </div>
-            )}
-          </div>
         );
-      };
-
-
-
-
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -123,10 +152,9 @@ const RatingsAndReviews = ({ reviews, addReview, toggleLike, setSort, addComment
         };
         handleAddReview(review);
         event.target.reset();
-    }
+    };
 
     const handleSortByChange = (newSortBy) => {
-        // Dispatch the setSort action to update the sorting option
         setSort(newSortBy);
     };
 
@@ -138,9 +166,6 @@ const RatingsAndReviews = ({ reviews, addReview, toggleLike, setSort, addComment
             <div className="review-stats">
                 <p>Total Reviews: {reviewStats.totalReviews}</p>
                 <p>Average Rating: {reviewStats.averageRating.toFixed(2)}</p>
-                {/* <p>Highest Rating: {reviewStats.highestRating}</p>
-                <p>Lowest Rating: {reviewStats.lowestRating}</p>
-                <p>Most Liked: {reviewStats.mostLiked}</p> */}
             </div>
             <div className="sort-by-dropdown">
                 <label>Sort by:</label>
@@ -149,6 +174,7 @@ const RatingsAndReviews = ({ reviews, addReview, toggleLike, setSort, addComment
                     <option value="recent">Most Recent</option>
                     <option value="rating">Rating</option>
                 </select>
+                <div>{getCurrentMonthAndYear()}</div>
             </div>
 
             <div className="review-form">
@@ -171,32 +197,35 @@ const RatingsAndReviews = ({ reviews, addReview, toggleLike, setSort, addComment
                 </form>
             </div>
 
-
-
             <div className="review-list">
-                {reviews.map((review) => <ReviewItem key={review.id} review={review} comments={comments} />)}
+                {reviews.map((review) => (
+                    <ReviewItem key={review.id} review={review} />
+                ))}
             </div>
         </>
     );
-}
+};
 
 const mapStateToProps = (state) => ({
     reviews: state.reviews?.reviews || [],
     sortBy: state.reviews?.sortBy || 'default',
     likes: state.reviews?.likes || [],
     likedReviews: state.reviews?.likedReviews || [],
-    comments: state.reviews?.comments || {}, // Include comments in mapStateToProps
-  });
-
+    comments: state.reviews?.comments || {},
+    messages: state.reviews?.messages || {},
+    publicComments: state.reviews?.publicComments || {},
+});
 
 const mapDispatchToProps = (dispatch) => ({
     addReview: (review) => dispatch(addReview(review)),
     toggleLike: (id) => dispatch(toggleLike(id)),
     setSort: (sortRating) => dispatch(setSort(sortRating)),
     addComment: (reviewId, comment) => dispatch(addComment(reviewId, comment)),
-    handlePublicComment: (review) => dispatch(addComment(review.id, { visible: true, text: '' })),
-
+    addMessage: (reviewId, message) => dispatch(addMessage(reviewId, message)),
+    handleCommentChange: (review) => dispatch(addComment(review.id, { visible: true, text: '' })),
+    submitPublicComment: (reviewId, commentText, visible) => dispatch(submitPublicComment(reviewId, commentText, visible)),
+    submitDirectMessage: (reviewId, directMessage, visible) =>dispatch(submitDirectMessage(reviewId, directMessage, visible)),
+    handleMessageChange: (review) => dispatch(addMessage(review.id, { messageVisible: true, messageText: '' })),
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(RatingsAndReviews);

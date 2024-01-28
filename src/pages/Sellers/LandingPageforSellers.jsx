@@ -1,7 +1,7 @@
 import * as React from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header"
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Homepage from "./Home/Homepage";
 import ListOfProducts from "./ProductCatalogue/ListOfProducts";
 import ActivityFeed from "./Analytics/ActivityFeed";
@@ -13,23 +13,28 @@ import Overview from "./Analytics/Overview/Overview";
 import Payments from "./Analytics/Payments/Payments";
 import RatingsAndReviews from "./Analytics/RatingsAndReviews";
 import FeedDetail from "./Analytics/FeedDetail";
+import Signup from "./Signup/Signup";
 
 
 
 
 export default function LandingPageforSellers() {
+  const location = useLocation();
+
+  const isSignupPage = location.pathname === "/sellers/signup";
   return (
     <div className="bg-zinc-100">
+      {!isSignupPage && <Header />}
       <div className="gap-0 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-
-        <Sidebar />
+      {!isSignupPage && <Sidebar />}
          
-        <div className="flex flex-col items-stretch w-[81%] ml-0 max-md:w-full max-md:ml-0">
-          <Header />
+        <div className="flex flex-col items-stretch w-full ml-0 max-md:w-full max-md:ml-0">
+          
           <div className="flex flex-col items-stretch max-md:max-w-full">
                   
             <Routes>
               <Route path='/' element={<Homepage/>} />
+              <Route path='/signup' element={<Signup/>} />
 
               {/* Analytics Routing */}
               <Route path='/overview' element={<Overview />} />

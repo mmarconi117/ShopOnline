@@ -9,7 +9,7 @@ import {
     addMessage,
     submitPublicComment,
     submitDirectMessage,
-} from '../../reducersAndActions/actions/reviews';
+} from '../../reducersAndActions/actions/reviewsAction';
 import picDemo from './assets/picDemo.jpeg';
 import picDemo2 from './assets/picDemo2.jpeg';
 import picDemo3 from './assets/picDemo3.webp';
@@ -161,7 +161,7 @@ const RatingsAndReviews = ({
     return (
         <>
             <div className="ratings-and-reviews">
-                <h1>Ratings and Reviews</h1>
+            <h1 style={{ fontWeight: 'bold' }}>Ratings and Reviews</h1>
             </div>
             <div className="review-stats">
                 <p>Total Reviews: {reviewStats.totalReviews}</p>

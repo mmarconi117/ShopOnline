@@ -1,3 +1,19 @@
+import {
+  ADD_REVIEW,
+  TOGGLE_LIKE,
+  SET_SORT,
+  ADD_COMMENT,
+  ADD_MESSAGE,
+  SUBMIT_PUBLIC_COMMENT,
+  SUBMIT_DIRECT_MESSAGE,
+} from '../actions'
+
+
+
+
+
+
+
 const initialState = {
   reviews: [],
   comments: {},
@@ -7,30 +23,30 @@ const initialState = {
 
 const reviewsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_REVIEW':
+    case ADD_REVIEW:
       return {
         ...state,
         reviews: [...state.reviews, action.payload],
       };
-    case 'TOGGLE_LIKE':
+    case TOGGLE_LIKE:
       return {
         ...state,
         reviews: state.reviews.map((review) =>
           review.id === action.payload ? { ...review, liked: !review.liked } : review
         ),
       };
-      case 'SET_SORT':
+      case SET_SORT:
     let sortedReviews;
 
     switch (action.payload.sortRating) {
     case 'recent':
-      sortedReviews = [...state.reviews].sort((a, b) => b.id - a.id); // Sort by most recent
+      sortedReviews = [...state.reviews].sort((a, b) => b.id - a.id);
       break;
     case 'rating':
-      sortedReviews = [...state.reviews].sort((a, b) => b.rating - a.rating); // Sort by rating
+      sortedReviews = [...state.reviews].sort((a, b) => b.rating - a.rating);
       break;
     default:
-      sortedReviews = [...state.reviews]; // Default order
+      sortedReviews = [...state.reviews];
   }
 
   return {
@@ -38,7 +54,7 @@ const reviewsReducer = (state = initialState, action) => {
     sortBy: action.payload.sortRating,
     reviews: sortedReviews,
 };
-    case 'ADD_COMMENT':
+    case ADD_COMMENT:
       return {
         ...state,
         comments: {
@@ -46,7 +62,7 @@ const reviewsReducer = (state = initialState, action) => {
           [action.payload.reviewId]: action.payload.comment, // Assuming action.payload.comment is already an object with visible and text properties
         },
       };
-      case 'ADD_MESSAGE':
+      case ADD_MESSAGE:
         return {
           ...state,
           messages: {
@@ -54,7 +70,7 @@ const reviewsReducer = (state = initialState, action) => {
             [action.payload.reviewId]: action.payload.message,
           },
         };
-    case 'SUBMIT_PUBLIC_COMMENT':
+    case SUBMIT_PUBLIC_COMMENT:
       return {
         ...state,
         comments: {
@@ -62,7 +78,7 @@ const reviewsReducer = (state = initialState, action) => {
           [action.payload.reviewId]: action.payload.comment,
         },
       };
-    case 'SUBMIT_DIRECT_MESSAGE':
+    case SUBMIT_DIRECT_MESSAGE:
       return {
         ...state,
         messages: {

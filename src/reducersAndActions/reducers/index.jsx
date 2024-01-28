@@ -1,4 +1,4 @@
-// rootReducer.js
+
 import { combineReducers } from "redux";
 import cartReducer from "./cartReducer";
 import companyService from "./companyServiceReducer";
@@ -7,17 +7,23 @@ import ordersReducer from "./ordersReducer";
 import productTestReducer from "./productTestReducer";
 import { similarProductsTestReducer } from "./similarProductsTest";
 import productCatalogueReducer from "./productCatalogue";
-import reviewsReducer from "./reduceReview"; // Add this line
+import paymentReducer from "./paymentReducer";
+import feedbackReducer from "./feedbackReducer";
+import signupFormReducer from "./SignupFormReducer";
+import  reviewsReducer  from "./reduceReview";
 
 export const rootReducer = combineReducers({
-  cartReducer,
-  companyService,
-  businessDetailsReducer,
-  ordersReducer,
-  productTestReducer,
-  similarProductsTestReducer,
-  productCatalogueReducer,
-  reviews: reviewsReducer,
+    cartReducer,
+    companyService,
+    businessDetailsReducer,
+    ordersReducer,
+    productTestReducer,
+    similarProductsTestReducer,
+    productCatalogueReducer,
+    paymentReducer,
+    feedbackReducer,
+    signupFormReducer,
+    reviews: reviewsReducer,
 });
 
 export default rootReducer;

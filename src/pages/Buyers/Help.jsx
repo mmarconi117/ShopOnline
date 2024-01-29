@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer/Footer";
 import yellowchat from "../../assets/ICONS/yellowchat.svg"
 import notify from "../../assets/ICONS/notify.svg"
 import myaccout from "../../assets/ICONS/myaccout.svg"
@@ -8,12 +9,23 @@ import voucher from "../../assets/ICONS/voucher.svg"
 import saved from "../../assets/ICONS/voucher.svg"
 import Recently from "../../assets/ICONS/Recently.svg"
 import logoutred from "../../assets/ICONS/logoutred.svg"
+import { useDispatch, useSelector } from "react-redux";
+import { setDisplayFeedbackModal } from "../../reducersAndActions/actions/feedbackAction";
+import FeedbackModal from "./FeedbackModal";
+
 import arrowDown from "../../assets/ICONS/ArrowDown.svg"
 import { useState } from "react"
 
 
 
 const Help = () => {
+  const dispatch = useDispatch();
+  const { displayFeedbackModal } = useSelector(
+    (state) => state.feedbackReducer
+  );
+  const handleFeedback = () => {
+    dispatch(setDisplayFeedbackModal(true));
+  };
   const [dropDown, setDropDown] = useState(false)
   const showMenu = () => {
     setDropDown((prev) => !prev)
@@ -184,7 +196,13 @@ const Help = () => {
                 </div>
               </div>
             </div>
-            <button className="self-center font-Roboto border border-solid rounded-[5px] border-[#2284B6] text-[#2284B6] text-base sm:text-xl sm:leading-6 px-6 py-3 sm:px-8 sm:py-4">Give us feedback</button>
+            <button
+              onClick={handleFeedback}
+              className="text-cyan-600 text-center text-xl leading-6 whitespace-nowrap justify-center items-stretch border border-[color:var(--Color-Styles-Primary-color-blue-T1000,#2284B6)] self-center ml-44 mt-28 px-12 py-4 rounded-md border-solid max-md:mt-10 max-md:px-5"
+            >
+              Give us feedback
+            </button>
+            {displayFeedbackModal && <FeedbackModal />}
           </div>
         </div>
       </div>

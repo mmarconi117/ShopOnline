@@ -18,12 +18,12 @@ const Menu = () => {
     {
       id: 'Womens fashion',
       // img: womensIcon,
-      title: "Womens",
+      title: "Women",
     },
     {
       id: 'mens',
       // img: mensIcon,
-      title: "Mens",
+      title: "Men",
     },
     {
       id: 'phone',

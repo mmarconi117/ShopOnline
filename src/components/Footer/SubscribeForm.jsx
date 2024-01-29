@@ -25,15 +25,15 @@ const SubscribeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-center gap-8">
-      <div className="text-2xl font-normal leading-[120%] text-[#48464C] text-center">
-        New to YORK SHOPPERS
+    <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 mt-8 mx-auto ">
+      <div className="text-2xl font-normal  leading-[120%] text-[#b7b9ba] text-center font-sansita-one">
+        New to Shop Online New York
       </div>
-      <div className="text-xl font-[Roboto] font-normal leading-[120%] text-center">
+      <div className="text-[18px] leading-[50%] font-[Roboto] text-[#b7b9ba] font-normal text-center">
         Subscribe to our newsletter to get updates on our latest offers
       </div>
       <div className="flex flex-col items-center gap-4 w-full md:w-[80%] lg:w-[60%] xl:w-[50%]">
-        <div className="border border-solid border-[#3A92BE] rounded-md w-full md:w-[80%] flex">
+        <div className="border border-solid border-[#3A92BE] rounded-md w-full flex mr-12 ">
           <input
             onChange={handleChange}
             value={email}
@@ -42,7 +42,7 @@ const SubscribeForm = () => {
             placeholder="Email"
             className="flex-1 p-2"
           />
-          <button type="submit" className="p-2 bg-[#09618E]">
+          <button type="submit" className="p-2 bg-[#eec643]">
             Subscribe
           </button>
         </div>

@@ -1,32 +1,49 @@
-
-import Menu from '../../components/Menu/Menu';
-import FashionSection from '../../components/Menu/FashionSection';
+import React, { useEffect, useState } from 'react';
+import Confetti from 'react-dom-confetti';
 import Explore from '../../components/Explore/Explore';
-import Welcome from '../../components/Menu/Welcome';
-import EmptySpaceToBeFilledIn from '../../components/Menu/EmptySpaceToBeFilledIn';
-import PopularItems from '../../components/PopularItems/PopularItems'; // Added PopularItems module
-import BS_BeautyandPersonal from '../../components/BS_BeautyAndPersonal/BS_BeautyAndPersonal'
-import BS_HomeAndOffice from "../../components/BS_HomeAndOffice/PopularItems";
+import PopularItems from '../../components/PopularItems/PopularItems';
+import BS_BeautyandPersonal from '../../components/BS_BeautyAndPersonal/BS_BeautyAndPersonal';
+import BS_HomeAndOffice from '../../components/BS_HomeAndOffice/PopularItems';
+import Hero from '../../assets/IMAGES/Landing page/shopNewYork.png';
 
+const LandingPage = () => {
+  const [showConfetti, setShowConfetti] = useState(false);
 
+  const confettiConfig = {
+    angle: 90,
+    spread: 200,
+    startVelocity: 150,
+    elementCount: 5000, // Increase the number of confetti elements
+    dragFriction: 0.10,
+    duration: 3000, // Increase the duration
+    stagger: 3,
+    width: '10px',
+    height: '10px',
+    colors: ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'],
+  };
 
-export default function LandingPage() {
+  useEffect(() => {
+    const confettiTimeout = setTimeout(() => {
+      setShowConfetti(true);
+    }, 0); // Adjust the delay (in milliseconds) as needed
+
+    return () => clearTimeout(confettiTimeout);
+  }, []);
+
   return (
-    <div className='bg-gray-100'>
-      <div className="flex w-full justify-center gap-6 min-[1512px]:px-10 min-[1450px]:pt-4 min-[1450px]:pb-[93px] overflow-auto">
-        <Menu />
-        <div>
-          <FashionSection /> 
-          <EmptySpaceToBeFilledIn />
-        </div>
-        <Welcome />
+    <div className="bg-gray-100 relative">
+      <div className="w-full min-[1512px]:px-3 min-[1450px]:pb-3 overflow-auto relative">
+        <img src={Hero} alt="shop online New York" />
+        <Confetti active={showConfetti} config={confettiConfig} style={{ position: 'absolute', left: 0, top: 0 }} />
       </div>
       <Explore />
-      <div className='flex flex-col items-center min-[1512px]:items-center'>
+      <div className="flex flex-col items-center min-[1512px]:items-center">
         <PopularItems />
         <BS_HomeAndOffice />
         <BS_BeautyandPersonal />
       </div>
-    </div>  
+    </div>
   );
-}
+};
+
+export default LandingPage;

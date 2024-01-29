@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 function UploadProduct() {
   const [productData, setProductData] = useState({
+    // TEST
     productName: '',
     description: '',
     type: '',

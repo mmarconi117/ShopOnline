@@ -21,9 +21,9 @@ function Homepage() {
                 </div>
             </div>
 
-            <div className="max-w-full flex justify-between items-stretch gap-5">
-                <div className="min-w-[290px] bg-white flex grow gap-3 px-5 py-4 rounded-md items-stretch">
-                    <div className="max-w-max text-black text-left text-base leading-6 grow-0">
+            <div className="max-w-full flex flex-col justify-start xl:flex-row xl:justify-between items-stretch gap-5">
+                <div className="relative xl:max-w-[290px] bg-white flex grow px-10 py-4 rounded-md items-stretch">
+                    <div className=" text-black text-left text-base leading-6 grow-0 absolute top-5 left-5">
                         1.
                     </div>
                     <div className="flex grow flex-col justify-between items-center gap-3 sm:gap-6">
@@ -32,7 +32,7 @@ function Homepage() {
                             src={GetVerifiedIcon}
                             className="aspect-square object-contain object-center w-12 overflow-hidden self-center max-w-full"
                         />
-                        <p className="text-zinc-700 text-center text-[16px] leading-6 mt-6">
+                        <p className="text-zinc-700 text-center text-[16px] leading-6">
                             Add your business info to complete our quick-check verification
                         </p>
 
@@ -45,8 +45,8 @@ function Homepage() {
 
                     </div>
                 </div>
-                <div className="min-w-[290px] bg-white flex grow gap-3 px-5 py-4 rounded-md items-stretch">
-                    <div className="max-w-max text-black text-left text-base leading-6 grow-0">
+                <div className="relative xl:max-w-[290px] bg-white flex grow px-10 py-4 rounded-md items-stretch">
+                    <div className="text-black text-left text-base leading-6 grow-0 absolute top-5 left-5">
                         2.
                     </div>
                     <div className="flex grow flex-col justify-between items-center gap-3 sm:gap-6">
@@ -55,16 +55,16 @@ function Homepage() {
                             src={Paid}
                             className="aspect-square object-contain object-center w-12 overflow-hidden self-center max-w-full"
                         />
-                        <p className="text-zinc-700 text-center text-[16px] leading-6 mt-6">
+                        <p className="text-zinc-700 text-center text-[16px] leading-6">
                             Tell us where to send your payments. No setup, subscription or monthly fees.
                         </p>
-                        <button className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center mt-6 px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5">
+                        <button className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5">
                             Get paid
                         </button>
                     </div>
                 </div>
-                <div className="min-w-[290px] bg-white flex grow gap-3 px-5 py-4 rounded-md items-stretch">
-                    <div className="max-w-max text-black text-left text-base leading-6 grow-0">
+                <div className="relative xl:max-w-[290px] bg-white flex grow px-10 py-4 rounded-md items-stretch">
+                    <div className="text-black text-left text-base leading-6 grow-0 absolute top-5 left-5">
                         3.
                     </div>
                     <div className="flex grow flex-col justify-between items-center gap-3 sm:gap-6">
@@ -73,10 +73,10 @@ function Homepage() {
                             src={Shipping}
                             className="aspect-square object-contain object-center w-12 overflow-hidden self-center max-w-full"
                         />
-                        <p className="text-zinc-700 text-center text-[16px] leading-6 mt-6">
+                        <p className="text-zinc-700 text-center text-[16px] leading-6">
                             Select the best shipping price and partners for your budget.
                         </p>
-                        <button className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center mt-6 px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5">
+                        <button className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5">
                             Start shipping
                         </button>
                     </div>

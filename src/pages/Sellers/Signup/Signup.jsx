@@ -4,6 +4,7 @@ import signupImage from '../../../assets/ICONS/signupImage.svg'
 import { submitForm, setFormErrors } from '../../../reducersAndActions/actions/SignupFormAction';
 import { useSelector, useDispatch } from 'react-redux';
 import { validateForm } from './formValidation';
+import { Link } from 'react-router-dom';
 
 
 let initialStoreData = {
@@ -160,7 +161,9 @@ function Signup() {
                 </button>
               </div>
               <div className="text-emerald-500 text-sm font-medium leading-6 mt-4 max-md:max-w-full">
-                <span className="text-slate-400">Already have an account?</span>
+                <span className="text-slate-400">
+                  Already have an account? <Link to="/sellers/login">Login</Link>
+                </span>
               </div>
               <span className="justify-center items-stretch flex gap-2.5 mt-2.5 max-md:max-w-full max-md:flex-wrap">
                 <div className="text-slate-400 text-sm font-medium leading-6 grow whitespace-nowrap">

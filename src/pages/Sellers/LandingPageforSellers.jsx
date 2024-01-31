@@ -16,14 +16,13 @@ import RatingsAndReviews from "./Analytics/RatingsAndReviews";
 import FeedDetail from "./Analytics/FeedDetail";
 import ProductDetail from "./ProductCatalogue/ProductDetail";
 import Signup from "./Signup/Signup";
-
-
+import Login from "./Login/Login";
 
 
 export default function LandingPageforSellers() {
   const location = useLocation();
 
-  const isSignupPage = location.pathname === "/sellers/signup";
+  const isSignupPage = location.pathname === "/sellers/signup" || location.pathname === "/sellers/login" ;
   const [showBar, setShowBar] = useState(false)
   const showSideBar = () => {
     setShowBar((prev) => !prev)
@@ -40,6 +39,7 @@ export default function LandingPageforSellers() {
         <Routes>
           <Route path='/' element={<Homepage/>} />
           <Route path='/signup' element={<Signup/>} />
+          <Route path='/login' element={<Login/>} />
 
           {/* Analytics Routing */}
           <Route path='/overview' element={<Overview />} />

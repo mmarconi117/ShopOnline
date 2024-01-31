@@ -28,6 +28,7 @@ import PaymentServices from "./pages/Sellers/PaymentServices/PaymentServices";
 import TwoStepVerification from "./pages/Sellers/2-StepVerification/TwoStepVerification";
 import Agreements from "./pages/Sellers/Agreements/Agreements";
 import RatingsAndReviews from "./components/R&R/Ratings";
+import NotificationSettings from "./pages/Sellers/NotificationsSettings/NotificationsSettings";
 
 function App() {
 
@@ -62,6 +63,7 @@ function App() {
               <Route path="/twostepverification" element={<TwoStepVerification />} />
               <Route path="/agreements" element={<Agreements />} />
               <Route path="/productcatalogue" element={<ProductCatalogue />} />
+              <Route path="/notificationsettings" element={<NotificationSettings />} />
             </Routes>
         </Router>
       </div>

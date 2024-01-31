@@ -2,133 +2,104 @@
 import LeftArrow from '../../../assets/ICONS/LeftArrow.svg'
 import RightArrow from '../../../assets/ICONS/RightArrow.svg'
 import Ratings from '../../../assets/ICONS/Ratings.svg'
+import heels from '../../../assets/IMAGES/Product card/Product image.png'
+
 
 function ProductDetail() {
     return (
-        <div className="self-center flex w-full max-w-full flex-col items-stretch mt-4 px-5 overflow-hidden">
-            <div className="flex flex-col py-0 px-0 max-md:max-w-full max-md:px-0">
-                <div className="self-center flex w-full max-w-full items-center justify-between gap-5 mt-2.5 px-10 max-md:max-w-full max-md:flex-wrap">
-                    <div className="text-stone-950 text-xl font-medium leading-8 grow whitespace-nowrap my-auto">
-                        Product Name : Facial Moisturizer {""}
+        <div className="self-center flex flex-col w-full items-stretch px-5 pt-5 pb-24 sm:pl-5 xl:pl-10 xl:pr-5 min-[1350px]:pl-20 min-[1350px]:pr-10">
+            <div className="flex flex-col items-stretch w-full">
+                <button className='flex justify-start items-center gap-2'>
+                    <span><img src={LeftArrow} alt="left-arrow" /></span>
+                    <div>Back</div>
+                </button>
+                <div className="self-center flex flex-col justify-end items-start xl:flex-row w-full max-w-full xl:items-start xl:justify-between mt-5 min-[1350px]:mt-7 ">
+                    <div className='flex flex-col w-full'>
+                        <div className="text-stone-950 text-xl font-medium leading-8 pt-5">
+                            316L Surgical Stainless Steel Huggie Hoop Earrings
+                        </div>
+                        <div className="self-center w-full max-w-full">
+                            <div className="text-stone-950 text-base whitespace-nowrap">
+                                ID: 5892942
+                            </div>
+                        </div>
                     </div>
-                    <div className="self-stretch z-[1] flex items-stretch justify-between gap-5">
-                    <button className="text-stone-950 text-xs leading-4 whitespace-nowrap items-stretch border border-[color:var(--text-black-2,#313133)] grow justify-center pl-8 pr-11 py-4 border-solid max-md:px-5">
+                    <div className="flex-wrap min-[390px]:flex-nowrap self-start mt-6 xl:mt-0 z-[1] flex items-stretch justify-center min-[390px]:justify-between gap-x-3 gap-y-5 xl:gap-5">
+                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap rounded-md border border-[#EEC643] px-4 py-2 sm:px-5 md:px-8 sm:py-4 border-solid">
                             Archive
                         </button>
-                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap items-stretch border border-[color:var(--text-black-2,#313133)] grow justify-center pl-8 pr-11 py-4 border-solid max-md:px-5">
+                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap rounded-md border border-[#EEC643] px-4 py-2 sm:px-5 md:px-8 sm:py-4 border-solid">
                             Publish/Unpublish
                         </button>
-                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap items-stretch border border-[color:var(--text-black-2,#313133)] grow justify-center pl-8 pr-11 py-4 border-solid max-md:px-5">
+                        <button className="text-stone-950 text-xs leading-4 whitespace-nowrap rounded-md bg-[#EEC643] px-4 sm:px-5 py-2 md:px-8 sm:py-4 border-solid">
                             Delete Product
                         </button>
                     </div>
                 </div>
-                <div className="self-center flex w-full max-w-full items-center justify-between gap-5 mt-2.5 px-10 max-md:max-w-full max-md:flex-wrap">
-                    <div className="self-stretch flex items-stretch justify-start">
-                        <div className="text-stone-950 text-xl font-medium leading-8 whitespace-nowrap">
-                            PRODUCT ID :
-                        </div>
-                        <div className="text-stone-950 text-base ml-3 mt-1.5 leading-6 whitespace-nowrap">
-                            9999999 {" "}
-                        </div>
-                    </div>
-                </div>
-                <div className="self-center flex w-full max-w-full items-center justify-between gap-0 px-7 py-5 max-md:max-w-full max-md:flex-wrap">
-                    <div className="gap-16 flex max-md:flex-col max-md:items-stretch max-md:gap-0 ">
-                        <div className="flex flex-col items-stretch w-[29%] max-md:w-full max-md:ml-0 ">
-                            <div className="flex flex-col max-md:mt-0">
-                                <div className="bg-stone-300 self-center flex w-[246px] shrink-0 h-[250px] flex-col" />
-                                <div className=" w-full max-w-full justify-center items-center self-stretch flex gap-5 mt-7 max-md:justify-center">
-                                    <img
-                                        loading="lazy"
-                                        src={LeftArrow}
-                                        className="aspect-[1.07] object-contain object-center w-4 overflow-hidden shrink-0 max-w-full my-auto"
-                                    />
-                                    <div className="bg-stone-300 self-stretch flex w-[61px] shrink-0 h-[61px] flex-col" />
-                                    <div className="bg-stone-300 self-stretch flex w-[62px] shrink-0 h-[61px] flex-col" />
-                                    <div className="bg-stone-300 self-stretch flex w-[61px] shrink-0 h-[61px] flex-col" />
-                                    <img
-                                        loading="lazy"
-                                        src={RightArrow}
-                                        className="aspect-[1.07] object-contain object-center w-4 overflow-hidden shrink-0 max-w-full my-auto"
-                                    />
-                                </div>
-                                <div className="self-stretch justify-between items-start py-2  max-md:mt-10">
-                                    
-                                        <div className="self-stretch flex items-stretch justify-start pt-5">
-                                            <div className="text-black text-2xl font-semibold leading-10 whitespace-nowrap">
-                                                Price :
-                                            </div>
-                                            <div className="text-black text-left text-2xl mt-1 ps-36 font-medium leading-8 self-stretch whitespace-nowrap">
-                                                $999 {" "}
-                                            </div>
-                                        </div>
-                                        <div className="self-stretch flex items-stretch justify-start pt-5">
-                                            <div className="text-black text-xl leading-10 whitespace-nowrap">
-                                                Type :
-                                            </div>
-                                            <div className="text-black text-xl mt-1 ps-36  leading-8 self-stretch whitespace-nowrap">
-                                                Beauty {" "}
-                                            </div>
-                                        </div>
-                                        <div className="self-stretch flex items-stretch justify-start pt-5">
-                                            <div className="text-black text-xl leading-10 whitespace-nowrap">
-                                                Ratings:
-                                            </div>
-                                            <div className="leading-6 self-stretch mt-3.5 ms-32 whitespace-nowrap">
-                                                <img
-                                                    loading="lazy"
-                                                    src={Ratings}
-                                                    className="aspect-[5.67] overflow-hidden"
-                                                /> {" "}
-                                            </div>
-                                        </div>
-                                        <div className="self-stretch flex items-stretch justify-end pt-5">
-                                            
-                                            <div className="leading-6 self-stretch whitespace-nowrap cursor-pointer">
-                                                Edit {" "}
-                                            </div>
-                                        </div>
-                                </div>
+                <div className="bg-white self-center w-full max-w-full mt-7 gap-0 px-4 pt-5 pb-20 lg:px-7  xl:px-7 xl:py-5">
+                    <div className="gap-20 xl:gap-16 flex flex-col xl:flex-row items-stretch xl:items-start justify-between">
+                        <div className="flex flex-col justify-start self-center xl:self-start w-auto xl:w-[29%] max-w-[284px] min-w-[250px]">                            
+                            <img src={heels} alt="heels pic" className=' object-cover w-[284px] shrink-0 h-[250px]' />
+                            <div className=" w-full max-w-full justify-center items-center flex gap-2 xl:gap-3 min-[1350px]:gap-4 mt-7 max-md:justify-center">
+                                <img
+                                    loading="lazy"
+                                    src={LeftArrow}
+                                    className="aspect-[1.07] object-contain object-center w-4 overflow-hidden shrink-0 max-w-full "
+                                />
+                                <img src={heels} alt="heels pic" className='aspect-square w-[80px] xl:w-[62px] object-cover'/>
+                                <img src={heels} alt="heels pic" className='aspect-square w-[80px] xl:w-[62px] object-cover'/>
+                                <img src={heels} alt="heels pic" className='aspect-square w-[80px] xl:w-[62px] object-cover'/>
+                                <img
+                                    loading="lazy"
+                                    src={RightArrow}
+                                    className="aspect-[1.07] object-contain object-center w-4 overflow-hidden shrink-0 max-w-full "
+                                />
                             </div>
                         </div>
-                        <div className="flex flex-col items-stretch w-[71%] max-md:w-full max-md:ml-0 ">
-                            <div className="flex grow flex-col items-stretch max-md:max-w-full max-md:mt-auto">
-                                    <div className="gap-3 flex max-md:flex-col max-md:items-stretch max-md:gap-0 ">
-                                        <div className="flex flex-col items-center w-full max-md:w-full max-md:ml-0">
-                                            <div className="justify-center bg-white flex grow flex-col w-full pl-12 pr-14 pb-5 rounded items-center max-md:mt-8 max-md:px-5">
-                                                <div className="bg-zinc-200 flex w-[80%] shrink-0 h-2.5 flex-col max-md:ml-2" />
-                                                <div className="text-stone-950 text-xl font-medium leading-8 self-stretch whitespace-nowrap mt-2.5">
-                                                    INVENTORY
-                                                </div>
-                                                <div className="text-zinc-800 text-xl font-medium leading-8 self-center whitespace-nowrap mt-2.5">
-                                                    99999
-                                                </div>
+
+                        <div className="flex flex-col w-full xl:w-[71%]">
+                            <div className="flex flex-col items-center xl:items-stretch max-w-full">
+                                <div className='flex flex-col gap-16 xl:gap-4 items-stretch'>
+                                    <div className='flex justify-center xl:justify-between items-center'>
+                                        <div className='flex items-center gap-6 p-2 text-[#0F1111] border-2 border-solid border-[#09618E] rounded-md'>
+                                            <div>Total Sales:</div>
+                                            <div className='text-xl leading-6 font-bold'>$99,879.50</div>
+                                        </div>
+                                        <div className='hidden xl:flex justify-center items-center border-2 rounded-full border-solid border-[#515A6A] w-6 h-6'>!</div>
+                                    </div>
+                                    <div className='flex flex-col justify-start items-start md:flex-row gap-8 md:gap-16'>
+                                        <div className='flex flex-col justify-evenly items-start gap-4'>
+                                            <div className='flex items-center gap-6'>
+                                                <div>Price :</div>
+                                                <div className='leading-5 font-bold'>$999</div>
+                                            </div>
+                                            <div className='flex items-center gap-6'>
+                                                <div>Type :</div>
+                                                <div className='leading-5 font-bold'>Accessories</div>
+                                            </div>
+                                            <div className='flex items-center gap-3'>
+                                                <div>Ratings:</div>
+                                                <div className='flex items-center whitespace-nowrap'><span><img src={Ratings} alt="star" className='mr-2'/></span>4.8 <span className='text-[#2284B6] underline ml-2'>See 280 Ratings</span></div>
                                             </div>
                                         </div>
-                                        <div className="flex flex-col items-center w-full max-md:w-full max-md:ml-0">
-                                            <div className="justify-center bg-white flex grow flex-col w-full pl-12 pr-14 pb-5 rounded items-center max-md:mt-8 max-md:px-5">
-                                                <div className="text-stone-950 text-xl font-medium leading-8 self-stretch whitespace-nowrap mt-2.5">
-                                                    Revenue
-                                                </div>
-                                                <div className="text-zinc-800 text-xl font-medium leading-8 self-center whitespace-nowrap mt-2.5">
-                                                    $9999
-                                                </div>
+                                        <div className='flex flex-col justify-evenly items-start gap-4'>
+                                            <div className='flex items-center gap-6'>
+                                                <div>Inventory:</div>
+                                                <div className='leading-5 font-bold'>3308</div>
                                             </div>
-                                        </div>
-                                        <div className="flex flex-col items-center w-full max-md:w-full max-md:ml-0">
-                                            <div className="justify-center bg-white flex grow flex-col w-full pl-12 pr-14 pb-5 rounded items-center max-md:mt-8 max-md:px-5">
-                                                <div className="text-stone-950 text-xl font-medium leading-8 self-stretch whitespace-nowrap mt-2.5">
-                                                    Gross profit
-                                                </div>
-                                                <div className="text-zinc-800 text-xl font-medium leading-8 self-center whitespace-nowrap mt-2.5">
-                                                    $9999
-                                                </div>
+                                            <div className='flex items-center gap-7'>
+                                                <div>Revenue:</div>
+                                                <div className='leading-5 font-bold'>$29,467</div>
+                                            </div>
+                                            <div className='flex items-center gap-1'>
+                                                <div>Gross Profit:</div>
+                                                <div className='leading-5 font-bold'>$3,111</div>
                                             </div>
                                         </div>
                                     </div>
-                                <div className="bg-white self-center flex w-[594px] max-w-full flex-col items-stretch mt-14 pl-9 pr-10 py-9 rounded max-md:mt-10 max-md:px-5">
-                                    <div className="bg-white shrink-0 h-[356px] max-md:max-w-full" />
+                                </div>
+                                <div className="bg-stone-300 flex  min-w-[300px] w-full xl:min-w-[594px] max-w-full flex-col items-stretch mt-8 px-4 sm:px-10 py-9 sm:py-12 rounded max-md:mt-10 max-md:px-5">
+                                    <div className=" max-md:max-w-full aspect-[2.144]" />
                                 </div>
                             </div>
                         </div>

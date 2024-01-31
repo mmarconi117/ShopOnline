@@ -6,7 +6,6 @@ import Filter from "../../../assets/ICONS/Filter.svg";
 import Sort from "../../../assets/ICONS/Sort.svg";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import productTestReducer from "../../../reducersAndActions/reducers/productTestReducer"
 
 function ListOfProducts() {
   const [products, setProducts] = useState([]);
@@ -14,8 +13,7 @@ function ListOfProducts() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setProducts(productData);
-    console.log(productData);
+    setProducts((prev => [...prev, productData]))
 
     
   }, [dispatch, productData]);

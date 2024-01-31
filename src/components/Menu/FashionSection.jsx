@@ -2,8 +2,8 @@ import fashionWoman from "./assets/fashionWoman.png";
 import clothes from "./assets/clothes.png";
 export const FashionSection = () => {
   return (
-    <div className="flex flex-col min-[1450px]:gap-5">
-      <div className="items-start hidden gap-6 min-[1450px]:flex pt-4">
+    <div className="flex flex-col lg:gap-5 items-center">
+      <div className="items-start hidden gap-3 xl:gap-6 lg:flex pt-4">
         <div className="text-[#313133] text-base font-bold font-Roboto leading-[19.2px]">
           Plus
         </div>
@@ -18,7 +18,7 @@ export const FashionSection = () => {
         </div>
       </div>
 
-      <div className="w-screen h-auto min-[1450px]:w-[752px] min-[1450px]:min-h-[368px] bg-white min-[1450px]:rounded-[10px] items-end flex justify-between ">
+      <div className="w-screen h-auto lg:w-[450px] xl:w-[752px] bg-white lg:rounded-[10px] items-end flex justify-between ">
         <div className="relative">
           <div className="max-w-max left-[18%] top-[23%] absolute flex-col justify-start items-start gap-2 flex">
             <div className="text-[#55A0C7] tracking-tight text-[19.5px] leading-[23.4px] min-[391px]:text-[39px] min-[391px]:font-bold font-Roboto min-[391px]:leading-[46.8px] max-md:text-[29px] whitespace-nowrap ">

@@ -1,8 +1,8 @@
 import SideBar from '../../../components/SideBar/SideBar';
-import Body from './Components/Body';
+import Body from './components/Body';
 import TopBar from '../../../components/TopBar/TopBar'
 
-function Agreements() {
+function NotificationSettings() {
   return (
     <div className="w-full">
       <TopBar />
@@ -14,5 +14,4 @@ function Agreements() {
   );
 }
 
-export default Agreements;
-
+export default NotificationSettings;

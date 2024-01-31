@@ -4,7 +4,7 @@ export const ExploreItem = ({ src, title }) => {
   return (
     <a
       href='#'
-      className="bg-[#FBFDFE] flex flex-col justify-between items-center w-[175px] h-[235px] rounded p-2 pb-3 gap-3 min-[391px]:w-[219px] min-[391px]:h-auto min-[391px]:p-[10px] min-[391px]:pb-5 min-[391px]:gap-[17px]"
+      className="bg-[#FBFDFE] flex flex-col justify-between items-center w-[175px] h-[235px] rounded p-2 pb-3 gap-3 min-[391px]:w-[219px] min-[391px]:h-auto min-[391px]:p-[10px] min-[391px]:pb-5 min-[391px]:gap-[17px]z"
     >
       <img
         src={src}

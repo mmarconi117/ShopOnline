@@ -14,7 +14,8 @@ export default function Nav() {
   return (
     <div>
       <div>
-        <ul className="flex bg-[#E3EFF6] justify-end gap-6 pr-3 mt-3">
+        
+        <ul className="flex bg-[#001c43] text-[#b7b9ba] justify-end gap-10  pt-2 pb-2 pr-3 mt-3">
           <li
             onClick={() => {
               setMenu("home");

@@ -1,28 +1,26 @@
+// disputeReducer.js
 import { ADD_DISPUTE, TOGGLE_INSIGHTS } from "../actions";
-
 
 const initialState = {
   disputes: [],
-  showInsights: false,
+  showInsights: true,
 };
 
 const disputeReducer = (state = initialState, action) => {
-    console.log(action.type); // Log the action type
-    switch (action.type) {
-      case TOGGLE_INSIGHTS:
-        console.log("Toggling insights"); // Log when insights are toggled
-        return {
-          ...state,
-          showInsights: !state.showInsights,
-        };
-        case ADD_DISPUTE:
+  switch (action.type) {
+    case TOGGLE_INSIGHTS:
+      return {
+        ...state,
+        showInsights: !state.showInsights,
+      };
+    case ADD_DISPUTE:
       return {
         ...state,
         disputes: [...state.disputes, action.payload],
       };
-      default:
-        return state;
-    }
-  };
+    default:
+      return state;
+  }
+};
 
-  export default disputeReducer;
+export default disputeReducer;

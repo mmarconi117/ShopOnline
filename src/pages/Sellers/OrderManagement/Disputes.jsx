@@ -8,20 +8,26 @@ const Disputes = ({ disputes, showInsights, toggleInsights, addDispute }) => {
   const [price, setPrice] = useState('');
 
   const handleAddDispute = () => {
-    // Validate the form fields, you can add more validation if needed
+    if (!orderNumber || !price) {
+      alert('Please enter order number and price')
+    }
     if (orderNumber && price) {
+
+
+
       addDispute({
         orderNumber,
         price,
         purchaseOrder: Math.floor(Math.random() * 100) + 1,
         rma: Math.floor(Math.random() * 100) + 1,
         customerOrder: Math.floor(Math.random() * 100) + 1,
+        status: "In Review"
       });
-      // Clear the form after adding the dispute
       setOrderNumber('');
       setPrice('');
     }
   };
+
 
   return (
     <div>
@@ -55,30 +61,35 @@ const Disputes = ({ disputes, showInsights, toggleInsights, addDispute }) => {
         </div>
         {showInsights && disputes && disputes.length > 0 && (
           <div className="insights-section">
-            <table>
-              <thead>
-                <tr>
-                  <th>Order Number</th>
-                  <th>Purchase Order #</th>
-                  <th>RMA #</th>
-                  <th>Customer Order #</th>
-                  <th>Price ($)</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {disputes.map((dispute, index) => (
-                  <tr key={index}>
-                    <td>{dispute.orderNumber}</td>
-                    <td>{dispute.purchaseOrder}</td>
-                    <td>{dispute.rma}</td>
-                    <td>{dispute.customerOrder}</td>
-                    <td>{dispute.price}</td>
-                    <td>{dispute.status}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <table className="w-full table-auto border-collapse">
+  <thead>
+    <tr>
+      <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">Order Number</th>
+      <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">Purchase Order #</th>
+      <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">RMA #</th>
+      <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">Customer Order #</th>
+      <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">Price ($)</th>
+      <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">Status</th>
+    </tr>
+  </thead>
+  <tbody className="bg-white">
+    {disputes.map((dispute, index) => (
+      <tr className="w-full border" key={index}>
+        <td className="p-2 text-center border">{dispute.orderNumber}</td>
+        <td className="p-2 text-center border">{dispute.purchaseOrder}</td>
+        <td className="p-2 text-center border">{dispute.rma}</td>
+        <td className="p-2 text-center border">{dispute.customerOrder}</td>
+        <td className="p-2 text-center border">{dispute.price}</td>
+        <td className="p-2 text-center border">{dispute.status}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+
+
+
+
           </div>
         )}
 
@@ -102,6 +113,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   toggleInsights: () => dispatch(toggleInsights()),
   addDispute: (newDispute) => dispatch(addDispute(newDispute)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Disputes);

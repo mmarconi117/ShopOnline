@@ -29,6 +29,7 @@ export const rootReducer = combineReducers({
     signupFormReducer,
     reviews: reviewsReducer,
     loginFormReducer,
+    disputeReducer,
 });
 
 export default rootReducer;

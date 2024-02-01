@@ -27,46 +27,21 @@ import PaymentServices from "./pages/Sellers/PaymentServices/PaymentServices";
 import TwoStepVerification from "./pages/Sellers/2-StepVerification/TwoStepVerification";
 import Agreements from "./pages/Sellers/Agreements/Agreements";
 import RatingsAndReviews from "./components/R&R/Ratings";
-import Disputes from "./pages/Sellers/OrderManagement/Disputes";
+import NotificationSettings from "./pages/Sellers/NotificationsSettings/NotificationsSettings";
 
 
 
 
-
-
-function App() {
-  return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="" element={<Layout />}>
-            <Route index element={<LandingPage />} />
-            <Route path="/subcategories" element={<SubCategory />} />
-            <Route path="/productdetails" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/language" element="#" />
-            <Route path="/account" element={<Account />} />
-            <Route path="/app" element="#" />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/companyService" element={<CompanyService />} />
-            <Route path="/paymentSuccess" element={<PaymentSuccessful />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/reviews" element={<ReviewPage />} />
-            <Route path="/accountsettings" element={<Account />} />
-            <Route path="/ratings-reviews" element={<RatingsAndReviews />} />
-          </Route>
-
-          <Route path="/sellers/*" element={<LandingPageforSellers />} />
-          <Route path="/onlinefulfillment" element={<OnlineFulfillment />} />
-          <Route path="/companyinfo" element={<CompanyInfo />} />
-          <Route path="/paymentservices" element={<PaymentServices />} />
-          <Route path="/twostepverification" element={<TwoStepVerification />} />
-          <Route path="/agreements" element={<Agreements />} />
-        </Routes>
-      </Router>
-    </div>
+              <Route path="/sellers/*" element={<LandingPageforSellers />} />
+              <Route path="/onlinefulfillment" element={<OnlineFulfillment />} />
+              <Route path="/companyinfo" element={<CompanyInfo />} />
+              <Route path="/paymentservices" element={<PaymentServices />} />
+              <Route path="/twostepverification" element={<TwoStepVerification />} />
+              <Route path="/agreements" element={<Agreements />} />
+              <Route path="/notificationsettings" element={<NotificationSettings />} />
+            </Routes>
+        </Router>
+      </div>
   );
 }
 

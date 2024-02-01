@@ -119,7 +119,6 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
                 });
                 setProductsCopy(filteredProducts);
                 resetPagination();
-                break;
             default:
                 return filteredProducts;
         }

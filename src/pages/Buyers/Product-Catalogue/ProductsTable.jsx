@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 
 // components
 import Pagination from "../../../components/Pagination/Pagination";
@@ -18,7 +18,7 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
                 <div>
                     {/* product description */}
                     <div className="mt-5">
-                        <p className="text-2xl">{product.description}</p>
+                        <p className="text-2xl text-ellipsis">{product.description}</p>
                     </div>
                     {/* product ratings */}
                     <div className="flex mb-3">
@@ -109,5 +109,12 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
         </div>
     );
 };
+
+ProductsTable.propTypes = {
+    products: PropTypes.string.isRequired,
+    getProductsCopy: PropTypes.string.isRequired,
+    productsCopy: PropTypes.string.isRequired,
+    isResetPagination: PropTypes.string.isRequired
+}
 
 export default ProductsTable;

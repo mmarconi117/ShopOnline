@@ -8,7 +8,7 @@ import ListOfProducts from "./ProductCatalogue/ListOfProducts";
 import ActivityFeed from "./Analytics/ActivityFeed";
 import UploadProduct from "./ProductCatalogue/UploadProduct";
 import OrderList from "./OrderManagement/OrderList";
-import ReturnsAndRefunds from "./OrderManagement/ReturnsAndRefunds";
+import ReturnsAndRefunds from "./OrderManagement/Returns-And-Refunds/ReturnsAndRefunds";
 import Disputes from "./OrderManagement/Disputes";
 import Overview from "./Analytics/Overview/Overview";
 import Payments from "./Analytics/Payments/Payments";

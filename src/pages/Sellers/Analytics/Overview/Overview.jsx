@@ -10,30 +10,38 @@ import OverallSales from "./Components/Overall-sales-graph/OverallSales";
 
 const Overview = () => {
     return (
-        <div className="self-center flex w-3/4 flex-col items-stretch m-5 p-5 ">
+        <div className="flex flex-col items-stretch px-12 xl:px-16 py-8 gap-8">
             <div>
-                <p className="text-2xl font-bold">Overview</p>
+                <p className="text-center xl:text-left text-2xl font-medium mb-[-4px]">Overview</p>
             </div>
-            <div
-                className="flex justify-between w-full my-5"
-                id="overview-products-sales"
-            >
+            {/* Before the completion of 3-steps verification: Become a seller banner / After: three containers with orders information*/}
+            <div className="flex flex-col xl:flex-row justify-between item-stretch gap-4" id="overview-products-sales">
                 <TotalOrders />
                 <TotalProductsSold />
                 <TotalEarnings />
             </div>
-            <div className="flex w-full rounded-md shadow-md bg-white my-5 ">
+            {/* Desktop Version */}
+            <div className="hidden xl:flex justify-around rounded-md shadow-md bg-white gap-5 p-3">
                 <CurrentOrders />
-                <div className="border-r-2 border-r-[#EEC643] h-3/5 my-auto"></div>
+                <div className="w-[1px] bg-[#EEC643] h-4/6 my-auto shrink-0"></div>
                 <ReadyToShip />
-                <div className="border-r-2 border-r-[#EEC643] h-3/5 my-auto"></div>
+                <div className="w-[1px] bg-[#EEC643] h-4/6 my-auto shrink-0"></div>
                 <CancelledOrders />
-                <div className="border-r-2 border-r-[#EEC643] h-3/5 my-auto"></div>
+                <div className="w-[1px] bg-[#EEC643] h-4/6 my-auto shrink-0"></div>
                 <OrdersDispute />
             </div>
-            <div className="my-5">
-                <OverallSales />
+            {/* Mobile Version */}
+            <div className="flex flex-col gap-4 sm:gap-0 sm:flex-row xl:hidden justify-around items-stretch bg-white p-3 ">
+                <div className="flex flex-col justify-between item-stretch gap-4">
+                    <CurrentOrders />
+                    <CancelledOrders />
+                </div>
+                <div className="flex flex-col justify-between item-stretch gap-4">
+                    <ReadyToShip />
+                    <OrdersDispute />
+                </div>
             </div>
+            <OverallSales />
         </div>
     );
 };

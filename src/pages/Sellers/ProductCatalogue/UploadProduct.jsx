@@ -30,15 +30,15 @@ function UploadProduct() {
   
   }
   return (
-    <div className="self-center flex flex-col items-stretch  px-8">
-      <div className="flex flex-col items-stretch max-md:max-w-full">
+    <div className="self-center flex flex-col   px-8">
+      <div className="flex flex-col  max-md:max-w-full">
         <form onSubmit={productDataHandler}>
-        <div className="bg-white self-center flex w-full max-w-[1141px] flex-col items-stretch mt-7 pl-12 rounded-3xl max-md:max-w-full max-md:pl-5 ">
-          <div className="flex w-full justify-between gap-5 pr-9 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 mt-11">
+        <div className="bg-white self-center flex w-full max-w-[1141px] flex-col  mt-7 pl-12 rounded-3xl max-md:max-w-full max-md:pl-5 ">
+          <div className="flex w-full justify-center gap-5 pr-9 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 mt-11">
             <div className="text-stone-950 text-xl font-medium leading-8 grow whitespace-nowrap">
               Adding New Products
             </div>
-            <div className="self-stretch flex items-stretch justify-between gap-5">
+            <div className="self-stretch flex  justify-between gap-5">
 
               <Link to="/sellers/ListOfProducts">
                 <button

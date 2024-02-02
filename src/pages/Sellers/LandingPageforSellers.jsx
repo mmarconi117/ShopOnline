@@ -30,7 +30,7 @@ export default function LandingPageforSellers() {
   return (
     <div className="bg-zinc-100 relative min-h-max">
       {!isSignupPage && <Header onClick={showSideBar}/>}
-      <div className="w-full flex items-stretch mt-[72px] md:mt-[107px]">
+      <div className="w-full flex items-stretch mt-[72px] md:mt-[107px] min-h-screen">
 
       {!isSignupPage && <Sidebar showBarIsTrue={showBar}/>}
          

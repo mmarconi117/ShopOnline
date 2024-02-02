@@ -1,23 +1,14 @@
 const TotalIncome = () => {
     return (
         <div
-            className="w-3/5 flex justify-between border-2 mb-5 pt-4 pr-4 pb-16 pl-4 bg-white shadow-md"
+            className="flex min-h-[130px] min-w-[180px] justify-between items-stretch rounded-lg py-3 px-6 bg-white shadow-md grow xl:grow-0"
             id="total-income-component"
         >
-            <div>
-                <div className="mb-5">
-                    <p>Total Income</p>
-                </div>
-                <div>
-                    <p className="font-bold">24,908</p>
-                </div>
+            <div className="flex flex-col justify-start items-start gap-[6px]">
+                <p>Total income</p>
+                <div className="text-2xl leading-10 font-semibold">24,908</div>
             </div>
-            <div>
-                <div
-                    className="w-1/4 h-1/4 rounded-md bg-[#EEC643] p-5 shadow-md"
-                    id="legend-color"
-                ></div>
-            </div>
+            <div className="w-7 h-7 bg-[#EEC643] rounded-md"/>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 const FinanceSummary2 = () => {
     return (
-        <div className="border-2 bg-white rounded-md shadow-md my-5 pt-4 pr-4 pb-16 pl-4">
+        <div className="border-2 bg-white rounded-md shadow-md p-4 pb-16 xl:basis-3/4">
             <div className="mb-5">
                 <p className="font-bold text-center">Financial Summary</p>
             </div>

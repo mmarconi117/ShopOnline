@@ -1,7 +1,7 @@
 const FinanceSummary = () => {
     return (
         <div
-            className="w-3/5  mb-5 pt-4 pr-4 pb-16 pl-4 bg-white shadow-md"
+            className="p-6 bg-white shadow-md rounded-lg xl:basis-1/4"
             id="finance-summary-component"
         >
             <div className="mb-5">

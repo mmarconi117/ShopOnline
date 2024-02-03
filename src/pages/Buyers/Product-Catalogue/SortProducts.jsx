@@ -32,7 +32,7 @@ const SortProducts = () => {
                 <div>
                     <button
                         type="button"
-                        className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-10 py-4 text-md font-semibold text-[#2284B6] shadow-sm ring-1 ring-inset ring-[#2284B6] hover:bg-[#2284B6] hover:text-white"
+                        className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-[30px] py-[14px] text-md font-semibold text-[#2284B6] shadow-sm ring-1 ring-inset ring-[#2284B6] hover:bg-[#2284B6] hover:text-white"
                         id="menu-button"
                         aria-expanded="true"
                         aria-haspopup="true"

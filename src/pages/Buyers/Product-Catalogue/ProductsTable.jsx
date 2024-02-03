@@ -1,27 +1,29 @@
-import { useState, useEffect } from "react";
+import TotalResults from "./TotalResults";
+import SortProducts from "./SortProducts";
+
 
 // components
 import Pagination from "../../../components/Pagination/Pagination";
 
 
-const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPagination }) => {
+const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPagination, totalProductsDisplaying, breadCrumbComp }) => {
     const catalogueComp = productsCopy.map((product, index) => {
         return (
             <div
-                className="w-1/4 h-auto p-5 mr-12 mb-12 border shadow-md rounded-xl"
+                className="max-w-[300px] p-4 pb-20 border shadow-md rounded-xl flex flex-col justify-start items-stretch gap-5"
                 key={index}
             >
-                <div>
+                <figure>
                     <img src={product.img} />
-                </div>
+                </figure>
                 {/* product details container */}
-                <div>
+                <div className="flex flex-col justify-between items-stretch gap-[6px] ">
                     {/* product description */}
-                    <div className="mt-5">
-                        <p className="text-2xl">{product.description}</p>
+                    <div className="min-h-[100px]">
+                        <p className="text-base">{product.description}</p>
                     </div>
                     {/* product ratings */}
-                    <div className="flex mb-3">
+                    <div className="flex justify-start items-center gap-3 mb-3">
                         <div>
                             <svg
                                 width="100"
@@ -52,12 +54,12 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
                                 />
                             </svg>
                         </div>
-                        <div className="ml-5">
-                            <span className="text-[#605D64]">{product.ratings}</span>
+                        <div className="text-[#605D64]">
+                            {product.ratings}
                         </div>
                     </div>
                     {/* price & qty left on produce */}
-                    <div className="flex justify-between mb-10">
+                    <div className="flex justify-between">
                         <div>
                             <p className="font-bold text-2xl text-[#09618E]">${product.price}</p>
                         </div>
@@ -93,18 +95,23 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
     return (
         <div
             id="products-table-component"
-            className=" w-4/5"
+            className="flex flex-col justify-start items-stretch gap-5"
         >
-            <div className="w-full">
-                <div className="w-full h-auto flex  flex-wrap">{catalogueComp}</div>
-                <div className="w-5/6">
-                    <Pagination
-                        products={products}
-                        getProductsCopy={getProductsCopy}
-                        isResetPagination={isResetPagination}
-                        productsCopy={productsCopy}
-                    />
+            <div className="flex flex-col grow gap-5">
+                <div className="flex justify-between items-center">
+                    <div>{breadCrumbComp}</div>
+                    <SortProducts />
                 </div>
+                <TotalResults totalProductsDisplaying={totalProductsDisplaying} />
+            </div>
+            <div className=" h-auto grid gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">{catalogueComp}</div>
+            <div className="self-center">
+                <Pagination
+                    products={products}
+                    getProductsCopy={getProductsCopy}
+                    isResetPagination={isResetPagination}
+                    productsCopy={productsCopy}
+                />
             </div>
         </div>
     );

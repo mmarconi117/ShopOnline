@@ -6,9 +6,7 @@ import { connect } from "react-redux";
 import { productCatalogue } from "../../../reducersAndActions/actions/productCatalogue";
 
 // components
-import SortProducts from "./SortProducts";
 import FilterOptions from "./FilterOptions";
-import TotalResults from "./TotalResults";
 import ProductsTable from "./ProductsTable";
 
 const mapStateToProps = (state) => {
@@ -151,7 +149,7 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
         return (
             <a
                 href={path.url}
-                className="text-xl p-2 5 mr-2 5 inline-block align-sub"
+                className="text-xl mr-2 5 inline-block align-sub 2xl:text-2xl"
                 key={index}
             >
                 {path.pathname}
@@ -160,39 +158,28 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
     });
 
     return (
-        <div id="product-catalogue-page">
-            {/* upper items, total results, breadcrumbs sort by components  */}
-            <div className="flex justify-between mt-10">
-                <div id="total-results">
-                    <p className="inline-block align-sub">
-                        1-{totalProductsDisplaying} of over {totalProducts} results
-                    </p>
-                </div>
-                {/* bread crumb  */}
-                <div>{breadCrumbComp}</div>
-                {/* sort products by */}
-                <SortProducts />
-            </div>
-            {/* total results component */}
-            <TotalResults totalProductsDisplaying={totalProductsDisplaying} />
-            <div className="w-full flex justify-between">
-                <FilterOptions
-                    products={catalogue}
-                    productsCopy={productsCopy}
-                    filterByBrand={filterByBrand}
-                    filterByPrice={filterByPrice}
-                    filterByBusinessType={filterByBusinessType}
-                    filterByCondition={filterByCondition}
-                    filterByRatings={filterByRatings}
-                />
-                <ProductsTable
-                    products={catalogue}
-                    getProductsCopy={getProductsCopy}
-                    productsCopy={productsCopy}
-                    resetPagination={resetPagination}
-                    isResetPagination={isResetPagination}
-                />
-            </div>
+        <div id="product-catalogue-page" className="py-6 px-10 flex items-stretch gap-5 2xl:gap-10 justify-center">
+            <FilterOptions
+                products={catalogue}
+                productsCopy={productsCopy}
+                filterByBrand={filterByBrand}
+                filterByPrice={filterByPrice}
+                filterByBusinessType={filterByBusinessType}
+                filterByCondition={filterByCondition}
+                filterByRatings={filterByRatings}
+                totalProductsDisplaying={totalProductsDisplaying}
+                totalProducts={totalProducts}
+                breadCrumbComp={breadCrumbComp}
+            />
+            <ProductsTable
+                products={catalogue}
+                getProductsCopy={getProductsCopy}
+                productsCopy={productsCopy}
+                resetPagination={resetPagination}
+                isResetPagination={isResetPagination}
+                totalProductsDisplaying={totalProductsDisplaying}
+                breadCrumbComp={breadCrumbComp}
+            />
         </div>
     );
 };

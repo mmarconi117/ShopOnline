@@ -29,64 +29,57 @@ const FilterByPrice = ({ filterByPrice }) => {
     };
 
     return (
-        <div
-            id="filter-by-price-component"
-            className="border-b-2 "
-        >
-            <div className="m-5">
-                <div className="flex justify-between mb-5">
-                    <div>
-                        <p className="font-bold text-2xl">Price ($)</p>
-                    </div>
-                    <div>
-                        <button
-                            className="text-2xl"
-                            type="button"
-                            onClick={onClick}
-                        >
-                            Apply
-                        </button>
-                    </div>
+        
+        <div className="border-b-2 pt-4 pb-8 flex flex-col gap-6 2xl:pt-8 2xl:pb-12 items-stretch" id="filter-by-price-component">
+            <div className="flex justify-between">
+                <div>
+                    <p className="font-bold text-2xl">Price ($)</p>
                 </div>
-                <div className="w-full mb-5">
+                <div>
+                    <button
+                        className="text-2xl"
+                        type="button"
+                        onClick={onClick}
+                    >
+                        Apply
+                    </button>
+                </div>
+            </div>
+            <input
+                onChange={(e) => {
+                    updateRange(e.target.valueAsNumber);
+                }}
+                min="0"
+                // minLength={min}
+                // maxLength={max}
+                max={rangeMax}
+                step={"50"}
+                // value={value}
+                type="range"
+                className="w-full"
+            />
+            <div className="flex text-center gap-5 items-center">
+                <div className="border-2 border-gray-300 rounded-md">
                     <input
                         onChange={(e) => {
-                            updateRange(e.target.valueAsNumber);
+                            userInputUpdateMin(e.target.value);
                         }}
-                        min="0"
-                        // minLength={min}
-                        // maxLength={max}
-                        max={rangeMax}
-                        step={"50"}
-                        // value={value}
-                        type="range"
-                        className="w-full"
+                        type="number"
+                        className="p-2 max-w-[74px]"
+                        value={userInputMin}
                     />
                 </div>
-                <div className="flex justify-evenly text-center">
-                    <div className="border-2 border-gray-300 w-1/2 rounded-md">
-                        <input
-                            onChange={(e) => {
-                                userInputUpdateMin(e.target.value);
-                            }}
-                            type="number"
-                            className="p-2"
-                            value={userInputMin}
-                        />
-                    </div>
-                    <div className="w-1/6 ">
-                        <p className="p-2">-</p>
-                    </div>
-                    <div className="border-2 border-gray-300 w-1/2 rounded-md">
-                        <input
-                            onChange={(e) => {
-                                userInputUpdateMax(e.target.value);
-                            }}
-                            type="number"
-                            className="p-2"
-                            value={userInputMax}
-                        />
-                    </div>
+                <div> - </div>
+                
+                <div className="border-2 border-gray-300 rounded-md">
+                    <input
+                        onChange={(e) => {
+                            userInputUpdateMax(e.target.value);
+                        }}
+                        type="number"
+                        className="p-2 max-w-[102px]"
+                        value={userInputMax}
+                    />
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 const TotalEarnings = () => {
     return (
         <div
-            className="bg-white  rounded-md p-3 w-full shadow-md "
+            className="bg-white  rounded-md p-3 basis-1/3 shadow-md "
             id="total-earnings-component"
         >
             <div>

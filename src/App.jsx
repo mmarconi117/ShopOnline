@@ -1,3 +1,4 @@
+
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -28,6 +29,7 @@ import PaymentServices from "./pages/Sellers/PaymentServices/PaymentServices";
 import TwoStepVerification from "./pages/Sellers/2-StepVerification/TwoStepVerification";
 import Agreements from "./pages/Sellers/Agreements/Agreements";
 import NotificationSettings from "./pages/Sellers/NotificationsSettings/NotificationsSettings";
+import HelpPage from "./pages/Sellers/HelpPage";
 
 function App() {
 
@@ -61,6 +63,7 @@ function App() {
               <Route path="/twostepverification" element={<TwoStepVerification />} />
               <Route path="/agreements" element={<Agreements />} />
               <Route path="/notificationsettings" element={<NotificationSettings />} />
+              <Route path="/helppage" element={<HelpPage />} />
             </Routes>
         </Router>
       </div>

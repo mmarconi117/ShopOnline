@@ -8,17 +8,19 @@ import FinanceSummary2 from "../Finance-summary/FinanceSummary2";
 const OverallSales = () => {
     return (
         <div
-            className="flex justify-between "
+            className="flex flex-col justify-between gap-8 items-stretch"
             id="overall-sales-component"
         >
-            <div className="w-3/5">
-                <TotalInventory />
-                <TotalIncome />
-                <Withdrawal />
-                <FinanceSummary />
-            </div>
-            <div className="w-full h-full ">
+            <div className="flex flex-col xl:flex-row gap-8">
+                <div className="flex flex-col gap-8 justify-between items-stretch xl:basis-1/4 xl:grow-0">
+                    <TotalInventory />
+                    <TotalIncome />
+                    <Withdrawal />
+                </div>
                 <ChartComponent />
+            </div>
+            <div className="flex flex-col xl:flex-row gap-8">
+                <FinanceSummary />
                 <FinanceSummary2 />
             </div>
         </div>

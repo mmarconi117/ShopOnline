@@ -8,7 +8,7 @@ import ListOfProducts from "./ProductCatalogue/ListOfProducts";
 import ActivityFeed from "./Analytics/ActivityFeed";
 import UploadProduct from "./ProductCatalogue/UploadProduct";
 import OrderList from "./OrderManagement/OrderList";
-import ReturnsAndRefunds from "./OrderManagement/ReturnsAndRefunds";
+import ReturnsAndRefunds from "./OrderManagement/Returns-And-Refunds/ReturnsAndRefunds";
 import Disputes from "./OrderManagement/Disputes";
 import Overview from "./Analytics/Overview/Overview";
 import Payments from "./Analytics/Payments/Payments";
@@ -30,12 +30,12 @@ export default function LandingPageforSellers() {
   return (
     <div className="bg-zinc-100 relative min-h-max">
       {!isSignupPage && <Header onClick={showSideBar}/>}
-      <div className="w-full flex items-stretch mt-[72px] md:mt-[107px]">
+      <div className="w-full flex items-stretch mt-[72px] md:mt-[107px] min-h-screen">
 
       {!isSignupPage && <Sidebar showBarIsTrue={showBar}/>}
-         
+
       <div className={`${showBar ? "max-md:opacity-25" : "max-md:opacity-100"} flex flex-col items-stretch overflow-hidden grow`} onClick={showBar ? showSideBar : ()=>{}}>
-                  
+
         <Routes>
           <Route path='/' element={<Homepage/>} />
           <Route path='/signup' element={<Signup/>} />
@@ -46,11 +46,10 @@ export default function LandingPageforSellers() {
           <Route path='/payments' element={<Payments />} />
           <Route path='/activityfeed/*' element={<ActivityFeed />} />
           <Route path='/activityfeed/FeedDetail/:id' element={<FeedDetail />} />
-          <Route path="/ratingsandreviews" element={<RatingsAndReviews />} />           
-
+          <Route path="/ratingsandreviews" element={<RatingsAndReviews />} />   
 
           {/* Product Catalogue Routing */}
-          <Route path='/listOfproducts' element={<ListOfProducts />} />              
+          <Route path='/listOfproducts' element={<ListOfProducts />} />
           <Route path='/uploadproduct' element={<UploadProduct />} />
           <Route path='/product' element={<ProductDetail />} />
 

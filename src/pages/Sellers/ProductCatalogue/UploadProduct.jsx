@@ -34,11 +34,12 @@ function UploadProduct() {
       <div className="flex flex-col  max-md:max-w-full">
         <form onSubmit={productDataHandler}>
         <div className="bg-white self-center flex w-full max-w-[1141px] flex-col  mt-7 pl-12 rounded-3xl max-md:max-w-full max-md:pl-5 ">
-          <div className="flex w-full justify-center gap-5 pr-9 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 mt-11">
-            <div className="text-stone-950 text-xl font-medium leading-8 grow whitespace-nowrap">
+          <div className="flex flex-col w-full justify-center gap-5 pr-9 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 mt-11">
+            <div className="text-stone-950 text-xl font-medium leading-8  whitespace-nowrap">
               Adding New Products
             </div>
-            <div className="self-stretch flex  justify-between gap-5">
+            
+            <div className="self-stretch flex  justify-center gap-5">
 
               <Link to="/sellers/ListOfProducts">
                 <button
@@ -50,7 +51,7 @@ function UploadProduct() {
               </Link>
               <button
                 type="submit"
-                className="shadow-sm text-zinc-700 text-center text-sm  whitespace-nowrap grow justify-center px-8 py-2 border-[0.75px] border-solid border-black max-md:px-5"
+                className="shadow-sm text-zinc-700 text-center text-sm  whitespace-nowrap justify-center px-8 py-2 border-[0.75px] border-solid border-black max-md:px-5"
               >
                 Upload
               </button>

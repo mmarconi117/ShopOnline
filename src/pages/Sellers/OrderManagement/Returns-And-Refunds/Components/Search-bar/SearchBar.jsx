@@ -37,7 +37,7 @@ const SearchBar = ({ returns, returnsCopy }) => {
                 </div>
                 <div className="w-full">
                     <input
-                        onChange={(e) => onChange(parseFloat(e.target.value))}
+                        onChange={(e) => onChange(e.target.value)}
                         className="w-full bg-transparent focus:outline-none"
                         type="text"
                         placeholder="Search Purchase Order #, RMA #, Customer Order #"

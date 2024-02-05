@@ -33,11 +33,11 @@ const FilterByPrice = ({ filterByPrice }) => {
         <div className="border-b-2 pt-4 pb-8 flex flex-col gap-6 2xl:pt-8 2xl:pb-12 items-stretch" id="filter-by-price-component">
             <div className="flex justify-between">
                 <div>
-                    <p className="font-bold text-2xl">Price ($)</p>
+                    <p className="text-base font-semibold 2xl:text-xl">Price ($)</p>
                 </div>
                 <div>
                     <button
-                        className="text-2xl"
+                        className="text-[14px] font-medium 2xl:text-xl underline 2xl:leading-6"
                         type="button"
                         onClick={onClick}
                     >

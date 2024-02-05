@@ -35,7 +35,7 @@ const FilterByBusinessType = ({ products, filterByBusinessType }) => {
     const businessTypeComp = noDublicateType.map((business, index) => {
         return (
             <div
-                className="my-2"
+                className="flex items-center gap-5"
                 key={index}
             >
                 <input
@@ -45,13 +45,10 @@ const FilterByBusinessType = ({ products, filterByBusinessType }) => {
                     type="checkbox"
                     name={business.type}
                     id={business.type}
-                    className="mr-3 w-6 h-6"
+                    className="rounded-xl w-[18px] h-[18px] 2xl:w-[24px] 2xl:h-[24px]"
                 />
                 <label
-                    className="inline-block align-top text-2xl"
-                    style={{
-                        textTransform: "capitalize",
-                    }}
+                    className="text-base capitalize 2xl:text-xl"
                 >
                     {business.type}
                 </label>
@@ -62,14 +59,10 @@ const FilterByBusinessType = ({ products, filterByBusinessType }) => {
     return (
         <div
             id="filter-by-business-type-component"
-            className="border-b-2"
+            className="border-b-2 pt-4 pb-8 flex flex-col gap-2 2xl:pt-8 2xl:pb-12 items-stretch"
         >
-            <div className="m-5">
-                <div>
-                    <p className="font-bold text-2xl">BUSINESS TYPE</p>
-                </div>
-                <div className="">{businessTypeComp}</div>
-            </div>
+            <p className="text-base font-semibold 2xl:text-xl">BUSINESS TYPE</p>
+            <div className="flex flex-col gap-2">{businessTypeComp}</div>
         </div>
     );
 };

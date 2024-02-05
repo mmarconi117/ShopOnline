@@ -58,7 +58,7 @@ const FilterByBrand = ({ products, filterByBrand }) => {
         >
             <div id="search-container">
                 <div className="mb-5">
-                    <p className="font-bold text-lg sm:text-xl 2xl:text-2xl">BRAND</p>
+                    <p className="text-base font-semibold 2xl:text-xl">BRAND</p>
                 </div>
                 <div
                     id="search-bar"

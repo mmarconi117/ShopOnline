@@ -145,11 +145,11 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
         setIsResetPagination(!isResetPagination);
     };
 
-    const breadCrumbComp = breadCrumb.map((path, index) => {
+    const breadCrumbComp = breadCrumb.map((path, index, arr) => {
         return (
             <a
                 href={path.url}
-                className="text-xl mr-2 5 inline-block align-sub 2xl:text-2xl"
+                className={`text-base tight-[0.15px] capitalize mr-1 font-semibold 2xl:text-2xl ${arr.length - 1 === index ? "text-[#2284B6]" : "text-[#938F96]"}`}
                 key={index}
             >
                 {path.pathname}
@@ -158,7 +158,7 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
     });
 
     return (
-        <div id="product-catalogue-page" className="py-6 px-10 flex items-stretch gap-5 2xl:gap-10 justify-center">
+        <div id="product-catalogue-page" className="p-4 md:py-6 md:px-10 flex items-stretch gap-5 2xl:gap-10 justify-start md:justify-center">
             <FilterOptions
                 products={catalogue}
                 productsCopy={productsCopy}

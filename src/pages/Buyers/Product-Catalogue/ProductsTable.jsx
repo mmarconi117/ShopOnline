@@ -10,7 +10,7 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
     const catalogueComp = productsCopy.map((product, index) => {
         return (
             <div
-                className="max-w-[300px] p-4 pb-20 border shadow-md rounded-xl flex flex-col justify-start items-stretch gap-5"
+                className="max-w-[300px] p-2 md:p-4 md:pb-20 border shadow-md rounded-xl flex flex-col justify-start items-stretch gap-5 mx-auto"
                 key={index}
             >
                 <figure>
@@ -19,7 +19,7 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
                 {/* product details container */}
                 <div className="flex flex-col justify-between items-stretch gap-[6px] ">
                     {/* product description */}
-                    <div className="min-h-[100px]">
+                    <div className="max-h-[168px] overflow-hidden">
                         <p className="text-base">{product.description}</p>
                     </div>
                     {/* product ratings */}
@@ -95,16 +95,26 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
     return (
         <div
             id="products-table-component"
-            className="flex flex-col justify-start items-stretch gap-5"
+            className="grow md:grow-0 flex flex-col justify-start items-stretch gap-5"
         >
-            <div className="flex flex-col grow gap-5">
-                <div className="flex justify-between items-center">
+            <div className="flex flex-col grow gap-5 items-stretch">
+                <div className="flex flex-col lg:flex-row justify-between items-stretch lg:items-center">
                     <div>{breadCrumbComp}</div>
-                    <SortProducts />
+                    <div className="flex justify-between">
+                        <div className="flex lg:hidden justify-between items-center gap-2">
+                            <div className="flex flex-col gap-1">
+                                <div className="w-5 h-0.5 rounded-md bg-[#2284B6]"/>
+                                <div className="w-5 h-0.5 rounded-md bg-[#2284B6]"/>
+                                <div className="w-5 h-0.5 rounded-md bg-[#2284B6]"/>
+                            </div>
+                            <div className="text-[#2284B6] text-[14px] leading-6 font-semibold">Advanced Searches</div>
+                        </div>
+                        <SortProducts />
+                    </div>
                 </div>
                 <TotalResults totalProductsDisplaying={totalProductsDisplaying} />
             </div>
-            <div className=" h-auto grid gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">{catalogueComp}</div>
+            <div className=" h-auto grid gap-2 lg:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">{catalogueComp}</div>
             <div className="self-center">
                 <Pagination
                     products={products}

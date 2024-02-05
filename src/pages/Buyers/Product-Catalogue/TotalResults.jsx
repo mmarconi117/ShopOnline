@@ -2,10 +2,9 @@ const TotalResults = ({ totalProductsDisplaying }) => {
     return (
         <div
             id="total-results-component"
+            className="hidden lg:block font-medium text-xl 2xl:text-2xl"
         >
-            <div className="">
-                <p className="font-bold text-2xl">Showing {totalProductsDisplaying} results</p>
-            </div>
+            <p>Showing {totalProductsDisplaying} results</p>
         </div>
     );
 };

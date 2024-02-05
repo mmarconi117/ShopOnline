@@ -64,28 +64,29 @@ const FilterByBrand = ({ products, filterByBrand }) => {
                     id="search-bar"
                     className="mb-5"
                 >
-                    <label className="bg-white flex gap-3 items-center border-2 rounded-2xl justify-start px-4 py-2 2xl:px-6 2xl:py-4">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                            />
-                        </svg>
-
+                    <div className="bg-white flex gap-3 items-center border-2 rounded-2xl justify-start px-4 py-2 2xl:px-6 2xl:py-4">
+                        <div className="w-6 h-6 2xl:w-8 2xl:h-8">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-6 h-6 2xl:w-8 2xl:h-8"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                                />
+                            </svg>
+                        </div>
                         <input
                             type="text"
                             className="text-base 2xl:text-2xl outline-none placeholder:text-gray-500"
                             placeholder="Search"
                         />
-                    </label>
+                    </div>
                 </div>
             </div>
             {/* product brands */}

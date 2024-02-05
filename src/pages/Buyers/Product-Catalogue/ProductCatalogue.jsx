@@ -158,7 +158,7 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
     });
 
     return (
-        <div id="product-catalogue-page" className="p-4 md:py-6 md:px-10 flex items-stretch gap-5 2xl:gap-10 justify-start md:justify-center">
+        <div id="product-catalogue-page" className="min-h-screen p-4 md:py-6 md:px-10 flex items-stretch gap-5 2xl:gap-10 justify-start md:justify-center">
             <FilterOptions
                 products={catalogue}
                 productsCopy={productsCopy}

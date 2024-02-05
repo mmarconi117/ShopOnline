@@ -27,7 +27,7 @@ export default function Header() {
             <PiShoppingCartDuotone className="mt-3 w-12 h-12 text-[#001c43]" />
           </Link>
       </div>
-        {/* <Menu /> */}
+        <Menu />
       {/* <p className="flex items-center justify-center">
         Take the good times on the go, get the&nbsp;
         <Link to='/app'><button className="text-orange-500 text-2xl font-500">APP&nbsp;</button></Link>{" "}

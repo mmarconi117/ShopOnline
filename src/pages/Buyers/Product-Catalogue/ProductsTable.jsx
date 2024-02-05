@@ -10,7 +10,7 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
     const catalogueComp = productsCopy.map((product, index) => {
         return (
             <div
-                className="max-w-[300px] p-2 md:p-4 md:pb-20 border shadow-md rounded-xl flex flex-col justify-start items-stretch gap-5 mx-auto"
+                className="max-w-[300px] p-2 md:p-4 md:pb-20 border shadow-md rounded-xl flex flex-col justify-start items-stretch gap-4 lg:gap-5 mx-auto"
                 key={index}
             >
                 <figure>
@@ -19,7 +19,7 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
                 {/* product details container */}
                 <div className="flex flex-col justify-between items-stretch gap-[6px] ">
                     {/* product description */}
-                    <div className="max-h-[168px] overflow-hidden">
+                    <div className="min-h-[200px] max-h-[220px] md:min-h-[168px] md:max-h-[200px] overflow-hidden">
                         <p className="text-base">{product.description}</p>
                     </div>
                     {/* product ratings */}
@@ -59,48 +59,45 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
                         </div>
                     </div>
                     {/* price & qty left on produce */}
-                    <div className="flex justify-between">
+                    <div className="flex flex-col md:flex-row justify-start gap-2 md:gap-0 md:justify-between">
                         <div>
-                            <p className="font-bold text-2xl text-[#09618E]">${product.price}</p>
+                            <p className="text-base font-medium lg:font-semibold lg:text-2xl text-[#09618E]">${product.price}</p>
                         </div>
 
-                        <div className="flex">
-                            <div className="text-[#E46962]">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth={1.5}
-                                    stroke="currentColor"
-                                    className="w-5 h-5 inline-block align-middle mr-1"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
-                                    />
-                                </svg>
-                            </div>
-                            <div>
-                                <span className="text-[.75rem] text-[#E46962]">
-                                    {product.qty} items left
-                                </span>
+                        <div className="flex text-[#938F96] items-center gap-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-5 h-5 inline-block align-middle mr-1"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                                />
+                            </svg>
+                            <div className="text-[.75rem]">
+                                {product.qty} items left
                             </div>
                         </div>
                     </div>
                 </div>
+                <button className="px-[30px] py-[14px] bg-[#EEC643] md:hidden text-[14px] font-semibold leading-5 rounded-md">Add to cart</button>
             </div>
         );
     });
     return (
         <div
             id="products-table-component"
-            className="grow md:grow-0 flex flex-col justify-start items-stretch gap-5"
+            className="grow md:grow-0 flex flex-col justify-between items-stretch gap-5"
         >
-            <div className="flex flex-col grow gap-5 items-stretch">
-                <div className="flex flex-col lg:flex-row justify-between items-stretch lg:items-center">
-                    <div>{breadCrumbComp}</div>
-                    <div className="flex justify-between">
+            <div className="flex flex-col lg:gap-5 gap-16 items-stretch">
+                <div className="flex flex-col lg:flex-row justify-between items-stretch lg:items-center gap-10 md:gap-0">
+                    <div className="max-md:self-center">{breadCrumbComp}</div>
+                    <div className="flex justify-around md:justify-between items-center ">
                         <div className="flex lg:hidden justify-between items-center gap-2">
                             <div className="flex flex-col gap-1">
                                 <div className="w-5 h-0.5 rounded-md bg-[#2284B6]"/>
@@ -113,8 +110,8 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
                     </div>
                 </div>
                 <TotalResults totalProductsDisplaying={totalProductsDisplaying} />
+                <div className="grid gap-y-6 gap-x-2 lg:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">{catalogueComp}</div>
             </div>
-            <div className=" h-auto grid gap-2 lg:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">{catalogueComp}</div>
             <div className="self-center">
                 <Pagination
                     products={products}

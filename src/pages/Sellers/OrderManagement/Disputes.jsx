@@ -43,7 +43,7 @@ const Disputes = ({ disputes, showInsights, toggleInsights, addDispute }) => {
           </button>
         </div>
         <div className="add-dispute-form mt-2 flex items-center">
-          <label htmlFor="orderNumber">Order Number: </label>
+          <label htmlFor="orderNumber">Order Number: &nbsp;</label>
           <input
             type="text"
             id="orderNumber"
@@ -77,23 +77,23 @@ const Disputes = ({ disputes, showInsights, toggleInsights, addDispute }) => {
             <table className="w-full table-auto border-collapse mt-4">
               <thead>
                 <tr>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">Order Number</th>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">Purchase Order #</th>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">RMA #</th>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">Customer Order #</th>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">Price ($)</th>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border p-2">Status</th>
+                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Order Number</th>
+                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Purchase Order #</th>
+                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">RMA #</th>
+                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Customer Order #</th>
+                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Price ($)</th>
+                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Status</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 {disputes.map((dispute, index) => (
                   <tr className="w-full border" key={index}>
-                    <td className="p-2 text-center border">{dispute.orderNumber}</td>
-                    <td className="p-2 text-center border">{dispute.purchaseOrder}</td>
-                    <td className="p-2 text-center border">{dispute.rma}</td>
-                    <td className="p-2 text-center border">{dispute.customerOrder}</td>
-                    <td className="p-2 text-center border">{dispute.price}</td>
-                    <td className="p-2 text-center border">{dispute.status}</td>
+                    <td className="p-2 text-center border border-black">{dispute.orderNumber}</td>
+                    <td className="p-2 text-center border border-black">{dispute.purchaseOrder}</td>
+                    <td className="p-2 text-center border border-black">{dispute.rma}</td>
+                    <td className="p-2 text-center border border-black">{dispute.customerOrder}</td>
+                    <td className="p-2 text-center border border-black">{dispute.price}</td>
+                    <td className="p-2 text-center border border-black">{dispute.status}</td>
                   </tr>
                 ))}
               </tbody>

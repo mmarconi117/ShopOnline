@@ -33,9 +33,9 @@ export default function LandingPageforSellers() {
       <div className="w-full flex items-stretch mt-[72px] md:mt-[107px] min-h-screen">
 
       {!isSignupPage && <Sidebar showBarIsTrue={showBar}/>}
-         
+
       <div className={`${showBar ? "max-md:opacity-25" : "max-md:opacity-100"} flex flex-col items-stretch overflow-hidden grow`} onClick={showBar ? showSideBar : ()=>{}}>
-                  
+
         <Routes>
           <Route path='/' element={<Homepage/>} />
           <Route path='/signup' element={<Signup/>} />
@@ -45,12 +45,12 @@ export default function LandingPageforSellers() {
           <Route path='/overview' element={<Overview />} />
           <Route path='/payments' element={<Payments />} />
           <Route path='/activityfeed/*' element={<ActivityFeed />} />
-          <Route path='/activityfeed/FeedDetail/:id' element={<FeedDetail />} />           
-          
+          <Route path='/activityfeed/FeedDetail/:id' element={<FeedDetail />} />
+
           <Route path='/ratingsandreviews' element={<RatingsAndReviews />} />
 
           {/* Product Catalogue Routing */}
-          <Route path='/listOfproducts' element={<ListOfProducts />} />              
+          <Route path='/listOfproducts' element={<ListOfProducts />} />
           <Route path='/uploadproduct' element={<UploadProduct />} />
           <Route path='/product' element={<ProductDetail />} />
 

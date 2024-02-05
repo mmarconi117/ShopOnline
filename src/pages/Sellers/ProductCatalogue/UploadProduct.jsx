@@ -34,7 +34,7 @@ function UploadProduct() {
       <div className="flex flex-col  max-md:max-w-full">
         <form onSubmit={productDataHandler}>
         <div className="bg-white self-center flex w-full max-w-[1141px] flex-col  mt-7 pl-12 rounded-3xl max-md:max-w-full max-md:pl-5 ">
-          <div className="flex  w-full justify-between gap-5 pr-9  max-md:max-w-full max-md:flex-wrap max-md:pr-5 mt-11 ">
+          <div className="flex  w-full justify-between gap-5 pr-9  max-md:max-w-full max-md:flex-wrap max-md:pr-5 max-md:justify-center mt-11 border-2 border-red-400">
             <div className="text-stone-950 justify-start text-xl font-medium leading-8  whitespace-nowrap ">
               Adding New Products
             </div>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
+import Pagination from "../../../../../../components/Pagination/Pagination";
+
 const Table = ({ returns, updateCopy, returnsCopy, getItemSelected }) => {
     const [isAllSelected, setIsAllSelected] = useState(false); // all selected
-
-    useEffect(() => {}, []);
 
     const allSelected = (checked) => {
         returnsCopy.forEach((item) => (item.selected = checked));
@@ -78,6 +78,13 @@ const Table = ({ returns, updateCopy, returnsCopy, getItemSelected }) => {
                 </thead>
                 <tbody className="text-center">{returnItems}</tbody>
             </table>
+            <div>
+                <Pagination
+                    products={returns}
+                    productsCopy={returnsCopy}
+                    getProductsCopy={updateCopy}
+                />
+            </div>
         </div>
     );
 };

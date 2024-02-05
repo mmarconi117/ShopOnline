@@ -26,7 +26,6 @@ function Login() {
 
       dispatch(submitLoginForm(storeData));
       dispatch({ type: 'LOGIN_SUBMIT_FORM', payload: initialStoreData });
-      console.log('Store data:', storeData);
     }
   };
 

@@ -12,11 +12,11 @@ import ReturnsAndRefunds from "./OrderManagement/ReturnsAndRefunds";
 import Disputes from "./OrderManagement/Disputes";
 import Overview from "./Analytics/Overview/Overview";
 import Payments from "./Analytics/Payments/Payments";
-import RatingsAndReviews from "./Analytics/RatingsAndReviews";
 import FeedDetail from "./Analytics/FeedDetail";
 import ProductDetail from "./ProductCatalogue/ProductDetail";
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
+import RatingsAndReviews from "./Analytics/R&R/Ratings"
 
 
 export default function LandingPageforSellers() {
@@ -45,9 +45,9 @@ export default function LandingPageforSellers() {
           <Route path='/overview' element={<Overview />} />
           <Route path='/payments' element={<Payments />} />
           <Route path='/activityfeed/*' element={<ActivityFeed />} />
-          <Route path='/activityfeed/FeedDetail/:id' element={<FeedDetail />} />           
-          
-          <Route path='/ratingsandreviews' element={<RatingsAndReviews />} />
+          <Route path='/activityfeed/FeedDetail/:id' element={<FeedDetail />} />
+          <Route path="/ratingsandreviews" element={<RatingsAndReviews />} />           
+
 
           {/* Product Catalogue Routing */}
           <Route path='/listOfproducts' element={<ListOfProducts />} />              

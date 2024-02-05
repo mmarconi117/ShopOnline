@@ -11,6 +11,7 @@
 // import toysIcon from './assets/Icons/Toys-Kids-and-Babies.svg';
 // import consumerIcon from './assets/Icons/Consumer-Electronics.svg'
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
 
 
 const Menu = () => {
@@ -61,17 +62,32 @@ const Menu = () => {
       title: 'Toys',
     },
   ];
-
+  const [isOpen, setIsOpen] = useState(false)
+  const menuHandler = () => {
+    setIsOpen(prev => !prev)
+  }
   return (
-    <div className="hdden  mx-2 pl-3 min-w-max bg-[#ccefff] gap-10 flex font-Roboto">
-      <p className="py-[6px]  text-xl font-bold "> All Categories</p>
-      {categories.map((item, index) => (
-        <div key={index} className="flex items-center py-[6px] px-4 gap-5">
-          {/* <img src={item.img} alt={item.title} className="w-6 h-6" /> */}
-        <Link to="/subcategories">  <div className="text-base leading-[19.2px]">{item.title}</div></Link>
+    <>
+    {/* Desktop Version */} 
+      <div className="hidden w-full px-3 py-1 min-w-max bg-[#ccefff] gap-5 md:flex justify-start font-Roboto">
+        <p className="text-xl font-bold whitespace-nowrap"> All Categories</p>
+        <div className='grow flex justify-between gap-4 items-center'>
+          {categories.map((item, index) => (
+            <Link key={index} to="/subcategories" className="text-base leading-[19.2px]">{item.title}</Link>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+      {/* Mobile Version */}
+      <div className="relative md:hidden w-full px-3 py-1 min-w-max bg-[#ccefff] gap-5 flex justify-start font-Roboto">
+        <p className="text-xl font-bold whitespace-nowrap" onClick={menuHandler}> All Categories</p>
+        <div className={`absolute ${isOpen ? "flex bg-gray-100 opacity-95 z-50" : "hidden"} rounded-br-md rounded-none p-4 top-9 left-0 w-[250px] flex-wrap justify-between gap-16 text-left items-center`}>
+          {categories.map((item, index) => (
+            <Link key={index} to="/subcategories" className="text-base leading-[19.2px]" onClick={menuHandler}>{item.title}</Link>
+          ))}
+        </div>
+      </div>
+    
+    </>
   );
 };
 

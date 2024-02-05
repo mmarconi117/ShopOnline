@@ -25,27 +25,25 @@ const SubscribeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 mt-8 mx-auto ">
-      <div className="text-2xl font-normal  leading-[120%] text-[#b7b9ba] text-center font-sansita-one">
+    <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 justify-center min-w-[200px]">
+      <div className="text-xl font-normal whitespace-normal leading-[120%] text-[#b7b9ba] text-center font-sansita-one">
         New to Shop Online New York
       </div>
-      <div className="text-[18px] leading-[50%] font-[Roboto] text-[#b7b9ba] font-normal text-center">
+      <div className="max-w-[220px] text-base lg:text-xl leading-5 font-[Roboto] text-[#b7b9ba] font-normal text-center ">
         Subscribe to our newsletter to get updates on our latest offers
       </div>
-      <div className="flex flex-col items-center gap-4 w-full md:w-[80%] lg:w-[60%] xl:w-[50%]">
-        <div className="border border-solid border-[#3A92BE] rounded-md w-full flex mr-12 ">
+      <div className="self-stretch flex justify-start">
           <input
             onChange={handleChange}
             value={email}
             type="email"
             id="email"
             placeholder="Email"
-            className="flex-1 p-2"
+            className="p-2 w-2/3 rounded-l-md outline-none"
           />
-          <button type="submit" className="p-2 bg-[#eec643]">
+          <button type="submit" className="p-2 bg-[#eec643] rounded-r-md">
             Subscribe
           </button>
-        </div>
         {!isValid && (
           <p className="text-[#FF0000] text-sm">Please Enter Valid Email</p>
         )}

@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export const Item = ({ src, description, price }) => {
 
 
   return (
-      <a
-      href="#"
+      <Link 
+      to="/productdetails"
       className="bg-white flex flex-col p-2 pb-3 justify-start gap-4 min-w-[175px] min-h-[373px] rounded-[5px] border border-solid border-[#AEA9B1] min-[465px]:w-[219px] min-[465px]:p-[10px] min-[465px]:pb-4 min-[465px]:gap-6 min-[465px]:border-0"
     >
       <img
@@ -22,7 +23,7 @@ export const Item = ({ src, description, price }) => {
           from <span className="text-[#09618E] text-xl font-bold leading-6 tracking-[0.15px]">{`$${price}`}</span>
         </div>
       </div>
-    </a>
+    </Link>
     
     
   );

@@ -1,6 +1,6 @@
 // modules
 import { useState, useEffect } from "react";
-import { useHref } from "react-router-dom";
+import { Link, useHref } from "react-router-dom";
 import infoIcon from "../../../assets/ICONS/info.svg";
 
 import { connect } from "react-redux";
@@ -82,13 +82,13 @@ function ProductDetails({
 
     const breadCrumbComp = breadCrumb.map((path, index) => {
         return (
-            <a
+            <Link
                 className="text-xl p-2.5 mr-2.5"
-                href={path.url}
+                to={path.url}
                 key={index}
             >
                 {path.pathname}
-            </a>
+            </Link>
         );
     });
 

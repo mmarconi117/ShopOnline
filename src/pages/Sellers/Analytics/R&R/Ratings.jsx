@@ -9,7 +9,7 @@ import {
     addMessage,
     submitPublicComment,
     submitDirectMessage,
-} from '../../reducersAndActions/actions/reviewsAction';
+} from '../../../../reducersAndActions/actions/reviewsAction';
 import picDemo from './assets/picDemo.jpeg';
 import picDemo2 from './assets/picDemo2.jpeg';
 import picDemo3 from './assets/picDemo3.webp';

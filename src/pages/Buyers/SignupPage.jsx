@@ -2,6 +2,11 @@ import facebook from "../../assets/ICONS/socials/facebook.svg";
 import twitter from "../../assets/ICONS/socials/twitter.svg";
 import linkedin from "../../assets/ICONS/socials/linkedin.svg";
 import instagram from "../../assets/ICONS/socials/instagram.svg";
+
+import { Link } from "react-router-dom";
+
+
+
 const SignupPage = () => {
   const socialMedia = [facebook, instagram, linkedin, twitter];
   return (
@@ -78,9 +83,9 @@ const SignupPage = () => {
 
         <div className="py-8 text-center">
           Already have an account?
-          <a href="/login" className="p-2 underline text">
+          <Link to="/login" className="p-2 underline text">
             Log in
-          </a>
+          </Link>
         </div>
 
         <div>

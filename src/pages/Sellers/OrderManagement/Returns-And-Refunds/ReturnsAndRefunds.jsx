@@ -18,7 +18,7 @@ const mapStateToProps = (state) => ({
 
 function ReturnsAndRefunds({ returns }) {
     const [returnsCopy, setReturnsCopy] = useState([]);
-    const [itemIndex, setItemIndex] = useState(undefined); // selected item index
+    const [itemIndex, setItemIndex] = useState(undefined); // selected item index, one single item
 
     const updateCopy = (update) => {
         setReturnsCopy(update);

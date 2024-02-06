@@ -33,7 +33,7 @@ function UploadProduct() {
     <div className="self-center flex flex-col   px-8">
       <div className="flex flex-col  max-md:max-w-full">
         <form onSubmit={productDataHandler}>
-        <div className="bg-white self-center flex w-full max-w-[1141px] flex-col  mt-7 pl-12 rounded-3xl max-md:max-w-full max-md:pl-5 ">
+        <div className="bg-white self-center flex w-full max-w-[1141px] flex-col  mt-7 pl-12 rounded-3xl max-md:max-w-full max-md:pl-5 border-2 border-blue-400">
           <div className="flex  w-full justify-between gap-5 pr-9  max-md:max-w-full max-md:flex-wrap max-md:pr-5 max-md:justify-center mt-11 border-2 border-red-400">
             <div className="text-stone-950 justify-start text-xl font-medium leading-8  whitespace-nowrap ">
               Adding New Products
@@ -60,7 +60,7 @@ function UploadProduct() {
           <div className="mt-0 max-md:max-w-full max-md:my-10 p-8 justify-center items-center ">
             <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-5">
               <div className="flex flex-col items-stretch w-[28%] max-md:w-full max-md:ml-0 ">
-                <div className="flex flex-col items-center max-md:mt-9">
+                <div className="flex flex-col items-center max-md:mt-9 border-2 border-green-400">
                   <label
                     htmlFor="dropzone-file"
                     className="bg-stone-300 flex w-[250px] max-w-full flex-col justify-center items-center px-16 py-12 max-md:px-5 cursor-pointer"

@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 import facebook from "../../assets/ICONS/socials/facebook.svg";
 import twitter from "../../assets/ICONS/socials/twitter.svg";
 import linkedin from "../../assets/ICONS/socials/linkedin.svg";
@@ -53,9 +55,9 @@ const LoginPage = () => {
 
         <div className="py-8 text-center">
           Dont have an account?{" "}
-          <a href="/signup" className="p-2 underline">
+          <Link to="/signup" className="p-2 underline">
             Sign up
-          </a>
+          </Link>
         </div>
 
         <div>

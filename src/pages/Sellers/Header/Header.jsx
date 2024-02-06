@@ -8,7 +8,9 @@ function Header(props) {
   return (
     <div className="fixed z-10 top-0 w-full bg-white justify-between flex items-center py-6">
       <div className='hidden md:block pl-8'>
+        <Link to="/sellers" >
         <img src={logo} alt="logo" />
+        </Link>
       </div>
       <div className='flex md:hidden justify-center items-center pl-16'>
         <button className='flex flex-col gap-1.5 w-8 active:px-0.5' onClick={props.onClick}>
@@ -19,13 +21,13 @@ function Header(props) {
       </div>
       <div className="items-stretch hidden sm:flex justify-between gap-5 pr-4 md:gap-10 md:pr-8">
         <div className="items-stretch flex justify-between gap-5 md:gap-10 max-md:justify-center">
-          <Link to="/" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
+          <Link to="/sellers" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Home
           </Link>
           <Link to="/settings" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Settings
           </Link>
-          <Link to="/help" className="text-zinc-600 text-base leading-6">
+          <Link to="" className="text-zinc-600 text-base leading-6">
             Help
           </Link>
           <Link to="/notifications" className="text-zinc-600 text-base leading-6 whitespace-nowrap">

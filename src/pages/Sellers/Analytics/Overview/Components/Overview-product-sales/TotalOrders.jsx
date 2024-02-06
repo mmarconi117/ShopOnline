@@ -1,7 +1,7 @@
 const TotalOrders = () => {
     return (
         <div
-            className="bg-white rounded-md p-3 w-full mr-5 shadow-md"
+            className="bg-white rounded-md p-3 basis-1/3 shadow-md"
             id="total-orders-components"
         >
             <div>

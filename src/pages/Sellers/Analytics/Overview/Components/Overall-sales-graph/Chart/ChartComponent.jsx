@@ -19,13 +19,13 @@ const ChartComponent = () => {
     };
     return (
         <div
-            className="w-full shadow-md rounded-md"
+            className="xl:grow shadow-md p-1 bg-white rounded-md"
             id="graph-component"
         >
             <Chart
                 chartType="ComboChart"
                 width={"100%"}
-                height="500px"
+                height="451px"
                 data={data}
                 options={options}
             />

@@ -1,4 +1,4 @@
-// actions/index.js
+
 import { TOGGLE_INSIGHTS, UPDATE_STATUS_FILTER } from "../actions/index";
 
 

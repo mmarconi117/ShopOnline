@@ -90,25 +90,25 @@ function ListOfProducts() {
         </div>
       </div>
       {/* Data table */}
-      <div className="flex flex-col items-stretch px-3 sm:px-6 py-3 rounded-none max-w-full">
+      <div className="hidden lg:flex flex-col items-stretch py-3 rounded-none max-w-full">
         <div className="overflow-auto pb-4">
-          <table className="w-full border-collapse min-w-[900px]">
+          <table className="w-full border-collapse min-w-[600px]">
             <thead>
               <tr className="">
-                <th className="p-2 sm:p-4 "></th>
-                <th className="p-2 sm:p-4 text-zinc-700 text-base leading-6 grow whitespace-nowrap my-auto">
+                <th className="w-1/6 p-2 sm:p-4 "></th>
+                <th className="w-1/6 p-2 sm:p-4 text-zinc-700 text-sm leading-6 grow whitespace-nowrap my-auto">
                   PRODUCT ID
                 </th>
-                <th className="p-2 sm:p-4 text-zinc-700 text-base leading-6 self-center grow whitespace-nowrap my-auto">
+                <th className="w-1/6 p-2 sm:p-4 text-zinc-700 text-sm leading-6 self-center grow whitespace-nowrap my-auto">
                   PRODUCT NAME
                 </th>
-                <th className="p-2 sm:p-4 text-zinc-700 text-base leading-6 self-center grow whitespace-nowrap my-auto">
+                <th className="w-1/6 p-2 sm:p-4 text-zinc-700 text-sm leading-6 self-center grow whitespace-nowrap my-auto">
                   TYPE
                 </th>
-                <th className="p-2 sm:p-4 text-zinc-700 text-base leading-6 self-center grow whitespace-nowrap my-auto">
+                <th className="w-1/6 p-2 sm:p-4 text-zinc-700 text-sm leading-6 self-center grow whitespace-nowrap my-auto">
                   INVENTORY
                 </th>
-                <th className="px-16 sm:px-20 "></th>
+                <th className="w-1/6"></th>
               </tr>
             </thead>
             <tbody className="bg-white border border-black">
@@ -133,27 +133,31 @@ function ListOfProducts() {
                 products.map((product) => (
                   <tr key={product.id} >
                     
-                    <td className="w-[150px] sm:w-[186px] h-[58px] sm:h-[72px] border-r border-black justify-center text-center">
+                    <td className="h-[72px] border-r border-black justify-center text-center">
                       {/* Fetching immage here */}
                       <div className="bg-gray-400 w-[80px] h-[40px] mx-auto">
                         
                       </div>
                     </td>
-                    <td className="w-[150px] sm:w-[186px] h-[58px] sm:h-[72px] border-r border-black text-center">
-                      {product.id}
+                    <td className="border-r border-black text-center p-1">
+                      123123123
+                      {/* {product.id} */}
                     </td>
-                    <td className="w-[150px] sm:w-[186px] h-[58px] sm:h-[72px] border-r border-black text-center">
+                    <td className="border-r border-black text-center p-1">
                       <Link to={`/ProductDetail/${product.id}`}>
-                        {product.title}
+                        Switch
+                        {/* {product.title} */}
                       </Link>
                     </td>
-                    <td className="w-[150px] sm:w-[186px] h-[58px] sm:h-[72px] border-r border-black text-center">
-                      {product.category}
+                    <td className="border-r border-black text-center min-w-[100px] p-2">
+                      Electronic
+                      {/* {product.category} */}
                     </td>
-                    <td className="w-[150px] sm:w-[186px] h-[58px] sm:h-[72px] border-r border-black text-center">
-                      {product.price}
+                    <td className="border-r border-black text-center p-1">
+                      $123
+                      {/* {product.price} */}
                     </td>
-                    <td className="w-[150px] sm:w-[180px] h-[58px] sm:h-[72px] border-r border-black">
+                    <td className="border-r border-black p-1 min-w-[100px]">
                       <div className="w-[25px] h-[25px] mx-auto">
                         <svg
                           fill="none"
@@ -228,6 +232,110 @@ function ListOfProducts() {
           </div>
         </div>
       </div>
+      {/* Mobile version */}
+      <div className="flex lg:hidden flex-col justify-start gap-5 items-stretch">
+      {products.length === 0 ? (
+                <div className="h-[200px] flex flex-col justify-center items-center bg-stone-400 gap-3">
+                  <div>
+                    No product found add product here !!
+                  </div>
+                    <Link to="/sellers/UploadProduct">
+                      <button
+                        type="button"
+                        className="shadow-sm bg-gray-200 text-zinc-700 text-center text-sm font-semibold  whitespace-nowrap px-8 py-2 border-[0.75px] border-solid border-black rounded-md max-md:px-5"
+                      >
+                        Add Product
+                      </button>
+                    </Link>
+                </div>
+              ) : (
+                products &&
+                products.map((product) => (
+                  <div key={product.id} className="flex flex-col">
+                    
+                    <div className="bg-stone-400 h-[100px] flex justify-center items-center rounded-t-md">
+                      {/* Fetching immage here */}
+                      <div className="bg-blue-600 w-[160px] h-[80px]">
+                        
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center bg-stone-300 py-2 px-8">
+                      <div>Product ID:</div>
+                      <div>123123123</div>
+                      {/* {product.id} */}
+                    </div>
+                    <div className="flex justify-between items-center bg-stone-400 py-2 px-8">
+                      <div>Title:</div>
+                      <Link to={`/ProductDetail/${product.id}`}>
+                        Switch
+                        {/* {product.title} */}
+                      </Link>
+                    </div>
+                    <div className="flex justify-between items-center bg-stone-300 py-2 px-8">
+                      <div>Type:</div>
+                      <div>Electronic</div>
+                      {/* {product.category} */}
+                    </div>
+                    <div className="flex justify-between items-center bg-stone-400 py-2 px-8">
+                      <div>Price:</div>
+                      <div>$123</div>
+                      {/* {product.price} */}
+                    </div>
+                    <div className="flex justify-start items-center bg-stone-300 py-2 px-8 rounded-b-md">
+                      <div className="w-[25px] h-[25px] mx-auto">
+                        <svg
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="bg-green-600 rounded text-white hover:bg-green-700 w-[25px] h-[25px]"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 12.75l6 6 9-13.5"
+                          />
+                        </svg>
+                        {/* The svgs below are commented out so they can easily be accessed in the future */}
+                        {/* <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="bg-red-600 rounded text-white w-[25px] h-[25px] hover:bg-red-700"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+
+                      <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="bg-yellow-600 rounded text-white ml-5 w-[25px] h-[25px] hover:bg-yellow-700"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+                        />
+                      </svg> */}
+
+                      </div>
+
+                      
+                    </div>
+                  </div>
+                ))
+              )}
+
+
+      </div>
+
     </div>
   );
 }

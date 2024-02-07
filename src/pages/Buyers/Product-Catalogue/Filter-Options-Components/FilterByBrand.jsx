@@ -34,51 +34,45 @@ const FilterByBrand = ({ products, filterByBrand }) => {
 
     const productsBrandComp = noDublicate.map((brand, index) => {
         return (
-            <div
-                className="mt-2 "
-                key={index}
-            >
-                <div className="mt-2">
-                    <label
-                        className="flex items-center text-2xl"
-                        style={{ textTransform: "capitalize" }}
-                    >
-                        <input
-                            onClick={(e) => handleOnClick(e.target.checked, brand)}
-                            type="checkbox"
-                            name={brand.name}
-                            id={brand.name}
-                            className="mr-5 w-6 h-6 border-2"
-                        />
-                        {brand.name}
-                    </label>
-                </div>
+            <div  key={index}>
+                <label
+                    className="flex items-center text-base 2xl:text-2xl"
+                    style={{ textTransform: "capitalize" }}
+                >
+                    <input
+                        onClick={(e) => handleOnClick(e.target.checked, brand)}
+                        type="checkbox"
+                        name={brand.name}
+                        id={brand.name}
+                        className="mr-5 w-6 h-6 border-2"
+                    />
+                    {brand.name}
+                </label>
             </div>
         );
     });
 
     return (
-        <div
+        <div className="border-b-2 pb-7 2xl:pb-12"
             id="product-brand-component"
-            className="border-b-2"
         >
-            <div className="m-5">
-                <div id="search-container">
-                    <div className="mb-5">
-                        <p className="font-bold text-2xl">BRAND</p>
-                    </div>
-                    <div
-                        id="search-bar"
-                        className="mb-5"
-                    >
-                        <label className="flex">
+            <div id="search-container">
+                <div className="mb-5">
+                    <p className="text-base font-semibold 2xl:text-xl">BRAND</p>
+                </div>
+                <div
+                    id="search-bar"
+                    className="mb-5"
+                >
+                    <div className="bg-white flex gap-3 items-center border-2 rounded-2xl justify-start px-4 py-2 2xl:px-6 2xl:py-4">
+                        <div className="w-6 h-6 2xl:w-8 2xl:h-8">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke="currentColor"
-                                className="w-6 h-6"
+                                className="w-6 h-6 2xl:w-8 2xl:h-8"
                             >
                                 <path
                                     strokeLinecap="round"
@@ -86,18 +80,17 @@ const FilterByBrand = ({ products, filterByBrand }) => {
                                     d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
                                 />
                             </svg>
-
-                            <input
-                                type="text"
-                                className="border-2 p-1 rounded-xl placeholder:text-gray-500 placeholder:px-5"
-                                placeholder="Search"
-                            />
-                        </label>
+                        </div>
+                        <input
+                            type="text"
+                            className="text-base 2xl:text-2xl outline-none placeholder:text-gray-500"
+                            placeholder="Search"
+                        />
                     </div>
                 </div>
-                {/* product brands */}
-                <div id="input-gruops-container products-brand">{productsBrandComp}</div>
             </div>
+            {/* product brands */}
+            <div id="input-gruops-container products-brand" className="flex flex-col justify-start items-stretch gap-3">{productsBrandComp}</div>
         </div>
     );
 };

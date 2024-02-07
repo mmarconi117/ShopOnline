@@ -1,15 +1,10 @@
-import { useState } from "react";
-
 const TotalResults = ({ totalProductsDisplaying }) => {
-    console.log(totalProductsDisplaying);
     return (
         <div
             id="total-results-component"
-            className="w-full"
+            className="hidden lg:block font-medium text-xl 2xl:text-2xl"
         >
-            <div className="w-1/2 my-5 mx-auto ">
-                <p className="font-bold text-2xl ">Showing {totalProductsDisplaying} results</p>
-            </div>
+            <p>Showing {totalProductsDisplaying} results</p>
         </div>
     );
 };

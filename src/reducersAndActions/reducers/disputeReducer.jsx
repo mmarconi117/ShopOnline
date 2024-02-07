@@ -1,9 +1,10 @@
-// disputeReducer.js
-import { ADD_DISPUTE, TOGGLE_INSIGHTS } from "../actions";
+
+import { UPDATE_STATUS_FILTER, TOGGLE_INSIGHTS } from "../actions";
 
 const initialState = {
   disputes: [],
   showInsights: true,
+  statusFilter: "All",
 };
 
 const disputeReducer = (state = initialState, action) => {
@@ -13,10 +14,10 @@ const disputeReducer = (state = initialState, action) => {
         ...state,
         showInsights: !state.showInsights,
       };
-    case ADD_DISPUTE:
+      case UPDATE_STATUS_FILTER:
       return {
         ...state,
-        disputes: [...state.disputes, action.payload],
+        statusFilter: action.payload,
       };
     default:
       return state;

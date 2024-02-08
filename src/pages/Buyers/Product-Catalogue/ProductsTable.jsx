@@ -124,11 +124,11 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
     );
 };
 
-ProductsTable.propTypes = {
-    products: PropTypes.string.isRequired,
-    getProductsCopy: PropTypes.string.isRequired,
-    productsCopy: PropTypes.string.isRequired,
-    isResetPagination: PropTypes.string.isRequired
-}
+// ProductsTable.propTypes = {
+//     products: PropTypes.string.isRequired,
+//     getProductsCopy: PropTypes.string.isRequired,
+//     productsCopy: PropTypes.string.isRequired,
+//     isResetPagination: PropTypes.string.isRequired
+// }
 
 export default ProductsTable;

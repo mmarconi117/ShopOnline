@@ -57,9 +57,9 @@ function UploadProduct() {
               </button>
             </div>
           </div>
-          <div className="mt-0 max-md:max-w-full max-md:my-10 p-8 justify-center items-center ">
-            <div className="gap-5 flex max-lg:flex-col max-md:items-stretch max-md:gap-5 border-2 border-green-400">
-              <div className="flex flex-col items-stretch w-[28%] max-md:w-full max-md:ml-0 ">
+          <div className="mt-0 max-md:max-w-full max-md:my-10 p-8 justify-center items-center border-2 border-yellow-400">
+            <div className="gap-5 flex max-lg:flex-col max-lg:justify-center max-md:items-stretch max-md:gap-5 border-2 border-green-400">
+              <div className="flex flex-col items-stretch w-[28%] max-md:w-full max-md:ml-0 border-2 border-purple-400">
                 <div className="flex flex-col items-center max-md:mt-9 ">
                   <label
                     htmlFor="dropzone-file"
@@ -119,7 +119,7 @@ function UploadProduct() {
                     value={productData.description}
                     onChange={(e) => setProductData({ ...productData, description: e.target.value })}
                   ></textarea>
-                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap border-2 border-orange-400">
                     <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
                       <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
                         Type
@@ -154,7 +154,7 @@ function UploadProduct() {
                     </div>
                   </div>
 
-                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap">
+                  <div className="justify-between items-stretch self-stretch flex gap-5 mt-0 max-md:max-w-full max-md:flex-wrap border-2 border-orange-400">
                     <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
                       <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
                       Inventory start at

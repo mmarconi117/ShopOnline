@@ -58,7 +58,7 @@ function UploadProduct() {
             </div>
           </div>
           
-            <div className="gap-5 flex max-lg:flex-col max-lg:justify-center max-md:items-stretch max-md:gap-5 ">
+            <div className="gap-5 flex max-lg:flex-col max-lg:justify-center max-md:items-stretch max-md:gap-5 max-lg:mt-5 ">
               
                 <div className="flex flex-col w-[28%] max-md:w-full max-md:ml-0 justify-center max-md:mt-9 max-lg:ml-32 max-md:pl-24 ">
                   <label

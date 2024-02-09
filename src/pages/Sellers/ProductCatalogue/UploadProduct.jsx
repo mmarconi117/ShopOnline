@@ -33,8 +33,8 @@ function UploadProduct() {
     <div className="self-center flex flex-col   px-8">
       <div className="flex flex-col  max-md:max-w-full">
         <form onSubmit={productDataHandler}>
-        <div className="bg-white self-center flex w-full max-w-[1141px] flex-col  mt-7 px-12 rounded-3xl max-md:max-w-full max-md:pl-5 border-2 border-blue-400">
-          <div className="flex  w-full justify-between gap-5  pr-9  max-md:max-w-full max-md:flex-wrap max-md:pr-5 max-md:justify-center mt-11 border-2 border-red-400">
+        <div className="bg-white self-center flex w-full max-w-[1141px] flex-col  mt-7 px-12 rounded-3xl max-md:max-w-full max-md:pl-5 ">
+          <div className="flex  w-full justify-between gap-5  pr-9  max-md:max-w-full max-md:flex-wrap max-md:pr-5 max-md:justify-center mt-11 ">
             <div className="text-stone-950 justify-start text-xl font-medium leading-8  whitespace-nowrap ">
               Adding New Products
             </div>
@@ -58,9 +58,9 @@ function UploadProduct() {
             </div>
           </div>
           
-            <div className="gap-5 flex max-lg:flex-col max-lg:justify-center max-md:items-stretch max-md:gap-5 border-2 border-green-400">
-              <div className="flex flex-col items-stretch w-[28%] max-md:w-full max-md:ml-0 border-2 border-purple-400">
-                <div className="flex flex-col items-center max-md:mt-9 border-2 border-green-400">
+            <div className="gap-5 flex max-lg:flex-col justify-center max-md:items-stretch max-md:gap-5 border-2 border-green-400">
+              
+                <div className="flex flex-col items-stretch w-[28%] max-md:w-full max-md:ml-0 justify-center max-md:mt-9 border-2 border-red-400">
                   <label
                     htmlFor="dropzone-file"
                     className="bg-stone-300 flex w-[250px] max-w-full flex-col justify-center items-center px-16 py-12 max-md:px-5 cursor-pointer"
@@ -68,7 +68,7 @@ function UploadProduct() {
                     <img
                       loading="lazy"
                       src={FileUpload}
-                      className="aspect-square object-contain object-center w-[109px] overflow-hidden max-w-full mt-6 mb-5"
+                      className="aspect-square object-contain object-center w-[109px] overflow-hidden  mt-6 mb-5"
                     />
                     <input id="dropzone-file" type="file" className="hidden" />
                   </label>
@@ -89,8 +89,8 @@ function UploadProduct() {
                     />
                   </div>
                 </div>
-              </div>
-              <div className="flex flex-col items-stretch w-[72%] ml-8 max-md:w-full max-md:ml-0">
+              
+              <div className="flex flex-col items-stretch w-[72%] ml-8 max-md:w-full max-md:ml-0 border-2 border-purple-400">
                 <div className="items-stretch flex grow flex-col pt-2 max-md:max-w-full max-md:mt-9 ">
                   <div className="text-zinc-900 text-xl font-medium leading-8 whitespace-nowrap max-md:max-w-full">
                     Product Details
@@ -119,7 +119,7 @@ function UploadProduct() {
                     value={productData.description}
                     onChange={(e) => setProductData({ ...productData, description: e.target.value })}
                   ></textarea>
-                  <div className="justify-between items-stretch self-stretch flex flex-col gap-5 mt-0 lg:flex-row max-md:max-w-full max-md:flex-wrap border-2 border-orange-400">
+                  <div className="justify-between items-stretch self-stretch flex flex-col gap-5 mt-0 lg:flex-row max-md:max-w-full max-md:flex-wrap ">
                     <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
                       <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
                         Type
@@ -154,7 +154,7 @@ function UploadProduct() {
                     </div>
                   </div>
 
-                  <div className="justify-between items-stretch self-stretch flex flex-col gap-5 mt-0 lg:flex-row max-md:max-w-full max-md:flex-wrap border-2 border-orange-400">
+                  <div className="justify-between items-stretch self-stretch flex flex-col gap-5 mt-0 lg:flex-row max-md:max-w-full max-md:flex-wrap ">
                     <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
                       <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
                       Inventory start at

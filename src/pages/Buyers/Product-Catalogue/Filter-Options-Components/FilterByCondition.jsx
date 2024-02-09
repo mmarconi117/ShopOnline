@@ -35,11 +35,9 @@ const FilterByCondition = ({ products, filterByCondition }) => {
                     onClick={() => {
                         onClick(product.condition);
                     }}
-                    className="text-[#2284B6] text-2xl"
+                    className="text-[#2284B6] capitalize 2xl:text-xl"
                     type="button"
-                    style={{
-                        textTransform: "capitalize",
-                    }}
+            
                 >
                     {product.condition}
                 </button>
@@ -50,21 +48,19 @@ const FilterByCondition = ({ products, filterByCondition }) => {
     return (
         <div
             id="filter-by-condition-component"
-            className="border-b-2"
+            className="pt-4 pb-8 flex flex-col gap-2 2xl:pt-8 2xl:pb-12 items-stretch"
         >
-            <div className="m-5">
-                <div>
-                    <p className="font-bold text-2xl">CONDITION</p>
-                </div>
-                <div id="products-condition-container">{productsConditionComp}</div>
-                <div className="w-full mx-auto text-center">
-                    <button
-                        type="button"
-                        className="text-[#2284B6] text-2xl"
-                    >
-                        See more
-                    </button>
-                </div>
+            <div>
+                <p className="text-base font-semibold 2xl:text-xl">CONDITION</p>
+            </div>
+            <div id="products-condition-container">{productsConditionComp}</div>
+            <div className="w-full mx-auto text-center">
+                <button
+                    type="button"
+                    className="text-[#2284B6] underline 2xl:text-xl"
+                >
+                    See more
+                </button>
             </div>
         </div>
     );

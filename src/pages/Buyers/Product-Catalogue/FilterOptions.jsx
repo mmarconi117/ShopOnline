@@ -11,15 +11,21 @@ const FilterOptions = ({
     filterByBusinessType,
     filterByCondition,
     filterByRatings,
+    totalProductsDisplaying,
+    totalProducts
+
 }) => {
     return (
         <div
             id="filter-options-component"
-            className="w-1/4 mr-5"
+            className="grow 2xl:grow-0 max-w-[340px] 2xl:max-w-[400px] hidden lg:flex flex-col justify-start items-stretch gap-5"
         >
+            <p className="h-[104px] pt-3 2xl:text-2xl">
+                1-{totalProductsDisplaying} of over {totalProducts} results
+            </p>
             <div
                 id="filter-options-container"
-                className="border-2 shadow-xl rounded-2xl"
+                className="border-2 shadow-xl rounded-2xl p-6 2xl:p-10"
             >
                 <FilterByBrand
                     products={products}

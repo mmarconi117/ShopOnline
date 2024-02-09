@@ -53,8 +53,8 @@ const Footer = () => {
   return (
     <>
       {/* Desktop Version */}
-      <div className="hidden px-20 pt-16 flex-col border-[5px] bg-[#001c43] sm:flex gap-2">
-        <div className="flex gap-12">
+      <div className="hidden px-6 lg:px-20 pt-16 flex-col border-[5px] bg-[#001c43] sm:flex gap-2">
+        <div className="flex justify-between items-start gap-6 lg:gap-10">
           {footerSectionsData.map((section, index) => (
             <InfoSection key={index} title={section.title}>
               {section.items.map((item, i) => (
@@ -66,7 +66,7 @@ const Footer = () => {
           ))}
           <SubscribeForm />
         </div>
-         <PaymentSocial />
+        <PaymentSocial />
 
         <div className="w-full h-0 border border-neutral-400"></div>
 
@@ -83,7 +83,7 @@ const Footer = () => {
       </div>
 
       {/* Mobile Version */}
-      <div className="hidden px-6 py-8 justify-center items-center border-[5px] bg-[#E2EFF6] max-sm:flex flex-col gap-[72px]">
+      <div className="hidden px-6 py-8 justify-center items-center border-[5px] bg-[#001c43]   max-sm:flex flex-col gap-[72px]">
         <div className="flex gap-[53px]">
           {footerSectionsDataMobile.map((section, index) => (
             <div key={index} className="flex flex-col gap-6">

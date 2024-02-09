@@ -36,77 +36,26 @@ function App() {
   return (
       <div>
           <Router>
-              <Routes>
-                  <Route
-                      exact
-                      path=""
-                      element={<Layout />}
-                  >
-                      <Route
-                          path="/"
-                          element={<LandingPage />}
-                      />
-                      <Route
-                          path="/subcategories"
-                          element={<SubCategory />}
-                      />
-                      <Route
-                          path="/catalogue"
-                          element={<ProductCatalogue />}
-                      />
-                      <Route
-                          path="/productdetails"
-                          element={<ProductDetails />}
-                      />
-                      <Route
-                          path="/cart"
-                          element={<Cart />}
-                      />
-                      <Route
-                          path="/help"
-                          element={<Help />}
-                      />
-                      <Route
-                          path="/language"
-                          element="#"
-                      />
-                      <Route
-                          path="/account"
-                          element={<Account />}
-                      />
-                      <Route
-                          path="/app"
-                          element="#"
-                      />
-                      <Route
-                          path="/login"
-                          element={<LoginPage />}
-                      />
-                      <Route
-                          path="/signup"
-                          element={<SignupPage />}
-                      />
-                      <Route
-                          path="/companyService"
-                          element={<CompanyService />}
-                      />
-                      <Route
-                          path="/paymentSuccess"
-                          element={<PaymentSuccessful />}
-                      />
-                      <Route
-                          path="/checkout"
-                          element={<Checkout />}
-                      />
-                      <Route
-                          path="/reviews"
-                          element={<ReviewPage />}
-                      />
-                      <Route
-                          path="/accountsettings"
-                          element={<Account />}
-                      />
-                  </Route>
+            <Routes>
+              <Route exact path="" element={<Layout />}>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/subcategories" element={<SubCategory />} />
+                <Route path="/productdetails" element={<ProductDetails />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/help" element={<Help />} />
+                <Route path="/language" element="#" />
+                <Route path="/account" element={<Account/>} />
+                <Route path="/app" element="#" />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
+                <Route path="/companyService" element={<CompanyService/>}/>
+                <Route path="/paymentSuccess" element={<PaymentSuccessful/>}/>
+                <Route path="/checkout" element={<Checkout/>}/>
+                <Route path="/reviews" element={<ReviewPage/>} />
+                <Route path="/accountsettings" element={<Account />} />
+                <Route path="/productcatalogue" element={<ProductCatalogue />} />
+
+              </Route>
 
                   <Route
                       path="/sellers/*"

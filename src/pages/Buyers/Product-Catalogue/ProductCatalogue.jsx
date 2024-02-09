@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHref } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 // LIB
 import { connect } from "react-redux";
@@ -182,6 +183,18 @@ const ProductCatalogue = ({ products: { catalogue } }) => {
             />
         </div>
     );
+};
+
+ProductCatalogue.propTypes = {
+  products: PropTypes.shape({
+    catalogue: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductCatalogue)

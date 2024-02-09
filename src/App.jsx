@@ -64,6 +64,7 @@ function App() {
               <Route path="/paymentservices" element={<PaymentServices />} />
               <Route path="/twostepverification" element={<TwoStepVerification />} />
               <Route path="/agreements" element={<Agreements />} />
+              <Route path="/productcatalogue" element={<ProductCatalogue />} />
               <Route path="/notificationsettings" element={<NotificationSettings />} />
               <Route path="/helppage" element={<HelpPage />} />
             </Routes>

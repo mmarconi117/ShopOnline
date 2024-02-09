@@ -2,18 +2,25 @@ import { useEffect, useState } from "react";
 
 import Pagination from "../../../../../../components/Pagination/Pagination";
 
-const Table = ({ returns, updateCopy, returnsCopy, getItemSelected }) => {
+const Table = ({
+    disputes,
+    updateCopy,
+    disputesCopy,
+    getItemSelected,
+    isResetPagination,
+    resetPagination
+}) => {
     const [isAllSelected, setIsAllSelected] = useState(false); // all selected
 
     const allSelected = (checked) => {
-        returnsCopy.forEach((item) => (item.selected = checked));
         setIsAllSelected(checked);
-        updateCopy(returnsCopy);
+        disputes.forEach((item) => (item.selected = checked));
+        disputesCopy.forEach((item) => (item.checked = checked));
     };
 
     const isSelected = (checked, itemIndex) => {
         let updatedItems = [];
-        returns.forEach((item, index) => {
+        disputes.forEach((item, index) => {
             if (index === itemIndex) {
                 item.selected = checked;
             }
@@ -21,11 +28,12 @@ const Table = ({ returns, updateCopy, returnsCopy, getItemSelected }) => {
         });
         getItemSelected(itemIndex);
         updateCopy(updatedItems);
-        const allSelected = returns.every((item) => item.selected);
+        resetPagination();
+        const allSelected = disputes.every((item) => item.selected);
         setIsAllSelected(allSelected);
     };
 
-    const returnItems = returnsCopy.map((item, index) => {
+    const returnItems = disputesCopy.map((item, index) => {
         return (
             <tr
                 className="border-b-2 hover:bg-gray-200 cursor-pointer"
@@ -37,16 +45,17 @@ const Table = ({ returns, updateCopy, returnsCopy, getItemSelected }) => {
                         onChange={(e) => {
                             isSelected(e.target.checked, index);
                         }}
-                        checked={returns[index].selected}
+                        checked={item.selected}
                         type="checkbox"
                     />
                 </td>
                 <td className="py-2">{item.orderNumber}</td>
-                <td className="py-2">{item.purchaseOrderNumber}</td>
-                <td className="py-2">{item.rmaNumber}</td>
-                <td className="py-2">{item.customerOrderNumber}</td>
+                <td className="py-2">{item.purchaseOrder}</td>
+                <td className="py-2">{item.rma}</td>
+                <td className="py-2">{item.customerOrder}</td>
                 <td className="py-2">{item.price}</td>
                 <td className="py-2">{item.status}</td>
+                <td>{index + 1}</td>
             </tr>
         );
     });
@@ -76,13 +85,22 @@ const Table = ({ returns, updateCopy, returnsCopy, getItemSelected }) => {
                         <th className="py-2">Status</th>
                     </tr>
                 </thead>
-                <tbody className="text-center">{returnItems}</tbody>
+                <tbody className="text-center">
+                    {disputesCopy.length > 0 ? (
+                        returnItems
+                    ) : (
+                        <tr>
+                            <td>No disputes to display at the moment</td>
+                        </tr>
+                    )}
+                </tbody>
             </table>
             <div>
                 <Pagination
-                    products={returns}
-                    productsCopy={returnsCopy}
-                    getProductsCopy={updateCopy}
+                    products={disputes}
+                    productsCopy={disputesCopy}
+                    updateCopy={updateCopy}
+                    isResetPagination={isResetPagination}
                 />
             </div>
         </div>

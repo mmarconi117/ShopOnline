@@ -8,66 +8,64 @@ import mark from "../../../../assets/ICONS/sellersicons/mark.svg"
 
 const Body = () => {
   return (
-    <div className='flex-1 bg-[#F0F0F0]'>
-      <div className='bg-[#F0F0F0]'>
-        <div className='flex'>
-          <h4 className='text-[20px] font-body text-[#938f96] font-medium ml-[28px] mt-5 w-[93px] h-[33px] pt-[4px] box-border'>Settings</h4>
-          <img className='w-[6px] h-[10px] mt-[36px] ml-[15.5px] cursor-pointer' src={rightArrow} />
-          <h4 className='text-[20px] font-body font-medium mt-5 ml-[35.5px] text-[#0F1111] w-[297px] h-31px pt-1 box-border '>Users</h4>
+    <div className='bg-[rgb(240,240,240)] flex flex-col items-stretch py-5 px-7 gap-5'>
+      {/* Upper part */}
+      <div className='bg-[#F0F0F0] flex flex-col justify-between items-stretch gap-3'>
+        <div className='flex justify-start items-center gap-5'>
+          <h4 className='text-[20px] font-body text-[#938f96] font-medium'>Settings</h4>
+          <img className='w-[6px] h-[10px] cursor-pointer' src={rightArrow} />
+          <h4 className='text-[20px] font-body font-medium text-[#0F1111]'>Users</h4>
         </div>
-        <div className='flex justify-between items-center mt-[22px] mb-[52px] ml-[27px] mr-[40px]'>
+        <div className='flex justify-between items-center'>
           <h2 className='text-[25px] font-semibold  leading-[30px] text-[black]  font-body'>Manage Users</h2>
           <div className='flex gap-[26px]'>
             <button className='px-[30px] py-[14px] border border-[#EEC643] rounded-[5px] text-[12px]'>Cancel</button>
             <button className='px-[30px] py-[14px] border-none bg-[#EEC643] rounded-[5px] text-[12px] font-semibold'>Save</button>
           </div>
         </div>
-        <div className='w-[1159px] pb-[26px] bg-white ml-[27px] border-t-4 border-solid border-[#EEC643] rounded-t-[4px] rounded-b-[4px] '>
+        <div className='pb-[26px] bg-white border-t-4 border-solid border-[#EEC643] rounded'>
           <h4 className='flex justify-center mt-[26px] text-[20px] pb-[26px] border-b-[1px] border-[#CAC5CD] font-normal mb-[26px]'>Contact Infomation</h4>
-          <div className='flex gap-[72px]'>
-            <div className='ml-[23.38px]'>
-              <div className='flex gap-[25px] p-[10px] border border-[#CAC5CD] rounded-[6px] w-[419.625px] '>
+          <div className='flex justify-around 2xl:gap-[72px] px-5'>
+            <div className='flex flex-col gap-2'>
+              <div className='flex gap-[25px] p-[10px] border border-[#CAC5CD] rounded-[6px]'>
                 <img src={email} />
                 <input className='w-[359px] box-border border-none outline-none ' placeholder='Email' />
               </div>
-              <div className='flex gap-2.5 mt-[9px] justify-center items-center w-[92px]'>
+              <div className='flex gap-2.5 justify-start items-center'>
                 <img className='cursor-pointer' src={add} />
                 <h4 className='text-[10px]'>Add Another</h4>
               </div>
             </div>
-            <div>
-              <div className='flex gap-[25px] p-[10px] border border-[#CAC5CD] rounded-[6px] w-[248px] '>
+            <div className='flex flex-col gap-2'>
+              <div className='flex gap-[25px] p-[10px] border border-[#CAC5CD] rounded-[6px]'>
                 <img src={sms} />
                 <input className='w-[173px] box-border border-none outline-none ' placeholder='SMS' />
               </div>
-              <div className='flex gap-2.5 mt-[9px] justify-center items-center w-[92px]'>
+              <div className='flex gap-2.5 justify-start items-center '>
                 <img className='cursor-pointer' src={add} />
                 <h4 className='text-[10px]'>Add Another</h4>
               </div>
 
             </div>
 
-            <div>
-              <div className='relative flex gap-[25px] p-[10px] border border-[#CAC5CD] rounded-[6px] w-[248px]'>
-                <h4 className='absolute w-[102px] flex justify-center top-[-8px] bg-white left-[22.04px] font-normal text-[#79767D] text-[10px] font-body px-[5px]'>Frequency</h4>
+            <div className='flex flex-col gap-2'>
+              <div className='relative flex gap-[25px] p-[10px] border border-[#CAC5CD] rounded-[6px]'>
+                <h4 className='absolute flex justify-center top-[-8px] bg-white left-[22.04px] font-normal text-[#79767D] text-[10px] font-body px-[5px]'>Frequency</h4>
                 <select className='pr-[160px] outline-none'>
                   <option>Instant</option>
                 </select>
                 <input type="file" id="custom-file-input" className="hidden" />
               </div>
-
             </div>
-
           </div>
-
         </div>
 
       </div>
-
-      <div className='bg-[#F0F0F0] mt-[32px]'>
-        <div className='w-[1159px] pb-[26px] bg-white ml-[27px]  rounded-t-[4px] rounded-b-[4px]  '>
-          <h4 className='flex justify-center mt-[26px] text-[20px] py-[26px] border-b-[1px] border-[#CAC5CD] font-normal mb-[26px]'>Notification List</h4>
-          <div className='px-[32px] flex flex-col gap-[26px]'>
+      {/* Middle Part */}
+      <div className='bg-[#F0F0F0]'>
+        <div className='pb-[26px] bg-white rounded'>
+          <h4 className='flex justify-center text-[20px] py-[26px] border-b-[1px] border-[#CAC5CD] font-normal mb-[26px]'>Notification List</h4>
+          <div className='px-8 flex flex-col gap-[26px]'>
             <div>
               <div className='flex gap-[6px] items-center'>
                 <img src={mark} />
@@ -143,9 +141,9 @@ const Body = () => {
         </div>
         
       </div>
-
-      <div className='bg-[#F0F0F0] mt-[32px] pb-[24px]'>
-        <div className='w-[1159px] pb-[26px] bg-white ml-[27px] border-t-4 border-solid border-[#EEC643] rounded-t-[4px] rounded-b-[4px] '>
+      {/* Other notification */}
+      <div className='bg-[#F0F0F0] pb-[24px]'>
+        <div className='pb-[26px] bg-white border-t-4 border-solid border-[#EEC643] rounded-t-[4px] rounded-b-[4px] '>
           <h4 className='flex justify-center mt-[26px] text-[20px] pb-[26px] border-b-[1px] border-[#CAC5CD] font-normal mb-[26px]'>Others Notification</h4>
           <div className='px-[32px]'>
             <h4 className='text-[20px] '>Emergency Contact</h4>

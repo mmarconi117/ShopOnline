@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
-const Download = ({ returnsCopy, itemIndex }) => {
+const Download = ({ disputes, itemIndex }) => {
     const [disabled, setDisabled] = useState(true);
     const [itemsSelected, setItemsSelected] = useState([]);
 
     useEffect(() => {
-        if (returnsCopy.length > 0 && itemIndex !== undefined) {
-            handleSelectedItem(returnsCopy[itemIndex]);
+        if (disputes.length > 0 && itemIndex !== undefined) {
+            handleSelectedItem(disputes[itemIndex]);
         }
-    }, [returnsCopy]);
+    }, [disputes]);
 
     const handleSelectedItem = (item) => {
         let update;

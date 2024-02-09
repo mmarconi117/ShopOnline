@@ -54,39 +54,18 @@ function App() {
                 <Route path="/reviews" element={<ReviewPage/>} />
                 <Route path="/accountsettings" element={<Account />} />
                 <Route path="/productcatalogue" element={<ProductCatalogue />} />
-
               </Route>
-
-                  <Route
-                      path="/sellers/*"
-                      element={<LandingPageforSellers />}
-                  />
-                  <Route
-                      path="/onlinefulfillment"
-                      element={<OnlineFulfillment />}
-                  />
-                  <Route
-                      path="/companyinfo"
-                      element={<CompanyInfo />}
-                  />
-                  <Route
-                      path="/paymentservices"
-                      element={<PaymentServices />}
-                  />
-                  <Route
-                      path="/twostepverification"
-                      element={<TwoStepVerification />}
-                  />
-                  <Route
-                      path="/agreements"
-                      element={<Agreements />}
-                  />
-                  <Route
-                      path="/notificationsettings"
-                      element={<NotificationSettings />}
-                  />
-              </Routes>
-          </Router>
+              <Route path="/sellers/*" element={<LandingPageforSellers />} />
+              <Route path="/onlinefulfillment" element={<OnlineFulfillment />} />
+              <Route path="/companyinfo" element={<CompanyInfo />} />
+              <Route path="/paymentservices" element={<PaymentServices />} />
+              <Route path="/twostepverification" element={<TwoStepVerification />} />
+              <Route path="/agreements" element={<Agreements />} />
+              <Route path="/productcatalogue" element={<ProductCatalogue />} />
+              <Route path="/notificationsettings" element={<NotificationSettings />} />
+              <Route path="/helppage" element={<HelpPage />} />
+            </Routes>
+        </Router>
       </div>
   );
 }

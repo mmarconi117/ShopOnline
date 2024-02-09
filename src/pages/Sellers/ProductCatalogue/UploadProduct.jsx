@@ -30,10 +30,10 @@ function UploadProduct() {
   
   }
   return (
-    <div className="self-center flex flex-col   px-8">
+    <div className="self-center flex flex-col   px-8 ">
       <div className="flex flex-col  max-md:max-w-full">
         <form onSubmit={productDataHandler}>
-        <div className="bg-white self-center flex w-full max-w-[1141px] flex-col  mt-7 px-12 rounded-3xl max-md:max-w-full max-md:pl-5 ">
+        <div className="bg-white self-center flex w-full max-w-[1141px] flex-col  mt-7 px-12 rounded-3xl max-md:max-w-full max-md:pl-5 pb-5 ">
           <div className="flex  w-full justify-between gap-5  pr-9  max-md:max-w-full max-md:flex-wrap max-md:pr-5 max-md:justify-center mt-11 ">
             <div className="text-stone-950 justify-start text-xl font-medium leading-8  whitespace-nowrap ">
               Adding New Products
@@ -58,9 +58,9 @@ function UploadProduct() {
             </div>
           </div>
           
-            <div className="gap-5 flex max-lg:flex-col justify-center max-md:items-stretch max-md:gap-5 border-2 border-green-400">
+            <div className="gap-5 flex max-lg:flex-col max-lg:justify-center max-md:items-stretch max-md:gap-5 ">
               
-                <div className="flex flex-col items-stretch w-[28%] max-md:w-full max-md:ml-0 justify-center max-md:mt-9 border-2 border-red-400">
+                <div className="flex flex-col w-[28%] max-md:w-full max-md:ml-0 justify-center max-md:mt-9 ">
                   <label
                     htmlFor="dropzone-file"
                     className="bg-stone-300 flex w-[250px] max-w-full flex-col justify-center items-center px-16 py-12 max-md:px-5 cursor-pointer"
@@ -73,7 +73,7 @@ function UploadProduct() {
                     <input id="dropzone-file" type="file" className="hidden" />
                   </label>
 
-                  <div className=" w-[250px] max-w-full justify-center items-center self-stretch flex gap-3 mt-7 max-md:justify-center border-2 border-green-400">
+                  <div className=" w-[250px] max-w-full justify-center items-center self-stretch flex gap-3 mt-7 max-md:justify-center ">
                     <img
                       loading="lazy"
                       src={LeftArrow}
@@ -90,7 +90,7 @@ function UploadProduct() {
                   </div>
                 </div>
               
-              <div className="flex flex-col items-stretch w-[72%] ml-8 max-md:w-full max-md:ml-0 border-2 border-purple-400">
+              <div className="flex flex-col items-stretch w-[72%] ml-8 max-md:w-full max-md:ml-0 ">
                 <div className="items-stretch flex grow flex-col pt-2 max-md:max-w-full max-md:mt-9 ">
                   <div className="text-zinc-900 text-xl font-medium leading-8 whitespace-nowrap max-md:max-w-full">
                     Product Details

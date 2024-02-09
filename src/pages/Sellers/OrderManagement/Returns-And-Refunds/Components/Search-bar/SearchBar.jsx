@@ -1,19 +1,14 @@
-const SearchBar = ({ returns, returnsCopy }) => {
+const SearchBar = ({ searchDisputes, disputes, updateCopy, filtered, resetPagination }) => {
     const onChange = (e) => {
-        const userInput = e;
-
-        let update = [];
-
-        returns.forEach((item) => {
-            if (
-                userInput == item.orderNumber ||
-                userInput == item.purchaseOrderNumber ||
-                userInput == item.rmaNumber ||
-                userInput == item.customerOrderNumber
-            ) {
-                update.push(item);
+        if (e !== "") {
+            searchDisputes(parseFloat(e));
+            if (filtered.length > 0 && filtered.length !== disputes.length) {
+                updateCopy(filtered);
             }
-        });
+        } else {
+            updateCopy(disputes);
+        }
+        resetPagination();
     };
 
     return (

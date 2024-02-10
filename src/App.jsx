@@ -53,10 +53,7 @@ function App() {
                 <Route path="/reviews" element={<ReviewPage/>} />
                 <Route path="/accountsettings" element={<Account />} />
                 <Route path="/productcatalogue" element={<ProductCatalogue />} />
-
               </Route>
-
-
               <Route path="/sellers/*" element={<LandingPageforSellers />} />
               <Route path="/onlinefulfillment" element={<OnlineFulfillment />} />
               <Route path="/companyinfo" element={<CompanyInfo />} />

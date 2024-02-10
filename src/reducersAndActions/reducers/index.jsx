@@ -31,7 +31,7 @@ export const rootReducer = combineReducers({
     reviews: reviewsReducer,
     loginFormReducer,
     disputeReducer,
-    feedback: feedbackFormReducer,
+    feedback: feedbackFormReducer
 });
 
 export default rootReducer;

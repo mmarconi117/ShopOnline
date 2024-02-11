@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const FiltersComponent = ({
     disputes,
-    disputesFiltered,
+    filtered,
     updateCopy,
     resetFilter,
     resetPagination,
@@ -44,6 +44,16 @@ const FiltersComponent = ({
         setIsOpen(!isOpen);
     };
 
+    useEffect(() => {
+        if (isOpen) {
+            let optionSelected = filterOptions.some((item) => item.selected === true);
+            if (optionSelected) {
+                updateCopy(filtered);
+                resetPagination();
+            }
+        }
+    }, [filtered]);
+
     const optionSelected = (checked, itemIndex, sortBy) => {
         let update = [];
         if (!sortBy) {
@@ -56,8 +66,8 @@ const FiltersComponent = ({
             });
             setLowest(false);
             setHighest(false);
-            filterBy(filterOptions[itemIndex].type, checked);
             setOptions(update);
+            filterBy(filterOptions[itemIndex].type, checked);
         } else {
             filterBy("Price", checked, sortBy);
         }
@@ -79,71 +89,17 @@ const FiltersComponent = ({
                 });
                 setOptions(updateFilterOptions);
             }
-            // let update;
-            // switch (filterType) {
-            //     case "Order":
-            //         update = disputes.toSorted((a, b) =>
-            //             a.orderNumber > b.orderNumber ? 1 : b.orderNumber > a.orderNumber ? -1 : 0
-            //         );
-            //         break;
-            //     case "Purchase":
-            //         update = disputes.toSorted((a, b) =>
-            //             a.purchaseOrder > b.purchaseOrder
-            //                 ? 1
-            //                 : b.purchaseOrder > a.purchaseOrder
-            //                 ? -1
-            //                 : 0
-            //         );
-            //         break;
-            //     case "RMA":
-            //         update = disputes.toSorted((a, b) =>
-            //             a.rma > b.rma ? 1 : b.rma > a.rma ? -1 : 0
-            //         );
-            //         break;
-            //     case "CustomerOrder":
-            //         update = disputes.toSorted((a, b) =>
-            //             a.customerOrder > b.customerOrder
-            //                 ? 1
-            //                 : b.customerOrder > a.customerOrder
-            //                 ? -1
-            //                 : 0
-            //         );
-            //         break;
-            //     case "Price":
-            //         if (sortBy === "lowest") {
-            //             update = disputes.toSorted((a, b) =>
-            //                 a.price > b.price ? 1 : b.price > a.price ? -1 : 0
-            //             );
-            //             setLowest(true);
-            //             setHighest(false);
-            //         } else {
-            //             update = disputes.toSorted((a, b) =>
-            //                 a.price < b.price ? 1 : b.price < a.price ? -1 : 0
-            //             );
-            //             setLowest(false);
-            //             setHighest(true);
-            //         }
-            //         break;
-            //     case "Status":
-            //         update = disputes.toSorted((a, b) =>
-            //             a.status > b.status ? 1 : b.status > a.status ? -1 : 0
-            //         );
-            //         break;
-            //     default:
-            //         break;
-            // }
+
             const obj = {
                 filterType: filterType,
                 sortBy: sortBy
             };
             toggleFilterDisputes(obj);
-            // console.log(disputesFiltered);
-            // updateCopy(disputesFiltered);
-            // resetPagination();
         } else {
             setLowest(false);
             setHighest(false);
             resetFilter(disputes);
+            resetPagination();
         }
     };
 

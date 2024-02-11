@@ -165,7 +165,6 @@ const disputeReducer = (state = initialState, action) => {
                 filtered: filtered
             };
         case TOGGLE_FILTER_DISPUTES:
-            // console.log(action.payload);
             const { filterType, sortBy } = action.payload;
             return {
                 ...state,
@@ -184,25 +183,25 @@ const filterBy = (filterType, state, sortBy) => {
             update = state.disputes.toSorted((a, b) =>
                 a.orderNumber > b.orderNumber ? 1 : b.orderNumber > a.orderNumber ? -1 : 0
             );
-            // break;
+
             return update;
         case "Purchase":
             update = state.disputes.toSorted((a, b) =>
                 a.purchaseOrder > b.purchaseOrder ? 1 : b.purchaseOrder > a.purchaseOrder ? -1 : 0
             );
-            // break;
+
             return update;
         case "RMA":
             update = state.disputes.toSorted((a, b) =>
                 a.rma > b.rma ? 1 : b.rma > a.rma ? -1 : 0
             );
-            // break;
+
             return update;
         case "CustomerOrder":
             update = state.disputes.toSorted((a, b) =>
                 a.customerOrder > b.customerOrder ? 1 : b.customerOrder > a.customerOrder ? -1 : 0
             );
-            // break;
+
             return update;
         case "Price":
             if (sortBy === "lowest") {
@@ -214,7 +213,7 @@ const filterBy = (filterType, state, sortBy) => {
                     a.price < b.price ? 1 : b.price < a.price ? -1 : 0
                 );
             }
-            // break;
+
             return update;
         case "Status":
             update = state.disputes.toSorted((a, b) =>
@@ -223,6 +222,5 @@ const filterBy = (filterType, state, sortBy) => {
             return update;
         default:
             return state.disputes;
-        // break;
     }
 };

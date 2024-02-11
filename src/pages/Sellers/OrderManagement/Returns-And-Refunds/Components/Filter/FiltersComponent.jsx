@@ -47,7 +47,7 @@ const FiltersComponent = ({
     useEffect(() => {
         if (isOpen) {
             let optionSelected = filterOptions.some((item) => item.selected === true);
-            if (optionSelected) {
+            if (optionSelected || highest || lowest) {
                 updateCopy(filtered);
                 resetPagination();
             }

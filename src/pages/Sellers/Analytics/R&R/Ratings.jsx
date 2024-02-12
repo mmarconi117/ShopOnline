@@ -159,26 +159,29 @@ const RatingsAndReviews = ({
     };
 
     return (
-        <div className="m-5 border-4 border-red-400">
+        <div className="m-5 border-2 border-red-400">
             <div className="ratings-and-reviews">
                 <h1 style={{ fontWeight: 'bold' }}>Ratings and Reviews</h1>
                 <p>Customers provide Seller ratings and reviews. These ratings and reviews indicate whether you are creating a positive shopping experience for customers.</p>
             </div>
             <div className="review-stats flex justify-around m-5 p-5 bg-white">
                 <p>Total Reviews: {reviewStats.totalReviews}</p>
+                <div className="h-8 w-1 bg-slate-300"></div>
                 <p>Average Rating: {reviewStats.averageRating.toFixed(2)}</p>
             </div>
-            <div className="sort-by-dropdown">
-                <label>Sort by:</label>
-                <select onChange={(e) => handleSortByChange(e.target.value)}>
-                    <option value="default">Default</option>
-                    <option value="recent">Most Recent</option>
-                    <option value="rating">Rating</option>
-                </select>
+            <div className="sort-by-dropdown flex justify-between border-2 border-green-400">
+                <div className="">
+                    <label>Sort by:</label>
+                    <select onChange={(e) => handleSortByChange(e.target.value)}>
+                        <option value="default">Default</option>
+                        <option value="recent">Most Recent</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
                 <div>{getCurrentMonthAndYear()}</div>
             </div>
 
-            <div className="review-form">
+            <div className="review-form flex m-5 bg-white border-2 border-blue-400">
                 <form onSubmit={handleSubmit}>
                     <div style={{ marginTop: '20px' }}>
                         <label>Name: </label>

@@ -1,17 +1,29 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleFeedbackForm } from '../../reducersAndActions/actions/feedbackFormActions';
+import { toggleFeedbackForm, submitFeedbackForm, updateEmail, updateQuestion } from '../../reducersAndActions/actions/feedbackFormActions';
 import user from "../../assets/ICONS/user/user-fill.svg";
 import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
 import logOut from "../../assets/ICONS/logOut.svg";
 
 const HelpPage = () => {
-  const showFeedbackFormState = useSelector(state => state.feedback.showFeedbackForm);
+  const { showFeedbackFormState, email, question } = useSelector(state => ({
+    showFeedbackFormState: state.feedback.showFeedbackForm,
+    email: state.feedback.email,
+    question: state.feedback.question,
+  }));
   const dispatch = useDispatch();
 
   const handleToggleFeedbackForm = () => {
     dispatch(toggleFeedbackForm());
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault(); 
+    const formData = { email, question }; 
+    dispatch(submitFeedbackForm(formData)); 
+    dispatch(updateEmail(''));
+    dispatch(updateQuestion(''));
   };
 
   return (
@@ -111,7 +123,7 @@ const HelpPage = () => {
 
       {/* show feedback form depending on the state of the feedback button */}
       {showFeedbackFormState && (
-        <form className="feedback-form">
+        <form onSubmit={handleFormSubmit} className="feedback-form"> 
           <h3>Please share your feedback with us!</h3>
           <p>If you still have questions or need help feel free to contact us.</p>
           <div>
@@ -120,6 +132,8 @@ const HelpPage = () => {
               id="email"
               type="email"
               placeholder="Your Email"
+              value={email} 
+              onChange={(e) => dispatch(updateEmail(e.target.value))}
             />
           </div>
           <div style={{ height: '1rem' }}></div> 
@@ -128,6 +142,8 @@ const HelpPage = () => {
             <textarea
               id="question"
               placeholder="Your question"
+              value={question} 
+              onChange={(e) => dispatch(updateQuestion(e.target.value))}
             ></textarea>
           </div>
           <button type="submit">Send</button>

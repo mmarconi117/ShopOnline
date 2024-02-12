@@ -1,7 +1,8 @@
-// CartPage.jsx
+
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setCarts } from "../../../reducersAndActions/actions/cartAction";
 
 
 const CartPage = ({ carts, setCarts }) => {
@@ -76,7 +77,7 @@ const CartPage = ({ carts, setCarts }) => {
             </>
           ) : (
             <p className="self-center text-xl font-semibold lg:text-2xl lg:font-bold">No products in your cart</p>
-          )} 
+          )}
         </div>
         <div className="flex flex-col items-start gap-8 lg:gap-5 col-start-3 col-end-4">
           {/* Cart Summary */}
@@ -88,7 +89,7 @@ const CartPage = ({ carts, setCarts }) => {
                   <div>{item.product.name} </div>
                 </div>
               </div>
-            ))} 
+            ))}
             No idea what this is*/}
             <div className="flex flex-col items-start gap-3 self-stretch py-6">
               <div className="flex justify-between items-center self-stretch">
@@ -141,6 +142,10 @@ CartPage.propTypes = {
 const mapStateToProps = (state) => ({
   carts: state.cartReducer.carts,
 });
+
+const mapDispatchToProps = {
+  setCarts: setCarts,
+};
 
 
 

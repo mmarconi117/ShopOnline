@@ -46,12 +46,13 @@ export default function LandingPageforSellers() {
           <Route path='/payments' element={<Payments />} />
           <Route path='/activityfeed/*' element={<ActivityFeed />} />
           <Route path='/activityfeed/FeedDetail/:id' element={<FeedDetail />} />
-          <Route path="/ratingsandreviews" element={<RatingsAndReviews />} />   
+          <Route path="/ratingsandreviews" element={<RatingsAndReviews />} />
 
           {/* Product Catalogue Routing */}
           <Route path='/listOfproducts' element={<ListOfProducts />} />
           <Route path='/uploadproduct' element={<UploadProduct />} />
           <Route path='/product' element={<ProductDetail />} />
+
 
           {/* Order Management Routing */}
           <Route path='/orderlist' element={<OrderList />} />

@@ -16,6 +16,7 @@ import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
+import Shipping from "./pages/Buyers/Product-Details/Shipping-Component/Shipping"
 
 // layout
 import Layout from "./Layout";
@@ -54,6 +55,7 @@ function App() {
                 <Route path="/reviews" element={<ReviewPage/>} />
                 <Route path="/accountsettings" element={<Account />} />
                 <Route path="/productcatalogue" element={<ProductCatalogue />} />
+                <Route path='/shipping' element={<Shipping />} />
 
               </Route>
 

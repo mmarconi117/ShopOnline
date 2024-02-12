@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../../reducersAndActions/actions/cartAction";
 
 const ShippingComponent = () => {
     const [qty, setQty] = useState(1);
+    const dispatch = useDispatch();
 
     const incrementQty = () => {
         setQty(qty + 1);
@@ -12,6 +15,11 @@ const ShippingComponent = () => {
         if (Number(qty) < 1) {
             setQty(1);
         }
+    };
+
+    const handleAddToCart = () => {
+        // Dispatch an action to add the selected quantity to the cart
+        dispatch(addToCart({ quantity: qty }));
     };
 
     const styles = {
@@ -39,10 +47,7 @@ const ShippingComponent = () => {
     };
 
     return (
-        <div
-            id="shipping-component"
-            className="w-1/4"
-        >
+        <div id="shipping-component" className="w-1/4">
             <div className="w-5/6 m-auto">
                 {/* shipping to div */}
                 <div className=" shadow-md">
@@ -90,7 +95,7 @@ const ShippingComponent = () => {
                                     <input
                                         type="number"
                                         name="quantity"
-                                        className="block w-full rounded-md border-0 py-2 
+                                        className="block w-full rounded-md border-0 py-2
                                 text-black-900 font-bold placeholder:text-black-400 focus:ring-2 focus:ring-inset
                                 focus:ring-indigo-600 sm:text-lg sm:leading-6 "
                                         value={qty}
@@ -118,20 +123,21 @@ const ShippingComponent = () => {
                     <div className="mb-5 border-b border-gray-600 py-4">
                         <div>
                             <button
-                                type="button"
+                                type="add-to-cart"
                                 className="mb-10 rounded-lg bg-amber-500 "
                                 style={styles.btnStyles}
+                                onClick={handleAddToCart} // Call handleAddToCart when Add To Cart button is clicked
                             >
-                                Button
+                                Add To Cart
                             </button>
                         </div>
                         <div>
                             <button
-                                type="button"
+                                type="add-to-cart"
                                 className="mb-10 rounded-lg text-cyan-500 "
                                 style={styles.btnStyles}
                             >
-                                Button
+                                Buy It Now
                             </button>
                         </div>
                     </div>

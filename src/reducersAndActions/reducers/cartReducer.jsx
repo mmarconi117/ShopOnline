@@ -1,6 +1,4 @@
-// cartReducer.jsx
-
-import { SET_CARTS, REMOVE_ITEM_FROM_CART, ADD_TO_CART, UPDATE_CART } from "../actions";
+import { SET_CARTS, REMOVE_ITEM_FROM_CART, ADD_TO_CART, UPDATE_CART_QUANTITY } from "../actions";
 
 export const initialState = {
     carts: [],
@@ -19,16 +17,26 @@ const cartReducer = (state = initialState, action) => {
                 carts: [...state.carts, action.payload],
             };
         case REMOVE_ITEM_FROM_CART:
-            state.carts.splice(action.payload, 1);
             return {
                 ...state,
-                carts: state.carts,
+                carts: state.carts.filter((item, index) => index !== action.payload),
             };
-
-        // add more cases for other actions if needed
+        case UPDATE_CART_QUANTITY:
+            return {
+                ...state,
+                carts: state.carts.map((item) => {
+                    if (item.id === action.payload.id) {
+                        return {
+                            ...item,
+                            number_of_product: action.payload.quantity,
+                        };
+                    }
+                    return item;
+                }),
+            };
         default:
             return state;
     }
 };
 
-export default cartReducer
+export default cartReducer;

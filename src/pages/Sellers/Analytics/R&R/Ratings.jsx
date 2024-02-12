@@ -159,11 +159,12 @@ const RatingsAndReviews = ({
     };
 
     return (
-        <>
+        <div className="m-5 border-4 border-red-400">
             <div className="ratings-and-reviews">
-            <h1 style={{ fontWeight: 'bold' }}>Ratings and Reviews</h1>
+                <h1 style={{ fontWeight: 'bold' }}>Ratings and Reviews</h1>
+                <p>Customers provide Seller ratings and reviews. These ratings and reviews indicate whether you are creating a positive shopping experience for customers.</p>
             </div>
-            <div className="review-stats">
+            <div className="review-stats flex justify-around m-5 p-5 bg-white">
                 <p>Total Reviews: {reviewStats.totalReviews}</p>
                 <p>Average Rating: {reviewStats.averageRating.toFixed(2)}</p>
             </div>
@@ -202,7 +203,7 @@ const RatingsAndReviews = ({
                     <ReviewItem key={review.id} review={review} />
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 

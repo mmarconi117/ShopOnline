@@ -1,8 +1,7 @@
-
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setCarts } from "../../../reducersAndActions/actions/cartAction";
+// import { setCarts } from "../../../reducersAndActions/actions/cartAction";
 
 
 const CartPage = ({ carts, setCarts }) => {
@@ -10,7 +9,7 @@ const CartPage = ({ carts, setCarts }) => {
 
   const getTotal = () =>
     carts.reduce(
-      (total, item) => item.product.price * item.number_of_product + total,
+      (total, item) => item.product && item.product.price ? item.product.price * item.number_of_product + total : total,
       0
     );
 
@@ -45,33 +44,37 @@ const CartPage = ({ carts, setCarts }) => {
                   key={index}
                   style={{ border: "1px solid #e5e5e5", marginBottom: "10px" }}
                 >
-                  <img src={item.product.avatar} alt={item.product.name} />
-                  <div className="info">
-                    <h3>{item.product.name}</h3>
-                    <p>{item.product.description}</p>
-                    <p>$ {item.product.price}</p>
-                    <button
-                      onClick={() =>
-                        updateQuantity(item.id, item.number_of_product + 1)
-                      }
-                    >
-                      +
-                    </button>
-                    <span>{item.number_of_product}</span>
-                    <button
-                      onClick={() =>
-                        updateQuantity(item.id, item.number_of_product - 1)
-                      }
-                    >
-                      -
-                    </button>
-                    <p
-                      style={{ cursor: "pointer" }}
-                      onClick={() => deleteCart(item.id)}
-                    >
-                      REMOVE
-                    </p>
-                  </div>
+                  {item.product && (
+                    <>
+                      <img src={item.product.avatar} alt={item.product.name} />
+                      <div className="info">
+                        <h3>{item.product.name}</h3>
+                        <p>{item.product.description}</p>
+                        {item.product.price && <p>$ {item.product.price}</p>}
+                        <button
+                          onClick={() =>
+                            updateQuantity(item.id, item.number_of_product + 1)
+                          }
+                        >
+                          +
+                        </button>
+                        <span>{item.number_of_product}</span>
+                        <button
+                          onClick={() =>
+                            updateQuantity(item.id, item.number_of_product - 1)
+                          }
+                        >
+                          -
+                        </button>
+                        <p
+                          style={{ cursor: "pointer" }}
+                          onClick={() => deleteCart(item.id)}
+                        >
+                          REMOVE
+                        </p>
+                      </div>
+                    </>
+                  )}
                 </div>
               ))}
             </>
@@ -83,14 +86,6 @@ const CartPage = ({ carts, setCarts }) => {
           {/* Cart Summary */}
           <div className="flex flex-col w-full p-4 bg-white font-Roboto py-6 px-8 lg:items-center">
             <div className="text-xl lg:text-[25px] font-semibold lg:font-bold lg:leading-[30px] text-center text-[#0F1111]">Cart Summary</div>
-            {/* {carts.map((item) => (
-              <div key={item.id}>
-                <div className="ProductName">
-                  <div>{item.product.name} </div>
-                </div>
-              </div>
-            ))}
-            No idea what this is*/}
             <div className="flex flex-col items-start gap-3 self-stretch py-6">
               <div className="flex justify-between items-center self-stretch">
                 <div className="text-[14px] font-normal leading-5 lg:text-xl lg:leading-6 text-[#605D64]">Subtotal</div>
@@ -135,18 +130,12 @@ const CartPage = ({ carts, setCarts }) => {
 };
 
 CartPage.propTypes = {
-  carts: PropTypes.array.isRequired,
-  setCarts: PropTypes.func.isRequired,
+  // carts: PropTypes.array.isRequired,
+  // setCarts: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  carts: state.cartReducer.carts,
+  // carts: state.cartReducer.carts,
 });
 
-const mapDispatchToProps = {
-  setCarts: setCarts,
-};
-
-
-
-export default connect(mapStateToProps, {})(CartPage);
+export default connect(mapStateToProps)(CartPage);

@@ -5,8 +5,8 @@ import infoIcon from "../../../assets/ICONS/info.svg";
 
 import { connect } from "react-redux";
 
-import { setCarts, addToCart } from "../../../reducersAndActions/actions/cartAction";
-import { getProductDetails } from "../../../reducersAndActions/actions/productTestAction";
+// import { setCarts, addToCart } from "../../../reducersAndActions/actions/cartAction";
+// import { getProductDetails } from "../../../reducersAndActions/actions/productTestAction";
 
 import PropTypes from "prop-types";
 

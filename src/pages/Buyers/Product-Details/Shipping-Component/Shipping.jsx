@@ -1,26 +1,17 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../../reducersAndActions/actions/cartAction";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { increaseQuantity, decreaseQuantity } from '../../../../reducersAndActions/actions/shipAction';
 
-const ShippingComponent = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const qty = 1; // Default quantity, since we are not using useState
-
-    const handleAddToCart = () => {
-        // Dispatch an action to add the selected quantity to the cart
-        dispatch(addToCart({ quantity: qty }));
-    };
-
-    const handleBuyNow = () => {
-        // Dispatch an action to add the product to the cart with a quantity of 1
-        dispatch(addToCart({ quantity: 1 }));
-        // Navigate to the checkout page
-        navigate("/checkout");
-    };
-
+const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => {
     const styles = {
+        qtyBtnStyles: {
+            display: "inline-block",
+            textAlign: "center",
+            border: "1px solid black",
+            padding: ".01rem .5rem",
+            fontSize: "1.25rem",
+            borderRadius: "10px",
+        },
         btnStyles: {
             display: "inline-block",
             fontWeight: "400",
@@ -36,68 +27,72 @@ const ShippingComponent = () => {
         },
     };
 
+    const incrementQty = () => {
+        increaseQuantity();
+    };
+
+    const decrementQty = () => {
+        decreaseQuantity();
+    };
+
     return (
-        <div id="shipping-component" className="w-1/4">
+        <div
+            id="shipping-component"
+            className="w-1/4"
+        >
             <div className="w-5/6 m-auto">
-                <div className="mb-5 border-b border-gray-600 py-4">
-                    <div>
-                        <p className="font-bold">Ship to</p>
-                    </div>
-                    <div>
-                        <p>UK</p>
-                    </div>
-                </div>
-                <div className="mb-5 border-b border-gray-600 py-4">
-                    <div>
-                        <p className="text-xl font-bold">Free Shipping by Jan 31</p>
-                    </div>
-                </div>
-                <div className="mb-5 border-b border-gray-600 py-4">
-                    <div>
-                        <p className="text-xl font-bold">Service</p>
-                    </div>
-                    <div>
-                        <p className="font-light">75-day Buyer Protection</p>
-                    </div>
-                </div>
+                {/* rest of your component */}
                 <div className="mb-5 border-b border-gray-600 py-4">
                     <div className="mb-5">
                         <div>
                             <p className="text-lg font-bold">Quantity</p>
                         </div>
-                        <div className="flex items-center">
-                            <div className="mr-2">1</div>
+                        <div className="flex">
                             <div>
                                 <button
                                     type="button"
                                     className="bg-gray-300 text-white"
-                                    style={{ padding: ".01rem .5rem", borderRadius: "10px" }}
-                                    disabled // Disable decrement button since quantity is always 1
+                                    style={styles.qtyBtnStyles}
+                                    onClick={decrementQty}
                                 >
                                     -
                                 </button>
+                            </div>
+                            <div className="w-10 mx-1">
+                                <input
+                                    type="number"
+                                    name="quantity"
+                                    className="block w-full rounded-md border-0 py-2
+                                text-black-900 font-bold placeholder:text-black-400 focus:ring-2 focus:ring-inset
+                                focus:ring-indigo-600 sm:text-lg sm:leading-6 "
+                                    value={quantity}
+                                    readOnly
+                                />
+                            </div>
+                            <div>
                                 <button
                                     type="button"
-                                    className="bg-gray-300 text-white ml-2"
-                                    style={{ padding: ".01rem .5rem", borderRadius: "10px" }}
-                                    disabled // Disable increment button since quantity is always 1
+                                    className="bg-gray-300 text-white"
+                                    style={styles.qtyBtnStyles}
+                                    onClick={incrementQty}
                                 >
                                     +
                                 </button>
                             </div>
                         </div>
+                        {/* order limitation info div */}
                         <div>
                             <p>1 piece at most per customer</p>
                         </div>
                     </div>
                 </div>
+                {/* trigger buttons */}
                 <div className="mb-5 border-b border-gray-600 py-4">
                     <div>
                         <button
                             type="button"
-                            className="mb-10 rounded-lg bg-amber-500"
+                            className="mb-10 rounded-lg bg-amber-500 "
                             style={styles.btnStyles}
-                            onClick={handleAddToCart}
                         >
                             Add To Cart
                         </button>
@@ -105,9 +100,8 @@ const ShippingComponent = () => {
                     <div>
                         <button
                             type="button"
-                            className="mb-10 rounded-lg text-cyan-500"
+                            className="mb-10 rounded-lg text-cyan-500 "
                             style={styles.btnStyles}
-                            onClick={handleBuyNow}
                         >
                             Buy It Now
                         </button>
@@ -118,4 +112,15 @@ const ShippingComponent = () => {
     );
 };
 
-export default ShippingComponent;
+const mapStateToProps = (state) => {
+    return {
+        quantity: state.shipReducer.quantity // Assuming 'quantity' is directly managed by shipReducer
+    };
+};
+
+const mapDispatchToProps = {
+    increaseQuantity,
+    decreaseQuantity
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShippingComponent);

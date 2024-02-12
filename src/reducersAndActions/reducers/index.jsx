@@ -1,6 +1,6 @@
 
 import { combineReducers } from "redux";
-import cartReducer from "./cartReducer";
+// import cartReducer from "./cartReducer";
 import companyService from "./companyServiceReducer";
 import businessDetailsReducer from "./businessDetailsReducer";
 import ordersReducer from "./ordersReducer";
@@ -13,12 +13,14 @@ import signupFormReducer from "./SignupFormReducer";
 import reviewsReducer  from "./reduceReview";
 import disputeReducer from "./disputeReducer";
 import feedbackFormReducer from "./feedbackFormReducer";
+import shipReducer from "../reducers/shipReducer";
 
 
 import loginFormReducer from "./LoginFormReducer";
 
 export const rootReducer = combineReducers({
-    cartReducer,
+    // cartReducer,
+    shipReducer,
     companyService,
     businessDetailsReducer,
     ordersReducer,

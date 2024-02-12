@@ -38,6 +38,7 @@ function App() {
       <div>
           <Router>
             <Routes>
+              {/* Buyers Routes */}
               <Route exact path="" element={<Layout />}>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/subcategories" element={<SubCategory />} />
@@ -54,8 +55,10 @@ function App() {
                 <Route path="/checkout" element={<Checkout/>}/>
                 <Route path="/reviews" element={<ReviewPage/>} />
                 <Route path="/accountsettings" element={<Account />} />
+                <Route path="/shipping" element={<Shipping/>}/>
                 <Route path="/productcatalogue" element={<ProductCatalogue />} />
               </Route>
+              {/* Sellers Routes */}
               <Route path="/sellers/*" element={<LandingPageforSellers />} />
               <Route path="/onlinefulfillment" element={<OnlineFulfillment />} />
               <Route path="/companyinfo" element={<CompanyInfo />} />
@@ -65,7 +68,6 @@ function App() {
               <Route path="/productcatalogue" element={<ProductCatalogue />} />
               <Route path="/notificationsettings" element={<NotificationSettings />} />
               <Route path="/helppage" element={<HelpPage />} />
-              <Route path="/shipping" element={<Shipping/>}/>
             </Routes>
         </Router>
       </div>

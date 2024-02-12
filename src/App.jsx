@@ -55,19 +55,17 @@ function App() {
                 <Route path="/reviews" element={<ReviewPage/>} />
                 <Route path="/accountsettings" element={<Account />} />
                 <Route path="/productcatalogue" element={<ProductCatalogue />} />
-                <Route path='/shipping' element={<Shipping />} />
-
               </Route>
-
-
               <Route path="/sellers/*" element={<LandingPageforSellers />} />
               <Route path="/onlinefulfillment" element={<OnlineFulfillment />} />
               <Route path="/companyinfo" element={<CompanyInfo />} />
               <Route path="/paymentservices" element={<PaymentServices />} />
               <Route path="/twostepverification" element={<TwoStepVerification />} />
               <Route path="/agreements" element={<Agreements />} />
+              <Route path="/productcatalogue" element={<ProductCatalogue />} />
               <Route path="/notificationsettings" element={<NotificationSettings />} />
               <Route path="/helppage" element={<HelpPage />} />
+              <Route path="/shipping" element={<Shipping/>}/>
             </Routes>
         </Router>
       </div>

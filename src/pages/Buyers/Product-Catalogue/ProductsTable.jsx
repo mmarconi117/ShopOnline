@@ -19,8 +19,8 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
                 {/* product details container */}
                 <div className="flex flex-col justify-between items-stretch gap-[6px] ">
                     {/* product description */}
-                    <div className="min-h-[200px] max-h-[220px] md:min-h-[168px] md:max-h-[200px] overflow-hidden">
-                        <p className="text-base">{product.description}</p>
+                    <div className="mt-5">
+                        <p className="text-2xl">{product.description}</p>
                     </div>
                     {/* product ratings */}
                     <div className="flex justify-start items-center gap-3 mb-3">
@@ -123,5 +123,12 @@ const ProductsTable = ({ products, getProductsCopy, productsCopy, isResetPaginat
         </div>
     );
 };
+
+// ProductsTable.propTypes = {
+//     products: PropTypes.string.isRequired,
+//     getProductsCopy: PropTypes.string.isRequired,
+//     productsCopy: PropTypes.string.isRequired,
+//     isResetPagination: PropTypes.string.isRequired
+// }
 
 export default ProductsTable;

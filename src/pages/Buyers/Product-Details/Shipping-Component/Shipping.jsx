@@ -1,10 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../../reducersAndActions/actions/cartAction";
+import { useNavigate } from "react-router-dom";
 
 const ShippingComponent = () => {
     const [qty, setQty] = useState(1);
     const dispatch = useDispatch();
+    const navigate = useNavigate(); // Move this hook to the top level of the component
 
     const incrementQty = () => {
         setQty(qty + 1);
@@ -22,6 +24,12 @@ const ShippingComponent = () => {
         dispatch(addToCart({ quantity: qty }));
     };
 
+    const handleBuyNow = () => {
+        // Dispatch an action to add the selected quantity to the cart
+        dispatch(addToCart({ quantity: 1 })); // Assuming you want to add 1 quantity for "Buy It Now"
+        // Navigate to the checkout page
+        navigate("/checkout");
+    };
     const styles = {
         qtyBtnStyles: {
             display: "inline-block",
@@ -134,8 +142,9 @@ const ShippingComponent = () => {
                         <div>
                             <button
                                 type="add-to-cart"
-                                className="mb-10 rounded-lg text-cyan-500 "
+                                className="mb-10 rounded-lg text-cyan-500"
                                 style={styles.btnStyles}
+                                onClick={handleBuyNow}
                             >
                                 Buy It Now
                             </button>

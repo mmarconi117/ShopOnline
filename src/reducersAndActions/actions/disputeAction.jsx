@@ -1,4 +1,11 @@
-import { TOGGLE_INSIGHTS, UPDATE_STATUS_FILTER, TOGGLE_DROP } from "../actions";
+
+import {
+    SEARCH_DISPUTES,
+    TOGGLE_FILTER_DISPUTES,
+    TOGGLE_INSIGHTS,
+    UPDATE_STATUS_FILTER
+} from "../actions/index";
+
 
 export const toggleInsights = () => ({
   type: TOGGLE_INSIGHTS,
@@ -9,7 +16,12 @@ export const updateStatusFilter = (status) => ({
   payload: status,
 });
 
-export const toggleDrop = (isDropdownOpen) => ({
-  type: TOGGLE_DROP,
-  payload: isDropdownOpen,
+export const searchDisputes = (data) => ({
+    type: SEARCH_DISPUTES,
+    payload: data
+});
+
+export const toggleFilterDisputes = (data) => ({
+    type: TOGGLE_FILTER_DISPUTES,
+    payload: data
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { toggleInsights, updateStatusFilter, toggleDrop } from "../../../reducersAndActions/actions/disputeAction";
+import { toggleInsights, updateStatusFilter, } from "../../../reducersAndActions/actions/disputeAction";
 
 const mockDisputes = [
   {

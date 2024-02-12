@@ -11,11 +11,25 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 carts: action.payload,
             };
-        case ADD_TO_CART:
-            return {
-                ...state,
-                carts: [...state.carts, action.payload],
-            };
+            case ADD_TO_CART:
+                const existingItemIndex = state.carts.findIndex(item => item.id === action.payload.id);
+
+                if (existingItemIndex !== -1) {
+                    // Item already exists in cart, update its quantity
+                    const updatedCarts = [...state.carts];
+                    updatedCarts[existingItemIndex].number_of_product += action.payload.number_of_product;
+                    return {
+                        ...state,
+                        carts: updatedCarts,
+                    };
+                } else {
+                    // Item doesn't exist in cart, add it
+                    return {
+                        ...state,
+                        carts: [...state.carts, action.payload],
+                    };
+                }
+
         case REMOVE_ITEM_FROM_CART:
             return {
                 ...state,

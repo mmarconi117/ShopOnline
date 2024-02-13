@@ -23,7 +23,7 @@ const Pagination = ({ products, updateCopy, productsCopy, isResetPagination }) =
     };
 
     const initiatePagination = () => {
-        if (productsCopy.length > 0 && productsCopy.length <= pageSize) {
+        if (productsCopy.length > 0) {
             const sliced = productsCopy.slice(0, pageSize);
             updateCopy(sliced);
             setTotalPages(Math.ceil(productsCopy.length / pageSize));

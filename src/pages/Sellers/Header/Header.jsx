@@ -30,7 +30,7 @@ function Header(props) {
           <Link to="/sellers/help" className="text-zinc-600 text-base leading-6">
             Help
           </Link>
-          <Link to="/notifications" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
+          <Link to="/sellers/notificationsettings" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Notifications
           </Link>
         </div>

@@ -17,7 +17,8 @@ import ProductDetail from "./ProductCatalogue/ProductDetail";
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 import RatingsAndReviews from "./Analytics/R&R/Ratings"
-import HelpPage from "./HelpPage";
+import Body from "./NotificationsSettings/components/Body"
+
 
 export default function LandingPageforSellers() {
   const location = useLocation();
@@ -58,6 +59,9 @@ export default function LandingPageforSellers() {
           <Route path='/orderlist' element={<OrderList />} />
           <Route path='/returnsandrefunds' element={<ReturnsAndRefunds />} />
           <Route path='/disputes' element={<Disputes />} />
+
+          {/* Notification Setting */}
+          <Route path='/notificationsettings' element={<Body />} />
         </Routes>
         </div>
       </div>

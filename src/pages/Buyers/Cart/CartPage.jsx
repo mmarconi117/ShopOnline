@@ -1,17 +1,21 @@
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// import { setCarts } from "../../../reducersAndActions/actions/cartAction";
-
+import { setCarts } from "../../../reducersAndActions/actions/cartAction";
 
 const CartPage = ({ carts, setCarts }) => {
   const navigate = useNavigate();
 
-  const getTotal = () =>
-    carts.reduce(
-      (total, item) => item.product && item.product.price ? item.product.price * item.number_of_product + total : total,
+  const getTotal = () => {
+    return carts.reduce(
+      (total, item) => {
+        const productPrice = item.product ? item.product.price : 0;
+        return total + productPrice * item.number_of_product;
+      },
       0
-    );
+    ).toFixed(2); // Convert to fixed decimal places for proper display
+  };
+
 
   const deleteCart = (id) => {
     if (window.confirm("Are you sure to delete this product from the cart?")) {
@@ -101,7 +105,7 @@ const CartPage = ({ carts, setCarts }) => {
               </div>
               <div className="flex justify-between items-center self-stretch text-xl font-semibold leading-7 text-[#1D1B20]">
                 <div className="lg:font-bold lg:leading-6">Total</div>
-                <div className="lg:text-2xl lg:font-bold">$258.11</div>
+                <div className="lg:text-2xl lg:font-bold">${getTotal()}</div>
               </div>
             </div>
             <button className="flex justify-center items-center rounded-[5px] gap-[10px] text-[#0F1111] bg-[#EEC643] h-[44px] lg:w-[70%] px-[30px] py-[14px] text-[14px] font-semibold leading-5 lg:text-base lg:leading-[19.2px] lg:font-normal" onClick={checkout}>Checkout</button>
@@ -110,7 +114,7 @@ const CartPage = ({ carts, setCarts }) => {
           {/* Promo Code */}
           <div className="flex flex-col p-4 w-full bg-white items-start lg:px-8 lg:py-6 ">
             <div className="flex justify-between items-center self-stretch">
-              <input type="text" placeholder="Promo Code" className=" h-[50px] lg:w-[249px] p-[10px] text-[13px] font-normal leading-4 border-[#AEA9B1] border-solid border rounded"/>
+              <input type="text" placeholder="Promo Code" className="h-[50px] lg:w-[249px] p-[10px] text-[13px] font-normal leading-4 border-[#AEA9B1] border-solid border rounded"/>
               <button className="h-[50px] py-[14px] px-[30px] text-center border border-[#2284B6] border-solid text-[14px] lg:text-base rounded text-[#2284B6] leading-5 font-semibold lg:font-medium lg:tracking-[0.08px]">Apply</button>
             </div>
           </div>
@@ -127,15 +131,20 @@ const CartPage = ({ carts, setCarts }) => {
       </div>
     </div>
   );
+
 };
 
 CartPage.propTypes = {
-  // carts: PropTypes.array.isRequired,
-  // setCarts: PropTypes.func.isRequired,
+  carts: PropTypes.array.isRequired,
+  setCarts: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  // carts: state.cartReducer.carts,
+  carts: state.cartReducer.carts,
 });
 
-export default connect(mapStateToProps)(CartPage);
+const mapDispatchToProps = {
+  setCarts,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartPage);

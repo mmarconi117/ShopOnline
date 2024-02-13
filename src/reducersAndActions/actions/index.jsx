@@ -2,6 +2,7 @@ export const SET_CARTS = 'SET_CARTS'
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_ITEM_FROM_CART = "REMOVE_ITEM_FROM_CART";
 export const UPDATE_CART = "UPDATE_CART";
+export const UPDATE_CART_QUANTITY = "UPDATE_CART_QUANTITY";
 export const SET_INPUT = 'SET_INPUT'
 export const SET_CHAR_LONG = 'SET_CHAR_LONG'
 export const SET_BUSINESS_DETAILS = 'setBusinessDetails';

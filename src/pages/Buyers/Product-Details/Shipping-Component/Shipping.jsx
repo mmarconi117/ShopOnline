@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { increaseQuantity, decreaseQuantity } from '../../../../reducersAndActions/actions/shipAction';
 
 const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => {
+
+    const navigate = useNavigate();
+
     const styles = {
         qtyBtnStyles: {
             display: "inline-block",
@@ -35,82 +39,111 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => 
         decreaseQuantity();
     };
 
+    const handleBuyNow = () => {
+
+        navigate('/checkout');
+    }
+
     return (
-        <div
-            id="shipping-component"
-            className="w-1/4"
-        >
+        <div id="shipping-component" className="w-1/4">
             <div className="w-5/6 m-auto">
-                {/* rest of your component */}
-                <div className="mb-5 border-b border-gray-600 py-4">
-                    <div className="mb-5">
+                {/* shipping to div */}
+                <div className="shadow-md">
+                    <div className="flex justify-between border-b border-gray-600 py-4">
                         <div>
-                            <p className="text-lg font-bold">Quantity</p>
+                            <p className="font-bold">Ship to</p>
                         </div>
-                        <div className="flex">
-                            <div>
-                                <button
-                                    type="button"
-                                    className="bg-gray-300 text-white"
-                                    style={styles.qtyBtnStyles}
-                                    onClick={decrementQty}
-                                >
-                                    -
-                                </button>
-                            </div>
-                            <div className="w-10 mx-1">
-                                <input
-                                    type="number"
-                                    name="quantity"
-                                    className="block w-full rounded-md border-0 py-2
-                                text-black-900 font-bold placeholder:text-black-400 focus:ring-2 focus:ring-inset
-                                focus:ring-indigo-600 sm:text-lg sm:leading-6 "
-                                    value={quantity}
-                                    readOnly
-                                />
-                            </div>
-                            <div>
-                                <button
-                                    type="button"
-                                    className="bg-gray-300 text-white"
-                                    style={styles.qtyBtnStyles}
-                                    onClick={incrementQty}
-                                >
-                                    +
-                                </button>
-                            </div>
-                        </div>
-                        {/* order limitation info div */}
                         <div>
-                            <p>1 piece at most per customer</p>
+                            <p>UK</p>
                         </div>
                     </div>
-                </div>
-                {/* trigger buttons */}
-                <div className="mb-5 border-b border-gray-600 py-4">
-                    <div>
-                        <button
-                            type="button"
-                            className="mb-10 rounded-lg bg-amber-500 "
-                            style={styles.btnStyles}
-                        >
-                            Add To Cart
-                        </button>
+                    {/* shipping price info div */}
+                    <div className="mb-5 border-b border-gray-600 py-4">
+                        <div>
+                            <p className="text-xl font-bold">Free Shipping by Jan 31</p>
+                        </div>
                     </div>
-                    <div>
-                        <button
-                            type="button"
-                            className="mb-10 rounded-lg text-cyan-500 "
-                            style={styles.btnStyles}
-                        >
-                            Buy It Now
-                        </button>
+                    {/* service div */}
+                    <div className="mb-5 border-b border-gray-600 py-4">
+                        <div>
+                            <p className="text-xl font-bold">Service</p>
+                        </div>
+                        <div>
+                            <p className="font-light">75-day Buyer Protection</p>
+                        </div>
+                    </div>
+                    {/* quantity div */}
+                    <div className="mb-5 border-b border-gray-600 py-4">
+                        <div className="mb-5">
+                            <div>
+                                <p className="text-lg font-bold">Quantity</p>
+                            </div>
+                            <div className="flex">
+                                <div>
+                                    <button
+                                        type="button"
+                                        className="bg-gray-300 text-white"
+                                        style={styles.qtyBtnStyles}
+                                        onClick={decrementQty}
+                                    >
+                                        -
+                                    </button>
+                                </div>
+                                <div className="w-10 mx-1">
+                                    <input
+                                        type="number"
+                                        name="quantity"
+                                        className="block w-full rounded-md border-0 py-2
+                                    text-black-900 font-bold placeholder:text-black-400 focus:ring-2 focus:ring-inset
+                                    focus:ring-indigo-600 sm:text-lg sm:leading-6"
+                                        value={quantity}
+                                        readOnly
+                                    />
+                                </div>
+                                <div>
+                                    <button
+                                        type="button"
+                                        className="bg-gray-300 text-white"
+                                        style={styles.qtyBtnStyles}
+                                        onClick={incrementQty}
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                            {/* order limitation info div */}
+                            <div>
+                                <p>1 piece at most per customer</p>
+                            </div>
+                        </div>
+                    </div>
+                    {/* trigger buttons */}
+                    <div className="mb-5 border-b border-gray-600 py-4">
+                        <div>
+                            <button
+                                type="button"
+                                className="mb-10 rounded-lg bg-amber-500"
+                                style={styles.btnStyles}
+                            >
+                                Add To Cart
+                            </button>
+                        </div>
+                        <div>
+                            <button
+                                type="button"
+                                className="mb-10 rounded-lg text-cyan-500"
+                                style={styles.btnStyles}
+                                onClick={handleBuyNow}
+                            >
+                                Buy It Now
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     );
-};
+}
 
 const mapStateToProps = (state) => {
     return {

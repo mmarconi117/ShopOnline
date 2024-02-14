@@ -171,7 +171,7 @@ const RatingsAndReviews = ({
             </div>
             <div className="sort-by-dropdown flex justify-between border-2 border-green-400">
                 <div className="">
-                    <label>Sort by:</label>
+                    <label className="mr-5">Sort by:</label>
                     <select onChange={(e) => handleSortByChange(e.target.value)}>
                         <option value="default">Default</option>
                         <option value="recent">Most Recent</option>
@@ -181,7 +181,7 @@ const RatingsAndReviews = ({
                 <div>{getCurrentMonthAndYear()}</div>
             </div>
 
-            <div className="review-form flex m-5 bg-white border-2 border-blue-400">
+            <div className="hidden review-form flex m-5 bg-white border-2 border-blue-400">
                 <form onSubmit={handleSubmit}>
                     <div style={{ marginTop: '20px' }}>
                         <label>Name: </label>
@@ -202,9 +202,93 @@ const RatingsAndReviews = ({
             </div>
 
             <div className="review-list">
-                {reviews.map((review) => (
+                {/* {reviews.map((review) => (
                     <ReviewItem key={review.id} review={review} />
-                ))}
+                ))} */}
+                <div className="review-item flex justify-between m-5 p-5 bg-white border-2 border-blue-400">
+                    <div className="flex">
+                        <img className="mr-3" src={picDemo} alt="Random" style={{ width: '100px', height: '100px' }} />
+                        <div className="flex flex-col">
+                            <h3>Random Name</h3>
+                            <p>{convertToStars(4)}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Great product!</p>
+                        <div style={{ marginTop: '10px' }}>
+                            <button style={{ marginRight: '10px' }} onClick={() => toggleLike(1)}>
+                                {true ? 'Dislike' : 'Like'}
+                            </button>
+                            <button  style={{ marginRight: '10px' }}>
+                                {true ? 'Cancel' : 'Public Comment'}
+                            </button>
+                            <button  style={{ marginRight: '10px' }}>
+                                {true ? 'Cancel' : 'Direct Message'}
+                            </button>
+                        </div>
+                        {true && (
+                            <div style={{ marginTop: '10px' }}>
+                                <textarea
+                                    rows="3"
+                                    cols="30"
+                                    placeholder="Enter your public comment..."
+                                    
+                                />
+                                <button >Submit Comment</button>
+                            </div>
+                        )}
+                        {true && (
+                            <div style={{ marginTop: '10px' }}>
+                                <textarea
+                                    rows="3"
+                                    cols="30"
+                                    placeholder="Enter your direct message..."
+                                    
+                                />
+                                <button>Submit Direct Message</button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+                {/* <div className="review-item">
+                    <img src={review.image} alt="Random" style={{ width: '100px', height: '100px' }} />
+                    <h3>{review.name}</h3>
+                    <p>{convertToStars(review.rating)}</p>
+                    <p>{review.comment}</p>
+                    <div style={{ marginTop: '10px' }}>
+                        <button style={{ marginRight: '10px' }} onClick={() => toggleLike(review.id)}>
+                            {review.liked ? 'Dislike' : 'Like'}
+                        </button>
+                        <button onClick={toggleCommentBox} style={{ marginRight: '10px' }}>
+                            {isCommentBoxVisible ? 'Cancel' : 'Public Comment'}
+                        </button>
+                        <button onClick={toggleMessageBox} style={{ marginRight: '10px' }}>
+                            {isMessageBoxVisible ? 'Cancel' : 'Direct Message'}
+                        </button>
+                    </div>
+                    {isCommentBoxVisible && (
+                        <div style={{ marginTop: '10px' }}>
+                            <textarea
+                                rows="3"
+                                cols="30"
+                                placeholder="Enter your public comment..."
+                                onChange={handleCommentChange}
+                            />
+                            <button onClick={submitComment}>Submit Comment</button>
+                        </div>
+                    )}
+                    {isMessageBoxVisible && (
+                        <div style={{ marginTop: '10px' }}>
+                            <textarea
+                                rows="3"
+                                cols="30"
+                                placeholder="Enter your direct message..."
+                                onChange={handleMessageChange}
+                            />
+                            <button onClick={submitMessage}>Submit Direct Message</button>
+                        </div>
+                    )}
+                </div> */}
             </div>
         </div>
     );

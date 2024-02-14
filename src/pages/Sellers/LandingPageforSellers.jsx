@@ -41,7 +41,7 @@ export default function LandingPageforSellers() {
           <Route path='/' element={<Homepage/>} />
           <Route path='/signup' element={<Signup/>} />
           <Route path='/login' element={<Login/>} />
-          <Route path='/help' element={<HelpPage/>} />
+          {/* <Route path='/help' element={<HelpPage/>} /> */}
 
           {/* Analytics Routing */}
           <Route path='/overview' element={<Overview />} />

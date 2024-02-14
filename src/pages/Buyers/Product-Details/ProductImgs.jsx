@@ -44,21 +44,20 @@ const ProductImgs = ({ images }) => {
         return (
             <div
                 key={index}
-                style={{ width: "25%", marginRight: "2%" }}
+                className="w-[25%]"
             >
                 <img src={product.img} />
             </div>
         );
     });
     return (
-        <div style={{ width: "45%" }}>
+        <div className="w-[45%] max-w-[600px]">
             <div
                 id="product-image"
-                style={{ width: "90%" }}
             >
                 <img src={images[0].img} />
             </div>
-            <div style={{ width: "100%", marginTop: "2rem", display: "flex" }}>{dummyImgsComp}</div>
+            <div className="flex gap-2 w-full mt-8">{dummyImgsComp}</div>
         </div>
     );
 };

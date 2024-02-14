@@ -52,7 +52,7 @@ function ProductDetails({
         const paths = [];
         for (let i = 0; i < histories.length; i++) {
             if (histories[i] === "") {
-                paths.push({ pathname: "home/", url: "/" });
+                paths.push({ pathname: "home /", url: "/" });
             } else {
                 if (i + 1 === histories.length) {
                     paths.push({ pathname: `${histories[i]}`, url: histories[i] });
@@ -80,10 +80,10 @@ function ProductDetails({
         setQty(e.target.value);
     };
 
-    const breadCrumbComp = breadCrumb.map((path, index) => {
+    const breadCrumbComp = breadCrumb.map((path, index, arr) => {
         return (
             <Link
-                className="text-xl p-2.5 mr-2.5"
+                className={`font-Roboto text-base font-semibold tight-[0.15px] p-1 ${index === arr.length - 1 ? "text-[#2284B6]": "text-[#938F96]"}`}
                 to={path.url}
                 key={index}
             >
@@ -108,34 +108,25 @@ function ProductDetails({
     };
 
     return (
-        <div id="product-details-component">
-            <div className="flex">
+        <div id="product-details-component" className="px-10 pt-8 pb-16 flex flex-col gap-8">
+            <div id="navigation-history-container">
+                {breadCrumbComp}
+            </div>
+            <div className="flex gap-5">
                 {/* Product Details container*/}
-                <div style={{ width: "85%", margin: "auto" }}>
-                    {/* "BreadCrumb" */}
-                    <div
-                        id="navigation-history-container"
-                        style={{ margin: "1rem auto", width: "inherit" }}
-                    >
-                        {breadCrumbComp}
-                    </div>
+                <div className=" flex flex-col gap-12">
                     {/* Product images, Description, Cost, review container */}
-                    <div className="flex justify-center">
+                    <div className="flex gap-6 bg-white py-12 px-10 justify-around">
                         {/* Product Images */}
                         <ProductImgs images={product.imgs} />
 
-                        <div style={{ width: "40%" }}>
+                        <div className="w-[50%] flex flex-col gap-8">
                             {/* Product description div */}
-                            <div id="product-desc-div">
+                            <div id="product-desc-div" className="">
                                 <p className="text-4xl">{product.description}</p>
-                            </div>
-                            {/* Product rating, cost and discounts, color and quantity */}
-                            <div>
-                                {/* Product Rating & Review Div */}
                                 <div
-                                    className="flex items-center"
+                                    className="flex items-center my-1"
                                     id="reviews-div"
-                                    style={{ margin: "1% auto" }}
                                 >
                                     <svg
                                         className="w-4 h-4 text-yellow-300 me-1"
@@ -200,135 +191,53 @@ function ProductDetails({
                                         </a>
                                     </div>
                                 </div>
-                                {/* Product Cost Div */}
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "flex-start",
-                                        width: "50%",
-                                        alignItems: "center",
-                                        margin: "10% 0",
-                                    }}
-                                >
-                                    <div>
-                                        <p
-                                            style={{ fontSize: "2.25rem", fontWeight: "600" }}
-                                            id="product-cost"
-                                        >
-                                            ${product.price}
-                                        </p>
-                                    </div>
-                                    <div style={{ marginLeft: "5%" }}>
-                                        <p
-                                            id="discounts-item"
-                                            style={{
-                                                fontSize: "1.25rem",
-                                                textDecoration: "line-through",
-                                            }}
-                                        >
-                                            $222
-                                        </p>
-                                    </div>
-                                    <div style={{ marginLeft: "5%" }}>
-                                        <p
-                                            id="discount-percentage-item"
-                                            style={{
-                                                fontSize: "1rem",
-                                                fontWeight: "400",
-                                                backgroundColor: "#f2f2f2",
-                                            }}
-                                        >
-                                            {product.discount}% off
-                                        </p>
-                                    </div>
-                                </div>
-                                {/* Product colors & Product quantity component */}
-                                <div className="flex justify-between">
-                                    {/* Product Colors Div */}
-                                    <ProductColors colors={product.colors} />
-                                    {/* Product quantity div */}
-                                    <Quantity
-                                        qty={qty}
-                                        incrementQty={incrementQty}
-                                        decrementQty={decrementQty}
-                                        updateQtyOnChange={updateQtyOnChange}
-                                    />
-                                </div>
-                                {/* Shipping Product div */}
-                                <div id="shipping-div">
-                                    <div className="flex items-center my-12 mx-auto ">
-                                        <div className="mr-1">
-                                            <img
-                                                className="w-5"
-                                                src={infoIcon}
-                                            />
-                                        </div>
-                                        <div className="flex mr-60">
-                                            <p className="mr-2 text-xl">Ship to:</p>
-                                            <p className=" text-xl">Brooklyn</p>
-                                        </div>
-                                        <div id="shipping-cost-div">
-                                            <p className="text-red-700 text-xl">Shipping: $5</p>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div>
+                                <p id="product-cost" className="text-[36px] font-semibold">
+                                    ${product.price}
+                                </p>
+                                <p id="discounts-item" className="text-xl line-through">
+                                    $222
+                                </p>
 
-                                    <div
-                                        id="shipping-brief-details-div"
-                                        className="w-1/2 mb-24"
-                                    >
-                                        <span className="text-lg">
-                                            Available at a lower price from{" "}
-                                            <a
-                                                className="border-b-1 border-sky-500 text-blue-700"
-                                                href="/"
-                                            >
-                                                other seller
-                                            </a>{" "}
-                                            that may not offer free shipping
-                                        </span>
-                                    </div>
-                                    <div className="flex ">
-                                        <div className="mr-2 ">
-                                            <input
-                                                className="w-6 h-6"
-                                                style={{
-                                                    verticalAlign: "middle",
-                                                }}
-                                                type="checkbox"
-                                            />
-                                        </div>
-                                        <div className="">
-                                            <p className="text-lg text-blue-700">Apply Coupon</p>
-                                        </div>
-                                    </div>
+                            </div>
+                            {/* Product colors & Product quantity component */}
+                            <div className="flex justify-start gap-[90px] items-center">
+                                {/* Product Colors Div */}
+                                <ProductColors colors={product.colors} />
+                                {/* Product quantity div */}
+                                <Quantity
+                                    qty={qty}
+                                    incrementQty={incrementQty}
+                                    decrementQty={decrementQty}
+                                    updateQtyOnChange={updateQtyOnChange}
+                                />
+                            </div>
+                            {/* Shipping Product div */}
+                            <div className="flex items-center justify-start gap-[90px]">
+                                <div className="flex gap-2">
+                                    <img
+                                        className="w-5"
+                                        src={infoIcon}
+                                    />
+                                    <p className="inline-block text-xl">Ship to: Brooklyn</p>
+                                </div>
+                                <div id="shipping-cost-div">
+                                    <p className="text-red-700 text-xl">Shipping: $5</p>
                                 </div>
                             </div>
-                            {/* Add to cart div */}
-                            <div
-                                className="flex justify-around"
-                                style={{ margin: "15% auto auto auto" }}
-                            >
-                                <div>
-                                    <button
-                                        type="button"
-                                        style={styles.btnStyles}
-                                        className="text-cyan-500 rounded-lg"
-                                        onClick={() => {
-                                            let productTest = { ...product, qty };
-                                            addToCart(productTest);
-                                        }}
-                                    >
-                                        Add to cart
-                                    </button>
-                                </div>
-                                <div>
-                                    <button
-                                        type="button"
-                                        className=" bg-amber-500 rounded-lg"
-                                        style={styles.btnStyles}
-                                    >
-                                        Buy Nnow
-                                    </button>
+
+                            <p className="text-lg pr-20">
+                                Available at a lower price from <span><a className="border-b-1 border-sky-500 text-blue-700" href="/">other seller</a></span> that may not offer free shipping
+                            </p>
+
+                            <div className="flex items-center gap-2">
+                                <input
+                                    className="w-6 h-6 align-middle"
+                                    type="checkbox"
+                                />
+                                <div className="">
+                                    <p className="text-lg text-[#09618E]">Apply Coupon</p>
                                 </div>
                             </div>
                         </div>

@@ -205,28 +205,28 @@ const RatingsAndReviews = ({
                 {/* {reviews.map((review) => (
                     <ReviewItem key={review.id} review={review} />
                 ))} */}
-                <div className="review-item flex justify-between m-5 p-5 bg-white border-2 border-blue-400">
-                    <div className="flex">
+                <div className="review-item h-100 flex justify-between m-5 p-5 bg-white border-2 border-blue-400">
+                    <div className="w-full flex border-2 border-orange-400">
                         <img className="mr-3" src={picDemo} alt="Random" style={{ width: '100px', height: '100px' }} />
                         <div className="flex flex-col">
                             <h3>Random Name</h3>
                             <p>{convertToStars(4)}</p>
                         </div>
                     </div>
-                    <div>
-                        <p>Great product!</p>
+                    <div className="w-full flex flex-wrap border-2 text-ellipsis border-orange-400">
+                        <p>I’m super happy with these!  I’ve never bought dress online before and I didn’t think they’d even fit, but it turns out they fit pretty perfectly. I got a size S Patite - I’m 5’6” and weigh about 127 lbs. They are tight but not suffocating ...I’m super happy with these!  I’ve never bought dress online before and I didn’t think they’d even fit, but it turns out they fit pretty perfectly. I got a size S Patite - I’m 5’6” and weigh about 127 lbs. They are tight but not suffocating ...</p>
                         <div style={{ marginTop: '10px' }}>
+                            <button  style={{ marginRight: '10px' }}>
+                                {false ? 'Cancel' : 'Public Comment'}
+                            </button>
+                            <button  style={{ marginRight: '10px' }}>
+                                {false ? 'Cancel' : 'Direct Message'}
+                            </button>
                             <button style={{ marginRight: '10px' }} onClick={() => toggleLike(1)}>
-                                {true ? 'Dislike' : 'Like'}
-                            </button>
-                            <button  style={{ marginRight: '10px' }}>
-                                {true ? 'Cancel' : 'Public Comment'}
-                            </button>
-                            <button  style={{ marginRight: '10px' }}>
-                                {true ? 'Cancel' : 'Direct Message'}
+                                {false ? 'Dislike' : 'Like'}
                             </button>
                         </div>
-                        {true && (
+                        {false && (
                             <div style={{ marginTop: '10px' }}>
                                 <textarea
                                     rows="3"
@@ -237,7 +237,7 @@ const RatingsAndReviews = ({
                                 <button >Submit Comment</button>
                             </div>
                         )}
-                        {true && (
+                        {false && (
                             <div style={{ marginTop: '10px' }}>
                                 <textarea
                                     rows="3"

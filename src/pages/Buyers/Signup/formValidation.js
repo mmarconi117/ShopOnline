@@ -7,15 +7,17 @@ export const validateForm = (storeData) => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!storeData || !storeData.email || storeData.email.trim() === '' || !emailRegex.test(storeData.email)) {
-    errors.email = 'Valid work email is required';
-  }
-
-  if (!storeData || !storeData.business_name || storeData.business_name.trim() === '') {
-    errors.business_name = 'Legal business name is required';
+    errors.email = 'Valid email is required';
   }
 
   if (!storeData || !storeData.password || storeData.password.trim() === '') {
     errors.password = 'Password is required';
+  }
+  if (!storeData || !storeData.conPassword || storeData.conPassword.trim() === '') {
+    errors.conPassword = 'Confirm Password is required';
+  }
+  if(storeData.password !== storeData.conPassword){
+    errors.conPassword = 'password do not match';
   }
 
   return errors;

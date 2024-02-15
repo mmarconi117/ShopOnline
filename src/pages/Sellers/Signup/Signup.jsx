@@ -1,3 +1,4 @@
+import axios from 'axios'
 import google from '../../../assets/ICONS/google.svg'
 import apple from '../../../assets/ICONS/apple.svg'
 import signupImage from '../../../assets/ICONS/signupImage.svg'
@@ -5,13 +6,15 @@ import { submitForm, setFormErrors } from '../../../reducersAndActions/actions/S
 import { useSelector, useDispatch } from 'react-redux';
 import { validateForm } from './formValidation';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 let initialStoreData = {
   name: '',
   workEmail: '',
-  legalBusinessName: '',
+  business_name: '',
   password: '',
+  role: 'seller',
 };
 
 
@@ -20,7 +23,7 @@ function Signup() {
   const storeData = useSelector((state) => state.signupFormReducer.formData) || initialStoreData;
   const formErrors = useSelector((state) => state.signupFormReducer.errors)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const errors = validateForm(storeData);
@@ -29,8 +32,16 @@ function Signup() {
     if (Object.keys(errors).length === 0) {
   
       dispatch(submitForm(storeData));
-      dispatch({ type: 'SIGNUP_SUBMIT_FORM', payload: initialStoreData });
-      console.log('Store data:',storeData);
+      try {
+        const response = await axios.post('http://localhost:8000/signup', storeData);
+  
+        console.log('Signup successful:', response.data);
+        dispatch({ type: 'SIGNUP_SUBMIT_FORM', payload: initialStoreData });
+  
+      } catch (error) {        
+        console.error('Signup error:', error);
+        console.log('Signup error: ', errorInfo.message)
+      }
     }
   };
 
@@ -38,6 +49,11 @@ function Signup() {
     const { value } = e.target;
     dispatch({ type: 'SIGNUP_SUBMIT_FORM', payload: { [fieldName]: value } });
   };
+
+  useEffect(() => {
+    console.log(storeData)
+  }, [])
+  
   
 
   return (
@@ -79,12 +95,12 @@ function Signup() {
                     type="email"
                     className="items-stretch border border-[color:var(--Primary-Base,#27A376)] flex flex-col justify-center mt-2.5 px-5 py-4 rounded-xl border-solid max-md:max-w-full"
                     placeholder='example@company.com'
-                    value={storeData.workEmail}
-                    onChange={(e) => [handleInputChange(e, 'workEmail'), formErrors.workEmail=""]}
-                    name="workEmail"
+                    value={storeData.email}
+                    onChange={(e) => [handleInputChange(e, 'email'), formErrors.email=""]}
+                    name="email"
 
                   />
-                  {formErrors.workEmail && <p className='text-red-600 mt-2'>{formErrors.workEmail}</p>}
+                  {formErrors.email && <p className='text-red-600 mt-2'>{formErrors.email}</p>}
                 </div>
                 <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
                   <label className="text-gray-900 text-sm font-medium leading-6 grow whitespace-nowrap">
@@ -95,12 +111,12 @@ function Signup() {
                     type="text"
                     className="items-stretch border border-[color:var(--Primary-Base,#27A376)] flex flex-col justify-center mt-2.5 px-5 py-4 rounded-xl border-solid max-md:max-w-full"
                     placeholder='Shop online new york'
-                    value={storeData.legalBusinessName}
-                    onChange={(e) => [handleInputChange(e, 'legalBusinessName'), formErrors.legalBusinessName=""]}
-                    name="legalBusinessName"
+                    value={storeData.business_name}
+                    onChange={(e) => [handleInputChange(e, 'business_name'), formErrors.business_name=""]}
+                    name="business_name"
 
                   />
-                  {formErrors.legalBusinessName && <p className='text-red-600 mt-2'>{formErrors.legalBusinessName}</p>}
+                  {formErrors.business_name && <p className='text-red-600 mt-2'>{formErrors.business_name}</p>}
                 </div>
                 <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
                   <label className="text-gray-900 text-sm font-medium leading-6 grow whitespace-nowrap">

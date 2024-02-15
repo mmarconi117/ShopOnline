@@ -8,7 +8,7 @@ import LandingPage from "./pages/Buyers/LandingPage";
 import SubCategory from "./pages/Buyers/SubCategory";
 import Cart from "./pages/Buyers/Cart/CartPage";
 import LoginPage from "./pages/Buyers/LoginPage";
-import SignupPage from "./pages/Buyers/SignupPage";
+import SignupPage from "./pages/Buyers/Signup/SignupPage";
 import Help from "./pages/Buyers/Help";
 import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
 import Checkout from "./pages/Buyers/Checkout";

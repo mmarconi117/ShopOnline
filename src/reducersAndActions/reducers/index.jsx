@@ -13,9 +13,9 @@ import signupFormReducer from "./SignupFormReducer";
 import reviewsReducer  from "./reduceReview";
 import disputeReducer from "./disputeReducer";
 import feedbackFormReducer from "./feedbackFormReducer";
-
-
 import loginFormReducer from "./LoginFormReducer";
+import buyersSignupFormReducer from "./BuyersSignupFormReducer";
+
 
 export const rootReducer = combineReducers({
     cartReducer,
@@ -32,6 +32,7 @@ export const rootReducer = combineReducers({
     loginFormReducer,
     disputeReducer,
     feedback: feedbackFormReducer,
+    buyersSignupFormReducer,
 });
 
 export default rootReducer;

@@ -42,22 +42,22 @@ const ProductImgs = ({ images }) => {
 
     const dummyImgsComp = copyDummyImgs.map((product, index) => {
         return (
-            <div
+            <button
                 key={index}
-                className="w-[25%]"
+                className="w-[25%] cursor-pointer rounded-md outline-none focus:border-2 border-solid border-[#EEC643]"
             >
                 <img src={product.img} />
-            </div>
+            </button>
         );
     });
     return (
-        <div className="w-[45%] max-w-[600px]">
+        <div className="xl:w-[45%] lg:min-w-[420px] max-w-[600px]">
             <div
                 id="product-image"
             >
                 <img src={images[0].img} />
             </div>
-            <div className="flex gap-2 w-full mt-8">{dummyImgsComp}</div>
+            <div className="justify-center flex gap-4 w-full mt-8">{dummyImgsComp}</div>
         </div>
     );
 };

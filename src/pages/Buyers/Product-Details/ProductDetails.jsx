@@ -83,7 +83,7 @@ function ProductDetails({
     const breadCrumbComp = breadCrumb.map((path, index, arr) => {
         return (
             <Link
-                className={`font-Roboto text-base font-semibold tight-[0.15px] p-1 ${index === arr.length - 1 ? "text-[#2284B6]": "text-[#938F96]"}`}
+                className={`font-Roboto text-base lg:text-xl font-medium lg:font-semibold tight-[0.15px] p-1 ${index === arr.length - 1 ? "text-[#2284B6]": "text-[#938F96]"}`}
                 to={path.url}
                 key={index}
             >
@@ -108,7 +108,7 @@ function ProductDetails({
     };
 
     return (
-        <div id="product-details-component" className="px-10 pt-8 pb-16 flex flex-col gap-8">
+        <div id="product-details-component" className="p-4 lg:px-10 lg:pt-8 lg:pb-16 flex flex-col gap-8">
             <div id="navigation-history-container">
                 {breadCrumbComp}
             </div>
@@ -116,80 +116,74 @@ function ProductDetails({
                 {/* Product Details container*/}
                 <div className=" flex flex-col gap-12">
                     {/* Product images, Description, Cost, review container */}
-                    <div className="flex gap-6 bg-white py-12 px-10 justify-around">
+                    <div className="flex flex-col xl:flex-row gap-6 bg-white px-4 pt-5 pb-16 md:py-12 md:px-10 justify-around items-center xl:items-start">
                         {/* Product Images */}
                         <ProductImgs images={product.imgs} />
 
-                        <div className="w-[50%] flex flex-col gap-8">
+                        <div className="xl:w-[55%] flex flex-col gap-8 xl:mt-0 mt-5">
                             {/* Product description div */}
-                            <div id="product-desc-div" className="">
-                                <p className="text-4xl">{product.description}</p>
+                            <div id="product-desc-div">
+                                <p className="text-base font-medium lg:text-2xl lg:font-semibold">{product.description}</p>
                                 <div
-                                    className="flex items-center my-1"
+                                    className="flex items-center my-1 gap-3"
                                     id="reviews-div"
                                 >
-                                    <svg
-                                        className="w-4 h-4 text-yellow-300 me-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 22 20"
-                                    >
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                    <svg
-                                        className="w-4 h-4 text-yellow-300 me-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 22 20"
-                                    >
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                    <svg
-                                        className="w-4 h-4 text-yellow-300 me-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 22 20"
-                                    >
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                    <svg
-                                        className="w-4 h-4 text-yellow-300 me-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 22 20"
-                                    >
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                    <svg
-                                        className="w-4 h-4 text-gray-300 me-1 dark:text-gray-500"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 22 20"
-                                    >
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                    <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                        {product.ratings}
-                                    </p>
-                                    <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                        out of
-                                    </p>
-                                    <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                        5
-                                    </p>
-                                    <div>
-                                        <a className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                                            {product.reviews} reviews
-                                        </a>
-                                        <a className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                                            108+ orders
-                                        </a>
+                                    <div className="flex items-center">
+                                        <svg
+                                            className="w-4 h-4 text-yellow-300 me-1"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor"
+                                            viewBox="0 0 22 20"
+                                        >
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg
+                                            className="w-4 h-4 text-yellow-300 me-1"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor"
+                                            viewBox="0 0 22 20"
+                                        >
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg
+                                            className="w-4 h-4 text-yellow-300 me-1"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor"
+                                            viewBox="0 0 22 20"
+                                        >
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg
+                                            className="w-4 h-4 text-yellow-300 me-1"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor"
+                                            viewBox="0 0 22 20"
+                                        >
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg
+                                            className="w-4 h-4 text-gray-300 me-1 dark:text-gray-500"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor"
+                                            viewBox="0 0 22 20"
+                                        >
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
                                     </div>
+                                    <p className="hidden lg:block ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
+                                        {product.ratings} out of 5
+                                    </p>
+                                    <a className="lg:text-sm text-xs whitespace-nowrap font-medium underline text-[#2284B6] hover:text-[#63acd1] cursor-pointer">
+                                        {product.reviews} reviews
+                                    </a>
+                                    <a className="text-sm font-medium text-indigo-600 whitespace-nowrap hover:text-indigo-500">
+                                        108+ orders
+                                    </a>
                                 </div>
                             </div>
                             <div>
@@ -202,7 +196,7 @@ function ProductDetails({
 
                             </div>
                             {/* Product colors & Product quantity component */}
-                            <div className="flex justify-start gap-[90px] items-center">
+                            <div className="flex flex-col 2xl:flex-row justify-start gap-4 2xl:gap-[90px] items-start 2xl:items-center">
                                 {/* Product Colors Div */}
                                 <ProductColors colors={product.colors} />
                                 {/* Product quantity div */}
@@ -220,10 +214,10 @@ function ProductDetails({
                                         className="w-5"
                                         src={infoIcon}
                                     />
-                                    <p className="inline-block text-xl">Ship to: Brooklyn</p>
+                                    <p className="whitespace-nowrap text-sm lg:text-xl">Ship to: Brooklyn</p>
                                 </div>
                                 <div id="shipping-cost-div">
-                                    <p className="text-red-700 text-xl">Shipping: $5</p>
+                                    <p className="whitespace-nowrap text-red-700 font-semibold text-sm lg:text-xl">Shipping: $5</p>
                                 </div>
                             </div>
 
@@ -239,6 +233,20 @@ function ProductDetails({
                                 <div className="">
                                     <p className="text-lg text-[#09618E]">Apply Coupon</p>
                                 </div>
+                            </div>
+                            <div className="flex flex-col lg:hidden gap-3">
+                                <button
+                                    type="button"
+                                    className="rounded bg-[#EEC643] py-4 px-8 border border-solid border-[#EEC643]"
+                                >
+                                    Buy now
+                                </button>
+                                <button
+                                    type="button"
+                                    className="text-[#2284B6] py-4 px-8 border-[#2284B6] border-solid border rounded"
+                                >
+                                    Add to cart
+                                </button>
                             </div>
                         </div>
                     </div>

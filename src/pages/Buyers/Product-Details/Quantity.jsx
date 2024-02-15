@@ -19,7 +19,7 @@ const Quantity = ({ qty, incrementQty, decrementQty, updateQtyOnChange }) => {
         >
             <p className="text-base ">Quantity </p>
             <div
-                className="flex justify-start items-center gap-2"
+                className="flex justify-between items-center gap-4 "
             >
                 <button
                     className="cursor-pointer py-5"

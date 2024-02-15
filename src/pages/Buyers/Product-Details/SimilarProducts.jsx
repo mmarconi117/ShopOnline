@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+
 const SimilarProducts = ({ similarProducts }) => {
     const [similarProductsCopy, setSimilarProductsCopy] = useState([]);
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -7,6 +8,7 @@ const SimilarProducts = ({ similarProducts }) => {
     // similar products slider trigger btns state
     const [isPreviousSlide, setIsPreviousSlide] = useState(true);
     const [isNextSlide, setIsNextSlideSimilarProducts] = useState(false);
+
 
     useEffect(() => {
         const copy = similarProducts.slice(0, 5); //only show 5 products at a time
@@ -44,7 +46,7 @@ const SimilarProducts = ({ similarProducts }) => {
     const similarProductsComp = similarProductsCopy.map((product, index) => {
         return (
             <div
-                className="w-1/6 h-auto p-5 border shadow-md"
+                className="w-1/6 p-5 border shadow-md"
                 key={index}
             >
                 <div>
@@ -74,69 +76,62 @@ const SimilarProducts = ({ similarProducts }) => {
         //  {/* Similar Products slide show */}
 
         <div
-            className="my-16 mx-auto h-auto"
+            className="self-center my-16 max-w-max flex flex-col gap-8"
             id="similar-products-div"
-            style={{ width: "85%" }}
         >
-            <div className="w-full h-auto my-16 mx-auto">
-                <p className="text-3xl font-bold">Based on recently viewed</p>
-            </div>
+            <p className="text-3xl font-bold">Based on recently viewed</p>
 
             {/* Similar product items list */}
-            <div className="flex">
-                <div className="my-auto mx-4">
-                    <button
-                        type="button"
-                        className="hover:cursor-pointer"
-                        disabled={isPreviousSlide}
-                        onClick={() => {
-                            slideController(currentSlide - 1, true);
-                        }}
+            <div className="flex items-center justify-center">
+                <button
+                    type="button"
+                    className="hover:cursor-pointer"
+                    disabled={isPreviousSlide}
+                    onClick={() => {
+                        slideController(currentSlide - 1, true);
+                    }}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        dataslot="icon"
+                        className="w-6 h-6"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            dataslot="icon"
-                            className="w-6 h-6"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M15.75 19.5 8.25 12l7.5-7.5"
-                            />
-                        </svg>
-                    </button>
-                </div>
-                <div className="w-full h-auto flex justify-evenly">{similarProductsComp}</div>
-                <div className="my-auto mx-4">
-                    <button
-                        className="hover:cursor-pointer"
-                        type="button"
-                        disabled={isNextSlide}
-                        onClick={() => {
-                            slideController(currentSlide + 1, true);
-                        }}
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M15.75 19.5 8.25 12l7.5-7.5"
+                        />
+                    </svg>
+                </button>
+                <div className="flex items-stretch justify-start gap-2 lg:gap-3 xl:gap-5">{similarProductsComp}</div>
+                <button
+                    className="hover:cursor-pointer"
+                    type="button"
+                    disabled={isNextSlide}
+                    onClick={() => {
+                        slideController(currentSlide + 1, true);
+                    }}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        dataslot="icon"
+                        className="w-6 h-6"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            dataslot="icon"
-                            className="w-6 h-6"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                            />
-                        </svg>
-                    </button>
-                </div>
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                        />
+                    </svg>
+                </button>
             </div>
         </div>
     );

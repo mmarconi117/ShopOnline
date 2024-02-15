@@ -41,7 +41,7 @@ const ShippingComponent = () => {
     return (
         <div
             id="shipping-component"
-            className="min-w-max lg:min-w-[340px] 2xl:min-w-[400px] flex flex-col gap-6"
+            className="min-w-max lg:min-w-[340px] 2xl:min-w-[400px] hidden lg:flex flex-col gap-6"
         >
             {/* shipping to div */}
             <div className="px-5 py-10 bg-white rounded-lg flex flex-col gap-4">
@@ -97,13 +97,13 @@ const ShippingComponent = () => {
                         type="button"
                         className="rounded bg-[#EEC643] py-4 px-8 border border-solid border-[#EEC643]"
                     >
-                        Button
+                        Buy now
                     </button>
                     <button
                         type="button"
                         className="text-[#2284B6] py-4 px-8 border-[#2284B6] border-solid border rounded"
                     >
-                        Button
+                        Add to cart
                     </button>
                 </div>
             </div>

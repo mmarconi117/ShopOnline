@@ -93,44 +93,57 @@ const RatingsAndReviews = ({
         };
 
         return (
-            <div className="review-item">
-                <img src={review.image} alt="Random" style={{ width: '100px', height: '100px' }} />
-                <h3>{review.name}</h3>
-                <p>{convertToStars(review.rating)}</p>
-                <p>{review.comment}</p>
-                <div style={{ marginTop: '10px' }}>
-                    <button style={{ marginRight: '10px' }} onClick={() => toggleLike(review.id)}>
-                        {review.liked ? 'Dislike' : 'Like'}
-                    </button>
-                    <button onClick={toggleCommentBox} style={{ marginRight: '10px' }}>
-                        {isCommentBoxVisible ? 'Cancel' : 'Public Comment'}
-                    </button>
-                    <button onClick={toggleMessageBox} style={{ marginRight: '10px' }}>
-                        {isMessageBoxVisible ? 'Cancel' : 'Direct Message'}
-                    </button>
+            <div className="review-item h-100 flex justify-between m-5 p-5 bg-white">
+                <div className="w-full flex">
+                    <img src={review.image} alt="Random" style={{ width: '100px', height: '100px' }} />
+                    <div className="flex flex-col">
+                        <h3>{review.name}</h3>
+                        <p>{convertToStars(review.rating)}</p>
+                    </div>
                 </div>
-                {isCommentBoxVisible && (
-                    <div style={{ marginTop: '10px' }}>
-                        <textarea
-                            rows="3"
-                            cols="30"
-                            placeholder="Enter your public comment..."
-                            onChange={handleCommentChange}
-                        />
-                        <button onClick={submitComment}>Submit Comment</button>
+                <div className="w-full flex flex-wrap text-ellipsis">
+                    <p>{review.comment}</p>
+                    <div className="flex justify-between" style={{ marginTop: '10px' }}>
+                        <button className="text-gray-800 bg-white border-2 border-yellow-400 font-medium rounded-lg text-sm px-5 py-3" onClick={toggleCommentBox} style={{ marginRight: '10px' }}>
+                            {isCommentBoxVisible ? 'Cancel' : 'Public Comment'}
+                        </button>
+                        <button className="text-gray-800 bg-yellow-400 font-medium rounded-lg text-sm px-5 py-3" onClick={toggleMessageBox} style={{ marginRight: '10px' }}>
+                            {isMessageBoxVisible ? 'Cancel' : 'Direct Message'}
+                        </button>
+                        <button className="w-12 h-12 p-3 border-2 border-yellow-400 rounded-lg" style={{ marginRight: '10px' }} onClick={() => toggleLike(review.id)}>
+                            {review.liked ? 
+                            <svg className="flex justify-center fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M6.45 2C4.257 2 2.5 3.753 2.5 5.889c0 1.04.414 1.985 1.093 2.686l6.907 7L17.28 8.7A3.845 3.845 0 0 0 18.5 5.89C18.5 3.753 16.743 2 14.55 2c-.476 0-1.034.267-1.654.816-.604.536-1.146 1.23-1.582 1.842a1 1 0 0 1-1.628 0c-.436-.612-.978-1.306-1.582-1.842C7.484 2.266 6.926 2 6.45 2ZM.5 5.889C.5 2.625 3.176 0 6.45 0c1.198 0 2.218.644 2.98 1.319.392.348.752.735 1.07 1.116.319-.381.678-.768 1.07-1.116C12.332.644 13.352 0 14.55 0c3.274 0 5.95 2.625 5.95 5.889a5.845 5.845 0 0 1-1.805 4.224l-7.483 7.59a1 1 0 0 1-1.424 0L2.162 9.97A5.841 5.841 0 0 1 .5 5.89Z" clip-rule="evenodd"/>
+                            </svg> : 
+                            <svg className="flex justify-center fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M6.45 2C4.257 2 2.5 3.753 2.5 5.889c0 1.04.414 1.985 1.093 2.686l6.907 7L17.28 8.7A3.845 3.845 0 0 0 18.5 5.89C18.5 3.753 16.743 2 14.55 2c-.476 0-1.034.267-1.654.816-.604.536-1.146 1.23-1.582 1.842a1 1 0 0 1-1.628 0c-.436-.612-.978-1.306-1.582-1.842C7.484 2.266 6.926 2 6.45 2ZM.5 5.889C.5 2.625 3.176 0 6.45 0c1.198 0 2.218.644 2.98 1.319.392.348.752.735 1.07 1.116.319-.381.678-.768 1.07-1.116C12.332.644 13.352 0 14.55 0c3.274 0 5.95 2.625 5.95 5.889a5.845 5.845 0 0 1-1.805 4.224l-7.483 7.59a1 1 0 0 1-1.424 0L2.162 9.97A5.841 5.841 0 0 1 .5 5.89Z" clip-rule="evenodd"/>
+                            </svg>
+                            }
+                        </button>
                     </div>
-                )}
-                {isMessageBoxVisible && (
-                    <div style={{ marginTop: '10px' }}>
-                        <textarea
-                            rows="3"
-                            cols="30"
-                            placeholder="Enter your direct message..."
-                            onChange={handleMessageChange}
-                        />
-                        <button onClick={submitMessage}>Submit Direct Message</button>
-                    </div>
-                )}
+                    {isCommentBoxVisible && (
+                        <div style={{ marginTop: '10px' }}>
+                            <textarea
+                                rows="3"
+                                cols="30"
+                                placeholder="Enter your public comment..."
+                                onChange={handleCommentChange}
+                            />
+                            <button onClick={submitComment}>Submit Comment</button>
+                        </div>
+                    )}
+                    {isMessageBoxVisible && (
+                        <div style={{ marginTop: '10px' }}>
+                            <textarea
+                                rows="3"
+                                cols="30"
+                                placeholder="Enter your direct message..."
+                                onChange={handleMessageChange}
+                            />
+                            <button onClick={submitMessage}>Submit Direct Message</button>
+                        </div>
+                    )}
+                </div>
             </div>
         );
     };
@@ -159,25 +172,29 @@ const RatingsAndReviews = ({
     };
 
     return (
-        <>
+        <div className="m-5">
             <div className="ratings-and-reviews">
-            <h1 style={{ fontWeight: 'bold' }}>Ratings and Reviews</h1>
+                <h1 style={{ fontWeight: 'bold' }}>Ratings and Reviews</h1>
+                <p>Customers provide Seller ratings and reviews. These ratings and reviews indicate whether you are creating a positive shopping experience for customers.</p>
             </div>
-            <div className="review-stats">
+            <div className="review-stats flex justify-around m-5 p-5 bg-white">
                 <p>Total Reviews: {reviewStats.totalReviews}</p>
+                <div className="h-8 w-1 bg-slate-300"></div>
                 <p>Average Rating: {reviewStats.averageRating.toFixed(2)}</p>
             </div>
-            <div className="sort-by-dropdown">
-                <label>Sort by:</label>
-                <select onChange={(e) => handleSortByChange(e.target.value)}>
-                    <option value="default">Default</option>
-                    <option value="recent">Most Recent</option>
-                    <option value="rating">Rating</option>
-                </select>
+            <div className="sort-by-dropdown flex justify-between">
+                <div className="">
+                    <label className="mr-5">Sort by:</label>
+                    <select onChange={(e) => handleSortByChange(e.target.value)}>
+                        <option value="default">Default</option>
+                        <option value="recent">Most Recent</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
                 <div>{getCurrentMonthAndYear()}</div>
             </div>
 
-            <div className="review-form">
+            <div className="hidden review-form flex m-5 bg-white">
                 <form onSubmit={handleSubmit}>
                     <div style={{ marginTop: '20px' }}>
                         <label>Name: </label>
@@ -202,7 +219,7 @@ const RatingsAndReviews = ({
                     <ReviewItem key={review.id} review={review} />
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 

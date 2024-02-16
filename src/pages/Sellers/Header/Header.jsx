@@ -27,7 +27,7 @@ function Header(props) {
           <Link to="/settings" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Settings
           </Link>
-          <Link to="" className="text-zinc-600 text-base leading-6">
+          <Link to="/sellers/help" className="text-zinc-600 text-base leading-6">
             Help
           </Link>
           <Link to="/sellers/notificationsettings" className="text-zinc-600 text-base leading-6 whitespace-nowrap">

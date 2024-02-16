@@ -82,9 +82,6 @@ function OrderList() {
         }
     };
 
-    const handlePayment = (paymentMethod) => {
-        // console.log(paymentMethod);
-    };
 
     const clearFilters = () => {
         setOrdersLocal(order);

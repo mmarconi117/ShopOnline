@@ -1,5 +1,5 @@
 
-import { UPDATE_STATUS_FILTER, TOGGLE_INSIGHTS } from "../actions";
+import { UPDATE_STATUS_FILTER, TOGGLE_INSIGHTS, SEARCH_DISPUTES, TOGGLE_FILTER_DISPUTES } from "../actions";
 
 const initialState = {
   disputes: [],
@@ -8,20 +8,38 @@ const initialState = {
 };
 
 const disputeReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case TOGGLE_INSIGHTS:
-      return {
-        ...state,
-        showInsights: !state.showInsights,
-      };
-      case UPDATE_STATUS_FILTER:
-      return {
-        ...state,
-        statusFilter: action.payload,
-      };
-    default:
-      return state;
-  }
+    switch (action.type) {
+        case TOGGLE_INSIGHTS:
+            return {
+                ...state,
+                showInsights: !state.showInsights
+            };
+        case UPDATE_STATUS_FILTER:
+            return {
+                ...state,
+                statusFilter: action.payload
+            };
+        case SEARCH_DISPUTES:
+            const filtered = state.disputes.filter(
+                (item) =>
+                    parseFloat(item.orderNumber) >= action.payload ||
+                    item.purchaseOrder >= action.payload ||
+                    item.rma >= action.payload ||
+                    item.customerOrder >= action.payload
+            );
+            return {
+                ...state,
+                filtered: filtered
+            };
+        case TOGGLE_FILTER_DISPUTES:
+            const { filterType, sortBy } = action.payload;
+            return {
+                ...state,
+                filtered: filterBy(filterType, state, sortBy)
+            };
+        default:
+            return state;
+    }
 };
 export default disputeReducer;
 
@@ -32,25 +50,25 @@ const filterBy = (filterType, state, sortBy) => {
             update = state.disputes.toSorted((a, b) =>
                 a.orderNumber > b.orderNumber ? 1 : b.orderNumber > a.orderNumber ? -1 : 0
             );
-            // break;
+
             return update;
         case "Purchase":
             update = state.disputes.toSorted((a, b) =>
                 a.purchaseOrder > b.purchaseOrder ? 1 : b.purchaseOrder > a.purchaseOrder ? -1 : 0
             );
-            // break;
+
             return update;
         case "RMA":
             update = state.disputes.toSorted((a, b) =>
                 a.rma > b.rma ? 1 : b.rma > a.rma ? -1 : 0
             );
-            // break;
+
             return update;
         case "CustomerOrder":
             update = state.disputes.toSorted((a, b) =>
                 a.customerOrder > b.customerOrder ? 1 : b.customerOrder > a.customerOrder ? -1 : 0
             );
-            // break;
+
             return update;
         case "Price":
             if (sortBy === "lowest") {
@@ -62,7 +80,7 @@ const filterBy = (filterType, state, sortBy) => {
                     a.price < b.price ? 1 : b.price < a.price ? -1 : 0
                 );
             }
-            // break;
+
             return update;
         case "Status":
             update = state.disputes.toSorted((a, b) =>
@@ -71,6 +89,5 @@ const filterBy = (filterType, state, sortBy) => {
             return update;
         default:
             return state.disputes;
-        // break;
     }
 };

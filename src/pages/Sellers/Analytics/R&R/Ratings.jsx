@@ -194,7 +194,8 @@ const RatingsAndReviews = ({
                 <div>{getCurrentMonthAndYear()}</div>
             </div>
 
-            <div className="hidden review-form flex m-5 bg-white">
+            
+            <div className="hidden m-5 bg-white">
                 <form onSubmit={handleSubmit}>
                     <div style={{ marginTop: '20px' }}>
                         <label>Name: </label>

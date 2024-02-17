@@ -17,6 +17,7 @@ import img13 from "../../assets/IMAGES/Product card/Rectangle 12309.png";
 export const initialState = {
     catalogue: [
         {
+            id: 1,
             img: img,
             price: 10000,
             description:
@@ -27,8 +28,10 @@ export const initialState = {
             brand: "LG",
             businessType: "medium",
             condition: "new",
+            type: "tas"
         },
         {
+            id: 2,
             img: img1,
             price: 9500,
             description:
@@ -39,8 +42,10 @@ export const initialState = {
             brand: "Haier Thermoocool",
             businessType: "large",
             condition: "renewed",
+            type: "electronic"
         },
         {
+            id: 3,
             img: img2,
             price: 5000,
             description:
@@ -51,8 +56,10 @@ export const initialState = {
             brand: "World Elite",
             businessType: "medium",
             condition: "used",
+            type: "electronic"
         },
         {
+            id: 4,
             img: img3,
             price: 3000,
             description:
@@ -63,8 +70,10 @@ export const initialState = {
             brand: "World Elite",
             businessType: "large",
             condition: "used",
+            type: "electronic"
         },
         {
+            id: 5,
             img: img4,
             price: 2500,
             description:
@@ -75,8 +84,10 @@ export const initialState = {
             brand: "915 Generation",
             businessType: "medium",
             condition: "new",
+            type: "electronic"
         },
         {
+            id: 6,
             img: img5,
             price: 1500,
             description:
@@ -87,8 +98,10 @@ export const initialState = {
             brand: "LG",
             businessType: "large",
             condition: "new",
+            type: "electronic"
         },
         {
+            id: 7,
             img: img6,
             price: 2000,
             description:
@@ -99,8 +112,10 @@ export const initialState = {
             brand: "Samsung",
             businessType: "small",
             condition: "new",
+            type: "electronic"
         },
         {
+            id: 8,
             img: img7,
             price: 3000,
             description:
@@ -111,8 +126,10 @@ export const initialState = {
             brand: "ScanFrost",
             businessType: "medium",
             condition: "used",
+            type: "electronic"
         },
         {
+            id: 9,
             img: img8,
             price: 1500,
             description:
@@ -123,8 +140,10 @@ export const initialState = {
             brand: "Apple",
             businessType: "small",
             condition: "new",
+            type: "electronic"
         },
         {
+            id: 10,
             img: img9,
             price: 4500,
             description:
@@ -135,8 +154,10 @@ export const initialState = {
             brand: "Dell",
             businessType: "large",
             condition: "used",
+            type: "electronic"
         },
         {
+            id: 11,
             img: img10,
             price: 3000,
             description:
@@ -147,8 +168,10 @@ export const initialState = {
             brand: "Toshiba",
             businessType: "medium",
             condition: "new",
+            type: "electronic"
         },
         {
+            id: 12,
             img: img11,
             price: 2000,
             description:
@@ -159,8 +182,10 @@ export const initialState = {
             brand: "LG",
             businessType: "small",
             condition: "renewed",
+            type: "electronic"
         },
         {
+            id: 13,
             img: img12,
             price: 2500,
             description:
@@ -171,8 +196,10 @@ export const initialState = {
             brand: "SONY",
             businessType: "medium",
             condition: "new",
+            type: "electronic"
         },
         {
+            id: 14,
             img: img13,
             price: 1500,
             description:
@@ -183,16 +210,55 @@ export const initialState = {
             brand: "Samsung",
             businessType: "large",
             condition: "",
-        },
+            type: "electronic"
+        }
     ],
+    filtered: [],
+    revert: true
 };
 const productCatalogueReducer = (state = initialState, action) => {
-    switch (action.types) {
+    switch (action.type) {
         case actionTypes.PRODUCT_CATALOGUE:
             return state;
+        case actionTypes.SEARCH_PRODUCT:
+            // const filtered =
+            return {
+                ...state,
+                filtered: state.catalogue.filter((item) => {
+                    console.log(action.payload.toLowerCase());
+                    if (
+                        item.type.toLowerCase() == action.payload.toLowerCase() ||
+                        item.description.toLowerCase() == action.payload.toLowerCase() ||
+                        item.brand.toLowerCase() == action.payload.toLowerCase()
+                    ) {
+                        return item;
+                    }
+                })
+            };
+        case actionTypes.SORT_CATALOGUE:
+            return {
+                ...state,
+                filtered: sort(action.payload, state),
+                revert: !state.revert
+            };
         default:
             return state;
     }
 };
+
+function sort(payload, state) {
+    let update;
+    if (payload) {
+        update = state.catalogue.toSorted((a, b) =>
+            a.description > b.description ? 1 : b.description > a.description ? -1 : 0
+        );
+        return update;
+    } else {
+        update = state.catalogue.toSorted((a, b) =>
+            a.description < b.description ? 1 : b.description < a.description ? -1 : 0
+        );
+        return update;
+    }
+}
 
 export default productCatalogueReducer;

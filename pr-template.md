@@ -6,7 +6,7 @@
 
 
 ## Loom Video:
-
+ - [Loom Video](https://www.loom.com/share/41c36af46ac84d9db1fe30f4a20236b0)
 
 ## Type of change
 
@@ -22,3 +22,5 @@
 - [ ] No duplicate code left within changed files
 - [ ] Size of pull request kept to a minimum
 - [ ] Pull request description clearly describes changes made & motivations for said changes
+
+

@@ -1,10 +1,11 @@
 import google from '../../../assets/ICONS/google.svg'
 import apple from '../../../assets/ICONS/apple.svg'
 import logo from '../../../assets/ICONS/Outline/LOGO.png';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { submitLoginForm, setLoginFormErrors } from '../../../reducersAndActions/actions/LoginFormAction';
 import { useSelector, useDispatch } from 'react-redux';
 import { validateForm } from './formValidation';
+import axios from 'axios';
 
 let initialStoreData = {
   email: '',
@@ -15,17 +16,39 @@ function Login() {
   const dispatch = useDispatch();
   const storeData = useSelector((state) => state.loginFormReducer.formData) || initialStoreData;
   const formErrors = useSelector((state) => state.loginFormReducer.errors)
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const errors = validateForm(storeData);
     dispatch(setLoginFormErrors(errors));
 
-    if (Object.keys(errors).length === 0) {
+    if (Object.keys(errors).length === 0) {      
+      try {
+        const response = await axios.post('http://localhost:8000/login', storeData);
 
-      dispatch(submitLoginForm(storeData));
-      dispatch({ type: 'LOGIN_SUBMIT_FORM', payload: initialStoreData });
+          if (response.data.user.role === "seller") {
+            
+              const userData = {
+                id: response.data.user.id,
+                name: response.data.user.name,
+                profile_picture: response.data.user.profile_picture,
+                email: response.data.user.email,
+              }
+        
+              dispatch(submitLoginForm(userData));
+              localStorage.setItem('valid_token', response.data.validToken);
+              navigate('/sellers');
+              dispatch({ type: 'LOGIN_SUBMIT_FORM', payload: initialStoreData });
+              dispatch(setLoginFormErrors({}));
+          }else{
+            alert("Your account is not as seller's.")
+          }   
+
+      } catch (error) {
+        dispatch(setLoginFormErrors(error));
+      }
     }
   };
 
@@ -81,6 +104,7 @@ function Login() {
             className="text-stone-950 text-center text-base font-semibold leading-6 whitespace-nowrap justify-center items-center self-center w-[463px] max-w-full mt-12 px-16 py-4 rounded-2xl border border-[color:var(--Primary-Base,#27A376)] max-md:mt-10 max-md:px-5">
             Log In
           </button>
+          {formErrors.message && <p className='text-red-600 mt-2'>{formErrors.message}</p>}
         </form>
         <div className=" w-full justify-center items-stretch flex gap-4 mt-4 px-0.5 py-2.5 max-md:max-w-full max-md:flex-wrap">
           <div className="items-center bg-gray-100 self-center flex w-[25%] shrink-0 h-px flex-col my-auto" />

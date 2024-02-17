@@ -19,3 +19,8 @@ export const deliveredOrder = () => ({
 export const errorOrder = () => ({
   type: actionTypes.ERROR_ORDER,
 });
+
+export const sortByDate = (data) => ({
+    type: actionTypes.DATES_ORDER,
+    payload: data
+});

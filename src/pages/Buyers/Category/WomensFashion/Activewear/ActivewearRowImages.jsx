@@ -1,9 +1,9 @@
-import image1 from "../../assets/IMAGES/Women's category/Rectangle 181-30.png";
-import image2 from "../../assets/IMAGES/Women's category/Rectangle 181-31.png";
-import image3 from "../../assets/IMAGES/Women's category/Rectangle 181-32.png";
-import image4 from "../../assets/IMAGES/Women's category/Rectangle 181-33.png";
-import image5 from "../../assets/IMAGES/Women's category/Rectangle 181-34.png";
-import image6 from "../../assets/IMAGES/Women's category/Rectangle 181-34.png";
+import image1 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-24.png";
+import image2 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-25.png";
+import image3 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-26.png";
+import image4 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-27.png";
+import image5 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-28.png";
+import image6 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-29.png";
 
 const imagesList = [
     {

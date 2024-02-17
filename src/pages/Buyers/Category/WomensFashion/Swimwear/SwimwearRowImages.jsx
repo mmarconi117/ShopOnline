@@ -1,9 +1,9 @@
-import image1 from "../../assets/IMAGES/Women's category/Rectangle 181.png";
-import image2 from "../../assets/IMAGES/Women's category/Rectangle 181-1.png";
-import image3 from "../../assets/IMAGES/Women's category/Rectangle 181-2.png";
-import image4 from "../../assets/IMAGES/Women's category/Rectangle 181-3.png";
-import image5 from "../../assets/IMAGES/Women's category/Rectangle 181-4.png";
-import image6 from "../../assets/IMAGES/Women's category/Rectangle 181-5.png";
+import image1 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-30.png";
+import image2 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-31.png";
+import image3 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-32.png";
+import image4 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-33.png";
+import image5 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-34.png";
+import image6 from "../../../../../assets/IMAGES/Women's category/Rectangle 181-34.png";
 
 const imagesList = [
     {
@@ -19,7 +19,6 @@ const imagesList = [
         alt: "Image 2",
         description: "Lorem ipsum dolor sit amet, dolor sit amet, consectetur",
         price: 120,
-
     },
     {
         id: 3,
@@ -27,7 +26,6 @@ const imagesList = [
         alt: "Image 3",
         description: "Lorem ipsum dolor sit amet, dolor sit amet, consectetur",
         price: 120,
-
     },
     {
         id: 4,
@@ -35,7 +33,6 @@ const imagesList = [
         alt: "Image 4",
         description: "Lorem ipsum dolor sit amet, dolor sit amet, consectetur",
         price: 120,
-
     },
     {
         id: 5,
@@ -43,7 +40,6 @@ const imagesList = [
         alt: "Image 5",
         description: "Lorem ipsum dolor sit amet, dolor sit amet, consectetur",
         price: 120,
-
     },
     {
         id: 6,
@@ -51,7 +47,6 @@ const imagesList = [
         alt: "Image 6",
         description: "Lorem ipsum dolor sit amet, dolor sit amet, consectetur",
         price: 120,
-
     },
 ];
 

@@ -18,48 +18,73 @@ const Menu = () => {
   const categories = [
     {
       id: 'Womens fashion',
-      // img: womensIcon,
+      url: '/womensFashion',
       title: "Women",
     },
     {
       id: 'mens',
-      // img: mensIcon,
+      url: '/mensFashion',
       title: "Men",
     },
     {
       id: 'phone',
-      // img: phoneIcon,
+      url: '/phonesAndAccessories',
       title: 'Kids',
     },
     {
       id: 'office',
-      // img: computerIcon,
+      url: '/computersAndOffice',
       title: 'Home',
     },
     {
       id: 'electronics',
-      // img: consumerIcon,
-      title: 'Health',
-    },
-    {
-      id: 'jewelry',
-      // img: jewelryIcon,
+      url: '/electronics',
       title: 'Electronics',
     },
     {
+      id: 'jewelry',
+      url: '/jewelryAndWatches',
+      title: 'Jewelry',
+    },
+    {
       id: 'furniture',
-      // img: homeIcon,
+      url: '/furniture',
       title: 'Furniture',
     },
     {
       id: 'bagsAndShoes',
-      // img: bagsIcon,
-      title: 'Jewelry',
+      url: '/bagsAndShoes',
+      title: 'Bags & Shoes',
     },
     {
       id: 'kids',
-      // img: toysIcon,
-      title: 'Toys',
+      url: '/kidsAndToys',
+      title: 'Kids & Toys',
+    },
+    {
+      id: 'toolsAndHomeImprovement',
+      url: '/toolsAndHomeImprovement',
+      title: 'Tools & Home Improvement',
+    },
+    {
+      id: 'automotive',
+      url: '/automotive',
+      title: 'Automotive',
+    },
+    {
+      id: 'digitalMedia',
+      url: '/digitalMedia',
+      title: 'Digital Media',
+    },
+    {
+      id: 'outdoor',
+      url: '/outdoorsAndSports',
+      title: 'Outdoor Fun & Sports',
+    },
+    {
+      id: 'homePetsAndAppliances',
+      url: '/homePetsAndAppliances',
+      title: 'Home, Pets & Appliances',
     },
   ];
   const [isOpen, setIsOpen] = useState(false)
@@ -73,7 +98,7 @@ const Menu = () => {
         <p className="text-xl font-bold whitespace-nowrap"> All Categories</p>
         <div className='grow flex justify-between gap-4 items-center'>
           {categories.map((item, index) => (
-            <Link key={index} to="/subcategories" className="text-base leading-[19.2px]">{item.title}</Link>
+            <Link key={index} to={item.url} className="text-base leading-[19.2px]">{item.title}</Link>
           ))}
         </div>
       </div>
@@ -86,7 +111,7 @@ const Menu = () => {
         </button>
         <div className={`absolute ${isOpen ? "flex bg-gray-100 opacity-95 z-50" : "hidden"} rounded-br-md rounded-none p-4 top-9 left-0 w-[250px] flex-wrap justify-between gap-16 text-left items-center`}>
           {categories.map((item, index) => (
-            <Link key={index} to="/subcategories" className="text-base leading-[19.2px]" onClick={menuHandler}>{item.title}</Link>
+            <Link key={index} to={item.url} className="text-base leading-[19.2px]" onClick={menuHandler}>{item.title}</Link>
           ))}
         </div>
       </div>

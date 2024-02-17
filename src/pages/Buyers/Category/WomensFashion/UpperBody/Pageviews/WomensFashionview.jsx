@@ -10,7 +10,7 @@
     );
 }*/ //this is a click function. Leaving it commented out for now.
 
-import LOGO from "../../../assets/ICONS/location-marker.svg"
+import LOGO from "../../../../../../assets/ICONS/location-marker.svg"
 
 function WomensFashionview(){
     return(

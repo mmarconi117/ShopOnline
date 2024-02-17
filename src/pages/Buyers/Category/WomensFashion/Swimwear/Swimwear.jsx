@@ -1,5 +1,5 @@
 import imagesList from "./SwimwearRowImages.jsx";
-import arrow from "../../assets/ICONS/RightPointer.svg"
+import arrow from "../../../../../assets/ICONS/RightPointer.svg"
 import { useState } from "react";
 function SwimwearRow() {
 

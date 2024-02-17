@@ -29,12 +29,12 @@ const Menu = () => {
     {
       id: 'phone',
       url: '/phonesAndAccessories',
-      title: 'Kids',
+      title: 'Phones & Accessories',
     },
     {
       id: 'office',
       url: '/computersAndOffice',
-      title: 'Home',
+      title: 'Computer, Office & security',
     },
     {
       id: 'electronics',

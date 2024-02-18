@@ -1,7 +1,7 @@
-import imagesList from "./BottomsRowImages";
-import arrow from "../../assets/ICONS/RightPointer.svg"
+import imagesList from "./DressesRowImages";
+import arrow from "../../../../../assets/ICONS/RightPointer.svg"
 import { useState } from "react";
-function BottomsRow() {
+function DressesRow() {
 
     const [currentSlide, setCurrentSlide] = useState(0);
     const itemsPerSlide = 2;
@@ -29,7 +29,7 @@ function BottomsRow() {
 
     return (
         <div className="relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-4 sm:pt-16 sm:pb-1 sm:pl-10 sm:pr-0" >
-            <h1 className=" text-[#313133] font-Roboto font-medium text-base sm:text-[31px] sm:font-bold sm:leading-[37.2px]">Bottoms</h1>
+            <h1 className=" text-[#313133] font-Roboto font-medium text-base sm:text-[31px] sm:font-bold sm:leading-[37.2px]">Dresses</h1>
             <ul className="flex w-full items-start gap-2 sm:gap-6 min-[390px]:overflow-x-auto overflow-hidden">
                 {exploreItems}
                 {imagesList.map((image) =>(
@@ -49,4 +49,4 @@ function BottomsRow() {
     );
 }
 
-export default BottomsRow;
+export default DressesRow;

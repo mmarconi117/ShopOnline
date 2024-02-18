@@ -32,7 +32,7 @@ export default function Nav() {
               setMenu("sell");
             }}
           >
-            <Link to="/sellers" style={{ textDecoration: "none" }}>
+            <Link to="/sellers/login" style={{ textDecoration: "none" }}>
               Sell
             </Link>
             {menu === "sell" ? (

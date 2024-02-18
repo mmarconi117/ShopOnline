@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // components
 // buyers
 import LandingPage from "./pages/Buyers/LandingPage";
-import SubCategory from "./pages/Buyers/SubCategory";
+import WomensFashionSubCategory from "./pages/Buyers/Category/WomensFashion/WomansFashionSubCategory";
 import Cart from "./pages/Buyers/Cart/CartPage";
 import LoginPage from "./pages/Buyers/LoginPage";
 import SignupPage from "./pages/Buyers/Signup/SignupPage";
@@ -38,7 +38,7 @@ function App() {
             <Routes>
               <Route exact path="" element={<Layout />}>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/subcategories" element={<SubCategory />} />
+                <Route path="/womensfashion" element={<WomensFashionSubCategory />} />
                 <Route path="/productdetails" element={<ProductDetails />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/help" element={<Help />} />

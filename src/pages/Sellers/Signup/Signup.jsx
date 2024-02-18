@@ -66,7 +66,7 @@ function Signup() {
               </div>
               <div className="text-gray-900 text-lg leading-7 mt-4 max-md:max-w-full">
                 Get started for free today!
-              </span>
+             
               <form onSubmit={handleSubmit}>
                 <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
                   <label className="text-gray-900 text-sm font-medium leading-6 grow whitespace-nowrap">
@@ -219,7 +219,9 @@ function Signup() {
           </div>
         </div>
       </div>
+    </div>
+  </div>
   )
-}
+  }
 
-export default Signup;
+export default Signup

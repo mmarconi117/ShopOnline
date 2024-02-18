@@ -34,7 +34,7 @@ const Menu = () => {
     {
       id: 'office',
       url: '/computersAndOffice',
-      title: 'Computer, Office & security',
+      title: 'Computer, Office & Security',
     },
     {
       id: 'electronics',

@@ -43,7 +43,7 @@ function Login() {
               dispatch({ type: 'LOGIN_SUBMIT_FORM', payload: initialStoreData });
               dispatch(setLoginFormErrors({}));
           }else{
-            alert("Your account is not a seller's account.")
+            alert("Your account is not a sellers account.")
           }   
 
       } catch (error) {

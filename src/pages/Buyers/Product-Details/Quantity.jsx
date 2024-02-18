@@ -14,53 +14,33 @@ const Quantity = ({ qty, incrementQty, decrementQty, updateQtyOnChange }) => {
 
     return (
         <div
-            style={{ width: "100%" }}
             id="quantity-component"
+            className="flex flex-col gap-2"
         >
-            <div style={{ marginBottom: "1%" }}>
-                <p style={{ fontSize: "2rem" }}>Quantity </p>
-            </div>
+            <p className="text-base ">Quantity </p>
             <div
-                style={{
-                    display: "flex",
-                    width: "50%",
-                    justifyContent: "flex-start",
-                    alignItems: "center",
-                }}
+                className="flex justify-between items-center gap-4 "
             >
-                <div style={{ marginRight: "5%" }}>
-                    <button
-                        className="cursor-pointer"
-                        style={styles.button}
-                        type="button"
-                        onClick={decrementQty}
-                    >
-                        -
-                    </button>
+                <button
+                    className="cursor-pointer py-5"
+                    style={styles.button}
+                    type="button"
+                    onClick={decrementQty}
+                >
+                    -
+                </button>
+                <div>
+                    {qty}
                 </div>
-                <div style={{ marginRight: "5%" }}>
-                    <div>
-                        <input
-                            type="number"
-                            name="quantity"
-                            id="quantity"
-                            className="block w-full rounded-md border-0 py-2 text-black-900 ring-1 ring-inset ring-gray-300 placeholder:text-black-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
-                            value={qty}
-                            onChange={(e) => updateQtyOnChange(e)}
-                        />
-                    </div>
-                </div>
-                <div style={{ marginRight: "5%" }}>
-                    <button
-                        className="cursor-pointer"
-                        style={styles.button}
-                        type="button"
-                        // onClick={() => dispatch(increment())}
-                        onClick={incrementQty}
-                    >
-                        +
-                    </button>
-                </div>
+                <button
+                    className="cursor-pointer"
+                    style={styles.button}
+                    type="button"
+                    // onClick={() => dispatch(increment())}
+                    onClick={incrementQty}
+                >
+                    +
+                </button>
             </div>
         </div>
     );

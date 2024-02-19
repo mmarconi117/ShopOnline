@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { increaseQuantity, decreaseQuantity } from '../../../../reducersAndActions/actions/shipAction';
-import { addToCart, removeFromCart, updateCart } from '../../../../reducersAndActions/actions/cartAction';
+import { addToCart } from '../../../../reducersAndActions/actions/cartAction';
 
 const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => {
 

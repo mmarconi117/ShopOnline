@@ -15,6 +15,7 @@ import disputeReducer from "./disputeReducer";
 import feedbackFormReducer from "./feedbackFormReducer";
 import loginFormReducer from "./LoginFormReducer";
 import buyersSignupFormReducer from "./BuyersSignupFormReducer";
+import shipReducer from "./shipReducer";
 
 
 export const rootReducer = combineReducers({

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { increaseQuantity, decreaseQuantity } from '../../../../reducersAndActions/actions/shipAction';
-import { addItemToCart } from '../../../../reducersAndActions/actions/cartAction';
+import { addToCart, removeFromCart, updateCart } from '../../../../reducersAndActions/actions/cartAction';
 
 const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => {
 
@@ -128,7 +128,7 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => 
                                 type="button"
                                 className="mb-10 rounded-lg bg-amber-500"
                                 style={styles.btnStyles}
-                                onClick={addItemToCart}
+                                onClick={addToCart}
                             >
                                 Add To Cart
                             </button>

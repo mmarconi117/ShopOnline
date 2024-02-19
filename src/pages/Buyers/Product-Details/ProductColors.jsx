@@ -41,32 +41,25 @@ const ProductColors = ({ colors }) => {
         return (
             <div
                 key={index}
-                style={{
-                    marginRight: "1rem",
-                }}
             >
-                <p
-                    className="border border-black"
+                <button
+                    className={`border-solid focus:border-[#79767D] cursor-pointer border border-black rounded-lg py-6 px-8 focus:border-4`} 
                     style={{
                         backgroundColor: c.color,
-                        padding: "1.5rem 2rem",
-                        borderRadius: ".5rem",
                     }}
-                ></p>
+                ></button>
             </div>
         );
     });
     return (
         <div
             id="product-colors-div"
-            style={{ width: "100%" }}
+            className="flex flex-col gap-[10px]"
         >
-            <div>
-                <p style={{ fontSize: "1.75rem" }}>Color: White</p>
-            </div>
+            <p className="text-base font-normal">Color: White</p>
             <div
                 id="colors-options"
-                style={styles.colorOptionsDiv}
+                className="flex justify-start gap-4"
             >
                 {colorsComponent}
             </div>

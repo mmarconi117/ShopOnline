@@ -1,11 +1,11 @@
-import { SIGNUP_SUBMIT_FORM, SET_FORM_ERRORS } from '../actions';
+import { BUYERS_SIGNUP_FORM, BUYERS_SIGNUP_FORM_ERRORS } from '../actions';
 
 const initialStoreData = {
   name: '',
   email: '',
-  business_name: '',
   password: '',
-  role: 'seller',
+  conPassword:'',
+  staySignedIn: false,
 };
 
 const initialState = {
@@ -13,9 +13,9 @@ const initialState = {
   errors: {},
 };
 
-const signupFormReducer = (state = initialState, action) => {
+const buyersSignupFormReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SIGNUP_SUBMIT_FORM:
+    case BUYERS_SIGNUP_FORM:
       return {
         ...state,
         formData: {
@@ -23,7 +23,7 @@ const signupFormReducer = (state = initialState, action) => {
           ...(action.payload || {}),
         },
       };
-    case SET_FORM_ERRORS:
+    case BUYERS_SIGNUP_FORM_ERRORS:
       return {
         ...state,
         errors: action.payload,
@@ -34,5 +34,5 @@ const signupFormReducer = (state = initialState, action) => {
   }
 };
 
-export default signupFormReducer;
+export default buyersSignupFormReducer;
 

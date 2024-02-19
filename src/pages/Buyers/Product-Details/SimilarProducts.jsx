@@ -1,145 +1,124 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const SimilarProducts = ({ similarProducts }) => {
-    const [similarProductsCopy, setSimilarProductsCopy] = useState([]);
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [totalSlides, setTotalSlides] = useState(0);
-    // similar products slider trigger btns state
-    const [isPreviousSlide, setIsPreviousSlide] = useState(true);
-    const [isNextSlide, setIsNextSlideSimilarProducts] = useState(false);
+  const carouselRef = useRef(null);
+  const cardRef = useRef(null);
 
-    useEffect(() => {
-        const copy = similarProducts.slice(0, 5); //only show 5 products at a time
-        const totalSlides = Math.ceil(similarProducts.length / 5);
-        setSimilarProductsCopy(copy);
-        setTotalSlides(totalSlides);
-    }, []);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
-    const slideController = (slideIndex) => {
-        onChangeSlide(slideIndex);
-        if (slideIndex < 1) {
-            setIsPreviousSlide(true);
-        } else {
-            setIsPreviousSlide(false);
-        }
+  // Function to update the viewport width state
+  const updateViewportWidth = () => {
+    setViewportWidth(window.innerWidth);
+  };
 
-        if (slideIndex + 1 < totalSlides) {
-            setIsNextSlideSimilarProducts(false);
-        } else {
-            setIsNextSlideSimilarProducts(true);
-        }
+  // Effect to update the viewport width state when the window is resized
+  useEffect(() => {
+    window.addEventListener('resize', updateViewportWidth);
+    return () => {
+      window.removeEventListener('resize', updateViewportWidth);
     };
+  }, []);
 
-    const onChangeSlide = (slideIndex) => {
-        const startIndex = slideIndex * 5;
-        let endIndex = startIndex + 5;
-        if (endIndex > similarProducts.length) {
-            endIndex = similarProducts.length;
-        }
-        const newResult = similarProducts.slice(startIndex, endIndex);
-        setCurrentSlide(slideIndex);
-        setSimilarProductsCopy(newResult);
-    };
+  const slideController = (direction) => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft +=
+        direction === "left"
+          ? -cardRef.current.offsetWidth
+          : cardRef.current.offsetWidth;
+    }
+  };
 
-    const similarProductsComp = similarProductsCopy.map((product, index) => {
-        return (
-            <div
-                className="w-1/6 h-auto p-5 border shadow-md"
-                key={index}
+  const similarProductsComp = similarProducts.map((product, index) => {
+      return (
+        <li key={index} ref={cardRef} className="card list-none h-[392px] bg-white rounded-md flex flex-col items-stretch p-2 pt-3 pb-6 md:px-[10px] md:pt-4 md:pb-8">
+            <div className="min-w-[159px] max-w-[200px] self-center">
+                <img src={product.img} className="h-[222px] object-cover"/> 
+            </div>
+            <p className="">
+                Lorem ipsum dolor sit amet, dolor sit amet, consectetur
+                {/* {product.description} */}
+            </p>
+            <p className=""> From <span className="text-xl font-bold text-red-600">${product.price}</span></p>
+        </li>
+        
+      );
+  });
+
+  return (
+    //  {/* Similar Products slide show */}
+
+    <div
+      className="self-center my-16 max-w-full flex flex-col gap-8"
+      id="similar-products-div"
+    >
+        <p className="text-3xl font-bold">Based on recently viewed</p>
+
+      {/* Similar product items list */}
+      
+        <div className="wrapper w-full relative">
+            <button
+            type="button"
+            className="bg-stone-100 absolute cursor-pointer top-1/2 w-[50px] h-[50px] shadow-lg rounded-full"
+            onClick={() => {
+                slideController("left");
+            }}
             >
-                <div>
-                    <img src={product.img} />
-                </div>
-                <div className="mt-5">
-                    <div>
-                        <p>
-                            Lorem ipsum dolor sit amet, dolor sit amet, consectetur
-                            {/* {product.description} */}
-                        </p>
-                    </div>
-                    <div className="my-2.5 mx-auto flex ">
-                        <div className="mr-2 ">
-                            <p className=""> From </p>
-                        </div>
-                        <div>
-                            <p className="text-xl font-bold text-red-600">${product.price}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    });
-
-    return (
-        //  {/* Similar Products slide show */}
-
-        <div
-            className="my-16 mx-auto h-auto"
-            id="similar-products-div"
-            style={{ width: "85%" }}
-        >
-            <div className="w-full h-auto my-16 mx-auto">
-                <p className="text-3xl font-bold">Based on recently viewed</p>
-            </div>
-
-            {/* Similar product items list */}
-            <div className="flex">
-                <div className="my-auto mx-4">
-                    <button
-                        type="button"
-                        className="hover:cursor-pointer"
-                        disabled={isPreviousSlide}
-                        onClick={() => {
-                            slideController(currentSlide - 1, true);
-                        }}
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            dataslot="icon"
-                            className="w-6 h-6"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M15.75 19.5 8.25 12l7.5-7.5"
-                            />
-                        </svg>
-                    </button>
-                </div>
-                <div className="w-full h-auto flex justify-evenly">{similarProductsComp}</div>
-                <div className="my-auto mx-4">
-                    <button
-                        className="hover:cursor-pointer"
-                        type="button"
-                        disabled={isNextSlide}
-                        onClick={() => {
-                            slideController(currentSlide + 1, true);
-                        }}
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            dataslot="icon"
-                            className="w-6 h-6"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                            />
-                        </svg>
-                    </button>
-                </div>
-            </div>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                dataslot="icon"
+                className="w-6 h-6 mx-auto"
+            >
+                <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
+                />
+            </svg>
+            </button>
+            <ul
+            ref={carouselRef}
+            className="carousel grid grid-flow-col gap-2 sm:gap-4 overflow-hidden scroll-smooth"
+            style={{
+                gridAutoColumns: `calc((100% 
+                    ${viewportWidth >= 1530 ? "/ 6  - 16px))" : 
+                    viewportWidth >= 1280 ? "/ 5  - 12px))" :
+                    viewportWidth >= 1024 ? "/ 4  - 8px))" :
+                    viewportWidth >= 768 ? "/ 3  - 4px))" :
+                    "/ 2))"}`,
+            }}
+            >
+            {similarProductsComp}
+            </ul>
+            <button
+            className="shadow-lg absolute cursor-pointer top-1/2 w-[50px] h-[50px] bg-stone-100 right-0 rounded-full"
+            type="button"
+            onClick={() => {
+                slideController("right");
+                }}
+            >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                dataslot="icon"
+                className="w-6 h-6 mx-auto"
+            >
+                <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+            </svg>
+            </button>
         </div>
-    );
+    </div>
+  );
 };
 
 export default SimilarProducts;

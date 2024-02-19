@@ -52,7 +52,7 @@ function ProductDetails({
         const paths = [];
         for (let i = 0; i < histories.length; i++) {
             if (histories[i] === "") {
-                paths.push({ pathname: "home/", url: "/" });
+                paths.push({ pathname: "home /", url: "/" });
             } else {
                 if (i + 1 === histories.length) {
                     paths.push({ pathname: `${histories[i]}`, url: histories[i] });
@@ -80,10 +80,10 @@ function ProductDetails({
         setQty(e.target.value);
     };
 
-    const breadCrumbComp = breadCrumb.map((path, index) => {
+    const breadCrumbComp = breadCrumb.map((path, index, arr) => {
         return (
             <Link
-                className="text-xl p-2.5 mr-2.5"
+                className={`font-Roboto text-base lg:text-xl font-medium lg:font-semibold tight-[0.15px] p-1 ${index === arr.length - 1 ? "text-[#2284B6]": "text-[#938F96]"}`}
                 to={path.url}
                 key={index}
             >
@@ -108,228 +108,145 @@ function ProductDetails({
     };
 
     return (
-        <div id="product-details-component">
-            <div className="flex">
+        <div id="product-details-component" className="p-4 lg:px-10 lg:pt-8 lg:pb-16 flex flex-col gap-8">
+            <div id="navigation-history-container">
+                {breadCrumbComp}
+            </div>
+            <div className="flex gap-5">
                 {/* Product Details container*/}
-                <div style={{ width: "85%", margin: "auto" }}>
-                    {/* "BreadCrumb" */}
-                    <div
-                        id="navigation-history-container"
-                        style={{ margin: "1rem auto", width: "inherit" }}
-                    >
-                        {breadCrumbComp}
-                    </div>
+                <div className=" flex flex-col gap-12">
                     {/* Product images, Description, Cost, review container */}
-                    <div className="flex justify-center">
+                    <div className="flex flex-col xl:flex-row gap-6 bg-white px-4 pt-5 pb-16 md:py-12 md:px-10 justify-around items-center xl:items-start">
                         {/* Product Images */}
                         <ProductImgs images={product.imgs} />
 
-                        <div style={{ width: "40%" }}>
+                        <div className="xl:w-[55%] flex flex-col gap-8 xl:mt-0 mt-5">
                             {/* Product description div */}
                             <div id="product-desc-div">
-                                <p className="text-4xl">{product.description}</p>
-                            </div>
-                            {/* Product rating, cost and discounts, color and quantity */}
-                            <div>
-                                {/* Product Rating & Review Div */}
+                                <p className="text-base font-medium lg:text-2xl lg:font-semibold">{product.description}</p>
                                 <div
-                                    className="flex items-center"
+                                    className="flex items-center my-1 gap-3"
                                     id="reviews-div"
-                                    style={{ margin: "1% auto" }}
                                 >
-                                    <svg
-                                        className="w-4 h-4 text-yellow-300 me-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 22 20"
-                                    >
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                    <svg
-                                        className="w-4 h-4 text-yellow-300 me-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 22 20"
-                                    >
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                    <svg
-                                        className="w-4 h-4 text-yellow-300 me-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 22 20"
-                                    >
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                    <svg
-                                        className="w-4 h-4 text-yellow-300 me-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 22 20"
-                                    >
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                    <svg
-                                        className="w-4 h-4 text-gray-300 me-1 dark:text-gray-500"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 22 20"
-                                    >
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                    <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                        {product.ratings}
-                                    </p>
-                                    <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                        out of
-                                    </p>
-                                    <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                        5
-                                    </p>
-                                    <div>
-                                        <a className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                                            {product.reviews} reviews
-                                        </a>
-                                        <a className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                                            108+ orders
-                                        </a>
-                                    </div>
-                                </div>
-                                {/* Product Cost Div */}
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "flex-start",
-                                        width: "50%",
-                                        alignItems: "center",
-                                        margin: "10% 0",
-                                    }}
-                                >
-                                    <div>
-                                        <p
-                                            style={{ fontSize: "2.25rem", fontWeight: "600" }}
-                                            id="product-cost"
+                                    <div className="flex items-center">
+                                        <svg
+                                            className="w-4 h-4 text-yellow-300 me-1"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor"
+                                            viewBox="0 0 22 20"
                                         >
-                                            ${product.price}
-                                        </p>
-                                    </div>
-                                    <div style={{ marginLeft: "5%" }}>
-                                        <p
-                                            id="discounts-item"
-                                            style={{
-                                                fontSize: "1.25rem",
-                                                textDecoration: "line-through",
-                                            }}
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg
+                                            className="w-4 h-4 text-yellow-300 me-1"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor"
+                                            viewBox="0 0 22 20"
                                         >
-                                            $222
-                                        </p>
-                                    </div>
-                                    <div style={{ marginLeft: "5%" }}>
-                                        <p
-                                            id="discount-percentage-item"
-                                            style={{
-                                                fontSize: "1rem",
-                                                fontWeight: "400",
-                                                backgroundColor: "#f2f2f2",
-                                            }}
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg
+                                            className="w-4 h-4 text-yellow-300 me-1"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor"
+                                            viewBox="0 0 22 20"
                                         >
-                                            {product.discount}% off
-                                        </p>
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg
+                                            className="w-4 h-4 text-yellow-300 me-1"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor"
+                                            viewBox="0 0 22 20"
+                                        >
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg
+                                            className="w-4 h-4 text-gray-300 me-1 dark:text-gray-500"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor"
+                                            viewBox="0 0 22 20"
+                                        >
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
                                     </div>
-                                </div>
-                                {/* Product colors & Product quantity component */}
-                                <div className="flex justify-between">
-                                    {/* Product Colors Div */}
-                                    <ProductColors colors={product.colors} />
-                                    {/* Product quantity div */}
-                                    <Quantity
-                                        qty={qty}
-                                        incrementQty={incrementQty}
-                                        decrementQty={decrementQty}
-                                        updateQtyOnChange={updateQtyOnChange}
-                                    />
-                                </div>
-                                {/* Shipping Product div */}
-                                <div id="shipping-div">
-                                    <div className="flex items-center my-12 mx-auto ">
-                                        <div className="mr-1">
-                                            <img
-                                                className="w-5"
-                                                src={infoIcon}
-                                            />
-                                        </div>
-                                        <div className="flex mr-60">
-                                            <p className="mr-2 text-xl">Ship to:</p>
-                                            <p className=" text-xl">Brooklyn</p>
-                                        </div>
-                                        <div id="shipping-cost-div">
-                                            <p className="text-red-700 text-xl">Shipping: $5</p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        id="shipping-brief-details-div"
-                                        className="w-1/2 mb-24"
-                                    >
-                                        <span className="text-lg">
-                                            Available at a lower price from{" "}
-                                            <a
-                                                className="border-b-1 border-sky-500 text-blue-700"
-                                                href="/"
-                                            >
-                                                other seller
-                                            </a>{" "}
-                                            that may not offer free shipping
-                                        </span>
-                                    </div>
-                                    <div className="flex ">
-                                        <div className="mr-2 ">
-                                            <input
-                                                className="w-6 h-6"
-                                                style={{
-                                                    verticalAlign: "middle",
-                                                }}
-                                                type="checkbox"
-                                            />
-                                        </div>
-                                        <div className="">
-                                            <p className="text-lg text-blue-700">Apply Coupon</p>
-                                        </div>
-                                    </div>
+                                    <p className="hidden lg:block ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
+                                        {product.ratings} out of 5
+                                    </p>
+                                    <a className="lg:text-sm text-xs whitespace-nowrap font-medium underline text-[#2284B6] hover:text-[#63acd1] cursor-pointer">
+                                        {product.reviews} reviews
+                                    </a>
+                                    <a className="text-sm font-medium text-indigo-600 whitespace-nowrap hover:text-indigo-500">
+                                        108+ orders
+                                    </a>
                                 </div>
                             </div>
-                            {/* Add to cart div */}
-                            <div
-                                className="flex justify-around"
-                                style={{ margin: "15% auto auto auto" }}
-                            >
-                                <div>
-                                    <button
-                                        type="button"
-                                        style={styles.btnStyles}
-                                        className="text-cyan-500 rounded-lg"
-                                        onClick={() => {
-                                            let productTest = { ...product, qty };
-                                            addToCart(productTest);
-                                        }}
-                                    >
-                                        Add to cart
-                                    </button>
+                            <div>
+                                <p id="product-cost" className="text-[36px] font-semibold">
+                                    ${product.price}
+                                </p>
+                                <p id="discounts-item" className="text-xl line-through">
+                                    $222
+                                </p>
+
+                            </div>
+                            {/* Product colors & Product quantity component */}
+                            <div className="flex flex-col 2xl:flex-row justify-start gap-4 2xl:gap-[90px] items-start 2xl:items-center">
+                                {/* Product Colors Div */}
+                                <ProductColors colors={product.colors} />
+                                {/* Product quantity div */}
+                                <Quantity
+                                    qty={qty}
+                                    incrementQty={incrementQty}
+                                    decrementQty={decrementQty}
+                                    updateQtyOnChange={updateQtyOnChange}
+                                />
+                            </div>
+                            {/* Shipping Product div */}
+                            <div className="flex items-center justify-start gap-[90px]">
+                                <div className="flex gap-2">
+                                    <img
+                                        className="w-5"
+                                        src={infoIcon}
+                                    />
+                                    <p className="whitespace-nowrap text-sm lg:text-xl">Ship to: Brooklyn</p>
                                 </div>
-                                <div>
-                                    <button
-                                        type="button"
-                                        className=" bg-amber-500 rounded-lg"
-                                        style={styles.btnStyles}
-                                    >
-                                        Buy Nnow
-                                    </button>
+                                <div id="shipping-cost-div">
+                                    <p className="whitespace-nowrap text-red-700 font-semibold text-sm lg:text-xl">Shipping: $5</p>
                                 </div>
+                            </div>
+
+                            <p className="text-lg pr-20">
+                                Available at a lower price from <span><a className="border-b-1 border-sky-500 text-blue-700" href="/">other seller</a></span> that may not offer free shipping
+                            </p>
+
+                            <div className="flex items-center gap-2">
+                                <input
+                                    className="w-6 h-6 align-middle"
+                                    type="checkbox"
+                                />
+                                <div className="">
+                                    <p className="text-lg text-[#09618E]">Apply Coupon</p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col lg:hidden gap-3">
+                                <button
+                                    type="button"
+                                    className="rounded bg-[#EEC643] py-4 px-8 border border-solid border-[#EEC643]"
+                                >
+                                    Buy now
+                                </button>
+                                <button
+                                    type="button"
+                                    className="text-[#2284B6] py-4 px-8 border-[#2284B6] border-solid border rounded"
+                                >
+                                    Add to cart
+                                </button>
                             </div>
                         </div>
                     </div>

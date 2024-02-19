@@ -1,5 +1,5 @@
 import imagesList from "./TopsRowImages";
-import arrow from "../../assets/ICONS/RightPointer.svg"
+import arrow from "../../../../../assets/ICONS/RightPointer.svg"
 import { useState } from "react";
 
 function TopsRow() {

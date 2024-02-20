@@ -36,6 +36,7 @@ function App() {
       <div>
           <Router>
             <Routes>
+              <Route path="/login" element={<LoginPage />} />
               <Route exact path="" element={<Layout />}>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/womensfashion" element={<WomensFashionSubCategory />} />
@@ -45,7 +46,6 @@ function App() {
                 <Route path="/language" element="#" />
                 <Route path="/account" element={<Account/>} />
                 <Route path="/app" element="#" />
-                <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/companyService" element={<CompanyService/>}/>
                 <Route path="/paymentSuccess" element={<PaymentSuccessful/>}/>

@@ -92,31 +92,19 @@ const Menu = () => {
     setIsOpen(prev => !prev)
   }
   return (
-    <>
-    {/* Desktop Version */} 
-      <div className="hidden w-full px-3 py-1 min-w-max bg-[#ccefff] gap-5 md:flex justify-start font-Roboto">
-        <p className="text-xl font-bold whitespace-nowrap"> All Categories</p>
-        <div className='grow flex justify-between gap-4 items-center'>
-          {categories.map((item, index) => (
-            <Link key={index} to={item.url} className="text-base leading-[19.2px]">{item.title}</Link>
-          ))}
-        </div>
-      </div>
-      {/* Mobile Version */}
-      <div className="relative md:hidden w-full px-3 py-2 min-w-max bg-[#ccefff] gap-5 flex justify-start font-Roboto">
+      <div className="relative w-full px-3 py-2 min-w-max bg-[#ccefff] gap-6 flex justify-start items-center font-Roboto">
         <button className='flex flex-col gap-1 w-6 active:px-0.5' onClick={menuHandler}>
           <div className='w-full h-1 rounded-md bg-black'/>
           <div className='w-full h-1 rounded-md bg-black'/>
           <div className='w-full h-1 rounded-md bg-black'/>
         </button>
-        <div className={`absolute ${isOpen ? "flex bg-gray-100 opacity-95 z-50" : "hidden"} rounded-br-md rounded-none p-4 top-9 left-0 w-[250px] flex-wrap justify-between gap-16 text-left items-center`}>
+        <p className="text-xl font-bold whitespace-nowrap"> All Categories</p>
+        <div className={`duration-300 absolute ${isOpen ? "ease-in flex bg-gray-100 opacity-95 z-10 ml-0" : "ml-[-100px]"} left-0 flex-col rounded-br-md rounded-none p-4 top-11 w-full justify-between gap-16 text-left items-center`}>
           {categories.map((item, index) => (
-            <Link key={index} to={item.url} className="text-base leading-[19.2px]" onClick={menuHandler}>{item.title}</Link>
+            <Link key={index} to={item.url} className={`${!isOpen && "hidden"} text-base leading-[19.2px]`} onClick={menuHandler}>{item.title}</Link>
           ))}
         </div>
       </div>
-    
-    </>
   );
 };
 

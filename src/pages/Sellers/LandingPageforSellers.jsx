@@ -18,7 +18,7 @@ import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 import RatingsAndReviews from "./Analytics/R&R/Ratings"
 import Body from "./NotificationsSettings/components/Body"
-
+import HelpPage from "./HelpPage";
 
 export default function LandingPageforSellers() {
   const location = useLocation();
@@ -41,6 +41,7 @@ export default function LandingPageforSellers() {
             <Route path='/' element={<Homepage/>} />
             <Route path='/signup' element={<Signup/>} />
             <Route path='/login' element={<Login/>} />
+            <Route path='/help' element={<HelpPage/>}/>
 
             {/* Analytics Routing */}
             <Route path='/overview' element={<Overview />} />

@@ -29,7 +29,7 @@ const HelpPage = () => {
   return (
     <div className="bg-gray-100 h-screen flex flex-row space-x-12">
       {/* Dashboard */}
-      <div className="w-2/5 bg-white flex flex-col space-y-12 ">
+      {/* <div className="w-2/5 bg-white flex flex-col space-y-12 ">
         <div className="flex flex-row mx-8 align-middle mt-6">
           <img className="h-12" src={user} alt="user" />
           <div className="ml-7 justify-center  ">
@@ -66,12 +66,12 @@ const HelpPage = () => {
           <h3 className="mt-8">Sign Out</h3>
           <img className="mt-8 " src={logOut} alt="logout-user" />
         </div>
-      </div>
+      </div> */}
       {/* Dashboard */}
 
       {/* Navigation */}
-      <div className="flex flex-col w-full">
-        <div className="flex flex-row mt-8 space-x-2">
+      <div className="flex flex-col w-full p-5 border-2 border-red-400">
+        <div className="flex flex-row space-x-2">
           <div className="flex flex-row space-x-4">
             <h3>Help</h3>
             <img src={navigationArrow} alt="" />

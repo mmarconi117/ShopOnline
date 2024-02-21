@@ -11,7 +11,7 @@ import LoginPage from "./pages/Buyers/LoginPage";
 import SignupPage from "./pages/Buyers/Signup/SignupPage";
 import Help from "./pages/Buyers/Help";
 import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
-import Checkout from "./pages/Buyers/Checkout";
+import Checkout from "./pages/Buyers/Checkout/Checkout";
 import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";

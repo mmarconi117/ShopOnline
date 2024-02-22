@@ -138,7 +138,7 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
                 <div key={index} style={{ border: "1px solid #e5e5e5", marginBottom: "20px", padding: "20px", display: "flex", alignItems: "center", flexDirection: "column" }}>
                   {item.product && (
                     <>
-                      <img src={item.product.avatar} alt={item.product.name} style={{ width: "100px", height: "100px", marginBottom: "10px" }} />
+                      <img src={item.product.avatar} style={{ width: "100px", height: "100px", marginBottom: "10px" }} />
                       <div className="info">
                         <h3>{item.product.name}</h3>
                         <p>{item.product.description}</p>

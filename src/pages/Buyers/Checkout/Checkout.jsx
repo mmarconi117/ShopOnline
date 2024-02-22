@@ -6,6 +6,20 @@ const Checkout = () => {
   const { carts, subtotal, promoCode, shipping, total } = location.state || { carts: [], subtotal: 0, promoCode: "", shipping: 0, total: 0 };
 
   return (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div className="bg-[#F0F0F0]">
       <div className="flex px-4 pt-8 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
         <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-blue-200 lg:h-[759px]">
@@ -13,7 +27,6 @@ const Checkout = () => {
             <div key={index} className="border border-gray-300 mb-4 p-4">
               <img
                 src={item.product.avatar}
-                alt={item.product.name}
                 className="w-24 h-24 mb-2"
               />
               <div className="info">

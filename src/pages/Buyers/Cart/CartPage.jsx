@@ -1,14 +1,9 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { setCarts, updateCartQuantity, increaseQuantityCart, decreaseQuantityCart } from "../../../reducersAndActions/actions/cartAction";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, decreaseQuantityCart }) => {
+const CartPage = () => {
   const navigate = useNavigate();
-
-
 
   const [dummy, setDummy] = useState([
     {
@@ -43,7 +38,7 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
     }
   ]);
 
-  const navigateToCheckout = (navigate) => {
+  const navigateToCheckout = () => {
     const subtotal = getSubtotal();
     const promoCode = "ADC345"; // You can replace this with the actual promo code logic
     const shipping = getShippingCost();
@@ -53,14 +48,13 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
 
     // Pass the carts data, subtotal, promoCode, shipping, and total to the checkout route
     try {
-      navigate("/checkout", { state: { carts, subtotal, promoCode, shipping, total } });
+      navigate("/checkout", { state: { carts: dummy, subtotal, promoCode, shipping, total } });
     } catch (error) {
       console.error("Error navigating to checkout:", error);
     }
   };
 
   const handleIncreaseQuantity = (id) => {
-    event.stopPropagation();
     const updatedData = dummy.map(item => {
       if (item.product.id === id) {
         return {
@@ -74,7 +68,6 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
   };
 
   const handleDecreaseQuantity = (id) => {
-
     const updatedData = dummy.map(item => {
       if (item.product.id === id && item.quantity > 0) {
         return {
@@ -87,24 +80,12 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
     setDummy(updatedData);
   };
 
-
   const getSubtotal = () => {
-    if (carts.length > 0) {
-      return carts.reduce(
-        (total, item) => {
-          const productPrice = item.product ? item.product.price : 0;
-          return total + productPrice * item.quantity;
-        },
-        0
-      ).toFixed(2);
-    } else {
-      return dummy.reduce(
-        (total, item) => total + item.product.price * item.quantity,
-        0
-      ).toFixed(2);
-    }
+    return dummy.reduce(
+      (total, item) => total + item.product.price * item.quantity,
+      0
+    ).toFixed(2);
   };
-
 
   const getShippingCost = () => {
     // Example shipping cost
@@ -119,66 +100,36 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
 
   const deleteCart = (id) => {
     if (window.confirm("Are you sure to delete this product from the cart?")) {
-      const updatedCarts = carts.filter((item) => item.product.id !== id);
-      setCarts(updatedCarts);
+      const updatedData = dummy.filter((item) => item.product.id !== id);
+      setDummy(updatedData);
       console.log(`Deleted product with ID: ${id}`);
     }
   };
-
-  // const checkout = () => navigate("/checkout");
 
   return (
     <div className="bg-[#F0F0F0]">
       <div className="flex px-4 pt-8 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
         <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-blue-200 lg:h-[759px]">
-          {carts.length > 0 ? (
-            <>
-              {carts.map((item, index) => (
-                <div key={index} style={{ border: "1px solid #e5e5e5", marginBottom: "20px", padding: "20px", display: "flex", alignItems: "center", flexDirection: "column" }}>
-                  {item.product && (
-                    <>
-                      <img src={item.product.avatar} alt={item.product.name} style={{ width: "100px", height: "100px", marginBottom: "10px" }} />
-                      <div className="info">
-                        <h3>{item.product.name}</h3>
-                        <p>{item.product.description}</p>
-                        {item.product.price && <p>$ {item.product.price}</p>}
-                        <div style={{ display: "flex", alignItems: "center" }}>
-                          <button className="quantity-button bg-white text-black border border-black px-4 py-2" onClick={() => handleIncreaseQuantity(item.product.id)}>+</button>
-                          <span style={{ margin: "0 10px" }}>{item.quantity}</span>
-                          <button className="quantity-button bg-white text-black border border-black px-4 py-2" onClick={() => handleDecreaseQuantity(item.product.id)}>-</button>
-
-                        </div>
-                        <p style={{ cursor: "pointer" }} onClick={() => deleteCart(item.product.id)}>REMOVE</p>
-                      </div>
-                    </>
-                  )}
-                </div>
-              ))}
-            </>
-          ) : (
-            <>
-              {dummy.map((item, index) => (
-                <div key={index} style={{ border: "1px solid #e5e5e5", marginBottom: "20px", padding: "20px", display: "flex", alignItems: "center", flexDirection: "column" }}>
-                  {item.product && (
-                    <>
-                      <img src={item.product.avatar} style={{ width: "100px", height: "100px", marginBottom: "10px" }} />
-                      <div className="info">
-                        <h3>{item.product.name}</h3>
-                        <p>{item.product.description}</p>
-                        {item.product.price && <p>$ {item.product.price}</p>}
-                        <div style={{ display: "flex", alignItems: "center" }}>
-                          <button className="quantity-button bg-white text-black border border-black px-4 py-2" onClick={() => handleIncreaseQuantity(item.product.id)}>+</button>
-                          <span style={{ margin: "0 10px" }}>{item.quantity}</span>
-                          <button className="quantity-button bg-white text-black border border-black px-4 py-2" onClick={() => handleDecreaseQuantity(item.product.id)}>-</button>
-                        </div>
-                        <p style={{ cursor: "pointer" }} onClick={() => deleteCart(item.product.id)}>REMOVE</p>
-                      </div>
-                    </>
-                  )}
-                </div>
-              ))}
-            </>
-          )}
+          {dummy.map((item, index) => (
+            <div key={index} style={{ border: "1px solid #e5e5e5", marginBottom: "20px", padding: "20px", display: "flex", alignItems: "center", flexDirection: "column" }}>
+              {item.product && (
+                <>
+                  <img src={item.product.avatar} style={{ width: "100px", height: "100px", marginBottom: "10px" }} />
+                  <div className="info">
+                    <h3>{item.product.name}</h3>
+                    <p>{item.product.description}</p>
+                    {item.product.price && <p>$ {item.product.price}</p>}
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <button className="quantity-button bg-white text-black border border-black px-4 py-2" onClick={() => handleIncreaseQuantity(item.product.id)}>+</button>
+                      <span style={{ margin: "0 10px" }}>{item.quantity}</span>
+                      <button className="quantity-button bg-white text-black border border-black px-4 py-2" onClick={() => handleDecreaseQuantity(item.product.id)}>-</button>
+                    </div>
+                    <p style={{ cursor: "pointer" }} onClick={() => deleteCart(item.product.id)}>REMOVE</p>
+                  </div>
+                </>
+              )}
+            </div>
+          ))}
         </div>
 
         <div className="flex flex-col items-start gap-8 lg:gap-5 col-start-3 col-end-4">
@@ -202,38 +153,17 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
                 <div className="lg:text-2xl lg:font-bold">${getTotal()}</div>
               </div>
             </div>
-            <Link
-              onClick={() => navigateToCheckout(navigate)}
+            <button
+              onClick={navigateToCheckout}
               className="flex justify-center items-center rounded-[5px] gap-[10px] text-[#0F1111] bg-[#EEC643] h-[44px] lg:w-[70%] px-[30px] py-[14px] text-[14px] font-semibold leading-5 lg:text-base lg:leading-[19.2px] lg:font-normal"
             >
               Checkout
-            </Link>
-
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
-
 };
 
-CartPage.propTypes = {
-  carts: PropTypes.array.isRequired,
-  setCarts: PropTypes.func.isRequired,
-  updateCartQuantity: PropTypes.func.isRequired,
-  increaseQuantityCart: PropTypes.func.isRequired,
-  decreaseQuantityCart: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  carts: state.cartReducer.carts,
-});
-
-const mapDispatchToProps = {
-  setCarts,
-  updateCartQuantity,
-  increaseQuantityCart,
-  decreaseQuantityCart
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CartPage);
+export default CartPage;

@@ -1,3 +1,4 @@
+import React, { useState } from "react"
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +7,7 @@ import { setCarts, updateCartQuantity, increaseQuantityCart, decreaseQuantityCar
 const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, decreaseQuantityCart }) => {
   const navigate = useNavigate();
 
-  const dummyData = [
+  const [dummy, setDummy] = useState([
     {
       product: {
         id: 1,
@@ -37,14 +38,32 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
       },
       quantity: 3 // Example quantity in cart
     }
-  ];
+  ]);
 
   const handleIncreaseQuantity = (id) => {
-    increaseQuantityCart(id);
+    const updatedData = dummy.map(item => {
+      if (item.product.id === id) {
+        return {
+          ...item,
+          quantity: item.quantity + 1
+        };
+      }
+      return item;
+    });
+    setDummy(updatedData);
   };
 
   const handleDecreaseQuantity = (id) => {
-    decreaseQuantityCart(id);
+    const updatedData = dummy.map(item => {
+      if (item.product.id === id && item.quantity > 0) {
+        return {
+          ...item,
+          quantity: item.quantity - 1
+        };
+      }
+      return item;
+    });
+    setDummy(updatedData);
   };
 
   const getSubtotal = () => {
@@ -57,12 +76,13 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
         0
       ).toFixed(2);
     } else {
-      return dummyData.reduce(
+      return dummy.reduce(
         (total, item) => total + item.product.price * item.quantity,
         0
       ).toFixed(2);
     }
   };
+
 
   const getShippingCost = () => {
     // Example shipping cost
@@ -114,7 +134,7 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
             </>
           ) : (
             <>
-              {dummyData.map((item, index) => (
+              {dummy.map((item, index) => (
                 <div key={index} style={{ border: "1px solid #e5e5e5", marginBottom: "20px", padding: "20px", display: "flex", alignItems: "center", flexDirection: "column" }}>
                   {item.product && (
                     <>

@@ -7,6 +7,11 @@ import { setCarts, updateCartQuantity, increaseQuantityCart, decreaseQuantityCar
 const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, decreaseQuantityCart }) => {
   const navigate = useNavigate();
 
+  const navigateToCheckout = () => {
+    // Pass the carts data to the checkout route
+    navigate("/checkout", { state: { carts } });
+  };
+
   const [dummy, setDummy] = useState([
     {
       product: {
@@ -103,7 +108,7 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
     }
   };
 
-  const checkout = () => navigate("/checkout");
+  // const checkout = () => navigate("/checkout");
 
   return (
     <div className="bg-[#F0F0F0]">
@@ -179,7 +184,7 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
                 <div className="lg:text-2xl lg:font-bold">${getTotal()}</div>
               </div>
             </div>
-            <button className="flex justify-center items-center rounded-[5px] gap-[10px] text-[#0F1111] bg-[#EEC643] h-[44px] lg:w-[70%] px-[30px] py-[14px] text-[14px] font-semibold leading-5 lg:text-base lg:leading-[19.2px] lg:font-normal" onClick={checkout}>Checkout</button>
+            <button className="flex justify-center items-center rounded-[5px] gap-[10px] text-[#0F1111] bg-[#EEC643] h-[44px] lg:w-[70%] px-[30px] py-[14px] text-[14px] font-semibold leading-5 lg:text-base lg:leading-[19.2px] lg:font-normal" onClick={navigateToCheckout}>Checkout</button>
           </div>
         </div>
       </div>

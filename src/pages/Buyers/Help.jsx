@@ -31,7 +31,8 @@ const Help = () => {
     setDropDown((prev) => !prev)
   }
   return (
-    <div className="relative min-h-max w-full p-6 pt-9 sm:p-12 sm:pt-[72px]">
+    <div className={`relative min-h-max w-full p-6 pt-9 sm:p-12 sm:pt-[72px]`}>
+      {displayFeedbackModal && <FeedbackModal />}
       <div className="hidden lg:block absolute w-[68px] right-0 bottom-[10px] lg:bottom-[50%]">
         <img src={yellowchat} alt="chat-icon" className="object-contain shrink-0"/>
       </div>
@@ -198,11 +199,10 @@ const Help = () => {
             </div>
             <button
               onClick={handleFeedback}
-              className="text-cyan-600 text-center text-xl leading-6 whitespace-nowrap justify-center items-stretch border border-[color:var(--Color-Styles-Primary-color-blue-T1000,#2284B6)] self-center ml-44 mt-28 px-12 py-4 rounded-md border-solid max-md:mt-10 max-md:px-5"
+              className="text-cyan-600 text-center text-xl leading-6 whitespace-nowrap justify-center items-stretch border border-[color:var(--Color-Styles-Primary-color-blue-T1000,#2284B6)] self-center mt-28 px-12 py-4 rounded-md border-solid max-md:mt-10 max-md:px-5"
             >
               Give us feedback
             </button>
-            {displayFeedbackModal && <FeedbackModal />}
           </div>
         </div>
       </div>

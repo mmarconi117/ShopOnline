@@ -1,25 +1,17 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { carts, subtotal, promoCode, shipping, total } = location.state || { carts: [], subtotal: 0, promoCode: "", shipping: 0, total: 0 };
 
+  const handleCheckout = () => {
+    // Implement your checkout logic here, such as navigating to a confirmation page
+    navigate("/confirmation");
+  };
+
   return (
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div className="bg-[#F0F0F0]">
       <div className="flex px-4 pt-8 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
         <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-blue-200 lg:h-[759px]">
@@ -41,8 +33,8 @@ const Checkout = () => {
             </div>
           ))}
         </div>
-        <div className="flex flex-col items-start gap-8 lg:gap-5 col-start-3 col-end-4">
-          <div className="bg-white p-6 rounded-lg">
+        <div className="flex flex-col items-start gap-8 lg:gap-5 col-start-3 col-end-4 w-full">
+          <div className="bg-white p-6 rounded-lg w-full">
             <div className="text-xl font-semibold mb-6">Order Summary</div>
             <div className="flex justify-between mb-2">
               <span>Subtotal:</span>
@@ -60,8 +52,16 @@ const Checkout = () => {
               <span>Total:</span>
               <span>${total}</span>
             </div>
+            <button
+              onClick={handleCheckout}
+              className="bg-[#EEC643] text-[#0F1111] py-2 px-4 rounded mt-4 hover:bg-[#FFD700] w-full"
+            >
+              Checkout
+            </button>
           </div>
         </div>
+
+
       </div>
     </div>
   );

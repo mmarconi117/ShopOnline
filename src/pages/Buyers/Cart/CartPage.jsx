@@ -3,14 +3,12 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setCarts, updateCartQuantity, increaseQuantityCart, decreaseQuantityCart } from "../../../reducersAndActions/actions/cartAction";
+import { Link } from "react-router-dom";
 
 const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, decreaseQuantityCart }) => {
   const navigate = useNavigate();
 
-  const navigateToCheckout = () => {
-    // Pass the carts data to the checkout route
-    navigate("/checkout", { state: { carts } });
-  };
+
 
   const [dummy, setDummy] = useState([
     {
@@ -45,7 +43,24 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
     }
   ]);
 
+  const navigateToCheckout = (navigate) => {
+    const subtotal = getSubtotal();
+    const promoCode = "ADC345"; // You can replace this with the actual promo code logic
+    const shipping = getShippingCost();
+    const total = getTotal();
+
+    console.log("Navigating to checkout...");
+
+    // Pass the carts data, subtotal, promoCode, shipping, and total to the checkout route
+    try {
+      navigate("/checkout", { state: { carts, subtotal, promoCode, shipping, total } });
+    } catch (error) {
+      console.error("Error navigating to checkout:", error);
+    }
+  };
+
   const handleIncreaseQuantity = (id) => {
+    event.stopPropagation();
     const updatedData = dummy.map(item => {
       if (item.product.id === id) {
         return {
@@ -59,6 +74,7 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
   };
 
   const handleDecreaseQuantity = (id) => {
+
     const updatedData = dummy.map(item => {
       if (item.product.id === id && item.quantity > 0) {
         return {
@@ -70,6 +86,7 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
     });
     setDummy(updatedData);
   };
+
 
   const getSubtotal = () => {
     if (carts.length > 0) {
@@ -129,6 +146,7 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
                           <button className="quantity-button bg-white text-black border border-black px-4 py-2" onClick={() => handleIncreaseQuantity(item.product.id)}>+</button>
                           <span style={{ margin: "0 10px" }}>{item.quantity}</span>
                           <button className="quantity-button bg-white text-black border border-black px-4 py-2" onClick={() => handleDecreaseQuantity(item.product.id)}>-</button>
+
                         </div>
                         <p style={{ cursor: "pointer" }} onClick={() => deleteCart(item.product.id)}>REMOVE</p>
                       </div>
@@ -184,12 +202,19 @@ const CartPage = ({ carts, setCarts, updateCartQuantity, increaseQuantityCart, d
                 <div className="lg:text-2xl lg:font-bold">${getTotal()}</div>
               </div>
             </div>
-            <button className="flex justify-center items-center rounded-[5px] gap-[10px] text-[#0F1111] bg-[#EEC643] h-[44px] lg:w-[70%] px-[30px] py-[14px] text-[14px] font-semibold leading-5 lg:text-base lg:leading-[19.2px] lg:font-normal" onClick={navigateToCheckout}>Checkout</button>
+            <Link
+              onClick={() => navigateToCheckout(navigate)}
+              className="flex justify-center items-center rounded-[5px] gap-[10px] text-[#0F1111] bg-[#EEC643] h-[44px] lg:w-[70%] px-[30px] py-[14px] text-[14px] font-semibold leading-5 lg:text-base lg:leading-[19.2px] lg:font-normal"
+            >
+              Checkout
+            </Link>
+
           </div>
         </div>
       </div>
     </div>
   );
+
 };
 
 CartPage.propTypes = {

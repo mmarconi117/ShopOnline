@@ -5,11 +5,11 @@ import Nav from "./Nav";
 import Menu from '../Menu/Menu'
 import { PiShoppingCartDuotone } from "react-icons/pi";
 import { Link } from 'react-router-dom'
-export default function Header() {
+export default function Header({menuIsOpened, setMenuIsOpened}) {
   return (
-    <div>
+    <>
+    <div >
       <Nav />
-      
       <div className="flex items-center justify-center gap-6 my-5 px-5">
         <img src={LOGO} className="hidden lg:flex"></img>
         <div className="w-[352px] bg-white h-10 min-[390px]:h-12 rounded border border-[#012e72] justify-between items-center inline-flex">
@@ -27,12 +27,13 @@ export default function Header() {
             <PiShoppingCartDuotone className="w-12 h-12 text-[#001c43]" />
           </Link>
       </div>
-      <Menu />
       {/* <p className="flex items-center justify-center">
         Take the good times on the go, get the&nbsp;
         <Link to='/app'><button className="text-orange-500 text-2xl font-500">APP&nbsp;</button></Link>{" "}
         now!!!
       </p> */}
     </div>
+    <Menu />
+    </>
   );
 }

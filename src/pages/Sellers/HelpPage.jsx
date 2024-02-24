@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFeedbackForm, submitFeedbackForm, updateEmail, updateQuestion } from '../../reducersAndActions/actions/feedbackFormActions';
 import user from "../../assets/ICONS/user/user-fill.svg";
@@ -6,8 +6,10 @@ import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
 import logOut from "../../assets/ICONS/logOut.svg";
 import HelpPage_Banner from "../Sellers/HelpPage_Banner.svg";
+import FeedbackModal from '../Buyers/FeedbackModal';
 
 const HelpPage = () => {
+  const [modal, setModal] = useState(false);
   const { showFeedbackFormState, email, question } = useSelector(state => ({
     showFeedbackFormState: state.feedback.showFeedbackForm,
     email: state.feedback.email,
@@ -15,17 +17,17 @@ const HelpPage = () => {
   }));
   const dispatch = useDispatch();
 
-  const handleToggleFeedbackForm = () => {
-    dispatch(toggleFeedbackForm());
-  };
+  // const handleToggleFeedbackForm = () => {
+  //   dispatch(toggleFeedbackForm());
+  // };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault(); 
-    const formData = { email, question }; 
-    dispatch(submitFeedbackForm(formData)); 
-    dispatch(updateEmail(''));
-    dispatch(updateQuestion(''));
-  };
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault(); 
+  //   const formData = { email, question }; 
+  //   dispatch(submitFeedbackForm(formData)); 
+  //   dispatch(updateEmail(''));
+  //   dispatch(updateQuestion(''));
+  // };
 
   return (
     <div className="bg-gray-100 h-screen flex flex-row space-x-12">
@@ -128,10 +130,10 @@ const HelpPage = () => {
         </details>
       </div>
       {/* feedback button */}
-      <button className="border-1 border-blue-400" onClick={handleToggleFeedbackForm}>Give us feedback</button>
-
+      <button className="border-1 border-blue-400" onClick={!modal}>Give us feedback</button>
+      {modal && <FeedbackModal/>}
       {/* show feedback form depending on the state of the feedback button */}
-      {showFeedbackFormState && (
+      {/* {showFeedbackFormState && (
         <form onSubmit={handleFormSubmit} className="feedback-form"> 
           <h3>Please share your feedback with us!</h3>
           <p>If you still have questions or need help feel free to contact us.</p>
@@ -157,7 +159,7 @@ const HelpPage = () => {
           </div>
           <button type="submit">Send</button>
         </form>
-      )}
+      )} */}
       </div>
     </div>
   );

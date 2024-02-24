@@ -5,6 +5,7 @@ import user from "../../assets/ICONS/user/user-fill.svg";
 import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
 import logOut from "../../assets/ICONS/logOut.svg";
+import HelpPage_Banner from "../Sellers/HelpPage_Banner.svg";
 
 const HelpPage = () => {
   const { showFeedbackFormState, email, question } = useSelector(state => ({
@@ -74,7 +75,7 @@ const HelpPage = () => {
         <div className="flex flex-row space-x-2">
           <div className="flex flex-row space-x-4">
             <h3>Help</h3>
-            <img src={navigationArrow} alt="" />
+            <img className="w-full" src={navigationArrow} alt="" />
           </div>
           <div className="flex flex-row space-x-4">
             <h3>Partner Profile</h3>
@@ -84,10 +85,18 @@ const HelpPage = () => {
       {/* Navigation */}
 
       {/* Contact Information */}
-      <img src="path-to-image-of-the-contact-info.jpg" alt="Need Help" />
+      <img src={HelpPage_Banner} alt="Need Help"></img>
+      {/* <img src="path-to-image-of-the-contact-info.jpg" alt="Need Help" /> */}
       {/* Contact Information */}
+      <div className="flex flex-col w-full h-150 align-center justify-center -mt-20 pl-30">
+        <div>Give us a call: 1-800-123-4657</div>
+        <div>Email us: nyshopping@shopping.com</div>
+        <div>Monday-Friday 6am - 5pm EST</div>
+        <div>Saturday - Sunday 8am - 2pm EST</div>
+      </div>
       {/* search bar */}
         <input
+        className="mt-10"
         type="search"
         placeholder="What can we help you with?"
         aria-label="Search through site content"
@@ -119,7 +128,7 @@ const HelpPage = () => {
         </details>
       </div>
       {/* feedback button */}
-      <button onClick={handleToggleFeedbackForm}>Give us feedback</button>
+      <button className="border-1 border-blue-400" onClick={handleToggleFeedbackForm}>Give us feedback</button>
 
       {/* show feedback form depending on the state of the feedback button */}
       {showFeedbackFormState && (

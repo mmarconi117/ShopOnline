@@ -85,17 +85,19 @@ const HelpPage = () => {
         </div>
         <h1 className="my-10 text-2xl font-semibold">Seller's Online Help Services </h1>
       {/* Navigation */}
-
-      {/* Contact Information */}
-      <img src={HelpPage_Banner} alt="Need Help"></img>
-      {/* <img src="path-to-image-of-the-contact-info.jpg" alt="Need Help" /> */}
-      {/* Contact Information */}
-      <div className="flex flex-col w-full h-150 align-center justify-center -mt-20 pl-30">
-        <div>Give us a call: 1-800-123-4657</div>
-        <div>Email us: nyshopping@shopping.com</div>
-        <div>Monday-Friday 6am - 5pm EST</div>
-        <div>Saturday - Sunday 8am - 2pm EST</div>
+      <div className="flex flex-col w-full h-150 align-center justify-center pl-30">
+        {/* Contact Information */}
+        <img src={HelpPage_Banner} alt="Need Help"></img>
+        {/* <img src="path-to-image-of-the-contact-info.jpg" alt="Need Help" /> */}
+        {/* Contact Information */}
+        <div className="-mt-20">
+          <div>Give us a call: 1-800-123-4657</div>
+          <div>Email us: nyshopping@shopping.com</div>
+          <div>Monday-Friday 6am - 5pm EST</div>
+          <div>Saturday - Sunday 8am - 2pm EST</div>
+        </div>
       </div>
+      <div className="flex flex-col h-300 content-around">
       {/* search bar */}
         <input
         className="mt-10"
@@ -132,6 +134,7 @@ const HelpPage = () => {
       {/* feedback button */}
       <button className="border-1 border-blue-400" onClick={!modal}>Give us feedback</button>
       {modal && <FeedbackModal/>}
+      </div>
       {/* show feedback form depending on the state of the feedback button */}
       {/* {showFeedbackFormState && (
         <form onSubmit={handleFormSubmit} className="feedback-form"> 

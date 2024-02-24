@@ -73,7 +73,7 @@ const HelpPage = () => {
       {/* Dashboard */}
 
       {/* Navigation */}
-      <div className="flex flex-col w-full p-5 border-2 border-red-400">
+      <div className="flex flex-col w-full p-5">
         <div className="flex flex-row space-x-2">
           <div className="flex flex-row space-x-4">
             <h3>Help</h3>
@@ -90,14 +90,14 @@ const HelpPage = () => {
         <img src={HelpPage_Banner} alt="Need Help"></img>
         {/* <img src="path-to-image-of-the-contact-info.jpg" alt="Need Help" /> */}
         {/* Contact Information */}
-        <div className="-mt-20">
+        <div className="-mt-20 ml-20">
           <div>Give us a call: 1-800-123-4657</div>
           <div>Email us: nyshopping@shopping.com</div>
           <div>Monday-Friday 6am - 5pm EST</div>
           <div>Saturday - Sunday 8am - 2pm EST</div>
         </div>
       </div>
-      <div className="flex flex-col h-300 content-around">
+      <div className="flex flex-col h-300 content-between">
       {/* search bar */}
         <input
         className="mt-10"

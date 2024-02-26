@@ -15,6 +15,7 @@ import {
 function OrderList() {
     const dispatch = useDispatch();
     const [orders, setOrdersLocal] = useState([]);
+    const [btnState, setBtnState] = useState("all")
     const order = useSelector((state) => state.ordersReducer.orders);
     const filtered = useSelector((state) => state.ordersReducer.filtered);
     let beginDate, endDate;
@@ -40,22 +41,27 @@ function OrderList() {
 
     const handleAll = () => {
         dispatch(allOrder());
+        setBtnState("all")
     };
 
     const handlePending = () => {
         dispatch(pendingOrder());
+        setBtnState("pending")
     };
 
     const handleShipped = () => {
         dispatch(shippedOrder());
+        setBtnState("shipped")
     };
 
     const handleDelivered = () => {
         dispatch(deliveredOrder());
+        setBtnState("delivered")
     };
 
     const handleError = () => {
         dispatch(errorOrder());
+        setBtnState("errors")
     };
 
     const handleFromDate = (begin) => {
@@ -121,35 +127,35 @@ function OrderList() {
                     <div className='flex flex-wrap gap-4 sm:gap-8 justify-start items-center lg:flex-nowrap'>
                         <button
                             type="button"
-                            className="text-white text-sm leading-8 whitespace-nowrap bg-zinc-400 lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer"
+                            className={`text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "all" ? "bg-[#EEC643] text-black" : "bg-zinc-400 text-white "}`}
                             onClick={handleAll}
                         >
                             All
                         </button>
                         <button
                             type="button"
-                            className="text-neutral-400  text-sm leading-8 whitespace-nowrap bg-zinc-200 lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer"
+                            className={`text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "pending" ? "bg-[#EEC643] text-black" : "bg-zinc-200 text-neutral-400"}`}
                             onClick={handlePending}
                         >
                             Pending (0)
                         </button>
                         <button
                             type="button"
-                            className="text-neutral-400  text-sm leading-8 whitespace-nowrap bg-zinc-200 lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer"
+                            className={` text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "shipped" ? "bg-[#EEC643] text-black" : "bg-zinc-200 text-neutral-400"}`}
                             onClick={handleShipped}
                         >
                             Shipped
                         </button>
                         <button
                             type="button"
-                            className="text-neutral-400  text-sm leading-8 whitespace-nowrap bg-zinc-200 lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer"
+                            className={` text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "delivered" ? "bg-[#EEC643] text-black" : "bg-zinc-200 text-neutral-400"}`}
                             onClick={handleDelivered}
                         >
                             Delivered
                         </button>
                         <button
                             type="button"
-                            className="text-neutral-400  text-sm leading-8 whitespace-nowrap bg-zinc-200 lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer"
+                            className={` text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "errors" ? "bg-[#EEC643] text-black" : "bg-zinc-200 text-neutral-400"}`}
                             onClick={handleError}
                         >
                             Errors

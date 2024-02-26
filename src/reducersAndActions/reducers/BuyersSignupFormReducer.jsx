@@ -4,6 +4,7 @@ const initialStoreData = {
   name: '',
   email: '',
   password: '',
+  role: 'buyer',
   conPassword:'',
   staySignedIn: false,
 };

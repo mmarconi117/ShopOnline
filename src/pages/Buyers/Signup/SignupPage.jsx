@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import {submitForm, setFormErrors } from '../../../reducersAndActions/actions/BuyersSignupFormAction' 
 import { useSelector, useDispatch } from 'react-redux';
 import { validateForm } from './formValidation';
+import axios from "axios";
 
 
 let initialStoreData = {
@@ -29,15 +30,31 @@ const SignupPage = () => {
     const errors = validateForm(storeData);
     dispatch(setFormErrors(errors));
 
-    if (Object.keys(errors).length === 0) {
+    if (Object.keys(errors).length === 0 && storeData !==0) {
 
           dispatch(submitForm(storeData));
           if (storeData.staySignedIn) {
             localStorage.setItem('userData', JSON.stringify(storeData.email));
           }
-        // Clear form data after successful signup
-        dispatch({ type: 'BUYERS_SIGNUP_FORM', payload: initialStoreData });
+          const userData = {
+            name: storeData.name,
+            email: storeData.email,
+            password: storeData.password,            
+            role: storeData.role
+          }
+          try {
+            const response = await axios.post('http://localhost:8000/signup', userData);
+      
+            console.log('Signup successful:', response.data);
+            // Clear form data after successful signup
+            dispatch({ type: 'BUYERS_SIGNUP_FORM', payload: initialStoreData });
+      
+          } catch (error) {        
+            console.error('Signup error:', error);
+            console.log('Signup error: ', errorInfo.message)
+          }        
     }
+    
   };
 
   const handleInputChange = (e, fieldName) => {

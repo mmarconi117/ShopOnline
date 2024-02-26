@@ -1,4 +1,4 @@
-import google from '../../../assets/ICONS/google.svg'
+import google from '../../../assets/ICONS/google.svg';
 import apple from '../../../assets/ICONS/apple.svg'
 import logo from '../../../assets/ICONS/Outline/LOGO.png';
 import { Link, useNavigate } from 'react-router-dom'

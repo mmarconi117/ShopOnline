@@ -1,13 +1,76 @@
-import {Link} from 'react-router-dom'
+import facebook from "../../../assets/ICONS/socials/facebook.svg";
+import twitter from "../../../assets/ICONS/socials/twitter.svg";
+import linkedin from "../../../assets/ICONS/socials/linkedin.svg";
+import instagram from "../../../assets/ICONS/socials/instagram.svg";
+import arrow from "../../../assets/ICONS/ArrowDown.svg"
 
-import facebook from "../../assets/ICONS/socials/facebook.svg";
-import twitter from "../../assets/ICONS/socials/twitter.svg";
-import linkedin from "../../assets/ICONS/socials/linkedin.svg";
-import instagram from "../../assets/ICONS/socials/instagram.svg";
-import arrow from "../../assets/ICONS/ArrowDown.svg"
+import { Link, useNavigate } from 'react-router-dom'
+import { submitBuyersLoginForm, setBuyersLoginFormErrors } from '../../../reducersAndActions/actions/BuyersLoginFormAction';
+import { useSelector, useDispatch } from 'react-redux';
+import { validateForm } from './formValidation';
+import axios from 'axios';
+
+let initialStoreData = {
+  email: '',
+  password: '',
+};
 
 const LoginPage = () => {
   const socialMedia = [facebook, instagram, linkedin, twitter];
+  const dispatch = useDispatch();
+  const storeData = useSelector((state) => state.buyersLoginFormReducer.formData) || initialStoreData;
+  const formErrors = useSelector((state) => state.buyersLoginFormReducer.errors)
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const errors = validateForm(storeData);
+    dispatch(setBuyersLoginFormErrors(errors));
+
+    if (Object.keys(errors).length === 0) {      
+      try {
+        const response = await axios.post('http://localhost:8000/login', storeData);
+
+          if (response.data.user.role === "buyer") {
+            
+              const userData = {
+                id: response.data.user.id,
+                name: response.data.user.name,
+                profile_picture: response.data.user.profile_picture,
+                email: response.data.user.email,
+              }
+              dispatch(submitBuyersLoginForm(userData));
+              localStorage.setItem('valid_token', response.data.validToken);
+              navigate('/');
+              dispatch({ type: 'BUYERS_LOGIN_SUBMIT_FORM', payload: initialStoreData });
+              dispatch(setBuyersLoginFormErrors({}));
+              clearLocalStorage();
+          }else{
+            alert("Your account is not a buyers account.")
+          }   
+
+      } catch (error) {
+        dispatch(setBuyersLoginFormErrors(error));
+      }
+    }
+  };
+
+  const handleInputChange = (e, fieldName) => {
+    const { value } = e.target;
+    dispatch({ type: 'BUYERS_LOGIN_SUBMIT_FORM', payload: { [fieldName]: value } });
+  };
+
+  const clearLocalStorage = () => {
+    const validToken = localStorage.getItem('valid_token');
+  
+    if (validToken) {
+      const clearTime = 24 * 60 * 60 * 1000;
+      setTimeout(() => {
+        localStorage.removeItem('valid_token');
+      }, clearTime);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center font-Roboto pb-10 gap-5">
@@ -33,7 +96,7 @@ const LoginPage = () => {
       
       
       <div className="flex flex-col max-w-[704px] w-full md:border-[0.5px] border-[#938F96] p-10">
-        <form action="" className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
             <label htmlFor="email" className="font-semibold ">
               Email
@@ -44,7 +107,11 @@ const LoginPage = () => {
               id="email"
               placeholder="Enter email"
               className="p-3 px-5 border-[0.5px] border-[#938F96] rounded-md"
+              value={storeData.email}
+              onChange={(e) => [handleInputChange(e, 'email'), formErrors.email = ""]}
             />
+            {formErrors.email && <p className='text-red-600 mt-2'>{formErrors.email}</p>}
+
           </div>
 
           <div className="flex flex-col gap-2">
@@ -57,7 +124,11 @@ const LoginPage = () => {
               id="password"
               placeholder="Enter password"
               className="p-3 px-5 border-[0.5px] border-[#938F96] rounded-md"
+              value={storeData.password}
+              onChange={(e) => [handleInputChange(e, 'password'), formErrors.password = ""]}
             />
+            {formErrors.password && <p className='text-red-600 mt-2'>{formErrors.password}</p>}
+
           </div>
 
           <div className="flex gap-2">

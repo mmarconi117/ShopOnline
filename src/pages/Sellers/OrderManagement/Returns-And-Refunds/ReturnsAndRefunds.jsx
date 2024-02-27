@@ -75,70 +75,54 @@ function ReturnsAndRefunds({
         setDisplayFeedbackModal();
     };
     return (
-        <div className="self-center flex w-full max-w-full flex-col items-stretch p-5">
-            <div className="flex">
-                <div>
-                    <p className="font-bold text-2xl">Returns and Refunds</p>
-                </div>
-                <div className="ml-5 ">
-                    <p className="inline-block align-sub">0 Total</p>
-                </div>
+        <div className="flex flex-col items-stretch py-4 px-7 font-Roboto">
+            <div className="flex gap-4 items-center">
+                <p className="font-semibold text-3xl leading-[52px]">Returns and Refunds</p>
+                <p className="text-2xl font-normal leading-10">0 Total</p>
             </div>
-            <div>
-                <SearchBar
-                    disputes={disputes}
-                    searchDisputes={searchDisputes}
-                    disputesCopy={disputesCopy}
-                    updateCopy={updateCopy}
-                    filtered={filtered}
-                    resetPagination={resetPagination}
-                />
+            <SearchBar
+                disputes={disputes}
+                searchDisputes={searchDisputes}
+                disputesCopy={disputesCopy}
+                updateCopy={updateCopy}
+                filtered={filtered}
+                resetPagination={resetPagination}
+            />
+            <div className="flex my-5 gap-5 items-stretch">
+                <p className="text-xl">Insights</p>
+                <button
+                    type="button"
+                    className="flex gap-3 items-center text-xl"
+                    onClick={() => setOpen(!open)}
+                >
+                    Hide
+                    <img src={arrowDown}/>
+                </button>
             </div>
-            <div className="flex my-5">
-                <div className="mr-5">
-                    <p>Insights</p>
-                </div>
-                <div>
-                    <button
-                        type="button"
-                        className="flex"
-                        onClick={() => setOpen(!open)}
-                    >
-                        Hide
-                        <img src={arrowDown} />
-                    </button>
-                </div>
-            </div>
-            {open ? (
-                <div className="flex justify-center my-5">
+            {open &&
+                <div className="flex justify-start lg:justify-center gap-5 items-stretch my-5 flex-col lg:flex-row">
                     <Initiated />
                     <Received />
                     <Completed />
                 </div>
-            ) : (
-                <div></div>
-            )}
+            }
 
-            <div>
-                {open ? (
-                    <FiltersComponent
-                        disputes={disputes}
-                        filtered={filtered}
-                        disputesCopy={disputesCopy}
-                        resetFilter={resetFilter}
-                        updateCopy={updateCopy}
-                        resetPagination={resetPagination}
-                        toggleFilterDisputes={toggleFilterDisputes}
-                    />
-                ) : (
-                    <div></div>
-                )}
-
-                <Download
+            {open &&
+                <FiltersComponent
                     disputes={disputes}
-                    itemIndex={itemIndex}
+                    filtered={filtered}
+                    disputesCopy={disputesCopy}
+                    resetFilter={resetFilter}
+                    updateCopy={updateCopy}
+                    resetPagination={resetPagination}
+                    toggleFilterDisputes={toggleFilterDisputes}
                 />
-            </div>
+            }
+
+            <Download
+                disputes={disputes}
+                itemIndex={itemIndex}
+            />
             <div>
                 <Table
                     disputes={disputes}

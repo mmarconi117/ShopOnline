@@ -15,6 +15,7 @@ import {
 function OrderList() {
     const dispatch = useDispatch();
     const [orders, setOrdersLocal] = useState([]);
+    const [btnState, setBtnState] = useState("all")
     const order = useSelector((state) => state.ordersReducer.orders);
     const filtered = useSelector((state) => state.ordersReducer.filtered);
     let beginDate, endDate;
@@ -40,22 +41,27 @@ function OrderList() {
 
     const handleAll = () => {
         dispatch(allOrder());
+        setBtnState("all")
     };
 
     const handlePending = () => {
         dispatch(pendingOrder());
+        setBtnState("pending")
     };
 
     const handleShipped = () => {
         dispatch(shippedOrder());
+        setBtnState("shipped")
     };
 
     const handleDelivered = () => {
         dispatch(deliveredOrder());
+        setBtnState("delivered")
     };
 
     const handleError = () => {
         dispatch(errorOrder());
+        setBtnState("errors")
     };
 
     const handleFromDate = (begin) => {
@@ -88,10 +94,11 @@ function OrderList() {
     };
 
     return (
-        <div className="self-center flex w-full max-w-full flex-col items-stretch px-10 py-8 ">
-            <div className="flex max-w-full flex-col items-stretch self-start max-md:ml-0">
+        <div className="flex flex-col items-stretch px-5 py-4 sm:px-10 sm:py-8">
+            {/* Order List Title/ breadcrumb */}
+            <div className="flex max-w-full flex-col items-stretch self-start max-md:ml-0 ">
                 <div className="flex items-stretch justify-between gap-3.5 max-md:justify-center">
-                    <div className="text-neutral-400 text-base font-medium leading-8 whitespace-nowrap self-start">
+                    <div className="text-neutral-400 text-base font-medium leading-8 whitespace-nowrap self-start ">
                         Order List
                     </div>
                     <img
@@ -108,96 +115,99 @@ function OrderList() {
                     Order List
                 </div>
             </div>
-            <div className="bg-stone-300 self-stretch z-[1] flex shrink-0 h-1 flex-col rounded max-md:max-w-full max-md:mt-10" />
-            <div className="bg-white self-stretch flex flex-col pt-6 pb-0 px-10 rounded-none items-start max-md:max-w-full max-md:px-5">
-                <div className="flex grow items-stretch self-start">
-                    <div className="text-stone-950 text-base font-semibold leading-6 whitespace-nowrap">
-                        FILTERS
-                    </div>
+            {/* Filters */}
+            <div className="bg-white flex flex-col pt-6 pb-5 px-5 sm:px-10 rounded-t items-stretch border-t-4 border-[#EEC643] border-solid gap-5">
+                <div className="text-stone-950 text-base font-semibold leading-6 whitespace-nowrap">
+                    FILTERS
                 </div>
-                <div className="justify-center items-center self-stretch flex gap-3 max-md:max-w-full max-md:flex-wrap max-md:pl-0">
-                    <div className="text-neutral-400 text-base font-medium leading-0 whitespace-nowrap mt-0">
+                <div className="justify-start items-center flex gap-8 min-w-min max-w-[1000px]">
+                    <div className="hidden sm:block self-start text-neutral-400 text-base font-medium leading-0 whitespace-nowrap mt-0">
                         STATUS:
                     </div>
-                    <button
-                        type="button"
-                        className="text-white text-sm leading-8 whitespace-nowrap bg-zinc-400 grow justify-center items-center pl-0 pr-0 py-0 rounded-2xl self-end"
-                        onClick={handleAll}
-                    >
-                        All
-                    </button>
-                    <button
-                        type="button"
-                        className="text-neutral-400  text-sm leading-8 whitespace-nowrap bg-zinc-200 grow justify-center items-center pl-0 pr-0 py-0 rounded-2xl self-end"
-                        onClick={handlePending}
-                    >
-                        Pending
-                    </button>
-                    <button
-                        type="button"
-                        className="text-neutral-400  text-sm leading-8 whitespace-nowrap bg-zinc-200 grow justify-center items-center pl-0 pr-0 py-0 rounded-2xl self-end"
-                        onClick={handleShipped}
-                    >
-                        Shipped
-                    </button>
-                    <button
-                        type="button"
-                        className="text-neutral-400  text-sm leading-8 whitespace-nowrap bg-zinc-200 grow justify-center items-center pl-0 pr-0 py-0 rounded-2xl self-end"
-                        onClick={handleDelivered}
-                    >
-                        Delivered
-                    </button>
-                    <button
-                        type="button"
-                        className="text-neutral-400  text-sm leading-8 whitespace-nowrap bg-zinc-200 grow justify-center items-center pl-0 pr-0 py-0 rounded-2xl self-end"
-                        onClick={handleError}
-                    >
-                        Errors
-                    </button>
+                    <div className='flex flex-wrap gap-4 sm:gap-8 justify-start items-center lg:flex-nowrap'>
+                        <button
+                            type="button"
+                            className={`text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "all" ? "bg-[#EEC643] text-black" : "bg-zinc-400 text-white "}`}
+                            onClick={handleAll}
+                        >
+                            All
+                        </button>
+                        <button
+                            type="button"
+                            className={`text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "pending" ? "bg-[#EEC643] text-black" : "bg-zinc-200 text-neutral-400"}`}
+                            onClick={handlePending}
+                        >
+                            Pending (0)
+                        </button>
+                        <button
+                            type="button"
+                            className={` text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "shipped" ? "bg-[#EEC643] text-black" : "bg-zinc-200 text-neutral-400"}`}
+                            onClick={handleShipped}
+                        >
+                            Shipped
+                        </button>
+                        <button
+                            type="button"
+                            className={` text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "delivered" ? "bg-[#EEC643] text-black" : "bg-zinc-200 text-neutral-400"}`}
+                            onClick={handleDelivered}
+                        >
+                            Delivered
+                        </button>
+                        <button
+                            type="button"
+                            className={` text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "errors" ? "bg-[#EEC643] text-black" : "bg-zinc-200 text-neutral-400"}`}
+                            onClick={handleError}
+                        >
+                            Errors
+                        </button>
+                    </div>
                 </div>
 
-                <div className="bg-stone-300 self-stretch shrink-0 h-px mt-7 max-md:max-w-full" />
-                <div className="self-stretch flex w-full justify-between gap-5 mt-5 pr-20 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
-                    <div className="flex grow flex-col items-stretch">
-                        <div className="text-zinc-500 text-base leading-5 whitespace-nowrap items-stretch bg-white justify-center px-2.5">
-                            Start date *
-                        </div>
+                <div className="bg-stone-300 h-px max-md:max-w-full" />
+                <div className="flex flex-col lg:flex-row justify-between gap-5 items-stretch">
+                    <div className="relative flex flex-col grow max-w-[600px]">
                         <input
                             type="date"
                             onChange={(e) => handleFromDate(e.target.value)}
-                            className="border p-5 mb-5 rounded-md border-solid items-start max-md:pr-5"
+                            className="border p-5 rounded-md border-solid items-start"
                         />
+                        <div className="absolute px-2.5 text-zinc-500 text-xs whitespace-nowrap bg-white top-[-5px] left-[12px]">
+                            Start date *
+                        </div>
                     </div>
-                    <div className="flex grow flex-col items-stretch">
-                        <div className="text-zinc-500 text-base leading-5 whitespace-nowrap items-stretch  justify-center px-2.5">
+                    <div className="relative flex flex-col grow max-w-[600px]">
+                        <div className="absolute px-2.5 text-zinc-500 text-xs whitespace-nowrap bg-white top-[-5px] left-[12px]">
                             End date *
                         </div>
                         <input
                             type="date"
                             onChange={(e) => handleToDate(e.target.value)}
-                            className="border p-5 mb-5 rounded-md border-solid items-start max-md:pr-5"
+                            className="border p-5 rounded-md border-solid items-start"
                         />
                     </div>
-                    <div className="flex grow flex-col items-stretch">
-                        <div className="text-zinc-500 text-xs leading-5 whitespace-nowrap items-stretch  justify-center px-2.5">
+                    <div className="relative flex flex-col grow max-w-[600px] border rounded-md border-solid pr-5">
+                        <div className="absolute px-2.5 text-zinc-500 text-xs whitespace-nowrap bg-white top-[-5px] left-[12px]">
                             Payment Method
                         </div>
-                        <select className="select select-bordered w-full p-5 h-16 mb-0  rounded-md border-solid items-start max-md:pr-5">
+                        <select className="p-5 items-start outline-none">
                             <option>All</option>
                         </select>
                     </div>
                 </div>
             </div>
-            <div className="self-stretch flex w-full items-stretch justify-between gap-5 mt-8 pr-16 max-md:max-w-full max-md:flex-wrap max-md:pr-5">
-                <div className="flex items-stretch justify-between gap-5 max-md:max-w-full max-md:flex-wrap">
-                    <select className="select select-bordered border w-full flex justify-between gap-5 pl-4 pr-32 py-5 rounded-md border-solid items-center max-md:pl-5">
-                        <option>Order action</option>
-                    </select>
-                    <button className="text-zinc-500 text-base leading-6 whitespace-nowrap items-center bg-stone-300 self-center justify-center my-auto p-3 rounded-md max-md:pl-5">
+            {/* Order Action */}
+            <div className="self-stretch flex flex-col lg:flex-row items-stretch justify-between mt-8 gap-10 lg:gap-2">
+                <div className="flex items-stretch justify-start lg:justify-between gap-2 lg:gap-5">
+                    <div className='px-5 bg-white border py-3 min-w-[70%] lg:min-w-[328px] rounded-md'>
+                        <select className="w-full">
+                            <option>Order action</option>
+                        </select>
+                    </div>
+                    <button className="min-w-[82px] bg-[#EEC643] text-zinc-500 text-base leading-6 whitespace-nowrap items-center self-center p-3 rounded-md grow lg:grow-0">
                         GO
                     </button>
                 </div>
-                <div className="self-center flex items-stretch justify-between gap-5 my-auto">
+                <div className="flex items-stretch justify-between gap-5 my-auto">
                     <button
                         type="button"
                         onClick={() => {
@@ -207,11 +217,12 @@ function OrderList() {
                     >
                         CLEAR FILTERS
                     </button>
-                    <button className="text-zinc-500 text-sm leading-6 whitespace-nowrap items-stretch bg-stone-300 grow justify-center pl-7 pr-4 py-2.5 rounded-md max-md:pl-5">
+                    <button className="text-zinc-500 text-sm leading-6 whitespace-nowrap items-stretch bg-[#EEC643] grow justify-center pl-7 pr-4 py-2.5 rounded-md max-md:pl-5">
                         EXPORT
                     </button>
                 </div>
             </div>
+            {/* Table */}
             <div className="bg-white w-auto self-stretch flex flex-col items-stretch mt-9 px-6 py-3 rounded-none max-md:max-w-full max-md:px-5">
                 {/* show table here */}
                 <DataGrid

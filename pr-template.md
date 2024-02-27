@@ -6,7 +6,7 @@
 
 
 ## Loom Video:
- - [Loom Video](https://www.loom.com/share/41c36af46ac84d9db1fe30f4a20236b0)
+ - [Loom Video]()
 
 ## Type of change
 

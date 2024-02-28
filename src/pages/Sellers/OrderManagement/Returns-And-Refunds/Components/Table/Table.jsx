@@ -55,7 +55,6 @@ const Table = ({
                 <td className="py-2">{item.customerOrder}</td>
                 <td className="py-2">{item.price}</td>
                 <td className="py-2">{item.status}</td>
-                <td>{index + 1}</td>
             </tr>
         );
     });

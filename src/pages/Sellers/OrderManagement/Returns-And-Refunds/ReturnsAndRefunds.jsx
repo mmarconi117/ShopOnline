@@ -75,10 +75,10 @@ function ReturnsAndRefunds({
         setDisplayFeedbackModal();
     };
     return (
-        <div className="flex flex-col items-stretch py-4 px-7 font-Roboto">
+        <div className="flex flex-col items-stretch py-4 px-7 font-Roboto gap-2">
             <div className="flex gap-4 items-center">
                 <p className="font-semibold text-3xl leading-[52px]">Returns and Refunds</p>
-                <p className="text-2xl font-normal leading-10">0 Total</p>
+                <p className="text-2xl font-normal leading-10 whitespace-nowrap">0 Total</p>
             </div>
             <SearchBar
                 disputes={disputes}
@@ -123,16 +123,14 @@ function ReturnsAndRefunds({
                 disputes={disputes}
                 itemIndex={itemIndex}
             />
-            <div>
-                <Table
-                    disputes={disputes}
-                    disputesCopy={disputesCopy}
-                    updateCopy={updateCopy}
-                    getItemSelected={getItemSelected}
-                    resetPagination={resetPagination}
-                    isResetPagination={isResetPagination}
-                />
-            </div>
+            <Table
+                disputes={disputes}
+                disputesCopy={disputesCopy}
+                updateCopy={updateCopy}
+                getItemSelected={getItemSelected}
+                resetPagination={resetPagination}
+                isResetPagination={isResetPagination}
+            />
             <div className="my-5 w-[75%]">
                 <div className="text-end">
                     <button

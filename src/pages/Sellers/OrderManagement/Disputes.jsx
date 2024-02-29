@@ -149,8 +149,8 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
 
         {showInsights && filteredDisputes && filteredDisputes.length > 0 && (
           <div className='mt-5 flex flex-col items-stretch'>
-            <div className="grid grid-cols-4 gap-10 px-16">
-              <div className="max-w-[300px] min-w-[200px] bg-white-500 py-4 bg-white text-black text-center border-t-4 border-[#EEC643] rounded-t-md flex flex-col items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 xl:px-16">
+              <div className="lg:max-w-[300px] min-w-[160px] bg-white-500 py-4 bg-white text-black text-center border-t-4 border-[#EEC643] rounded-t-md flex flex-col items-center">
                 <p className='text-xl'>Pending Review</p>
                 <p className='text-[40px] font-bold leading-[60px]'>{getDisputesCount("Pending Review")}</p>
                 <button className='self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4'>
@@ -158,7 +158,7 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
                   <img src={rightArrow} alt="rightArrow" />
                 </button>
               </div>
-              <div className="max-w-[300px] min-w-[200px] bg-white-500 py-4 bg-white text-black text-center border-t-4 border-[#EEC643] rounded-t-md flex flex-col items-center">
+              <div className="lg:max-w-[300px] min-w-[160px] bg-white-500 py-4 bg-white text-black text-center border-t-4 border-[#EEC643] rounded-t-md flex flex-col items-center">
                 <p className='text-xl'>In Review</p>
                 <p className='text-[40px] font-bold leading-[60px]'>{getDisputesCount("In Review")}</p>
                 <button className='self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4'>
@@ -166,7 +166,7 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
                   <img src={rightArrow} alt="rightArrow" />
                 </button>
               </div>
-              <div className="max-w-[300px] min-w-[200px] bg-white-500 py-4 bg-white text-black text-center border-t-4 border-[#EEC643] rounded-t-md flex flex-col items-center">
+              <div className="lg:max-w-[300px] min-w-[160px] bg-white-500 py-4 bg-white text-black text-center border-t-4 border-[#EEC643] rounded-t-md flex flex-col items-center">
                 <p className='text-xl'>Action Needed</p>
                 <p className='text-[40px] font-bold leading-[60px]'>{getDisputesCount("Action Needed")}</p>
                 <button className='self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4'>
@@ -174,7 +174,7 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
                   <img src={rightArrow} alt="rightArrow" />
                 </button>
               </div>
-              <div className="max-w-[300px] min-w-[200px] bg-white-500 py-4 bg-white text-black text-center border-t-4 border-[#EEC643] rounded-t-md flex flex-col items-center">
+              <div className="lg:max-w-[300px] min-w-[160px] bg-white-500 py-4 bg-white text-black text-center border-t-4 border-[#EEC643] rounded-t-md flex flex-col items-center">
                 <p className='text-xl'>Closed</p>
                 <p className='text-[40px] font-bold leading-[60px]'>{getDisputesCount("Closed")}</p>
                 <button className='self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4'>
@@ -196,15 +196,17 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
               )}
               <button className="download-button text-gray-500"> |  Download</button>
             </div>
-            <table className="w-full table-auto border-collapse mt-4">
+          </div>
+        )}
+        <table className="w-full table-auto border-collapse mt-4">
               <thead>
                 <tr>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Order Number</th>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Purchase Order #</th>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">RMA #</th>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Customer Order #</th>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Price ($)</th>
-                  <th className="p-5 text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Status</th>
+                  <th className="text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Order Number</th>
+                  <th className="text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Purchase Order #</th>
+                  <th className="text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">RMA #</th>
+                  <th className="text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Customer Order #</th>
+                  <th className="text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Price ($)</th>
+                  <th className="text-zinc-700 text-base leading-6 whitespace-nowrap border border-black p-2">Status</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
@@ -220,8 +222,37 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
                 ))}
               </tbody>
             </table>
-          </div>
-        )}
+
+            {/* <table className="w-full h-auto my-5 min-w-[900px]">
+                <thead className="border-b-2 ">
+                    <tr>
+                        <th className="py-5 pr-5 text-center">
+                            <input
+                                onChange={(e) => {
+                                    allSelected(e.target.checked);
+                                }}
+                                checked={isAllSelected}
+                                type="checkbox"
+                            />
+                        </th>
+                        <th className="py-2 text-left">Order Number</th>
+                        <th className="py-2 text-left">Purchase Order #</th>
+                        <th className="py-2 text-left">RMA #</th>
+                        <th className="py-2 text-left">Customer Order #</th>
+                        <th className="py-2 text-left">Price ($)</th>
+                        <th className="py-2 text-left">Status</th>
+                    </tr>
+                </thead>
+                <tbody className="text-left">
+                    {disputesCopy.length > 0 ? (
+                        returnItems
+                    ) : (
+                        <tr>
+                            <td>No disputes to display at the moment</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table> */}
       </div>
     );
 

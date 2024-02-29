@@ -76,6 +76,7 @@ function ReturnsAndRefunds({
     };
     return (
         <div className="flex flex-col items-stretch py-4 px-7 font-Roboto gap-2">
+            {displayFeedbackModal && <FeedbackModal />}
             <div className="flex gap-4 items-center">
                 <p className="font-semibold text-3xl leading-[52px]">Returns and Refunds</p>
                 <p className="text-2xl font-normal leading-10 whitespace-nowrap">0 Total</p>
@@ -140,7 +141,7 @@ function ReturnsAndRefunds({
                     >
                         Feedback
                     </button>
-                    {displayFeedbackModal && <FeedbackModal />}
+                    
                 </div>
             </div>
         </div>

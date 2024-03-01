@@ -132,7 +132,7 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
         </div>
         <div className="flex gap-3 items-stretch">
           <p className='leading-3'>Insights</p>
-          <button className="insights-button" onClick={toggleInsights}>
+          <button className="mb-20" onClick={toggleInsights}>
             {showInsights ? 
             (<div className='flex gap-2 items-stretch'>
               <p className='leading-3'>Hide</p>
@@ -183,8 +183,24 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
                 </button>
               </div>
             </div>
-            <div className="flex justify-end mt-4">
-              <button className="filter" onClick={handleFilterButtonClick}>Filter&nbsp;</button>
+            <div className="flex justify-end items-stretch mt-10 gap-5">
+              <button className="flex gap-5 items-stretch" onClick={handleFilterButtonClick}>
+              <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"
+                    />
+                </svg>
+                <div>Filter</div>
+              </button>
               {isDropdownOpen && (
                 <select value={statusFilter} onChange={handleStatusChange} className="filter-dropdown">
                   <option value="All">All</option>
@@ -194,7 +210,8 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
                   <option value="Pending Review">Pending Review</option>
                 </select>
               )}
-              <button className="download-button text-gray-500"> |  Download</button>
+              <div className='w-[1px] bg-black '/>
+              <button className="download-button text-gray-500">Download</button>
             </div>
           </div>
         )}
@@ -222,37 +239,6 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
                 ))}
               </tbody>
             </table>
-
-            {/* <table className="w-full h-auto my-5 min-w-[900px]">
-                <thead className="border-b-2 ">
-                    <tr>
-                        <th className="py-5 pr-5 text-center">
-                            <input
-                                onChange={(e) => {
-                                    allSelected(e.target.checked);
-                                }}
-                                checked={isAllSelected}
-                                type="checkbox"
-                            />
-                        </th>
-                        <th className="py-2 text-left">Order Number</th>
-                        <th className="py-2 text-left">Purchase Order #</th>
-                        <th className="py-2 text-left">RMA #</th>
-                        <th className="py-2 text-left">Customer Order #</th>
-                        <th className="py-2 text-left">Price ($)</th>
-                        <th className="py-2 text-left">Status</th>
-                    </tr>
-                </thead>
-                <tbody className="text-left">
-                    {disputesCopy.length > 0 ? (
-                        returnItems
-                    ) : (
-                        <tr>
-                            <td>No disputes to display at the moment</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table> */}
       </div>
     );
 

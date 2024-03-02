@@ -21,6 +21,22 @@ import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue"
 import Layout from "./Layout";
 
 // Sellers
+import Homepage from "./pages/Sellers/Home/Homepage";
+import ListOfProducts from "./pages/Sellers/ProductCatalogue/ListOfProducts";
+import ActivityFeed from "./pages/Sellers/Analytics/ActivityFeed";
+import UploadProduct from "./pages/Sellers/ProductCatalogue/UploadProduct";
+import OrderList from "./pages/Sellers/OrderManagement/OrderList";
+import ReturnsAndRefunds from "./pages/Sellers/OrderManagement/Returns-And-Refunds/ReturnsAndRefunds";
+import Disputes from "./pages/Sellers/OrderManagement/Disputes";
+import Overview from "./pages/Sellers/Analytics/Overview/Overview";
+import Payments from "./pages/Sellers/Analytics/Payments/Payments";
+import FeedDetail from "./pages/Sellers/Analytics/FeedDetail";
+import ProductDetail from "./pages/Sellers/ProductCatalogue/ProductDetail";
+import Signup from "./pages/Sellers/Signup/Signup";
+import Login from "./pages/Sellers/Login/Login";
+import RatingsAndReviews from "./pages/Sellers/Analytics/R&R/Ratings"
+import Body from "./pages/Sellers/NotificationsSettings/components/Body"
+import HelpPage from "./pages/Sellers/HelpPage";
 import CompanyService from "./pages/Sellers/CompanyService";
 import LandingPageforSellers from "./pages/Sellers/LandingPageforSellers";
 import CompanyInfo from "./pages/Sellers/CompanyInfo/CompanyInfo";
@@ -28,42 +44,69 @@ import OnlineFulfillment from "./pages/Sellers/OnlineFulfillment/OnlineFulfillme
 import PaymentServices from "./pages/Sellers/PaymentServices/PaymentServices";
 import TwoStepVerification from "./pages/Sellers/2-StepVerification/TwoStepVerification";
 import Agreements from "./pages/Sellers/Agreements/Agreements";
-import HelpPage from "./pages/Sellers/HelpPage";
 
 function App() {
 
   return (
-      <div>
-          <Router>
-            <Routes>
-              <Route path="/login" element={<LoginPage />} />
-              <Route exact path="" element={<Layout />}>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/womensfashion" element={<WomensFashionSubCategory />} />
-                <Route path="/productdetails" element={<ProductDetails />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/help" element={<Help />} />
-                <Route path="/language" element="#" />
-                <Route path="/account" element={<Account/>} />
-                <Route path="/app" element="#" />
-                <Route path="/signup" element={<SignupPage />} />
-                <Route path="/companyService" element={<CompanyService/>}/>
-                <Route path="/paymentSuccess" element={<PaymentSuccessful/>}/>
-                <Route path="/checkout" element={<Checkout/>}/>
-                <Route path="/reviews" element={<ReviewPage/>} />
-                <Route path="/accountsettings" element={<Account />} />
-                <Route path="/productcatalogue" element={<ProductCatalogue />} />
-              </Route>
-              <Route path="/sellers/*" element={<LandingPageforSellers />} />
-              <Route path="/onlinefulfillment" element={<OnlineFulfillment />} />
-              <Route path="/companyinfo" element={<CompanyInfo />} />
-              <Route path="/paymentservices" element={<PaymentServices />} />
-              <Route path="/twostepverification" element={<TwoStepVerification />} />
-              <Route path="/agreements" element={<Agreements />} />
-              <Route path="/helppage" element={<HelpPage />} />
-            </Routes>
-        </Router>
-      </div>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route exact path="" element={<Layout />}>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/womensfashion" element={<WomensFashionSubCategory />} />
+          <Route path="/productdetails" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/language" element="#" />
+          <Route path="/account" element={<Account />} />
+          <Route path="/app" element="#" />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/companyService" element={<CompanyService />} />
+          <Route path="/paymentSuccess" element={<PaymentSuccessful />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/reviews" element={<ReviewPage />} />
+          <Route path="/accountsettings" element={<Account />} />
+          <Route path="/productcatalogue" element={<ProductCatalogue />} />
+          </Route>
+
+          {/* Sellers Routers */}
+          <Route path="/sellers" element={<LandingPageforSellers />}>
+            <Route index element={<Homepage />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="login" element={<Login />} />
+            <Route path="help" element={<HelpPage />} />
+
+            {/* Analytics Routing */}
+            <Route path="overview" element={<Overview />} />
+            <Route path="payments" element={<Payments />} />
+            <Route path="activityfeed/*" element={<ActivityFeed />} />
+            <Route path="activityfeed/FeedDetail/:id" element={<FeedDetail />} />
+            <Route path="ratingsandreviews" element={<RatingsAndReviews />} />
+
+            {/* Product Catalogue Routing */}
+            <Route path="listOfproducts" element={<ListOfProducts />} />
+            <Route path="uploadproduct" element={<UploadProduct />} />
+            <Route path="product" element={<ProductDetail />} />
+
+            {/* Order Management Routing */}
+            <Route path="orderlist" element={<OrderList />} />
+            <Route path="returnsandrefunds" element={<ReturnsAndRefunds />} />
+            <Route path="disputes" element={<Disputes />} />
+
+            {/* Notification Setting */}
+            <Route path="notificationsettings" element={<Body />} />
+            <Route path="onlinefulfillment" element={<OnlineFulfillment />} />
+            <Route path="companyinfo" element={<CompanyInfo />} />
+            <Route path="paymentservices" element={<PaymentServices />} />
+            <Route path="twostepverification" element={<TwoStepVerification />} />
+            <Route path="agreements" element={<Agreements />} />
+            <Route path="helppage" element={<HelpPage />} />
+          </Route>
+
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

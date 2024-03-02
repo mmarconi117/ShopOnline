@@ -33,7 +33,7 @@ function Signup() {
   
       dispatch(submitForm(storeData));
       try {
-        const response = await axios.post('http://localhost:8000/signup', storeData);
+        const response = await axios.post('http://localhost:8000/api/auth/signup', storeData);
   
         console.log('Signup successful:', response.data);
         dispatch({ type: 'SIGNUP_SUBMIT_FORM', payload: initialStoreData });

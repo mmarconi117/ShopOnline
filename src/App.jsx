@@ -11,11 +11,12 @@ import LoginPage from "./pages/Buyers/Login/LoginPage";
 import SignupPage from "./pages/Buyers/Signup/SignupPage";
 import Help from "./pages/Buyers/Help";
 import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
-import Checkout from "./pages/Buyers/Checkout";
+import Checkout from "./pages/Buyers/Checkout/Checkout";
 import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
+import Shipping from "./pages/Buyers/Product-Details/Shipping-Component/Shipping"
 
 // layout
 import Layout from "./Layout";

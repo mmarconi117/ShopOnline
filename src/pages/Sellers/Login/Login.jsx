@@ -26,19 +26,20 @@ function Login() {
 
     if (Object.keys(errors).length === 0) {      
       try {
-        const response = await axios.post('http://localhost:8000/login', storeData);
+        const response = await axios.post('http://localhost:8000/api/auth/login', storeData);
 
           if (response.data.user.role === "seller") {
             
-              const userData = {
+              const usersData = {
                 id: response.data.user.id,
                 name: response.data.user.name,
                 profile_picture: response.data.user.profile_picture,
                 email: response.data.user.email,
               }
         
-              dispatch(submitLoginForm(userData));
-              localStorage.setItem('valid_token', response.data.validToken);
+              localStorage.setItem('valid_token_seller', response.data.validToken);
+              dispatch({ type: 'SELLERS_SET_USERS_DATA', payload: usersData });
+              dispatch({type: "SELLERS_SET_AUTHENTICATED", payload: true})
               navigate('/sellers');
               dispatch({ type: 'LOGIN_SUBMIT_FORM', payload: initialStoreData });
               dispatch(setLoginFormErrors({}));

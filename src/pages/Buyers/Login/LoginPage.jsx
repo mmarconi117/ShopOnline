@@ -30,24 +30,25 @@ const LoginPage = () => {
 
     if (Object.keys(errors).length === 0) {      
       try {
-        const response = await axios.post('http://localhost:8000/login', storeData);
+        const response = await axios.post('http://localhost:8000/api/auth/login', storeData);
 
           if (response.data.user.role === "buyer") {
             
-              const userData = {
+              const usersData = {
                 id: response.data.user.id,
                 name: response.data.user.name,
                 profile_picture: response.data.user.profile_picture,
                 email: response.data.user.email,
               }
-              dispatch(submitBuyersLoginForm(userData));
-              localStorage.setItem('valid_token', response.data.validToken);
+              localStorage.setItem('valid_token_buyer', response.data.validToken);
+              dispatch({ type: 'BUYERS_SET_USERS_DATA', payload: usersData });
+              dispatch({ type: 'BUYERS_SET_AUTHENTICATED', payload: true });
               navigate('/');
               dispatch({ type: 'BUYERS_LOGIN_SUBMIT_FORM', payload: initialStoreData });
               dispatch(setBuyersLoginFormErrors({}));
               clearLocalStorage();
           }else{
-            alert("Your account is not a buyers account.")
+            alert("You are not a buyer")
           }   
 
       } catch (error) {
@@ -142,6 +143,7 @@ const LoginPage = () => {
           >
             Log in
           </button>
+          {formErrors.message && <p className='text-red-600 mt-2'>{formErrors.message}</p>}
         </form>
 
         <div className="py-8 text-center">

@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFeedbackForm, submitFeedbackForm, updateEmail, updateQuestion } from '../../reducersAndActions/actions/feedbackFormActions';
 import user from "../../assets/ICONS/user/user-fill.svg";
 import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
 import logOut from "../../assets/ICONS/logOut.svg";
-import HelpPage_Banner from "../Sellers/HelpPage_Banner.svg";
 import FeedbackModal from '../Buyers/FeedbackModal';
 
 const HelpPage = () => {
-  const [modal, setModal] = useState(false);
   const { showFeedbackFormState, email, question } = useSelector(state => ({
     showFeedbackFormState: state.feedback.showFeedbackForm,
     email: state.feedback.email,
@@ -17,20 +15,21 @@ const HelpPage = () => {
   }));
   const dispatch = useDispatch();
 
-  // const handleToggleFeedbackForm = () => {
-  //   dispatch(toggleFeedbackForm());
-  // };
+  const handleToggleFeedbackForm = () => {
+    dispatch(toggleFeedbackForm());
+  };
 
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault(); 
-  //   const formData = { email, question }; 
-  //   dispatch(submitFeedbackForm(formData)); 
-  //   dispatch(updateEmail(''));
-  //   dispatch(updateQuestion(''));
-  // };
+  const handleFormSubmit = (e) => {
+    e.preventDefault(); 
+    const formData = { email, question }; 
+    dispatch(submitFeedbackForm(formData)); 
+    dispatch(updateEmail(''));
+    dispatch(updateQuestion(''));
+  };
 
   return (
     <div className="bg-gray-100 h-screen flex flex-row space-x-12">
+      {showFeedbackFormState && <FeedbackModal/>}
       {/* Dashboard */}
       {/* <div className="w-2/5 bg-white flex flex-col space-y-12 ">
         <div className="flex flex-row mx-8 align-middle mt-6">
@@ -85,12 +84,9 @@ const HelpPage = () => {
         </div>
         <h1 className="my-10 text-2xl font-semibold">Seller's Online Help Services </h1>
       {/* Navigation */}
-      <div className="flex flex-col w-full h-150 align-center justify-center pl-30">
+      <div className="flex h-[300px] bg-Banner bg-cover bg-center align-center justify-center">
         {/* Contact Information */}
-        <img src={HelpPage_Banner} alt="Need Help"></img>
-        {/* <img src="path-to-image-of-the-contact-info.jpg" alt="Need Help" /> */}
-        {/* Contact Information */}
-        <div className="-mt-20 ml-20">
+        <div className="flex flex-col w-[300px] mt-10">
           <div>Give us a call: 1-800-123-4657</div>
           <div>Email us: nyshopping@shopping.com</div>
           <div>Monday-Friday 6am - 5pm EST</div>
@@ -132,8 +128,7 @@ const HelpPage = () => {
         </details>
       </div>
       {/* feedback button */}
-      <button className="border-1 border-blue-400" onClick={!modal}>Give us feedback</button>
-      {modal && <FeedbackModal/>}
+      <button className="text-cyan-600 text-center text-xl leading-6 whitespace-nowrap justify-center items-stretch border border-[color:var(--Color-Styles-Primary-color-blue-T1000,#2284B6)] self-center mt-28 px-12 py-4 rounded-md border-solid max-md:mt-10 max-md:px-5" onClick={handleToggleFeedbackForm}>Give us feedback</button>
       </div>
       {/* show feedback form depending on the state of the feedback button */}
       {/* {showFeedbackFormState && (

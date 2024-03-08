@@ -108,7 +108,6 @@ return (
           <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
             <div>Payment Method</div>
             <div className="flex items-center">
-              <button className="text-gray-500 text-xs mt-2">Edit</button>
             </div>
           </div>
             {/* Payment Method Box */}

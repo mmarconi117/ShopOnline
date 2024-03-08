@@ -24,30 +24,30 @@ export default function LandingPageforSellers() {
 
           <Outlet />
           <Routes>
-            <Route path='/' element={<Homepage/>} />
+            {/* <Route path='/' element={<Homepage/>} />
             <Route path='/signup' element={<Signup/>} />
             <Route path='/login' element={<Login/>} />
-            <Route path='/help' element={<HelpPage/>}/>
+            <Route path='/help' element={<HelpPage/>}/> */}
 
             {/* Analytics Routing */}
-            <Route path='/overview' element={<Overview />} />
+            {/* <Route path='/overview' element={<Overview />} />
             <Route path='/payments' element={<Payments />} />
             <Route path='/activityfeed/*' element={<ActivityFeed />} />
             <Route path='/activityfeed/FeedDetail/:id' element={<FeedDetail />} />
-            <Route path="/ratingsandreviews" element={<RatingsAndReviews />} />
+            <Route path="/ratingsandreviews" element={<RatingsAndReviews />} /> */}
 
             {/* Product Catalogue Routing */}
-            <Route path='/listOfproducts' element={<ListOfProducts />} />
+            {/* <Route path='/listOfproducts' element={<ListOfProducts />} />
             <Route path='/uploadproduct' element={<UploadProduct />} />
-            <Route path='/product' element={<ProductDetail />} />
+            <Route path='/product' element={<ProductDetail />} /> */}
 
             {/* Order Management Routing */}
-            <Route path='/orderlist' element={<OrderList />} />
+            {/* <Route path='/orderlist' element={<OrderList />} />
             <Route path='/returnsandrefunds' element={<ReturnsAndRefunds />} />
-            <Route path='/disputes' element={<Disputes />} />
+            <Route path='/disputes' element={<Disputes />} /> */}
 
             {/* Notification Setting */}
-            <Route path='/notificationsettings' element={<Body />} />
+            {/* <Route path='/notificationsettings' element={<Body />} /> */}
           </Routes>
         </div>
       </div>

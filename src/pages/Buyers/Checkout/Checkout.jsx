@@ -11,9 +11,116 @@ const Checkout = () => {
     navigate("/confirmation");
   };
 
-  return (
+  // return (
+
+    //shipping address                                  Edit button
+    //--------------------------------------------------------
+  //Below use dummy profile** with small gray space
+
+  //Mr. Tony Stark ==> bold tailwaind css
+  //Top of New York, 84052 ==> smaller text tailwind
+  //+19048588048
+  //--------------------------------------------------------------
+  //some gray space
+  //Payment Methond *box* that fit the page
+
+
+// below will be a (review items and shipping)
+//------------------------------------------------
+//Estimated delievery 25th June
+return (
+  <>
+
+<div className="flex flex-col items-end gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8]">
+  <div className="bg-white p-6 rounded-lg">
+    <div className="text-xl font-semibold mb-4">Order Summary</div>
+    <div className="flex justify-between mb-2">
+      <span>Subtotal:</span>
+      <span>${subtotal}</span>
+    </div>
+    <div className="flex justify-between mb-2">
+      <span>Promo code:</span>
+      <span>{promoCode}</span>
+    </div>
+    <div className="flex justify-between mb-2">
+      <span>Shipping:</span>
+      <span>${shipping}</span>
+    </div>
+    <div className="flex justify-between mb-2">
+      <span>Total:</span>
+      <span>${total}</span>
+    </div>
+    <button
+      onClick={handleCheckout}
+      className="bg-[#EEC643] text-[#0F1111] py-2 px-4 rounded hover:bg-[#FFD700] w-full"
+    >
+      Checkout
+    </button>
+  </div>
+</div>
+
+
+
+{/* Shipping Address */}
+<div className="bg-[#F0F0F0]">
+  <div className="flex px-4 py-8">
+    <div className="w-full max-w-3xl">
+      <div className="flex flex-col lg:grid grid-cols-3">
+        <div className="col-span-2 bg-blue-200 rounded-lg p-4">
+          {/* Shipping Address */}
+          <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
+            <div>Shipping Address</div>
+            <div className="flex items-center">
+              <button className="text-gray-500 text-xs mt-2">Edit</button>
+            </div>
+          </div>
+          {/* Dummy Profile */}
+          <div className="border border-gray-300 mb-4 p-4">
+            <div className="font-semibold mb-1">Mr. Tony Stark</div>
+            <div className="text-sm mb-1">Top of New York, 84052</div>
+            <div className="text-sm">+19048588048</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {/* Payment Method */}
+    <div className="bg-white px-4 py-8">
+      <div className="flex px-4 py-8 items-center justify-center">
+        <div className="border-b-2 border-gray-300 w-full max-w-3xl">
+          <div className="flex flex-col lg:grid grid-cols-3">
+            <div className="col-span-2 bg-blue-200">
+              {/* Payment Method Box */}
+              <div className="border border-gray-300 mb-4 p-4">
+                {/* Content for payment method box goes here */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    {/* Existing Order Summary */}
     <div className="bg-[#F0F0F0]">
-      <div className="flex px-4 pt-8 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
+      <div className="flex px-4 pt-16 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
         <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-blue-200 lg:h-[759px]">
           {carts.map((item, index) => (
             <div key={index} className="border border-gray-300 mb-4 p-4">
@@ -33,38 +140,19 @@ const Checkout = () => {
             </div>
           ))}
         </div>
-        <div className="flex flex-col items-start gap-8 lg:gap-5 col-start-3 col-end-4 w-full">
-          <div className="bg-white p-6 rounded-lg w-full">
-            <div className="text-xl font-semibold mb-6">Order Summary</div>
-            <div className="flex justify-between mb-2">
-              <span>Subtotal:</span>
-              <span>${subtotal}</span>
-            </div>
-            <div className="flex justify-between mb-2">
-              <span>Promo code:</span>
-              <span>{promoCode}</span>
-            </div>
-            <div className="flex justify-between mb-2">
-              <span>Shipping:</span>
-              <span>${shipping}</span>
-            </div>
-            <div className="flex justify-between mb-2">
-              <span>Total:</span>
-              <span>${total}</span>
-            </div>
-            <button
-              onClick={handleCheckout}
-              className="bg-[#EEC643] text-[#0F1111] py-2 px-4 rounded mt-4 hover:bg-[#FFD700] w-full"
-            >
-              Checkout
-            </button>
-          </div>
-        </div>
-
-
       </div>
     </div>
-  );
+  </>
+);
+
+
+
+
+
+
+
+
+
 };
 
 export default Checkout;

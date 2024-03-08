@@ -2,23 +2,8 @@ import * as React from "react";
 import { useState } from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header"
-import { Routes, Route, useLocation } from "react-router-dom";
-import Homepage from "./Home/Homepage";
-import ListOfProducts from "./ProductCatalogue/ListOfProducts";
-import ActivityFeed from "./Analytics/ActivityFeed";
-import UploadProduct from "./ProductCatalogue/UploadProduct";
-import OrderList from "./OrderManagement/OrderList";
-import ReturnsAndRefunds from "./OrderManagement/Returns-And-Refunds/ReturnsAndRefunds";
-import Disputes from "./OrderManagement/Disputes";
-import Overview from "./Analytics/Overview/Overview";
-import Payments from "./Analytics/Payments/Payments";
-import FeedDetail from "./Analytics/FeedDetail";
-import ProductDetail from "./ProductCatalogue/ProductDetail";
-import Signup from "./Signup/Signup";
-import Login from "./Login/Login";
-import RatingsAndReviews from "./Analytics/R&R/Ratings"
-import Body from "./NotificationsSettings/components/Body"
-import HelpPage from "./HelpPage";
+import { Routes, Route, useLocation, Outlet } from "react-router-dom";
+
 
 export default function LandingPageforSellers() {
   const location = useLocation();
@@ -37,31 +22,32 @@ export default function LandingPageforSellers() {
 
         <div className={`${showBar ? "max-md:opacity-25" : "max-md:opacity-100"} flex flex-col items-stretch overflow-hidden grow`} onClick={showBar ? showSideBar : ()=>{}}>
 
+          <Outlet />
           <Routes>
-            <Route path='/' element={<Homepage/>} />
+            {/* <Route path='/' element={<Homepage/>} />
             <Route path='/signup' element={<Signup/>} />
             <Route path='/login' element={<Login/>} />
-            <Route path='/help' element={<HelpPage/>}/>
+            <Route path='/help' element={<HelpPage/>}/> */}
 
             {/* Analytics Routing */}
-            <Route path='/overview' element={<Overview />} />
+            {/* <Route path='/overview' element={<Overview />} />
             <Route path='/payments' element={<Payments />} />
             <Route path='/activityfeed/*' element={<ActivityFeed />} />
             <Route path='/activityfeed/FeedDetail/:id' element={<FeedDetail />} />
-            <Route path="/ratingsandreviews" element={<RatingsAndReviews />} />   
+            <Route path="/ratingsandreviews" element={<RatingsAndReviews />} /> */}
 
             {/* Product Catalogue Routing */}
-            <Route path='/listOfproducts' element={<ListOfProducts />} />
+            {/* <Route path='/listOfproducts' element={<ListOfProducts />} />
             <Route path='/uploadproduct' element={<UploadProduct />} />
-            <Route path='/product' element={<ProductDetail />} />
+            <Route path='/product' element={<ProductDetail />} /> */}
 
             {/* Order Management Routing */}
-            <Route path='/orderlist' element={<OrderList />} />
+            {/* <Route path='/orderlist' element={<OrderList />} />
             <Route path='/returnsandrefunds' element={<ReturnsAndRefunds />} />
-            <Route path='/disputes' element={<Disputes />} />
+            <Route path='/disputes' element={<Disputes />} /> */}
 
             {/* Notification Setting */}
-            <Route path='/notificationsettings' element={<Body />} />
+            {/* <Route path='/notificationsettings' element={<Body />} /> */}
           </Routes>
         </div>
       </div>

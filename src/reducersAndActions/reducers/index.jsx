@@ -16,10 +16,14 @@ import feedbackFormReducer from "./feedbackFormReducer";
 import loginFormReducer from "./LoginFormReducer";
 import buyersSignupFormReducer from "./BuyersSignupFormReducer";
 import buyersLoginFormReducer from "./BuyersLoginFormReducer";
+import shipReducer from "./shipReducer";
+
+
 
 
 export const rootReducer = combineReducers({
     cartReducer,
+    shipReducer,
     companyService,
     businessDetailsReducer,
     ordersReducer,

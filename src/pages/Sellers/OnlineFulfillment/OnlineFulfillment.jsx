@@ -6,9 +6,9 @@ import TopBar from '../../../components/TopBar/TopBar'
 function OnlineFulfillment() {
   return (
     <div className="w-full">
-      <TopBar />
+      
       <div className='flex w-[1512px]'>
-        <SideBar />
+        
         <Body />
       </div>
     </div>

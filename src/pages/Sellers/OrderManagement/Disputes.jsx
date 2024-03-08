@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { toggleInsights, updateStatusFilter } from "../../../reducersAndActions/actions/disputeAction";
+import { toggleInsights, updateStatusFilter, } from "../../../reducersAndActions/actions/disputeAction";
 import Info from "../../../assets/ICONS/info.svg"
 import arrowDown from "../../../assets/ICONS/ArrowDown.svg";
 import rightArrow from "../../../assets/ICONS/RightArrow.svg";
@@ -98,8 +98,7 @@ const mockDisputes = [
 
 
 
-const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, updateStatusFilter }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, updateStatusFilter, toggleDrop, isDropdownOpen }) => {
 
   const getDisputesCount = (status) => {
     if (status === 'Closed') {
@@ -114,7 +113,7 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
   };
 
   const handleFilterButtonClick = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    toggleDrop(!isDropdownOpen);
   };
 
   const filteredDisputes = disputes && disputes.length > 0 ?
@@ -242,7 +241,7 @@ const Disputes = ({ disputes, showInsights, toggleInsights, statusFilter, update
       </div>
     );
 
-  }
+}
 
 Disputes.propTypes = {
   disputes: PropTypes.array.isRequired,
@@ -250,17 +249,21 @@ Disputes.propTypes = {
   toggleInsights: PropTypes.func.isRequired,
   statusFilter: PropTypes.string.isRequired,
   updateStatusFilter: PropTypes.func.isRequired,
+  toggleDrop: PropTypes.func.isRequired,
+  isDropdownOpen: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   disputes: mockDisputes,
   showInsights: state.disputeReducer.showInsights,
   statusFilter: state.disputeReducer.statusFilter,
+  isDropdownOpen: state.disputeReducer.isDropdownOpen,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   toggleInsights: () => dispatch(toggleInsights()),
   updateStatusFilter: (status) => dispatch(updateStatusFilter(status)),
+  toggleDrop: (isDropdownOpen) => dispatch(toggleDrop(isDropdownOpen)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Disputes);

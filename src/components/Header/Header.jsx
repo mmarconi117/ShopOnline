@@ -5,7 +5,13 @@ import Nav from "./Nav";
 import Menu from '../Menu/Menu'
 import { PiShoppingCartDuotone } from "react-icons/pi";
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+
 export default function Header({menuIsOpened, setMenuIsOpened}) {
+  const isAuthenticated = useSelector((state) => state.buyersLoginFormReducer.isAuthenticated)
+  const usersData = useSelector((state) => state.buyersLoginFormReducer.usersData)
+
+
   return (
     <>
     <div >
@@ -26,6 +32,10 @@ export default function Header({menuIsOpened, setMenuIsOpened}) {
           <Link to='/cart' className="mx-5" style={{ textDecoration: 'none' }}>
             <PiShoppingCartDuotone className="w-12 h-12 text-[#001c43]" />
           </Link>
+          <div className="hidden sm:flex">
+            {isAuthenticated && usersData && usersData.name ? <p className="font-bold text-[#001c43]">Welcome, {usersData.name}</p> : null}
+            
+          </div>
       </div>
       {/* <p className="flex items-center justify-center">
         Take the good times on the go, get the&nbsp;

@@ -12,8 +12,8 @@ export default function Nav() {
 
   const handleLogout = () => {
     // Add logic to handle user logout
-    localStorage.clear('valid_token')
-    dispatch(setAuthenticated(false));
+    localStorage.clear('valid_token_buyer');
+    dispatch({ type: 'BUYERS_SET_AUTHENTICATED', payload: false });
     
     navigate('/')
     // Additional logout logic, e.g., clearing user data from state or local storage

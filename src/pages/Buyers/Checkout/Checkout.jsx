@@ -98,14 +98,23 @@ return (
 
 
 
-    {/* Payment Method */}
-    <div className="bg-white px-4 py-8">
-      <div className="flex px-4 py-8 items-center justify-center">
-        <div className="border-b-2 border-gray-300 w-full max-w-3xl">
-          <div className="flex flex-col lg:grid grid-cols-3">
-            <div className="col-span-2 bg-blue-200">
-              {/* Payment Method Box */}
-              <div className="border border-gray-300 mb-4 p-4">
+{/* Shipping Address */}
+<div className="bg-[#F0F0F0]">
+  <div className="flex px-4 py-8">
+    <div className="w-full max-w-3xl">
+      <div className="flex flex-col lg:grid grid-cols-3">
+        <div className="col-span-2 bg-blue-200 rounded-lg p-4">
+          {/* Shipping Address */}
+          <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
+            <div>Payment Method</div>
+            <div className="flex items-center">
+              <button className="text-gray-500 text-xs mt-2">Edit</button>
+            </div>
+          </div>
+            {/* Payment Method Box */}
+            <div className="border border-gray-300 mb-4 p-4 flex items-center justify-between">
+              <div>Select Payment Method</div>
+              <div>
                 {/* Content for payment method box goes here */}
               </div>
             </div>
@@ -113,6 +122,11 @@ return (
         </div>
       </div>
     </div>
+  </div>
+
+
+
+
 
 
 

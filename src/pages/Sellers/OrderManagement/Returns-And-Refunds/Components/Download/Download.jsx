@@ -24,7 +24,7 @@ const Download = ({ disputes, itemIndex }) => {
         // download functionality here
     };
     return (
-        <div id="download-compoent">
+        <div id="download-compoent" className="mb-3">
             <button
                 className="flex"
                 style={{

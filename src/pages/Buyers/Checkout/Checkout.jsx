@@ -52,7 +52,7 @@ const Checkout = () => {
             Shipment Address
           </div>
           {/* <div className="w-full grey leading-[3rem]"></div> */}
-          <div className="flex flex-col w-full bg-white mb-5 p-5">
+          <div className="flex flex-col w-full bg-white p-5">
             <div>Mr Tony Stark</div>
             <div>Top of New York, 84052</div>
             <div>+19048588048</div>
@@ -61,14 +61,14 @@ const Checkout = () => {
             Payment Method
           </div>
           {/* <div className="w-full grey leading-[3rem]"></div> */}
-          <div className="flex flex-col w-full bg-white mb-5 p-5">
+          <div className="flex flex-col w-full bg-white p-5">
             <a href="">Select payment method</a>
           </div>
           <div className="flex w-full bg-white font-bold">
             Shipping Method
           </div>
           {/* <div className="w-full grey leading-[3rem]"></div> */}
-          <div className="flex flex-col w-full bg-white mb-5 p-5">
+          <div className="flex flex-col w-full bg-white p-5">
             <fieldset>
               <div className="flex">
                 <input type="radio" checked="checked" name="radio"/>
@@ -90,7 +90,7 @@ const Checkout = () => {
               <div className="pl-5">Next Business Day*</div>
             </fieldset>
           </div>
-          {dummy.map((item, index) => (
+          {carts.map((item, index) => (
             <div key={index} className="border border-gray-300 mb-4 p-4">
               <img
                 src={item.product.avatar}

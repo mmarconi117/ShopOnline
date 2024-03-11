@@ -45,6 +45,7 @@ import OnlineFulfillment from './pages/Sellers/OnlineFulfillment/OnlineFulfillme
 import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices'
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification'
 import Agreements from './pages/Sellers/Agreements/Agreements'
+import Electronics from './pages/Buyers/Category/Electronics'
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route exact path="" element={<Layout />}>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/electronics" element={<Electronics />} />
             <Route
               path="/womensfashion"
               element={<WomensFashionSubCategory />}

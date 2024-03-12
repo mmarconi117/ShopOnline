@@ -72,8 +72,8 @@ function App() {
           </Route>
 
           {/* Sellers Routers */}
-          <Route path="/sellers" element={<LandingPageforSellers />}>
-            <Route index element={<Homepage />} />
+          <Route path="/sellers/*" element={<LandingPageforSellers />}>
+            <Route path="" element={<Homepage />} />
             <Route path="signup" element={<Signup />} />
             <Route path="login" element={<Login />} />
             <Route path="help" element={<HelpPage />} />

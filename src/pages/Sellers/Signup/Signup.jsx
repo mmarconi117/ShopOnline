@@ -5,8 +5,7 @@ import signupImage from '../../../assets/ICONS/signupImage.svg'
 import { submitForm, setFormErrors } from '../../../reducersAndActions/actions/SignupFormAction';
 import { useSelector, useDispatch } from 'react-redux';
 import { validateForm } from './formValidation';
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 let initialStoreData = {
@@ -22,6 +21,7 @@ function Signup() {
   const dispatch = useDispatch();
   const storeData = useSelector((state) => state.signupFormReducer.formData) || initialStoreData;
   const formErrors = useSelector((state) => state.signupFormReducer.errors)
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,9 +34,10 @@ function Signup() {
       dispatch(submitForm(storeData));
       try {
         const response = await axios.post('http://localhost:8000/api/auth/signup', storeData);
-  
-        console.log('Signup successful:', response.data);
+        alert('Account created successfully!');
         dispatch({ type: 'SIGNUP_SUBMIT_FORM', payload: initialStoreData });
+        navigate('/seller/login');
+
   
       } catch (error) {        
         console.error('Signup error:', error);
@@ -49,10 +50,6 @@ function Signup() {
     const { value } = e.target;
     dispatch({ type: 'SIGNUP_SUBMIT_FORM', payload: { [fieldName]: value } });
   };
-
-  useEffect(() => {
-    console.log(storeData)
-  }, [])
   
   
 
@@ -133,7 +130,7 @@ function Signup() {
               </div>
               <button
                 type='submit'
-                className="self-center ease-in-out duration-200 text-[#A0AEC0] text-center text-base font-bold leading-6 tracking-wide whitespace-nowrap justify-center items-center hover:bg-[#1e1564] hover:text-[#F1F2F4] bg-[#F1F2F4] mt-5 px-16 py-4 rounded-xl max-md:max-w-full">
+                className="self-center ease-in-out duration-200 text-[#A0AEC0] text-center text-base font-bold leading-6 tracking-wide whitespace-nowrap justify-center items-center hover:text-[#F1F2F4] bg-[#1e1564] mt-5 px-16 py-4 rounded-xl max-md:max-w-full">
                 Create Account
               </button>
             </form>

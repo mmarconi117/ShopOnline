@@ -23,7 +23,7 @@ export default function LandingPageforSellers() {
         <div className={`${showBar ? "max-md:opacity-25" : "max-md:opacity-100"} flex flex-col items-stretch overflow-hidden grow`} onClick={showBar ? showSideBar : ()=>{}}>
 
           <Outlet />
-          
+
         </div>
       </div>
     </div>

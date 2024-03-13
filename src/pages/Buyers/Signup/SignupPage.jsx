@@ -47,6 +47,7 @@ const SignupPage = () => {
             const response = await axios.post('http://localhost:8000/api/auth/signup', userData);
             // Clear form data after successful signup
             dispatch({ type: 'BUYERS_SIGNUP_FORM', payload: initialStoreData });
+            alert('Account created successfully!');
             navigate('/login');          
       
           } catch (error) {        

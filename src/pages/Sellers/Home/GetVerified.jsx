@@ -28,6 +28,8 @@ function GetVerified({ setShowModal }) {
   const dispatch = useDispatch();
   
   const businessDetailsdata = useSelector((state) => state.businessDetailsReducer);
+  const isAuthenticated = useSelector((state) => state.loginFormReducer.isAuthenticated)
+  const usersData = useSelector((state) => state.loginFormReducer.usersData);
 
   const businessData = async (e) => {
     e.preventDefault()
@@ -44,7 +46,7 @@ function GetVerified({ setShowModal }) {
       <dialog id="modal" className="rounded-md flex flex-col max-md:max-h-screen gap-5 min-w-full md:min-w-max md:w-[80%] lg:max-w-[1000px] lg:w-[70%] px-5 py-5 bg-[#e3e3e3] border border-5 border-white ">
         <div className="items-stretch flex justify-between gap-5">
           <div className="text-zinc-800 text-base leading-6 whitespace-nowrap">
-            Welcome Joe,
+            Welcome { isAuthenticated && usersData && usersData.name ? (usersData.name) : null},
           </div>
           <div className="text-zinc-800 text-center text-sm font-semibold leading-6 underline whitespace-nowrap">
             <form method="dialog">

@@ -98,19 +98,17 @@ return (
 
 
 
-{/* Shipping Address */}
+{/* Payment Method Box */}
 <div className="bg-[#F0F0F0]">
   <div className="flex px-4 py-8">
     <div className="w-full max-w-3xl">
       <div className="flex flex-col lg:grid grid-cols-3">
         <div className="col-span-2 bg-blue-200 rounded-lg p-4">
-          {/* Shipping Address */}
           <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
             <div>Payment Method</div>
             <div className="flex items-center">
             </div>
           </div>
-            {/* Payment Method Box */}
             <div className="border border-gray-300 mb-4 p-4 flex items-center justify-between">
               <div>Select Payment Method</div>
               <div>
@@ -122,6 +120,40 @@ return (
       </div>
     </div>
   </div>
+
+{/* Shipping Method */}
+<div className="bg-[#F0F0F0]">
+  <div className="flex px-4 py-8">
+    <div className="w-full max-w-3xl">
+      <div className="flex flex-col lg:grid grid-cols-3">
+        <div className="col-span-2 bg-blue-200 rounded-lg p-4">
+          <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
+          <div className="text-lg font-bold">Shipping Method</div>
+          </div>
+          {/* Dot notation */}
+          <div className="border border-gray-300 mb-4 p-4 flex flex-col">
+            {/* Dot for Standard Shipping */}
+            <div className="flex items-center mb-2">
+              <div className="w-4 h-4 border border-gray-500 rounded-full mr-2"></div>
+              <div className="text-md font-bold">Standard Shipping</div> {/* Updated text size and weight */}
+              <div className="ml-auto">Free</div>
+            </div>
+            {/* Days text for Standard Shipping */}
+            <div className="text-sm ml-2">5 - 7 business days</div>
+            {/* Add more dots and days text as needed for different shipping options */}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 
 
 

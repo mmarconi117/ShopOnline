@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LandingPage from './pages/Buyers/LandingPage'
 import WomensFashionSubCategory from './pages/Buyers/Category/WomensFashion/WomansFashionSubCategory'
 import JewelleryAndWatchesSubCategory from './pages/Buyers/Category/JewelleryAndWatches/JewelleryAndWatchesSubCategory'
-import Cart from './pages/Buyers/Cart/CartPage'
+import Cart from './pages/Buyers/Cart/CartPage';
 import LoginPage from './pages/Buyers/Login/LoginPage'
 import SignupPage from './pages/Buyers/Signup/SignupPage'
 import Help from './pages/Buyers/Help'

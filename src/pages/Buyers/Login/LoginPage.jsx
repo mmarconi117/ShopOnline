@@ -8,6 +8,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { submitBuyersLoginForm, setBuyersLoginFormErrors } from '../../../reducersAndActions/actions/BuyersLoginFormAction';
 import { useSelector, useDispatch } from 'react-redux';
 import { validateForm } from './formValidation';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../../../firebase-config';
 import axios from 'axios';
 
 let initialStoreData = {
@@ -28,31 +30,82 @@ const LoginPage = () => {
     const errors = validateForm(storeData);
     dispatch(setBuyersLoginFormErrors(errors));
 
-    if (Object.keys(errors).length === 0) {      
-      try {
-        const response = await axios.post('http://localhost:8000/login', storeData);
+    if (Object.keys(errors).length === 0) {  
 
-          if (response.data.user.role === "buyer") {
-            
-              const userData = {
-                id: response.data.user.id,
-                name: response.data.user.name,
-                profile_picture: response.data.user.profile_picture,
-                email: response.data.user.email,
-              }
-              dispatch(submitBuyersLoginForm(userData));
-              localStorage.setItem('valid_token', response.data.validToken);
-              navigate('/');
-              dispatch({ type: 'BUYERS_LOGIN_SUBMIT_FORM', payload: initialStoreData });
-              dispatch(setBuyersLoginFormErrors({}));
-              clearLocalStorage();
-          }else{
-            alert("Your account is not a buyers account.")
-          }   
+      const { email, password } = storeData
+      const user = await signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          return user;
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          
+        });
+
+      try {
+        const validToken = user.accessToken;
+        const response = await axios.get('http://localhost:8000/api/auth/profile', {
+          headers: {
+            Authorization: `Bearer ${validToken}`
+          }
+        });
+        if (response.data.role === "buyer") {
+          const usersData = {
+            id: response.data.id,
+            name: response.data.name,
+            profile_picture: response.data.profile_picture,
+            email: response.data.email,
+          }
+
+          localStorage.setItem('valid_token_buyer', validToken);
+          dispatch({ type: 'BUYERS_SET_USERS_DATA', payload: usersData });
+          dispatch({ type: 'BUYERS_SET_AUTHENTICATED', payload: true });
+          navigate('/');
+          dispatch({ type: 'BUYERS_LOGIN_SUBMIT_FORM', payload: initialStoreData });
+  
+        } else {
+          alert("Your account is not a buyer account.")
+        }
 
       } catch (error) {
         dispatch(setBuyersLoginFormErrors(error));
       }
+
+
+
+
+
+
+
+
+      // try {
+      //   const response = await axios.post('http://localhost:8000/api/auth/login', storeData);
+
+      //     if (response.data.user.role === "buyer") {
+            
+      //         const usersData = {
+      //           id: response.data.user.id,
+      //           name: response.data.user.name,
+      //           profile_picture: response.data.user.profile_picture,
+      //           email: response.data.user.email,
+      //         }
+      //         localStorage.setItem('valid_token_buyer', response.data.validToken);
+      //         dispatch({ type: 'BUYERS_SET_USERS_DATA', payload: usersData });
+      //         dispatch({ type: 'BUYERS_SET_AUTHENTICATED', payload: true });
+      //         navigate('/');
+      //         dispatch({ type: 'BUYERS_LOGIN_SUBMIT_FORM', payload: initialStoreData });
+      //         dispatch(setBuyersLoginFormErrors({}));
+      //         clearLocalStorage();
+      //     }else{
+      //       alert("You are not a buyer")
+      //     }   
+
+      // } catch (error) {
+      //   dispatch(setBuyersLoginFormErrors(error));
+      // }
     }
   };
 
@@ -142,6 +195,7 @@ const LoginPage = () => {
           >
             Log in
           </button>
+          {formErrors.message && <p className='text-red-600 mt-2'>{formErrors.message}</p>}
         </form>
 
         <div className="py-8 text-center">

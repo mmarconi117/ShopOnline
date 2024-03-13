@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { submitLoginForm, setLoginFormErrors } from '../../../reducersAndActions/actions/LoginFormAction';
 import { useSelector, useDispatch } from 'react-redux';
 import { validateForm } from './formValidation';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../../../firebase-config';
 import axios from 'axios';
 
 let initialStoreData = {
@@ -24,27 +26,46 @@ function Login() {
     const errors = validateForm(storeData);
     dispatch(setLoginFormErrors(errors));
 
-    if (Object.keys(errors).length === 0) {      
-      try {
-        const response = await axios.post('http://localhost:8000/login', storeData);
+    if (Object.keys(errors).length === 0) {
 
-          if (response.data.user.role === "seller") {
-            
-              const userData = {
-                id: response.data.user.id,
-                name: response.data.user.name,
-                profile_picture: response.data.user.profile_picture,
-                email: response.data.user.email,
-              }
-        
-              dispatch(submitLoginForm(userData));
-              localStorage.setItem('valid_token', response.data.validToken);
-              navigate('/sellers');
-              dispatch({ type: 'LOGIN_SUBMIT_FORM', payload: initialStoreData });
-              dispatch(setLoginFormErrors({}));
-          }else{
-            alert("Your account is not a sellers account.")
-          }   
+      const { email, password } = storeData
+      const user = await signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          return user;
+          // alert("Login Successful")
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          
+        });
+
+      try {
+        const validToken = user.accessToken;
+        const response = await axios.get('http://localhost:8000/api/auth/profile', {
+          headers: {
+            Authorization: `Bearer ${validToken}`
+          }
+        });
+        if (response.data.role === "seller") {
+          const usersData = {
+            id: response.data.id,
+            name: response.data.name,
+            profile_picture: response.data.profile_picture,
+            email: response.data.email,
+          }
+
+          localStorage.setItem('valid_token_seller', validToken);
+          dispatch({ type: 'SELLERS_SET_USERS_DATA', payload: usersData });
+          dispatch({ type: "SELLERS_SET_AUTHENTICATED", payload: true })
+          navigate('/sellers');
+          dispatch({ type: 'LOGIN_SUBMIT_FORM', payload: initialStoreData });
+          dispatch(setLoginFormErrors({}));
+        } else {
+          alert("Your account is not a sellers account.")
+        }
 
       } catch (error) {
         dispatch(setLoginFormErrors(error));

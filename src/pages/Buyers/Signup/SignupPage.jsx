@@ -2,7 +2,7 @@ import facebook from "../../../assets/ICONS/socials/facebook.svg";
 import twitter from "../../../assets/ICONS/socials/twitter.svg";
 import linkedin from "../../../assets/ICONS/socials/linkedin.svg";
 import instagram from "../../../assets/ICONS/socials/instagram.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {submitForm, setFormErrors } from '../../../reducersAndActions/actions/BuyersSignupFormAction' 
 import { useSelector, useDispatch } from 'react-redux';
@@ -22,7 +22,8 @@ const SignupPage = () => {
 
   const dispatch = useDispatch();
   const storeData = useSelector((state) => state.buyersSignupFormReducer.formData);
-  const formErrors = useSelector((state) => state.buyersSignupFormReducer.errors)
+  const formErrors = useSelector((state) => state.buyersSignupFormReducer.errors);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,15 +44,14 @@ const SignupPage = () => {
             role: storeData.role
           }
           try {
-            const response = await axios.post('http://localhost:8000/signup', userData);
-      
-            console.log('Signup successful:', response.data);
+            const response = await axios.post('http://localhost:8000/api/auth/signup', userData);
             // Clear form data after successful signup
             dispatch({ type: 'BUYERS_SIGNUP_FORM', payload: initialStoreData });
+            alert('Account created successfully!');
+            navigate('/login');          
       
           } catch (error) {        
-            console.error('Signup error:', error);
-            console.log('Signup error: ', errorInfo.message)
+            dispatch(setFormErrors(error));
           }        
     }
     
@@ -148,6 +148,7 @@ const SignupPage = () => {
           >
             Create
           </button>
+          {formErrors.message && <p className='text-red-600 mt-2'>{formErrors.message}</p>}
         </form>
 
         <div className="py-8 text-center">

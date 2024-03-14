@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import {
     toggleDispute,
     toggleInsights,
-    updateStatusFilter
+    updateStatusFilter,
+    toggleDrop
 } from "../../../reducersAndActions/actions/disputeAction";
 import Info from "../../../assets/ICONS/info.svg";
 import arrowDown from "../../../assets/ICONS/ArrowDown.svg";
@@ -36,7 +37,7 @@ const Disputes = ({
     };
 
     const handleFilterButtonClick = () => {
-        setIsDropdownOpen(!isDropdownOpen);
+        toggleDrop(!isDropdownOpen);
     };
 
     const filteredDisputes =
@@ -245,19 +246,22 @@ Disputes.propTypes = {
     showInsights: PropTypes.bool.isRequired,
     toggleInsights: PropTypes.func.isRequired,
     statusFilter: PropTypes.string.isRequired,
-    updateStatusFilter: PropTypes.func.isRequired
+    updateStatusFilter: PropTypes.func.isRequired,
+    toggleDrop: PropTypes.func.isRequired,
+    isDropdownOpen: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state) => ({
     disputes: state.disputeReducer.disputes,
     showInsights: state.disputeReducer.showInsights,
-    statusFilter: state.disputeReducer.statusFilter
+    statusFilter: state.disputeReducer.statusFilter,
+    isDropdownOpen: state.disputeReducer.isDropdownOpen
 });
 
 const mapDispatchToProps = (dispatch) => ({
     toggleInsights: () => dispatch(toggleInsights()),
     updateStatusFilter: (status) => dispatch(updateStatusFilter(status)),
-    toggleDispute: (data) => dispatch(toggleDispute(data))
+    toggleDrop: (isDropdownOpen) => dispatch(toggleDrop(isDropdownOpen))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Disputes);

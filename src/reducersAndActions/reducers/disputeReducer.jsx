@@ -1,4 +1,4 @@
-import { UPDATE_STATUS_FILTER, TOGGLE_INSIGHTS, TOGGLE_DISPUTE } from "../actions";
+import { UPDATE_STATUS_FILTER, TOGGLE_INSIGHTS, TOGGLE_DISPUTE, TOGGLE_DROP } from "../actions";
 
 const initialState = {
     disputes: [
@@ -92,7 +92,8 @@ const initialState = {
         }
     ],
     showInsights: true,
-    statusFilter: "All"
+    statusFilter: "All",
+    isDropdownOpen: false
 };
 
 const disputeReducer = (state = initialState, action) => {
@@ -107,7 +108,12 @@ const disputeReducer = (state = initialState, action) => {
             });
             return {
                 ...state,
-                disputes: state.disputesdisputes
+                disputes: update
+            };
+        case TOGGLE_DROP:
+            return {
+                ...state,
+                isDropdownOpen: action.payload
             };
         case TOGGLE_INSIGHTS:
             return {

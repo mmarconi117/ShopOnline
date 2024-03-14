@@ -1,5 +1,10 @@
 
-import { TOGGLE_DISPUTE, TOGGLE_INSIGHTS, UPDATE_STATUS_FILTER } from "../actions/index";
+import {
+    TOGGLE_DISPUTE,
+    TOGGLE_DROP,
+    TOGGLE_INSIGHTS,
+    UPDATE_STATUS_FILTER
+} from "../actions/index";
 
 
 export const toggleInsights = () => ({
@@ -13,5 +18,10 @@ export const updateStatusFilter = (status) => ({
 
 export const toggleDispute = (data) => ({
     type: TOGGLE_DISPUTE,
+    payload: data
+});
+
+export const toggleDrop = (data) => ({
+    type: TOGGLE_DROP,
     payload: data
 });

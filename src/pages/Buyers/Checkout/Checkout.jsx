@@ -45,26 +45,26 @@ const Checkout = () => {
   };
 
   return (
-    <div className="bg-[#F0F0F0] mt-20">
+    <div className="bg-[#F0F0F0]">
       <div className="flex px-4 pt-8 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
-        <div className="flex flex-col justify-center items-start col-start-1 col-end-3 lg:h-[759px]">
-          <div className="flex w-full bg-white font-bold p-5">
+        <div className="flex flex-col justify-center items-start col-start-1 col-end-3 lg:h-[759px] -mt-20">
+          <div className="flex w-full bg-white font-bold mb-1 p-5">
             Shipment Address
           </div>
           {/* <div className="w-full grey leading-[3rem]"></div> */}
-          <div className="flex flex-col w-full bg-white p-5">
+          <div className="flex flex-col w-full bg-white mb-5 p-5">
             <div>Mr Tony Stark</div>
             <div>Top of New York, 84052</div>
             <div>+19048588048</div>
           </div>
-          <div className="flex w-full bg-white font-bold p-5">
+          <div className="flex w-full bg-white font-bold mb-1 p-5">
             Payment Method
           </div>
           {/* <div className="w-full grey leading-[3rem]"></div> */}
-          <div className="flex flex-col w-full bg-white p-5">
+          <div className="flex flex-col w-full bg-white mb-5 p-5">
             <a href="">Select payment method</a>
           </div>
-          <div className="flex w-full bg-white font-bold">
+          <div className="flex w-full bg-white font-bold mb-1 p-5">
             Shipping Method
           </div>
           {/* <div className="w-full grey leading-[3rem]"></div> */}
@@ -91,7 +91,7 @@ const Checkout = () => {
             </fieldset>
           </div>
           {carts.map((item, index) => (
-            <div key={index} className="border border-gray-300 mb-4 p-4">
+            <div key={index} className="flex border border-gray-300 mb-4 p-4">
               <img
                 src={item.product.avatar}
                 className="w-24 h-24 mb-2"

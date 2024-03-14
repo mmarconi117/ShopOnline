@@ -19,15 +19,15 @@ import arrowDown from "../../../../assets//ICONS/ArrowDown.svg";
 import {
     searchDisputes,
     toggleFilterDisputes
-} from "../../../../reducersAndActions/actions/disputeAction";
+} from "../../../../reducersAndActions/actions/returnsAndRefundsAction";
 
 import { setDisplayFeedbackModal } from "../../../../reducersAndActions/actions/feedbackAction";
 import FeedbackModal from "../../../Buyers/FeedbackModal";
 
 const mapStateToProps = (state) => {
     return {
-        disputes: state.disputeReducer.disputes,
-        filtered: state.disputeReducer.filtered,
+        disputes: state.returnsAndRefundsReducer.disputes,
+        filtered: state.returnsAndRefundsReducer.filtered,
         displayFeedbackModal: state.feedbackReducer.displayFeedbackModal
     };
 };

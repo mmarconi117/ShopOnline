@@ -3,8 +3,13 @@ import Signout from '../../../assets/ICONS/Signout.svg'
 import profile from '../../../assets/ICONS/Group.svg'
 import pointers from '../../../assets/ICONS/twoPointers.svg'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 function Sidebar(props) {
+    const isAuthenticated = useSelector((state) => state.loginFormReducer.isAuthenticated)
+    const usersData = useSelector((state) => state.loginFormReducer.usersData);
+
+
     return (
         // Come back and fix the width of the outermost container
         <div className={`max-md:fixed top-0 ${props.showBarIsTrue ? "max-md:z-10 left-0 max-md:mt-[72px] h-full" : "left-[-280px]"} flex flex-col grow-0 justify-start items-start min-w-max bg-white`}>
@@ -15,7 +20,8 @@ function Sidebar(props) {
                     </div>
                     <div className="flex flex-col items-start gap-2.5">
                         <div className="text-zinc-500 text-center text-base leading-6 whitespace-nowrap">
-                            Hello, John
+                            Hello, { isAuthenticated && usersData && usersData.name ? (usersData.name) : null}
+
                         </div>
                         <div className="text-zinc-500 text-center text-xs leading-4 whitespace-nowrap">
                             ID: XXXXXXXX

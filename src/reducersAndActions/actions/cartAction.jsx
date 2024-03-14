@@ -1,5 +1,4 @@
-//Actions.jsx
-import { SET_CARTS, REMOVE_ITEM_FROM_CART, UPDATE_CART, ADD_TO_CART } from ".";
+import { SET_CARTS, REMOVE_ITEM_FROM_CART, ADD_TO_CART, UPDATE_CART_QUANTITY, INCREASE_QUANTITY_CART, DECREASE_QUANTITY_CART } from "../actions/index";
 
 export const setCarts = (carts) => ({
     type: SET_CARTS,
@@ -20,3 +19,22 @@ export const updateCart = (data) => ({
     type: UPDATE_CART,
     payload: data,
 });
+
+export const updateCartQuantity = (id, quantity) => ({
+    type: UPDATE_CART_QUANTITY,
+    payload: { id, quantity },
+});
+
+export const increaseQuantityCart = (productId) => {
+    return {
+      type: INCREASE_QUANTITY_CART,
+      payload: { productId }
+    };
+  };
+
+  export const decreaseQuantityCart = (productId) => {
+    return {
+      type: DECREASE_QUANTITY_CART,
+      payload: { productId }
+    };
+  };

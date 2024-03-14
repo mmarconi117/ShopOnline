@@ -18,48 +18,73 @@ const Menu = () => {
   const categories = [
     {
       id: 'Womens fashion',
-      // img: womensIcon,
+      url: '/womensFashion',
       title: "Women",
     },
     {
       id: 'mens',
-      // img: mensIcon,
+      url: '/mensFashion',
       title: "Men",
     },
     {
       id: 'phone',
-      // img: phoneIcon,
-      title: 'Kids',
+      url: '/phonesAndAccessories',
+      title: 'Phones & Accessories',
     },
     {
       id: 'office',
-      // img: computerIcon,
-      title: 'Home',
+      url: '/computersAndOffice',
+      title: 'Computer, Office & Security',
     },
     {
       id: 'electronics',
-      // img: consumerIcon,
-      title: 'Health',
-    },
-    {
-      id: 'jewelry',
-      // img: jewelryIcon,
+      url: '/electronics',
       title: 'Electronics',
     },
     {
+      id: 'jewelry',
+      url: '/jewelryAndWatches',
+      title: 'Jewelry',
+    },
+    {
       id: 'furniture',
-      // img: homeIcon,
+      url: '/furniture',
       title: 'Furniture',
     },
     {
       id: 'bagsAndShoes',
-      // img: bagsIcon,
-      title: 'Jewelry',
+      url: '/bagsAndShoes',
+      title: 'Bags & Shoes',
     },
     {
       id: 'kids',
-      // img: toysIcon,
-      title: 'Toys',
+      url: '/kidsAndToys',
+      title: 'Kids & Toys',
+    },
+    {
+      id: 'toolsAndHomeImprovement',
+      url: '/toolsAndHomeImprovement',
+      title: 'Tools & Home Improvement',
+    },
+    {
+      id: 'automotive',
+      url: '/automotive',
+      title: 'Automotive',
+    },
+    {
+      id: 'digitalMedia',
+      url: '/digitalMedia',
+      title: 'Digital Media',
+    },
+    {
+      id: 'outdoor',
+      url: '/outdoorsAndSports',
+      title: 'Outdoor Fun & Sports',
+    },
+    {
+      id: 'homePetsAndAppliances',
+      url: '/homePetsAndAppliances',
+      title: 'Home, Pets & Appliances',
     },
   ];
   const [isOpen, setIsOpen] = useState(false)
@@ -67,31 +92,19 @@ const Menu = () => {
     setIsOpen(prev => !prev)
   }
   return (
-    <>
-    {/* Desktop Version */} 
-      <div className="hidden w-full px-3 py-1 min-w-max bg-[#ccefff] gap-5 md:flex justify-start font-Roboto">
-        <p className="text-xl font-bold whitespace-nowrap"> All Categories</p>
-        <div className='grow flex justify-between gap-4 items-center'>
-          {categories.map((item, index) => (
-            <Link key={index} to="/subcategories" className="text-base leading-[19.2px]">{item.title}</Link>
-          ))}
-        </div>
-      </div>
-      {/* Mobile Version */}
-      <div className="relative md:hidden w-full px-3 py-2 min-w-max bg-[#ccefff] gap-5 flex justify-start font-Roboto">
+      <div className="relative w-full px-3 py-2 min-w-max bg-[#ccefff] gap-6 flex justify-start items-center font-Roboto">
         <button className='flex flex-col gap-1 w-6 active:px-0.5' onClick={menuHandler}>
           <div className='w-full h-1 rounded-md bg-black'/>
           <div className='w-full h-1 rounded-md bg-black'/>
           <div className='w-full h-1 rounded-md bg-black'/>
         </button>
-        <div className={`absolute ${isOpen ? "flex bg-gray-100 opacity-95 z-50" : "hidden"} rounded-br-md rounded-none p-4 top-9 left-0 w-[250px] flex-wrap justify-between gap-16 text-left items-center`}>
+        <p className="text-xl font-bold whitespace-nowrap"> All Categories</p>
+        <div className={`duration-300 absolute ${isOpen ? "ease-in flex bg-gray-100 opacity-95 z-10 ml-0" : "ml-[-100px]"} left-0 flex-col rounded-br-md rounded-none p-4 top-11 w-full justify-between gap-16 text-left items-center`}>
           {categories.map((item, index) => (
-            <Link key={index} to="/subcategories" className="text-base leading-[19.2px]" onClick={menuHandler}>{item.title}</Link>
+            <Link key={index} to={item.url} className={`${!isOpen && "hidden"} text-base leading-[19.2px]`} onClick={menuHandler}>{item.title}</Link>
           ))}
         </div>
       </div>
-    
-    </>
   );
 };
 

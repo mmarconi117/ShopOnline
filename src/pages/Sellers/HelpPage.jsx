@@ -5,6 +5,7 @@ import user from "../../assets/ICONS/user/user-fill.svg";
 import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
 import logOut from "../../assets/ICONS/logOut.svg";
+import FeedbackModal from '../Buyers/FeedbackModal';
 
 const HelpPage = () => {
   const { showFeedbackFormState, email, question } = useSelector(state => ({
@@ -28,8 +29,9 @@ const HelpPage = () => {
 
   return (
     <div className="bg-gray-100 h-screen flex flex-row space-x-12">
+      {showFeedbackFormState && <FeedbackModal/>}
       {/* Dashboard */}
-      <div className="w-2/5 bg-white flex flex-col space-y-12 ">
+      {/* <div className="w-2/5 bg-white flex flex-col space-y-12 ">
         <div className="flex flex-row mx-8 align-middle mt-6">
           <img className="h-12" src={user} alt="user" />
           <div className="ml-7 justify-center  ">
@@ -66,15 +68,15 @@ const HelpPage = () => {
           <h3 className="mt-8">Sign Out</h3>
           <img className="mt-8 " src={logOut} alt="logout-user" />
         </div>
-      </div>
+      </div> */}
       {/* Dashboard */}
 
       {/* Navigation */}
-      <div className="flex flex-col w-full">
-        <div className="flex flex-row mt-8 space-x-2">
+      <div className="flex flex-col w-full p-5">
+        <div className="flex flex-row space-x-2">
           <div className="flex flex-row space-x-4">
             <h3>Help</h3>
-            <img src={navigationArrow} alt="" />
+            <img className="w-full" src={navigationArrow} alt="" />
           </div>
           <div className="flex flex-row space-x-4">
             <h3>Partner Profile</h3>
@@ -82,12 +84,19 @@ const HelpPage = () => {
         </div>
         <h1 className="my-10 text-2xl font-semibold">Seller's Online Help Services </h1>
       {/* Navigation */}
-
-      {/* Contact Information */}
-      <img src="path-to-image-of-the-contact-info.jpg" alt="Need Help" />
-      {/* Contact Information */}
+      <div className="flex h-[300px] bg-Banner bg-cover bg-center align-center justify-center">
+        {/* Contact Information */}
+        <div className="flex flex-col w-[300px] mt-10">
+          <div>Give us a call: 1-800-123-4657</div>
+          <div>Email us: nyshopping@shopping.com</div>
+          <div>Monday-Friday 6am - 5pm EST</div>
+          <div>Saturday - Sunday 8am - 2pm EST</div>
+        </div>
+      </div>
+      <div className="flex flex-col h-300 content-between">
       {/* search bar */}
         <input
+        className="mt-10"
         type="search"
         placeholder="What can we help you with?"
         aria-label="Search through site content"
@@ -119,10 +128,10 @@ const HelpPage = () => {
         </details>
       </div>
       {/* feedback button */}
-      <button onClick={handleToggleFeedbackForm}>Give us feedback</button>
-
+      <button className="text-cyan-600 text-center text-xl leading-6 whitespace-nowrap justify-center items-stretch border border-[color:var(--Color-Styles-Primary-color-blue-T1000,#2284B6)] self-center mt-28 px-12 py-4 rounded-md border-solid max-md:mt-10 max-md:px-5" onClick={handleToggleFeedbackForm}>Give us feedback</button>
+      </div>
       {/* show feedback form depending on the state of the feedback button */}
-      {showFeedbackFormState && (
+      {/* {showFeedbackFormState && (
         <form onSubmit={handleFormSubmit} className="feedback-form"> 
           <h3>Please share your feedback with us!</h3>
           <p>If you still have questions or need help feel free to contact us.</p>
@@ -148,7 +157,7 @@ const HelpPage = () => {
           </div>
           <button type="submit">Send</button>
         </form>
-      )}
+      )} */}
       </div>
     </div>
   );

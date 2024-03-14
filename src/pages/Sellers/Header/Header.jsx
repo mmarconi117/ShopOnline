@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom if
 import UserIcon from '../../../assets/ICONS/user/user-1.svg';
 import ArrowDown from '../../../assets/ICONS/ArrowDown.svg';
 import logo from '../../../assets/ICONS/Outline/LOGO.png';
+import { useSelector } from 'react-redux';
 
 function Header(props) {
+  const isAuthenticated = useSelector((state) => state.loginFormReducer.isAuthenticated)
+  const usersData = useSelector((state) => state.loginFormReducer.usersData);
+  
   return (
     <div className="fixed z-10 top-0 w-full bg-white justify-between flex items-center py-6">
       <div className='hidden md:block pl-8'>
@@ -24,10 +28,10 @@ function Header(props) {
           <Link to="/sellers" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Home
           </Link>
-          <Link to="/settings" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
+          <Link to="/sellers/onlinefulfillment" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Settings
           </Link>
-          <Link to="" className="text-zinc-600 text-base leading-6">
+          <Link to="/sellers/helppage" className="text-zinc-600 text-base leading-6">
             Help
           </Link>
           <Link to="/sellers/notificationsettings" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
@@ -41,7 +45,7 @@ function Header(props) {
             className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
           />
           <div className="text-zinc-900 whitespace-nowrap text-base font-medium leading-6 self-center my-auto">
-            John Doe
+          { isAuthenticated && usersData && usersData.name ? (usersData.name) : null}
           </div>
           <img
             loading="lazy"

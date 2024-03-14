@@ -1,4 +1,4 @@
-import { LOGIN_SUBMIT_FORM, SET_LOGIN_FORM_ERRORS } from '../actions';
+import { LOGIN_SUBMIT_FORM, SET_LOGIN_FORM_ERRORS, SELLERS_SET_AUTHENTICATED, SELLERS_SET_USERS_DATA } from '../actions';
 
 const initialStoreData = {
   email: '',
@@ -8,6 +8,8 @@ const initialStoreData = {
 const initialState = {
   formData: initialStoreData,
   errors: {},
+  usersData: {},
+  isAuthenticated: localStorage.getItem('valid_token_seller') ? true : false,
 };
 
 const loginFormReducer = (state = initialState, action) => {
@@ -25,7 +27,18 @@ const loginFormReducer = (state = initialState, action) => {
         ...state,
         errors: action.payload,
       };
-      
+    case SELLERS_SET_AUTHENTICATED:
+      return {
+        ...state,
+        isAuthenticated: action.payload,
+      };
+    case SELLERS_SET_USERS_DATA:
+      const isAuthenticated = action.payload.role === 'seller';
+      return {
+        ...state,
+        usersData: action.payload,
+        isAuthenticated,
+      };
     default:
       return state;
   }

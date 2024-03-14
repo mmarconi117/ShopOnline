@@ -1,46 +1,43 @@
 const AboutProduct = () => {
     return (
         // {/* // Product features and specifications container */}
-        <div style={{ width: "inherit", margin: "auto" }}>
-            <div
-                className="border-2 border-black-900 my-16"
-                style={{
-                    backgroundColor: "#f2f2f2",
-                }}
-            >
+        <div className="flex flex-col gap-8 items-stretch">
+            <div className="bg-[#FFFFFF] rounded-md">
                 {/* Product details div */}
                 <div
                     id="product-description-div"
-                    className="border-b-2 border-black p-8"
+                    className="border-b-[0.5px] border-[#79767D] p-8"
                 >
-                    <p className="text-3xl font-bold">Product Details</p>
+                    <p className="text-2xl font-bold">Product Details</p>
                 </div>
                 {/* Product details in list div */}
                 <ul
                     className="list-inside list-decimal p-10"
                     id="details-list"
                 >
-                    <li className="py-1 px-.5">
+                    <li className="py-1">
                         With a 10 place setting capacity, this dishwasher is perfect for smaller to
                         medium households
                     </li>
-                    <li className="py-1 px-.5">
+                    <li className="py-1">
                         Half load wash function is ideal if you've only got one basket full to clean
                     </li>
-                    <li className="py-1 px-.5">
+                    <li className="py-1">
                         A height adjustable upper basket and collapsible supports make washing
                         bigger pots and pans easy
                     </li>
-                    <li className="py-1 px-.5">
+                    <li className="py-1">
                         There are four wash programmes to help you get the best results with each
                         load
                     </li>
-                    <li className="py-1 px-.5">
+                    <li className="py-1">
                         It's fully integrated design helps to save vital floor space in your kitchen
                     </li>
                 </ul>
-                <div className="p-10">
-                    <p>
+
+                <div className="p-10 text-[#0F1111]">
+                    <h2 className="text-base font-semibold mb-6">The details</h2>
+                    <p className="">
                         If you are limited with space in your kitchen, this dishwasher could answer
                         your problem. It sits behind a cupboard door, fully integrating into your
                         kitchen. It's around 15cm slimmer than most full size dishwashers which
@@ -63,15 +60,10 @@ const AboutProduct = () => {
                 </div>
             </div>
             {/* Product features and specs */}
-            <div className="flex justify-between w-full">
+            <div className="flex flex-col lg:flex-row gap-8 items-stretch lg:justify-between">
                 {/* Product features div */}
-                <div
-                    className="w-2/5 border-2"
-                    style={{
-                        backgroundColor: "#f2f2f2",
-                    }}
-                >
-                    <div className="border-b-2 border-black p-8">
+                <div className="bg-[#FFFFFF] lg:w-[50%]">
+                    <div className="border-b-[0.5px] border-[#79767D] p-8">
                         <p className="text-2xl font-bold">Key Features</p>
                     </div>
                     <div>
@@ -96,13 +88,8 @@ const AboutProduct = () => {
                     </div>
                 </div>
                 {/* Product specifications div */}
-                <div
-                    className="w-2/5 border-2"
-                    style={{
-                        backgroundColor: "#f2f2f2",
-                    }}
-                >
-                    <div className="border-b-2 border-black p-8">
+                <div className="bg-[#FFFFFF] lg:w-[50%]">
+                    <div className="border-b-[0.5px] border-[#79767D] p-8">
                         <p className="text-2xl font-bold">Specifications</p>
                     </div>
                     <div>

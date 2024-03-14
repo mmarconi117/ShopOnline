@@ -6,12 +6,12 @@ export const validateForm = (storeData) => {
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!storeData || !storeData.workEmail || storeData.workEmail.trim() === '' || !emailRegex.test(storeData.workEmail)) {
-    errors.workEmail = 'Valid work email is required';
+  if (!storeData || !storeData.email || storeData.email.trim() === '' || !emailRegex.test(storeData.email)) {
+    errors.email = 'Valid work email is required';
   }
 
-  if (!storeData || !storeData.legalBusinessName || storeData.legalBusinessName.trim() === '') {
-    errors.legalBusinessName = 'Legal business name is required';
+  if (!storeData || !storeData.business_name || storeData.business_name.trim() === '') {
+    errors.business_name = 'Legal business name is required';
   }
 
   if (!storeData || !storeData.password || storeData.password.trim() === '') {

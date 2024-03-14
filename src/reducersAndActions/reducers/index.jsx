@@ -14,11 +14,17 @@ import reviewsReducer  from "./reduceReview";
 import disputeReducer from "./disputeReducer";
 import returnsAndRefundsReducer from "./returnsAndRefunds";
 import feedbackFormReducer from "./feedbackFormReducer";
-
 import loginFormReducer from "./LoginFormReducer";
+import buyersSignupFormReducer from "./BuyersSignupFormReducer";
+import buyersLoginFormReducer from "./BuyersLoginFormReducer";
+import shipReducer from "./shipReducer";
+
+
+
 
 export const rootReducer = combineReducers({
     cartReducer,
+    shipReducer,
     companyService,
     businessDetailsReducer,
     ordersReducer,
@@ -31,8 +37,9 @@ export const rootReducer = combineReducers({
     reviews: reviewsReducer,
     loginFormReducer,
     disputeReducer,
-    returnsAndRefundsReducer,
-    feedback: feedbackFormReducer
+    feedback: feedbackFormReducer,
+    buyersSignupFormReducer,
+    buyersLoginFormReducer,
 });
 
 export default rootReducer;

@@ -1,13 +1,21 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { setAuthenticated } from '../../reducersAndActions/actions/BuyersLoginFormAction';
+
 
 export default function Nav() {
   const [menu, setMenu] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const isAuthenticated = useSelector((state) => state.buyersLoginFormReducer.isAuthenticated)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     // Add logic to handle user logout
-    setIsAuthenticated(false);
+    localStorage.clear('valid_token_buyer');
+    dispatch({ type: 'BUYERS_SET_AUTHENTICATED', payload: false });
+    
+    navigate('/')
     // Additional logout logic, e.g., clearing user data from state or local storage
   };
 
@@ -32,7 +40,11 @@ export default function Nav() {
               setMenu("sell");
             }}
           >
-            <Link to="/sellers" style={{ textDecoration: "none" }}>
+            <Link 
+              to="/sellers/login" 
+              style={{ textDecoration: "none", color: isAuthenticated ? 'gray' : '' }}
+              className={`cursor-pointer ${isAuthenticated ? 'pointer-events-none opacity-50 cursor-not-allowed' : 'opacity-100'}`}
+            >
               Sell
             </Link>
             {menu === "sell" ? (
@@ -74,7 +86,7 @@ export default function Nav() {
               <button className="dropbtn">
                 {isAuthenticated ? "Account" : ""}
               </button>
-              <div className="dropdown-content">
+              <div className="flex gap-4 dropdown-content">
                 {isAuthenticated && (
                   <>
                     <Link to="/settings">Settings</Link>

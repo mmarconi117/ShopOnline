@@ -2,9 +2,10 @@ import { SIGNUP_SUBMIT_FORM, SET_FORM_ERRORS } from '../actions';
 
 const initialStoreData = {
   name: '',
-  workEmail: '',
-  legalBusinessName: '',
+  email: '',
+  business_name: '',
   password: '',
+  role: 'seller',
 };
 
 const initialState = {

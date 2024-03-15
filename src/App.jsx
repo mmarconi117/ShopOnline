@@ -51,8 +51,7 @@ import Electronics from './pages/Buyers/Category/Electronics'
 import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement'
 
 function App() {
-  return 
-  (
+  return (
     <div>
       <Router>
         <Routes>
@@ -160,7 +159,7 @@ function App() {
             </Routes>
         </Router>
       </div>
-  )
+  );
 }
 
 export default App

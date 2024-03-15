@@ -7,16 +7,6 @@ import LandingPage from './pages/Buyers/LandingPage'
 import WomensFashionSubCategory from './pages/Buyers/Category/WomensFashion/WomansFashionSubCategory'
 import JewelleryAndWatchesSubCategory from './pages/Buyers/Category/JewelleryAndWatches/JewelleryAndWatchesSubCategory'
 import OutdoorsFunAndSportsSubCategory from './pages/Buyers/Category/Outdoors, Fun and Sports/OutdoorsFunAndSportsSubCategory'
-import Cart from './pages/Buyers/Cart/CartPage';
-import LoginPage from './pages/Buyers/Login/LoginPage'
-import SignupPage from './pages/Buyers/Signup/SignupPage'
-import Help from './pages/Buyers/Help'
-import PaymentSuccessful from './pages/Buyers/PaymentSuccessful'
-import Checkout from './pages/Buyers/Checkout/Checkout'
-import Account from './pages/Buyers/Account'
-import ReviewPage from './pages/Buyers/ReviewPage'
-import ProductDetails from './pages/Buyers/Product-Details/ProductDetails'
-import ProductCatalogue from './pages/Buyers/Product-Catalogue/ProductCatalogue'
 import Shipping from './pages/Buyers/Product-Details/Shipping-Component/Shipping'
 import Cart from "./pages/Buyers/Cart/CartPage";
 import LoginPage from "./pages/Buyers/Login/LoginPage";
@@ -136,9 +126,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
-    </div>
-  )
-    (  <div>
+      
           <Router>
             <Routes>
               <Route path="/login" element={<LoginPage />} />

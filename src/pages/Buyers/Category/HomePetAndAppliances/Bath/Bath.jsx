@@ -1,9 +1,9 @@
 import React from 'react';
 import Card from "@mui/material/Card";
-import BathRugAndMats from './SubCategoriesBath/BathRugAndMats';
+import BathRugsAndMats from './SubCategoriesBath/BathRugsAndMats';
 import BathroomCurtains from './SubCategoriesBath/BathroomCurtains';
 import BathroomFurniture from './SubCategoriesBath/BathroomFurniture';
-import BathroomStorage from './SubCategoriesBath/BathroomFurniture';
+import BathroomStorage from './SubCategoriesBath/BathroomStorage';
 import BathroomEssentials from './SubCategoriesBath/BathroomEssentials';
 import BathroomMirrors from './SubCategoriesBath/BathroomMirrors';
 import FragrancesAndCandles from './SubCategoriesBath/FragrancesAndCandles';
@@ -13,7 +13,7 @@ import Towels from './SubCategoriesBath/Towels';
 const subcategories=[
 {
   title:"Bath Rugs and Mats",
-  tag:BathRugAndMats
+  tag:BathRugsAndMats
 },{
   title:"Bathroom Curtains",
   tag:BathroomCurtains
@@ -54,8 +54,10 @@ const Bath=() =>{
         </header>
         <main>
           {subcategories.map((subcategory)=>{
-
+            
             const EachSubCategoryTag=subcategory.tag
+            // https://legacy.reactjs.org/docs/jsx-in-depth.html
+            
 
             return (
               <Card key={subcategory.id}>
@@ -71,8 +73,9 @@ const Bath=() =>{
         </main>
     </section>
   )
+
 }
 
 
 
-export default (Bath)
+export default Bath

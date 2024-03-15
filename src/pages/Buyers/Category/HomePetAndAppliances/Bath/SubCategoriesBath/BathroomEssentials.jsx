@@ -2,7 +2,7 @@ import React from 'react'
 
 const BathroomEssentials = () => {
   return (
-    <div>BathroomEssentials</div>
+    <div>hello</div>
   )
 }
 

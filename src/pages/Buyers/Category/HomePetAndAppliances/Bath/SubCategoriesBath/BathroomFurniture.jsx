@@ -2,7 +2,7 @@ import React from 'react'
 
 const BathroomFurniture = () => {
   return (
-    <div>BathroomFurniture</div>
+    <div>great</div>
   )
 }
 

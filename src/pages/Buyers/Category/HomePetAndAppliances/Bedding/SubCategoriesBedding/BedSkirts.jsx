@@ -2,7 +2,7 @@ import React from 'react'
 
 const BedSkirts = () => {
   return (
-    <div>BedSkirts</div>
+    <div></div>
   )
 }
 

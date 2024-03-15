@@ -45,7 +45,7 @@ function HomeAppliance() {
   return (
     <section>
         <header>
-          <h2>Bedding</h2>
+          <h2>Home Appliance</h2>
         </header>
         <main>
           {subcategories.map((subcategory)=>{

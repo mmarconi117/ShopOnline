@@ -50,6 +50,8 @@ function Bedding() {
           {subcategories.map((subcategory)=>{
             
             const EachSubCategoryTag=subcategory.tag
+            // https://legacy.reactjs.org/docs/jsx-in-depth.html
+            
 
             return (
               <Card key={subcategory.id}>

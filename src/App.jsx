@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LandingPage from './pages/Buyers/LandingPage'
 import WomensFashionSubCategory from './pages/Buyers/Category/WomensFashion/WomansFashionSubCategory'
 import JewelleryAndWatchesSubCategory from './pages/Buyers/Category/JewelleryAndWatches/JewelleryAndWatchesSubCategory'
+import ComputerOfficeSubCategory from './pages/Buyers/Category/Computer Office and Security/ComputerOfficeSubCategory'
 import OutdoorsFunAndSportsSubCategory from './pages/Buyers/Category/Outdoors, Fun and Sports/OutdoorsFunAndSportsSubCategory'
 import Shipping from './pages/Buyers/Product-Details/Shipping-Component/Shipping'
 import Cart from "./pages/Buyers/Cart/CartPage";
@@ -61,6 +62,7 @@ function App() {
                         <Route path="/toolsAndHomeImprovement" element={<ToolsAndHomeImprovement />} />
                         <Route path="/electronics" element={<Electronics />} />
                         <Route path="/outdoorsAndSports" element={<OutdoorsFunAndSportsSubCategory />} />
+                        <Route path="/computerAndOffice" element={<ComputerOfficeSubCategory/> } />
                         <Route
                             path="/womensfashion"
                             element={<WomensFashionSubCategory />}

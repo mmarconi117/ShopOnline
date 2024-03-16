@@ -1,22 +1,11 @@
 import './index.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
 // components
 // buyers
 import LandingPage from './pages/Buyers/LandingPage'
 import WomensFashionSubCategory from './pages/Buyers/Category/WomensFashion/WomansFashionSubCategory'
 import JewelleryAndWatchesSubCategory from './pages/Buyers/Category/JewelleryAndWatches/JewelleryAndWatchesSubCategory'
 import OutdoorsFunAndSportsSubCategory from './pages/Buyers/Category/Outdoors, Fun and Sports/OutdoorsFunAndSportsSubCategory'
-import Cart from './pages/Buyers/Cart/CartPage';
-import LoginPage from './pages/Buyers/Login/LoginPage'
-import SignupPage from './pages/Buyers/Signup/SignupPage'
-import Help from './pages/Buyers/Help'
-import PaymentSuccessful from './pages/Buyers/PaymentSuccessful'
-import Checkout from './pages/Buyers/Checkout/Checkout'
-import Account from './pages/Buyers/Account'
-import ReviewPage from './pages/Buyers/ReviewPage'
-import ProductDetails from './pages/Buyers/Product-Details/ProductDetails'
-import ProductCatalogue from './pages/Buyers/Product-Catalogue/ProductCatalogue'
 import Shipping from './pages/Buyers/Product-Details/Shipping-Component/Shipping'
 import Cart from "./pages/Buyers/Cart/CartPage";
 import LoginPage from "./pages/Buyers/Login/LoginPage";
@@ -28,11 +17,8 @@ import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
-
-
 // layout
 import Layout from './Layout'
-
 // Sellers
 import Homepage from './pages/Sellers/Home/Homepage'
 import ListOfProducts from './pages/Sellers/ProductCatalogue/ListOfProducts'
@@ -59,7 +45,6 @@ import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerif
 import Agreements from './pages/Sellers/Agreements/Agreements'
 import Electronics from './pages/Buyers/Category/Electronics'
 import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement'
-
 function App() {
   return (
     <div>
@@ -93,14 +78,12 @@ function App() {
             <Route path="/accountsettings" element={<Account />} />
             <Route path="/productcatalogue" element={<ProductCatalogue />} />
           </Route>
-
           {/* Sellers Routers */}
           <Route path="/sellers/*" element={<LandingPageforSellers />}>
             <Route path="" element={<Homepage />} />
             <Route path="signup" element={<Signup />} />
             <Route path="login" element={<Login />} />
             <Route path="help" element={<HelpPage />} />
-
             {/* Analytics Routing */}
             <Route path="overview" element={<Overview />} />
             <Route path="payments" element={<Payments />} />
@@ -110,17 +93,14 @@ function App() {
               element={<FeedDetail />}
             />
             <Route path="ratingsandreviews" element={<RatingsAndReviews />} />
-
             {/* Product Catalogue Routing */}
             <Route path="listOfproducts" element={<ListOfProducts />} />
             <Route path="uploadproduct" element={<UploadProduct />} />
             <Route path="product" element={<ProductDetail />} />
-
             {/* Order Management Routing */}
             <Route path="orderlist" element={<OrderList />} />
             <Route path="returnsandrefunds" element={<ReturnsAndRefunds />} />
             <Route path="disputes" element={<Disputes />} />
-
             {/* Notification Setting */}
             <Route path="notificationsettings" element={<Body />} />
             <Route path="onlinefulfillment" element={<OnlineFulfillment />} />
@@ -135,9 +115,6 @@ function App() {
           </Route>
         </Routes>
       </Router>
-    </div>
-  )
-      <div>
           <Router>
             <Routes>
               <Route path="/login" element={<LoginPage />} />
@@ -173,5 +150,4 @@ function App() {
       </div>
   );
 }
-
 export default App

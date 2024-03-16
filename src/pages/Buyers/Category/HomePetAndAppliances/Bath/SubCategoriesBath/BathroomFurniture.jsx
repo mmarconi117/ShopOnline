@@ -28,8 +28,8 @@ const images=[
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     price:0
   }
-
 ]
+
 const BathroomFurniture = () => {
   return (
     <figure>

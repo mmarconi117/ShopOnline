@@ -1,28 +1,30 @@
+import React from 'react';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// components
-// buyers
+// Buyers components
 import LandingPage from './pages/Buyers/LandingPage';
 import WomensFashionSubCategory from './pages/Buyers/Category/WomensFashion/WomansFashionSubCategory';
 import JewelleryAndWatchesSubCategory from './pages/Buyers/Category/JewelleryAndWatches/JewelleryAndWatchesSubCategory';
 import OutdoorsFunAndSportsSubCategory from './pages/Buyers/Category/Outdoors, Fun and Sports/OutdoorsFunAndSportsSubCategory';
-import Cart from './pages/Buyers/Cart/CartPage';
-import LoginPage from './pages/Buyers/Login/LoginPage';
-import SignupPage from './pages/Buyers/Signup/SignupPage';
-import Help from './pages/Buyers/Help';
-import PaymentSuccessful from './pages/Buyers/PaymentSuccessful';
-import Checkout from './pages/Buyers/Checkout/Checkout';
-import Account from './pages/Buyers/Account';
-import ReviewPage from './pages/Buyers/ReviewPage';
-import ProductDetails from './pages/Buyers/Product-Details/ProductDetails';
-import ProductCatalogue from './pages/Buyers/Product-Catalogue/ProductCatalogue';
 import Shipping from './pages/Buyers/Product-Details/Shipping-Component/Shipping';
+import Cart from "./pages/Buyers/Cart/CartPage";
+import LoginPage from "./pages/Buyers/Login/LoginPage";
+import SignupPage from "./pages/Buyers/Signup/SignupPage";
+import Help from "./pages/Buyers/Help";
+import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
+import Checkout from "./pages/Buyers/Checkout/Checkout";
+import Account from "./pages/Buyers/Account";
+import ReviewPage from "./pages/Buyers/ReviewPage";
+import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
+import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
+import Electronics from './pages/Buyers/Category/Electronics';
+import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement';
 
-// layout
+// Layout component
 import Layout from './Layout';
 
-// Sellers
+// Sellers components
 import Homepage from './pages/Sellers/Home/Homepage';
 import ListOfProducts from './pages/Sellers/ProductCatalogue/ListOfProducts';
 import ActivityFeed from './pages/Sellers/Analytics/ActivityFeed';
@@ -46,14 +48,13 @@ import OnlineFulfillment from './pages/Sellers/OnlineFulfillment/OnlineFulfillme
 import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices';
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification';
 import Agreements from './pages/Sellers/Agreements/Agreements';
-import Electronics from './pages/Buyers/Category/Electronics';
-import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement';
 
 function App() {
   return (
     <div>
       <Router>
         <Routes>
+          {/* Buyers Routes */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<LandingPage />} />
@@ -65,7 +66,6 @@ function App() {
             <Route path="/productdetails" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/help" element={<Help />} />
-            <Route path="/language" element="#" />
             <Route path="/account" element={<Account />} />
             <Route path="/app" element="#" />
             <Route path="/signup" element={<SignupPage />} />
@@ -75,9 +75,10 @@ function App() {
             <Route path="/reviews" element={<ReviewPage />} />
             <Route path="/accountsettings" element={<Account />} />
             <Route path="/productcatalogue" element={<ProductCatalogue />} />
+            <Route path="/shipping" element={<Shipping />} />
           </Route>
 
-          {/* Sellers Routers */}
+          {/* Sellers Routes */}
           <Route path="/sellers/*" element={<LandingPageforSellers />}>
             <Route path="" element={<Homepage />} />
             <Route path="signup" element={<Signup />} />

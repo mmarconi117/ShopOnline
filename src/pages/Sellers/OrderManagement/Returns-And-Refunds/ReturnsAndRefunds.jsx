@@ -19,15 +19,15 @@ import arrowDown from "../../../../assets//ICONS/ArrowDown.svg";
 import {
     searchDisputes,
     toggleFilterDisputes
-} from "../../../../reducersAndActions/actions/disputeAction";
+} from "../../../../reducersAndActions/actions/returnsAndRefundsAction";
 
 import { setDisplayFeedbackModal } from "../../../../reducersAndActions/actions/feedbackAction";
 import FeedbackModal from "../../../Buyers/FeedbackModal";
 
 const mapStateToProps = (state) => {
     return {
-        disputes: state.disputeReducer.disputes,
-        filtered: state.disputeReducer.filtered,
+        disputes: state.returnsAndRefundsReducer.disputes,
+        filtered: state.returnsAndRefundsReducer.filtered,
         displayFeedbackModal: state.feedbackReducer.displayFeedbackModal
     };
 };
@@ -96,29 +96,26 @@ function ReturnsAndRefunds({
                     className="flex gap-3 items-center text-xl"
                     onClick={() => setOpen(!open)}
                 >
-                    Hide
-                    <img src={arrowDown}/>
+                    {open ? "Hide" : "Show"}
+                    <img src={arrowDown} />
                 </button>
             </div>
-            {open &&
+            {open && (
                 <div className="flex justify-start lg:justify-center gap-5 items-stretch my-5 flex-col lg:flex-row">
                     <Initiated />
                     <Received />
                     <Completed />
                 </div>
-            }
-
-            {open &&
-                <FiltersComponent
-                    disputes={disputes}
-                    filtered={filtered}
-                    disputesCopy={disputesCopy}
-                    resetFilter={resetFilter}
-                    updateCopy={updateCopy}
-                    resetPagination={resetPagination}
-                    toggleFilterDisputes={toggleFilterDisputes}
-                />
-            }
+            )}
+            <FiltersComponent
+                disputes={disputes}
+                filtered={filtered}
+                disputesCopy={disputesCopy}
+                resetFilter={resetFilter}
+                updateCopy={updateCopy}
+                resetPagination={resetPagination}
+                toggleFilterDisputes={toggleFilterDisputes}
+            />
 
             <Download
                 disputes={disputes}
@@ -141,7 +138,6 @@ function ReturnsAndRefunds({
                     >
                         Feedback
                     </button>
-                    
                 </div>
             </div>
         </div>

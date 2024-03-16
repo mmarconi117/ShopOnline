@@ -1,4 +1,4 @@
-import imagesList from './DestopsRowImages.jsx'
+import imagesList from './PSRowImages.jsx'
 import arrow from '../../../../../assets/ICONS/RightPointer.svg'
 import { useState } from 'react'
 

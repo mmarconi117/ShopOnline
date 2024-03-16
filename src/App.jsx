@@ -8,16 +8,6 @@ import WomensFashionSubCategory from './pages/Buyers/Category/WomensFashion/Woma
 import JewelleryAndWatchesSubCategory from './pages/Buyers/Category/JewelleryAndWatches/JewelleryAndWatchesSubCategory'
 import OutdoorsFunAndSportsSubCategory from './pages/Buyers/Category/Outdoors, Fun and Sports/OutdoorsFunAndSportsSubCategory'
 import ComputerOfficeSubCategory from './pages/Buyers/Category/Computer Office and Security/ComputerOfficeSubCategory'
-import Cart from './pages/Buyers/Cart/CartPage'
-import LoginPage from './pages/Buyers/Login/LoginPage'
-import SignupPage from './pages/Buyers/Signup/SignupPage'
-import Help from './pages/Buyers/Help'
-import PaymentSuccessful from './pages/Buyers/PaymentSuccessful'
-import Checkout from './pages/Buyers/Checkout/Checkout'
-import Account from './pages/Buyers/Account'
-import ReviewPage from './pages/Buyers/ReviewPage'
-import ProductDetails from './pages/Buyers/Product-Details/ProductDetails'
-import ProductCatalogue from './pages/Buyers/Product-Catalogue/ProductCatalogue'
 import Shipping from './pages/Buyers/Product-Details/Shipping-Component/Shipping'
 import Cart from "./pages/Buyers/Cart/CartPage";
 import LoginPage from "./pages/Buyers/Login/LoginPage";
@@ -71,6 +61,8 @@ function App() {
                         <Route path="/" element={<LandingPage />} />
                         <Route path="/toolsAndHomeImprovement" element={<ToolsAndHomeImprovement />} />
                         <Route path="/electronics" element={<Electronics />} />
+                        <Route path="/outdoorsAndSports" element={<OutdoorsFunAndSportsSubCategory />} />
+                        <Route path="/computersAndOffice" element={<ComputerOfficeSubCategory/> } />
                         <Route
                             path="/womensfashion"
                             element={<WomensFashionSubCategory />}
@@ -79,8 +71,6 @@ function App() {
                             path="/jewelryAndWatches"
                             element={<JewelleryAndWatchesSubCategory />}
                         />
-                        <Route path="/outdoorsAndSports" element={<OutdoorsFunAndSportsSubCategory />} />
-                        <Route path="/computersAndOffice" element={<ComputerOfficeSubCategory />} />
                         <Route path="/productdetails" element={<ProductDetails />} />
                         <Route path="/cart" element={<Cart />} />
                         <Route path="/help" element={<Help />} />
@@ -94,7 +84,7 @@ function App() {
                         <Route path="/reviews" element={<ReviewPage />} />
                         <Route path="/accountsettings" element={<Account />} />
                         <Route path="/productcatalogue" element={<ProductCatalogue />} />
-                        <Route path="/shipping" element={<Shipping/>} />
+                        <Route path="/shipping" element={<Shipping />} />
                     </Route>
 
                     {/* Sellers Routers */}
@@ -139,7 +129,7 @@ function App() {
                 </Routes>
             </Router>
         </div>
-    )
+    );
 }
 
 export default App

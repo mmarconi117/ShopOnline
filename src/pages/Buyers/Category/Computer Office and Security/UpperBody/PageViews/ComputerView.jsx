@@ -16,7 +16,7 @@ function ComputerView() {
     return (
         <div className="flex justify-between items-center font-Roboto">
             <img src={LOGO} className="w-5 h-5" alt="Logo"></img>
-            <div className="text-xl sm:text-[31px] sm:leading-[31.2px] text-[#09618E] whitespace-nowrap font-semibold sm:font-bold">Outdoors, Fun and Sports</div>
+            <div className="text-xl sm:text-[31px] sm:leading-[31.2px] text-[#09618E] whitespace-nowrap font-semibold sm:font-bold">Computer and Office</div>
         </div>
     )
 }

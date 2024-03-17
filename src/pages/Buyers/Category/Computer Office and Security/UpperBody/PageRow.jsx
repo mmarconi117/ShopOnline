@@ -1,4 +1,4 @@
-import LaptopsView from "./PageViews/Laptops.jsx";
+import LaptopsView from "./PageViews/LaptopsView.jsx";
 import DesktopsView from "./PageViews/DestopsView.jsx";
 import ComputerAccessoriesView from "./PageViews/ComputerAccessoriesView.jsx";
 import ComputerView from "./PageViews/ComputerView.jsx";

@@ -1,5 +1,5 @@
-import DesktopView from "./PageViews/Laptops.jsx";
-import LaptopsView from "./PageViews/DestopsView.jsx";
+import LaptopsView from "./PageViews/Laptops.jsx";
+import DesktopsView from "./PageViews/DestopsView.jsx";
 import ComputerAccessoriesView from "./PageViews/ComputerAccessoriesView.jsx";
 import ComputerView from "./PageViews/ComputerView.jsx";
 import PrintersView from "./PageViews/PrintersView.jsx";
@@ -19,7 +19,7 @@ function Pagerow() {
             <ComputerView></ComputerView>
             <div className="max-sm:w-full flex justify-between items-center gap-[22px] sm:gap-[102px] text-[#48464C] font-Roboto text-base font-medium sm:text-[25px] sm:font-normal sm:leading-[30px] max-sm:overflow-x-auto">
                 <LaptopsView></LaptopsView>
-                <DesktopView></DesktopView>
+                <DesktopsView></DesktopsView>
                 <ComputerAccessoriesView></ComputerAccessoriesView>
                 <PrintersView></PrintersView>
                 <PresentationView></PresentationView>

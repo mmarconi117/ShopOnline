@@ -1,9 +1,9 @@
-import image1 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-1";
-import image2 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-2";
-import image3 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-3";
-import image4 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-4";
-import image5 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-5";
-import image6 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-6";
+import image1 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-1.png";
+import image2 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-2.png";
+import image3 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-3.png";
+import image4 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-4.png";
+import image5 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-5.png";
+import image6 from "../../../../../assets/IMAGES/ComputerOffice/Rectangle 181-6.png";
 
 const imagesList = [
     {

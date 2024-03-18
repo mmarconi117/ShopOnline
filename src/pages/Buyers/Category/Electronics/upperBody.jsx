@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import LOGO from "../../../../assets/ICONS/location-marker.svg";
+import Banner from "../../../../assets/IMAGES/Electronics/banner.png";
+
 
 const Coupons = () => {
     return (
@@ -23,7 +25,7 @@ const Coupons = () => {
 
 const CouponsCorner = () => {
     return (
-        <div className="w-full overflow-x-auto sm:w-[95%] px-4 py-8 sm:p-0 mx-auto h-auto flex gap-6 justify-between sm:mt-8">
+        <div className="w-full overflow-x-auto sm:w-[95%] px-4 py-8 sm:p-0 mx-auto h-auto flex gap-6 justify-between 2xl:justify-around sm:mt-8">
             <Coupons />
             <Coupons />
             <Coupons />
@@ -32,12 +34,14 @@ const CouponsCorner = () => {
 }
 
 const HeroBanner = () => {
-    return <div className="w-full sm:w-[95%] h-[184px] sm:h-[404px] bg-[#E2EFF6] mx-auto rounded-[12px]"></div>;
+    return (
+        <img src={Banner} className="object-cover min-h-[184px] w-full"/>
+    )
 }
 
 const NavLink = ({url, label}) => {
     const navigate = useNavigate();
-    return <button href="#" onClick={()=>navigate(`/${url}`)}>{label}</button>;
+    return <button className="whitespace-nowrap" href="#" onClick={()=>navigate(`/${url}`)}>{label}</button>;
 }
 
 const CategoryLabel = () => {
@@ -78,7 +82,7 @@ const Pagerow = () => {
 
 const UpperBody = () => {
     return (
-        <div className="pt-[13px] lg:pt-[19px]">
+        <div>
             <HeroBanner />
             <CouponsCorner />
             <Pagerow />

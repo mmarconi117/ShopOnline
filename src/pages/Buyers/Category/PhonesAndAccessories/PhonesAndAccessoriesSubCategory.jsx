@@ -6,7 +6,7 @@ import PhonecasesRow from './PhoneCases/PhoneCases.jsx'
 import SmartPhonesRow from './SmartPhones/SmartPhones.jsx'
 import SmartWatchesRow from './SmartWatches/SmartWatches.jsx'
 
-function PhoneAndAccessoriesSubCategory() {
+function PhonesAndAccessoriesSubCategory() {
   return (
     <div className="bg-[#f5f5f9]">
       <UpperBody></UpperBody>
@@ -20,4 +20,4 @@ function PhoneAndAccessoriesSubCategory() {
   )
 }
 
-export default PhoneAndAccessoriesSubCategory
+export default PhonesAndAccessoriesSubCategory

@@ -10,17 +10,19 @@ import ComputerOfficeSubCategory from './pages/Buyers/Category/Computer Office a
 import OutdoorsFunAndSportsSubCategory from './pages/Buyers/Category/Outdoors, Fun and Sports/OutdoorsFunAndSportsSubCategory'
 import PhonesAndAccessoriesSubCategory from './pages/Buyers/Category/PhonesAndAccessories/PhonesAndAccessoriesSubCategory'
 import Shipping from './pages/Buyers/Product-Details/Shipping-Component/Shipping'
-import Cart from './pages/Buyers/Cart/CartPage'
-import LoginPage from './pages/Buyers/Login/LoginPage'
-import SignupPage from './pages/Buyers/Signup/SignupPage'
-import Help from './pages/Buyers/Help'
-import PaymentSuccessful from './pages/Buyers/PaymentSuccessful'
-import Checkout from './pages/Buyers/Checkout/Checkout'
-import Account from './pages/Buyers/Account'
-import ReviewPage from './pages/Buyers/ReviewPage'
-import ProductDetails from './pages/Buyers/Product-Details/ProductDetails'
-import ProductCatalogue from './pages/Buyers/Product-Catalogue/ProductCatalogue'
-import MenFashionSubCategories from './pages/Buyers/Category/Mens-Fashion/MenFashionSubCategories'
+import Cart from "./pages/Buyers/Cart/CartPage";
+import LoginPage from "./pages/Buyers/Login/LoginPage";
+import SignupPage from "./pages/Buyers/Signup/SignupPage";
+import Help from "./pages/Buyers/Help";
+import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
+import Checkout from "./pages/Buyers/Checkout/Checkout";
+import Account from "./pages/Buyers/Account";
+import ReviewPage from "./pages/Buyers/ReviewPage";
+import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
+import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
+import HomePetAndAppliances from './pages/Buyers/Category/HomePetAndAppliances/HomePetAndAppliances'
+import MenFashionSubCategories from "./pages/Buyers/Category/Mens-Fashion/MenFashionSubCategories";
+
 
 // layout
 import Layout from './Layout'
@@ -65,23 +67,12 @@ function App() {
               element={<ToolsAndHomeImprovement />}
             />
             <Route path="/electronics" element={<Electronics />} />
-            <Route
-              path="/outdoorsAndSports"
-              element={<OutdoorsFunAndSportsSubCategory />}
-            />
-            <Route
-              path="/womensfashion"
-              element={<WomensFashionSubCategory />}
-            />
+            <Route path="/outdoorsAndSports" element={<OutdoorsFunAndSportsSubCategory />} />
+            <Route path="/womensfashion" element={<WomensFashionSubCategory />} />
+            <Route path="/jewelryAndWatches" element={<JewelleryAndWatchesSubCategory />} />
             <Route path="/mensFashion" element={<MenFashionSubCategories />} />
-            <Route
-              path="/jewelryAndWatches"
-              element={<JewelleryAndWatchesSubCategory />}
-            />
-            <Route
-              path="/phonesAndAccessories"
-              element={<PhonesAndAccessoriesSubCategory />}
-            />
+            <Route path="/homePetsAndAppliances" element={<HomePetAndAppliances/>}/>
+
             <Route path="/productdetails" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/help" element={<Help />} />
@@ -97,6 +88,7 @@ function App() {
             <Route path="/productcatalogue" element={<ProductCatalogue />} />
             <Route path="/shipping" element={<Shipping />} />
           </Route>
+
 
           {/* Sellers Routers */}
           <Route path="/sellers/*" element={<LandingPageforSellers />}>

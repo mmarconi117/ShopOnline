@@ -1,3 +1,4 @@
+
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -23,12 +24,15 @@ import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
+import Electronics from './pages/Buyers/Category/Electronics';
+import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement';
 
 
 // layout
 import Layout from './Layout';
 
-// Sellers
+// Sellers component
+
 import Homepage from './pages/Sellers/Home/Homepage';
 import ListOfProducts from './pages/Sellers/ProductCatalogue/ListOfProducts';
 import ActivityFeed from './pages/Sellers/Analytics/ActivityFeed';
@@ -52,16 +56,16 @@ import OnlineFulfillment from './pages/Sellers/OnlineFulfillment/OnlineFulfillme
 import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices';
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification';
 import Agreements from './pages/Sellers/Agreements/Agreements';
-import Electronics from './pages/Buyers/Category/Electronics';
-import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement';
+
 
 function App() {
   return (
     <div>
       <Router>
         <Routes>
+          {/* Buyers Routes */}
           <Route path="/login" element={<LoginPage />} />
-          <Route exact path="" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
             <Route path="/" element={<LandingPage />} />
             <Route
               path="/toolsAndHomeImprovement"
@@ -89,7 +93,6 @@ function App() {
             <Route path="/productdetails" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/help" element={<Help />} />
-            <Route path="/language" element="#" />
             <Route path="/account" element={<Account />} />
             <Route path="/app" element="#" />
             <Route path="/signup" element={<SignupPage />} />
@@ -102,7 +105,7 @@ function App() {
             <Route path="/shipping" element={<Shipping />} />
           </Route>
 
-          {/* Sellers Routers */}
+          {/* Sellers Routes */}
           <Route path="/sellers/*" element={<LandingPageforSellers />}>
             <Route path="" element={<Homepage />} />
             <Route path="signup" element={<Signup />} />
@@ -113,10 +116,7 @@ function App() {
             <Route path="overview" element={<Overview />} />
             <Route path="payments" element={<Payments />} />
             <Route path="activityfeed/*" element={<ActivityFeed />} />
-            <Route
-              path="activityfeed/FeedDetail/:id"
-              element={<FeedDetail />}
-            />
+            <Route path="activityfeed/FeedDetail/:id" element={<FeedDetail />} />
             <Route path="ratingsandreviews" element={<RatingsAndReviews />} />
 
             {/* Product Catalogue Routing */}
@@ -134,10 +134,7 @@ function App() {
             <Route path="onlinefulfillment" element={<OnlineFulfillment />} />
             <Route path="companyinfo" element={<CompanyInfo />} />
             <Route path="paymentservices" element={<PaymentServices />} />
-            <Route
-              path="twostepverification"
-              element={<TwoStepVerification />}
-            />
+            <Route path="twostepverification" element={<TwoStepVerification />} />
             <Route path="agreements" element={<Agreements />} />
             <Route path="helppage" element={<HelpPage />} />
           </Route>
@@ -147,4 +144,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

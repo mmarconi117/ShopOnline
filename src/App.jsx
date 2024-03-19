@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -6,24 +6,33 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // buyers
 import LandingPage from './pages/Buyers/LandingPage'
 import WomensFashionSubCategory from './pages/Buyers/Category/WomensFashion/WomansFashionSubCategory'
-import JewelleryAndWatchesSubCategory from './pages/Buyers/Category/JewelleryAndWatches/JewelleryAndWatchesSubCategory'
-import ComputerOfficeSubCategory from './pages/Buyers/Category/Computer Office and Security/ComputerOfficeSubCategory'
-import OutdoorsFunAndSportsSubCategory from './pages/Buyers/Category/Outdoors, Fun and Sports/OutdoorsFunAndSportsSubCategory'
-import PhonesAndAccessoriesSubCategory from './pages/Buyers/Category/PhonesAndAccessories/PhonesAndAccessoriesSubCategory'
-import Shipping from './pages/Buyers/Product-Details/Shipping-Component/Shipping'
-import Cart from './pages/Buyers/Cart/CartPage'
-import LoginPage from './pages/Buyers/Login/LoginPage'
-import SignupPage from './pages/Buyers/Signup/SignupPage'
-import Help from './pages/Buyers/Help'
-import PaymentSuccessful from './pages/Buyers/PaymentSuccessful'
-import Checkout from './pages/Buyers/Checkout/Checkout'
-import Account from './pages/Buyers/Account'
-import ReviewPage from './pages/Buyers/ReviewPage'
-import ProductDetails from './pages/Buyers/Product-Details/ProductDetails'
-import ProductCatalogue from './pages/Buyers/Product-Catalogue/ProductCatalogue'
 import MenFashionSubCategories from './pages/Buyers/Category/Mens-Fashion/MenFashionSubCategories'
+import JewelleryAndWatchesSubCategory from './pages/Buyers/Category/JewelleryAndWatches/JewelleryAndWatchesSubCategory';
+import OutdoorsFunAndSportsSubCategory from './pages/Buyers/Category/Outdoors, Fun and Sports/OutdoorsFunAndSportsSubCategory';
+import Shipping from './pages/Buyers/Product-Details/Shipping-Component/Shipping';
+import MensBagsSubCategory from './pages/Buyers/Category/BagsAndShoes/MensBags/MensBagsSubCategory';
+import MensShoesSubCategory from './pages/Buyers/Category/BagsAndShoes/MensShoes/MensShoesSubCategory';
+import WomensBagsSubCategory from './pages/Buyers/Category/BagsAndShoes/WomensBags/WomensBagsSubCategory';
+import WomensShoesSubCategory from './pages/Buyers/Category/BagsAndShoes/WomensShoes/WomensShoesSubCategory';
+import Cart from "./pages/Buyers/Cart/CartPage";
+import LoginPage from "./pages/Buyers/Login/LoginPage";
+import SignupPage from "./pages/Buyers/Signup/SignupPage";
+import Help from "./pages/Buyers/Help";
+import PaymentSuccessful from "./pages/Buyers/PaymentSuccessful";
+import Checkout from "./pages/Buyers/Checkout/Checkout";
+import Account from "./pages/Buyers/Account";
+import ReviewPage from "./pages/Buyers/ReviewPage";
+import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
+import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
+import Electronics from './pages/Buyers/Category/Electronics';
+import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement';
 
-// Sellers components
+
+// layout
+import Layout from './Layout';
+
+// Sellers component
+
 import Homepage from './pages/Sellers/Home/Homepage';
 import ListOfProducts from './pages/Sellers/ProductCatalogue/ListOfProducts';
 import ActivityFeed from './pages/Sellers/Analytics/ActivityFeed';
@@ -48,6 +57,7 @@ import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices';
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification';
 import Agreements from './pages/Sellers/Agreements/Agreements';
 
+
 function App() {
   return (
     <div>
@@ -62,10 +72,7 @@ function App() {
               element={<ToolsAndHomeImprovement />}
             />
             <Route path="/electronics" element={<Electronics />} />
-            <Route
-              path="/outdoorsAndSports"
-              element={<OutdoorsFunAndSportsSubCategory />}
-            />
+            <Route path="/outdoorsAndSports" element={<OutdoorsFunAndSportsSubCategory />} />
             <Route
               path="/womensfashion"
               element={<WomensFashionSubCategory />}
@@ -79,6 +86,10 @@ function App() {
               path="/phonesAndAccessories"
               element={<PhonesAndAccessoriesSubCategory />}
             />
+            <Route path="/bagsAndShoes/mensBags" element={<MensBagsSubCategory />} />
+            <Route path="/bagsAndShoes/mensShoes" element={<MensShoesSubCategory />} />
+            <Route path="/bagsAndShoes/womensBags" element={<WomensBagsSubCategory />} />
+            <Route path="/bagsAndShoes/womensShoes" element={<WomensShoesSubCategory />} />
             <Route path="/productdetails" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/help" element={<Help />} />

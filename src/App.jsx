@@ -27,13 +27,13 @@ import Account from "./pages/Buyers/Account";
 import ReviewPage from "./pages/Buyers/ReviewPage";
 import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
-
+import Electronics from './pages/Buyers/Category/Electronics';
+import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement';
 
 
 // layout
 import Layout from './Layout';
 
-// Sellers
 
 // Sellers components
 
@@ -60,9 +60,6 @@ import OnlineFulfillment from './pages/Sellers/OnlineFulfillment/OnlineFulfillme
 import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices';
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification';
 import Agreements from './pages/Sellers/Agreements/Agreements';
-
-import Electronics from './pages/Buyers/Category/Electronics';
-import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement';
 
 
 

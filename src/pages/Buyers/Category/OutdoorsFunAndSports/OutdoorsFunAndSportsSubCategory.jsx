@@ -1,10 +1,10 @@
 import BikesRow from './Cycling/Bikes.jsx';
 import UpperBody from './UpperBody/UpperBody.jsx'
-import ClimbingRow from './Climbing and Mountaineering/Climbing.jsx';
-import OutdoorRecreationRow from './Outdoor Recreation/OutdoorRec.jsx';
-import OutdoorAndSportsRow from './OutdoorSports/Outdoor.jsx';
-import SurvivalAndNavigationRow from './Survival and Navigation/Survival.jsx';
-import GymToolsRow from './Gym Tools and Equipment/GymTools.jsx';
+import ClimbingRow from './ClimbingAndMountaineering/Climbing.jsx';
+import OutdoorRecreationRow from './OutdoorRecreation/OutdoorRec.jsx';
+import OutdoorAndSportsRow from './OutdoorsSports/Outdoor.jsx';
+import SurvivalAndNavigationRow from './SurvivalAndNavigation/Survival.jsx';
+import GymToolsRow from './GymTools/GymTools.jsx';
 
 
 function OutdoorsFunAndSportsSubCategory() {

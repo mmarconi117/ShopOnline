@@ -5,7 +5,7 @@ import ComputerAccessoriesRow from './ComputerAccessories/ComputerAccessories.js
 import StorageRow from './OrganisationAndStorage/Storage.jsx'
 import OfficeSecRow from './OfficeSecurity/OfficeSec.jsx'
 import SmartLocksRow from './SmartLocks/SmarLocks.jsx'
-import OfficeRow from './OfficeRow/OfficeSupplies.jsx'
+import OfficeRow from './OfficeSupplies/OfficeSupplies.jsx'
 
 
 function ComputerOfficeSubCategory() {

@@ -1,3 +1,7 @@
+
+
+import React from 'react';
+
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -25,10 +29,14 @@ import ProductDetails from "./pages/Buyers/Product-Details/ProductDetails";
 import ProductCatalogue from "./pages/Buyers/Product-Catalogue/ProductCatalogue";
 
 
+
 // layout
 import Layout from './Layout';
 
 // Sellers
+
+// Sellers components
+
 import Homepage from './pages/Sellers/Home/Homepage';
 import ListOfProducts from './pages/Sellers/ProductCatalogue/ListOfProducts';
 import ActivityFeed from './pages/Sellers/Analytics/ActivityFeed';
@@ -52,8 +60,11 @@ import OnlineFulfillment from './pages/Sellers/OnlineFulfillment/OnlineFulfillme
 import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices';
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification';
 import Agreements from './pages/Sellers/Agreements/Agreements';
+
 import Electronics from './pages/Buyers/Category/Electronics';
 import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement';
+
+
 
 function App() {
   return (
@@ -113,10 +124,7 @@ function App() {
             <Route path="overview" element={<Overview />} />
             <Route path="payments" element={<Payments />} />
             <Route path="activityfeed/*" element={<ActivityFeed />} />
-            <Route
-              path="activityfeed/FeedDetail/:id"
-              element={<FeedDetail />}
-            />
+            <Route path="activityfeed/FeedDetail/:id" element={<FeedDetail />} />
             <Route path="ratingsandreviews" element={<RatingsAndReviews />} />
 
             {/* Product Catalogue Routing */}
@@ -134,10 +142,7 @@ function App() {
             <Route path="onlinefulfillment" element={<OnlineFulfillment />} />
             <Route path="companyinfo" element={<CompanyInfo />} />
             <Route path="paymentservices" element={<PaymentServices />} />
-            <Route
-              path="twostepverification"
-              element={<TwoStepVerification />}
-            />
+            <Route path="twostepverification" element={<TwoStepVerification />} />
             <Route path="agreements" element={<Agreements />} />
             <Route path="helppage" element={<HelpPage />} />
           </Route>

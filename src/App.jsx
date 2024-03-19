@@ -1,5 +1,6 @@
-import './index.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import React from 'react';
+import './index.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // components
 // buyers
@@ -22,43 +23,39 @@ import ProductDetails from './pages/Buyers/Product-Details/ProductDetails'
 import ProductCatalogue from './pages/Buyers/Product-Catalogue/ProductCatalogue'
 import MenFashionSubCategories from './pages/Buyers/Category/Mens-Fashion/MenFashionSubCategories'
 
-// layout
-import Layout from './Layout'
-
-// Sellers
-import Homepage from './pages/Sellers/Home/Homepage'
-import ListOfProducts from './pages/Sellers/ProductCatalogue/ListOfProducts'
-import ActivityFeed from './pages/Sellers/Analytics/ActivityFeed'
-import UploadProduct from './pages/Sellers/ProductCatalogue/UploadProduct'
-import OrderList from './pages/Sellers/OrderManagement/OrderList'
-import ReturnsAndRefunds from './pages/Sellers/OrderManagement/Returns-And-Refunds/ReturnsAndRefunds'
-import Disputes from './pages/Sellers/OrderManagement/Disputes'
-import Overview from './pages/Sellers/Analytics/Overview/Overview'
-import Payments from './pages/Sellers/Analytics/Payments/Payments'
-import FeedDetail from './pages/Sellers/Analytics/FeedDetail'
-import ProductDetail from './pages/Sellers/ProductCatalogue/ProductDetail'
-import Signup from './pages/Sellers/Signup/Signup'
-import Login from './pages/Sellers/Login/Login'
-import RatingsAndReviews from './pages/Sellers/Analytics/R&R/Ratings'
-import Body from './pages/Sellers/NotificationsSettings/components/Body'
-import HelpPage from './pages/Sellers/HelpPage'
-import CompanyService from './pages/Sellers/CompanyService'
-import LandingPageforSellers from './pages/Sellers/LandingPageforSellers'
-import CompanyInfo from './pages/Sellers/CompanyInfo/CompanyInfo'
-import OnlineFulfillment from './pages/Sellers/OnlineFulfillment/OnlineFulfillment'
-import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices'
-import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification'
-import Agreements from './pages/Sellers/Agreements/Agreements'
-import Electronics from './pages/Buyers/Category/Electronics'
-import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement'
+// Sellers components
+import Homepage from './pages/Sellers/Home/Homepage';
+import ListOfProducts from './pages/Sellers/ProductCatalogue/ListOfProducts';
+import ActivityFeed from './pages/Sellers/Analytics/ActivityFeed';
+import UploadProduct from './pages/Sellers/ProductCatalogue/UploadProduct';
+import OrderList from './pages/Sellers/OrderManagement/OrderList';
+import ReturnsAndRefunds from './pages/Sellers/OrderManagement/Returns-And-Refunds/ReturnsAndRefunds';
+import Disputes from './pages/Sellers/OrderManagement/Disputes';
+import Overview from './pages/Sellers/Analytics/Overview/Overview';
+import Payments from './pages/Sellers/Analytics/Payments/Payments';
+import FeedDetail from './pages/Sellers/Analytics/FeedDetail';
+import ProductDetail from './pages/Sellers/ProductCatalogue/ProductDetail';
+import Signup from './pages/Sellers/Signup/Signup';
+import Login from './pages/Sellers/Login/Login';
+import RatingsAndReviews from './pages/Sellers/Analytics/R&R/Ratings';
+import Body from './pages/Sellers/NotificationsSettings/components/Body';
+import HelpPage from './pages/Sellers/HelpPage';
+import CompanyService from './pages/Sellers/CompanyService';
+import LandingPageforSellers from './pages/Sellers/LandingPageforSellers';
+import CompanyInfo from './pages/Sellers/CompanyInfo/CompanyInfo';
+import OnlineFulfillment from './pages/Sellers/OnlineFulfillment/OnlineFulfillment';
+import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices';
+import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification';
+import Agreements from './pages/Sellers/Agreements/Agreements';
 
 function App() {
   return (
     <div>
       <Router>
         <Routes>
+          {/* Buyers Routes */}
           <Route path="/login" element={<LoginPage />} />
-          <Route exact path="" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
             <Route path="/" element={<LandingPage />} />
             <Route
               path="/toolsAndHomeImprovement"
@@ -85,7 +82,6 @@ function App() {
             <Route path="/productdetails" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/help" element={<Help />} />
-            <Route path="/language" element="#" />
             <Route path="/account" element={<Account />} />
             <Route path="/app" element="#" />
             <Route path="/signup" element={<SignupPage />} />
@@ -98,7 +94,7 @@ function App() {
             <Route path="/shipping" element={<Shipping />} />
           </Route>
 
-          {/* Sellers Routers */}
+          {/* Sellers Routes */}
           <Route path="/sellers/*" element={<LandingPageforSellers />}>
             <Route path="" element={<Homepage />} />
             <Route path="signup" element={<Signup />} />
@@ -109,10 +105,7 @@ function App() {
             <Route path="overview" element={<Overview />} />
             <Route path="payments" element={<Payments />} />
             <Route path="activityfeed/*" element={<ActivityFeed />} />
-            <Route
-              path="activityfeed/FeedDetail/:id"
-              element={<FeedDetail />}
-            />
+            <Route path="activityfeed/FeedDetail/:id" element={<FeedDetail />} />
             <Route path="ratingsandreviews" element={<RatingsAndReviews />} />
 
             {/* Product Catalogue Routing */}
@@ -130,10 +123,7 @@ function App() {
             <Route path="onlinefulfillment" element={<OnlineFulfillment />} />
             <Route path="companyinfo" element={<CompanyInfo />} />
             <Route path="paymentservices" element={<PaymentServices />} />
-            <Route
-              path="twostepverification"
-              element={<TwoStepVerification />}
-            />
+            <Route path="twostepverification" element={<TwoStepVerification />} />
             <Route path="agreements" element={<Agreements />} />
             <Route path="helppage" element={<HelpPage />} />
           </Route>
@@ -143,4 +133,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

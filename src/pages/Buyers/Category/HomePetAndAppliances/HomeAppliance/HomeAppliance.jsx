@@ -55,9 +55,9 @@ function HomeAppliance() {
             return (
               <Card key={subcategory.id}>
                 <h3>  
-                  <a>
+          
                 {subcategory.title}
-                </a>
+                
                 </h3>
                 <EachSubCategoryTag/>
               </Card>

@@ -1,7 +1,4 @@
 
-
-import React from 'react';
-
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -34,8 +31,7 @@ import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprove
 // layout
 import Layout from './Layout';
 
-
-// Sellers components
+// Sellers component
 
 import Homepage from './pages/Sellers/Home/Homepage';
 import ListOfProducts from './pages/Sellers/ProductCatalogue/ListOfProducts';
@@ -62,14 +58,14 @@ import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerif
 import Agreements from './pages/Sellers/Agreements/Agreements';
 
 
-
 function App() {
   return (
     <div>
       <Router>
         <Routes>
+          {/* Buyers Routes */}
           <Route path="/login" element={<LoginPage />} />
-          <Route exact path="" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
             <Route path="/" element={<LandingPage />} />
             <Route
               path="/toolsAndHomeImprovement"
@@ -97,7 +93,6 @@ function App() {
             <Route path="/productdetails" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/help" element={<Help />} />
-            <Route path="/language" element="#" />
             <Route path="/account" element={<Account />} />
             <Route path="/app" element="#" />
             <Route path="/signup" element={<SignupPage />} />
@@ -110,7 +105,7 @@ function App() {
             <Route path="/shipping" element={<Shipping />} />
           </Route>
 
-          {/* Sellers Routers */}
+          {/* Sellers Routes */}
           <Route path="/sellers/*" element={<LandingPageforSellers />}>
             <Route path="" element={<Homepage />} />
             <Route path="signup" element={<Signup />} />
@@ -149,4 +144,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

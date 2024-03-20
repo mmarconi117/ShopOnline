@@ -1,4 +1,3 @@
-import React from 'react'
 import Card from "@mui/material/Card"
 import WallDecor from './SubCategoriesHomeDecor/WallDecor'
 import IndoorPlants from './SubCategoriesHomeDecor/IndoorPlants'

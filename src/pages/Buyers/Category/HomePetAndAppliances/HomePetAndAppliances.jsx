@@ -1,6 +1,5 @@
-import React from 'react'
 import Bath from './Bath/Bath'
-import Bedding from './Bedding/Bedding'
+// import Bedding from './Bedding/Bedding'
 import Furniture from './Furniture/Furniture'
 import HomeAppliance from './HomeAppliance/HomeAppliance'
 import HomeDecor from './HomeDecor/HomeDecor'
@@ -13,7 +12,7 @@ import {Link} from 'react-router-dom'
 const HomePetAndAppliances = () => {
   return (
     <section className="bg-[#f5f5f9]">
-      <nav>
+      <nav className='flex...' >
         <ul>
           <li><h2>Home, Pet and Appliances</h2></li>
           <li><Link href="">Bath</Link></li>
@@ -27,7 +26,7 @@ const HomePetAndAppliances = () => {
       </nav>
       <main>
         <Bath/>
-        <Bedding/>
+        {/* <Bedding/> */}
         <Furniture/>
         <HomeAppliance/>
         <HomeDecor/>

@@ -1,4 +1,3 @@
-import React from 'react';
 import Card from "@mui/material/Card";
 import BathRugsAndMats from './SubCategoriesBath/BathRugsAndMats';
 import BathroomCurtains from './SubCategoriesBath/BathroomCurtains';

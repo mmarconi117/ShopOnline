@@ -1,5 +1,4 @@
-import React from 'react'
-import connect from 'react-redux'
+
 
 
 const images=[
@@ -47,13 +46,5 @@ const BathroomCurtains = () => {
   )
 }
 
-
-// const mapState = state => {
-
-// }
-
-// const mapDispatch = dispatch => {
-
-// }
 
 export default BathroomCurtains

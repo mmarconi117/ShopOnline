@@ -1,63 +1,57 @@
 import Card from "@mui/material/Card"
-import KitchenAppliances from './SubCategoriesKitchenAndDining/KitchenAppliances'
-import KitchenUtensils from './SubCategoriesKitchenAndDining/KitchenUtensils'
-import Cookware from './SubCategoriesKitchenAndDining/Cookware'
-import Dinnerware from './SubCategoriesKitchenAndDining/Dinnerware'
-import KitchenStorage from './SubCategoriesKitchenAndDining/KitchenStorage'
-import Baking from './SubCategoriesKitchenAndDining/Baking'
 
-
-
-const subcategories=[
+const images=[
   {
-    title:"Kitchen Appliances",
-    tag: KitchenAppliances
-  },{
-    title:"Kitchen Utensils",
-    tag:KitchenUtensils
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Cookware",
-    tag:Cookware,
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Dinnerware",
-    tag:Dinnerware
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Kitchen Storage",
-    tag:KitchenStorage
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Baking",
-    tag:Baking
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   }
-  ]
+
+]
+
 
 function KitchenAndDining() {
   return (
-    <section>
+    <section className="m-10">
         <header>
           <h2>Kitchen and Dining</h2>
         </header>
         <main>
-          {subcategories.map((subcategory)=>{
-            
-            const EachSubCategoryTag=subcategory.tag
-            // https://legacy.reactjs.org/docs/jsx-in-depth.html
-            
-
-            return (
-              <Card key={subcategory.id}>
-                <h3>  
-               
-                {subcategory.title}
-          
-                </h3>
-                <EachSubCategoryTag/>
-              </Card>
-            )
-          })}
+        <ul className='flex justify-between items-center'>
+            {images.map(image=>{
+              return(
+                <li  key={image.id}>
+                  <Card>
+                    <img src={image.imageLink}/>
+                    <p>{image.description}</p>
+                    <h3>from {image.price}</h3>
+                  </Card>
+                </li>
+                  ) 
+                }
+              )
+            }
+        </ul>
         </main>
     </section>
   )

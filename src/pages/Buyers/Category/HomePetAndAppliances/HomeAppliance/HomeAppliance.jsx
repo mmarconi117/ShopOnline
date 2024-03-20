@@ -1,67 +1,58 @@
 import Card from "@mui/material/Card"
-import Refrigerators from './SubCategoriesHomeAppliance/Refrigerators'
-import WashingMachines from './SubCategoriesHomeAppliance/WashingMachines'
-import Dryers from './SubCategoriesHomeAppliance/Dryers'
-import Dishwashers from './SubCategoriesHomeAppliance/Dishwashers'
-import Microwaves from './SubCategoriesHomeAppliance/Microwaves'
-import Ovens from './SubCategoriesHomeAppliance/Ovens'
-import VacuumCleaners from './SubCategoriesHomeAppliance/VacuumCleaners'
 
-
-
-const subcategories=[
+const images=[
   {
-    title:"Refrigerators",
-    tag:Refrigerators
-  },{
-    title:"Washing Machines",
-    tag:WashingMachines
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Dryers",
-    tag:Dryers,
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Dishwashers",
-    tag:Dishwashers
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Microwaves",
-    tag:Microwaves
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Ovens",
-    tag:Ovens
-  },
-  {
-    title:"Vacuum Cleaners",
-    tag:VacuumCleaners
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   }
-  ]
-  
+
+]
+
+
 
 function HomeAppliance() {
   return (
-    <section>
+    <section className='m-10'>
         <header>
           <h2>Home Appliance</h2>
         </header>
         <main>
-          {subcategories.map((subcategory)=>{
-            
-            const EachSubCategoryTag=subcategory.tag
-
-            return (
-              <Card key={subcategory.id}>
-                <h3>  
-          
-                {subcategory.title}
-                
-                </h3>
-                <EachSubCategoryTag/>
-              </Card>
-            )
-          })}
+        <ul className='flex justify-between items-center'>
+            {images.map(image=>{
+              return(
+                <li  key={image.id}>
+                  <Card>
+                    <img src={image.imageLink}/>
+                    <p>{image.description}</p>
+                    <h3>from {image.price}</h3>
+                  </Card>
+                </li>
+                  ) 
+                }
+              )
+            }
+        </ul>
         </main>
     </section>
   )

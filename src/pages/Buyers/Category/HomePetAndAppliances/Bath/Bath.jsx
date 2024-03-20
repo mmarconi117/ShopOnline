@@ -1,74 +1,60 @@
 import Card from "@mui/material/Card";
-import BathRugsAndMats from './SubCategoriesBath/BathRugsAndMats';
-import BathroomCurtains from './SubCategoriesBath/BathroomCurtains';
-import BathroomFurniture from './SubCategoriesBath/BathroomFurniture';
-import BathroomStorage from './SubCategoriesBath/BathroomStorage';
-import BathroomEssentials from './SubCategoriesBath/BathroomEssentials';
-import BathroomMirrors from './SubCategoriesBath/BathroomMirrors';
-import FragrancesAndCandles from './SubCategoriesBath/FragrancesAndCandles';
-import Towels from './SubCategoriesBath/Towels';
 
 
-const subcategories=[
-{
-  title:"Bath Rugs and Mats",
-  tag:BathRugsAndMats
-},{
-  title:"Bathroom Curtains",
-  tag:BathroomCurtains
-},
-{
-  title:"Bathroom Furniture",
-  tag:BathroomFurniture,
-},
-{
-  title:"Bathroom Storage",
-  tag:BathroomStorage
-},
-{
-  title:"Bathroom Essentials",
-  tag:BathroomEssentials
-},
-{
-  title:"Bathroom Mirrors",
-  tag:BathroomMirrors
-},
-{
-  title:"Fragrances and Candles",
-  tag:FragrancesAndCandles
-},
-{
-  title:"Towels",
-  tag:Towels
-},
+const images=[
+  {
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
+  },
+  {
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
+  },
+  {
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
+  },
+  {
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
+  },
+  {
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
+  }
+
 ]
 
 
 const Bath=() =>{
 
   return (
-    <section>
+    <section className='m-10'>
         <header>
           <h2>Bath</h2>
         </header>
         <main>
-          {subcategories.map((subcategory)=>{
-            
-            const EachSubCategoryTag=subcategory.tag
-            // https://legacy.reactjs.org/docs/jsx-in-depth.html/////--->This is my note for sources
-            
-
-            return (
-              <Card key={subcategory.id}>
-                <h3>  
-                  
-                {subcategory.title}
-          
-                </h3>
-                <EachSubCategoryTag/>
-              </Card>
-            )
-          })}
+          <ul className='flex justify-between items-center'>
+            {images.map(image=>{
+              return(
+                <li  key={image.id}>
+                  <Card>
+                    <img src={image.imageLink}/>
+                    <p>{image.description}</p>
+                    <h3>from {image.price}</h3>
+                  </Card>
+                </li>
+                  ) 
+                }
+              )
+            }
+        </ul>
+        
         </main>
     </section>
   )

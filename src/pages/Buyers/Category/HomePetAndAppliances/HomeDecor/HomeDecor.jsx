@@ -1,63 +1,58 @@
 import Card from "@mui/material/Card"
-import WallDecor from './SubCategoriesHomeDecor/WallDecor'
-import IndoorPlants from './SubCategoriesHomeDecor/IndoorPlants'
-import Lamps from './SubCategoriesHomeDecor/Lamps'
-import DecorativeObjects from './SubCategoriesHomeDecor/DecorativeObjects'
-import Rugs from './SubCategoriesHomeDecor/Rugs'
-import Curtains from './SubCategoriesHomeDecor/Curtains'
 
-
-
-const subcategories=[
+const images=[
   {
-    title:"Wall Decor",
-    tag: WallDecor
-  },{
-    title:"Indoor Plants",
-    tag:IndoorPlants
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Lamps",
-    tag:Lamps,
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Decorative Objects",
-    tag:DecorativeObjects
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Rugs",
-    tag:Rugs
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Curtains",
-    tag:Curtains
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   }
-  ]
+
+]
+
+
 
 function HomeDecor() {
   return (
-    <section>
+    <section className="m-10">
         <header>
           <h2>Home Decor</h2>
         </header>
         <main>
-          {subcategories.map((subcategory)=>{
-
-            
-            const EachSubCategoryTag=subcategory.tag
-
-  
-            return (
-              <Card key={subcategory.id}>
-                <h3>  
-                
-                {subcategory.title}
-              
-                </h3>
-                <EachSubCategoryTag/>
-              </Card>
-            )
-          })}
+        <ul className='flex justify-between items-center'>
+            {images.map(image=>{
+              return(
+                <li  key={image.id}>
+                  <Card>
+                    <img src={image.imageLink}/>
+                    <p>{image.description}</p>
+                    <h3>from {image.price}</h3>
+                  </Card>
+                </li>
+                  ) 
+                }
+              )
+            }
+        </ul>
         </main>
     </section>
   )

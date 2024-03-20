@@ -1,3 +1,4 @@
+import Card from "@mui/material/Card"
 
 const images=[
   {
@@ -25,22 +26,35 @@ const images=[
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     price:0
   }
+
 ]
-const PetTraining = () => {
+
+
+function Bedding() {
   return (
-    <figure>
-      {images.map(image=>{
-        return(
-          <frame key={image.id}>
-            <img src={image.imageLink}/>
-            <p>{image.description}</p>
-            <h3>from {image.price}</h3>
-          </frame>
-        )
-      })}
-    </figure>
+    <section className="m-10">
+        <header>
+          <h2>Bedding</h2>
+        </header>
+        <main>
+        <ul className='flex justify-between items-center'>
+            {images.map(image=>{
+              return(
+                <li  key={image.id}>
+                  <Card>
+                    <img src={image.imageLink}/>
+                    <p>{image.description}</p>
+                    <h3>from {image.price}</h3>
+                  </Card>
+                </li>
+                  ) 
+                }
+              )
+            }
+        </ul>
+        </main>
+    </section>
   )
 }
 
-
-export default PetTraining
+export default Bedding

@@ -1,71 +1,56 @@
 import Card from "@mui/material/Card"
-import PetFood from './SubCategoriesPetShop/PetFood'
-import PetSupplies from './SubCategoriesPetShop/PetSupplies'
-import PetOutfits from './SubCategoriesPetShop/PetOutfits'
-import PetTraining from './SubCategoriesPetShop/PetTraining'
-import BirdsAndSmallAnimals from './SubCategoriesPetShop/BirdsAndSmallAnimals'
-import AqurariumAndFishSupplies from './SubCategoriesPetShop/AqurariumAndFishSupplies'
-import PetCare from './SubCategoriesPetShop/PetCare'
-import PetHealthAndWellness from './SubCategoriesPetShop/PetHealthAndWellness'
 
-const subcategories=[
+const images=[
   {
-    title:"Pet Food",
-    tag: PetFood
-  },{
-    title:"Pet Supplies",
-    tag: PetSupplies
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Pet Outfits",
-    tag:PetOutfits,
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Pet Training",
-    tag:PetTraining
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Birds and Small Animals",
-    tag:BirdsAndSmallAnimals
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   },
   {
-    title:"Aqurarium and Fish Supplies",
-    tag: AqurariumAndFishSupplies
-  },
-  {
-    title:"Pet Care",
-    tag:PetCare
-  },
-  {
-    title:"Pet Health and Wellness",
-    tag:PetHealthAndWellness
+    imageLink:'https://media.glamourmagazine.co.uk/photos/65afa106bb74fd272757ef20/16:9/w_1600%2Cc_limit/bath%2520towels%2520230124%25204544H044AA_055_b2_L.jpg',
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    price:0
   }
-  ]
+
+]
 
 function PetShop() {
   return (
-    <section>
+    <section className="m-10">
         <header>
           <h2>Pet Shop</h2>
         </header>
         <main>
-          {subcategories.map((subcategory)=>{
-            
-            const EachSubCategoryTag=subcategory.tag
-            // https://legacy.reactjs.org/docs/jsx-in-depth.html
-            
-
-            return (
-              <Card key={subcategory.id}>
-                <h3>  
-          
-                {subcategory.title}
-          
-                </h3>
-                <EachSubCategoryTag/>
-              </Card>
-            )
-          })}
+        <ul className='flex justify-between items-center'>
+            {images.map(image=>{
+              return( 
+                <li  key={image.id}>
+                  <Card>
+                    <img src={image.imageLink}/>
+                    <p>{image.description}</p>
+                    <h3>from {image.price}</h3>
+                  </Card>
+                </li>
+                  ) 
+                }
+              )
+            }
+        </ul>
         </main>
     </section>
   )

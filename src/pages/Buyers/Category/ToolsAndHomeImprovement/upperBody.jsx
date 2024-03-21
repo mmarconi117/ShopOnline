@@ -33,14 +33,14 @@ const CouponsCorner = () => {
 }
 
 const HeroBanner = () => {
-    return <div className="w-full sm:w-[95%] h-[184px] sm:h-[404px] bg-[#E2EFF6] mx-auto rounded-[12px]">
-        <img src={Banner} className="w-full h-full object-cover" />
-    </div>;
+    return (
+        <img src={Banner} className="object-cover min-h-[184px] w-full"/>
+    );
 }
 
 const NavLink = ({url, label}) => {
     const navigate = useNavigate();
-    return <button href="#" onClick={()=>navigate(`/${url}`)}>{label}</button>;
+    return <button className="whitespace-nowrap" href="#" onClick={()=>navigate(`/${url}`)}>{label}</button>;
 }
 
 const CategoryLabel = () => {
@@ -54,16 +54,16 @@ const CategoryLabel = () => {
 
 const Pagerow = () => {
     const links = [
-        {url: 'toolsAndHomeImprovement/electrical', label: 'Electrical'},
-        {url: 'toolsAndHomeImprovement/flooring', label: 'Flooring'},
-        {url: 'toolsAndHomeImprovement/hardware', label: 'Hardware'},
         {url: 'toolsAndHomeImprovement/lightbulbs-and-fans', label: 'Lightbulbs and Fans'},
-        {url: 'toolsAndHomeImprovement/mailboxes', label: 'Mailboxes'},
-        {url: 'toolsAndHomeImprovement/outdoor-tools', label: 'Outdoor Tools'},
+        {url: 'toolsAndHomeImprovement/hardware', label: 'Hardware'},
+        {url: 'toolsAndHomeImprovement/electrical', label: 'Electrical'},
         {url: 'toolsAndHomeImprovement/paint', label: 'Paint'},
-        {url: 'toolsAndHomeImprovement/plumbing', label: 'Plumbing'},
-        {url: 'toolsAndHomeImprovement/tools', label: 'Tools'},
         {url: 'toolsAndHomeImprovement/wallpaper', label: 'Wallpaper'},
+        {url: 'toolsAndHomeImprovement/flooring', label: 'Flooring'},
+        {url: 'toolsAndHomeImprovement/plumbing', label: 'Plumbing'},
+        {url: 'toolsAndHomeImprovement/mailboxes', label: 'Mailboxes'},
+        {url: 'toolsAndHomeImprovement/tools', label: 'Tools'},
+        {url: 'toolsAndHomeImprovement/outdoor-tools', label: 'Outdoor Tools'},
     ];
     return (
         <div className="bg-[#FFFFFF] w-full h-auto sm:h-[99px] sm:mt-[62px] flex flex-col sm:flex-row items-center font-normal text-[25px] text-[#48464C] leading-[30px] sm:gap-[102px] sm:overflow-x-auto p-2 sm:px-[54px] max-sm:ml-[5px]">
@@ -83,7 +83,7 @@ const Pagerow = () => {
 
 const UpperBody = () => {
     return (
-        <div className="pt-[13px] lg:pt-[19px]">
+        <div>
             <HeroBanner />
             <CouponsCorner />
             <Pagerow />

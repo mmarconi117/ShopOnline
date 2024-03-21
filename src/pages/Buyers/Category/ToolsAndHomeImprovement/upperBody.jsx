@@ -33,14 +33,14 @@ const CouponsCorner = () => {
 }
 
 const HeroBanner = () => {
-    return <div className="w-full sm:w-[95%] h-[184px] sm:h-[404px] bg-[#E2EFF6] mx-auto rounded-[12px]">
-        <img src={Banner} className="w-full h-full object-cover" />
-    </div>;
+    return (
+        <img src={Banner} className="object-cover min-h-[184px] w-full"/>
+    );
 }
 
 const NavLink = ({url, label}) => {
     const navigate = useNavigate();
-    return <button href="#" onClick={()=>navigate(`/${url}`)}>{label}</button>;
+    return <button className="whitespace-nowrap" href="#" onClick={()=>navigate(`/${url}`)}>{label}</button>;
 }
 
 const CategoryLabel = () => {
@@ -83,7 +83,7 @@ const Pagerow = () => {
 
 const UpperBody = () => {
     return (
-        <div className="pt-[13px] lg:pt-[19px]">
+        <div>
             <HeroBanner />
             <CouponsCorner />
             <Pagerow />

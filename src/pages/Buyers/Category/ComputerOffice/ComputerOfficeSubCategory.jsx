@@ -1,11 +1,11 @@
 import UpperBody from './UpperBody/UpperBody.jsx'
 import LaptopsRow from './Laptops/Laptops.jsx'
 import DeskTopRow from './Desktops/Desktops.jsx'
-import ComputerAccessoriesRow from './Computer Accessories/ComputerAccessories.jsx'
-import StorageRow from './Office Supplies/OfficeSupplies.jsx'
-import OfficeSecRow from './Office Security Devices/OfficeSec.jsx'
-import SmartLocksRow from './Smart Locks/SmarLocks.jsx'
-import OfficeRow from './Office Supplies/OfficeSupplies.jsx'
+import ComputerAccessoriesRow from './ComputerAccessories/ComputerAccessories.jsx'
+import StorageRow from './OrganisationAndStorage/Storage.jsx'
+import OfficeSecRow from './OfficeSecurity/OfficeSec.jsx'
+import SmartLocksRow from './SmartLocks/SmarLocks.jsx'
+import OfficeRow from './OfficeSupplies/OfficeSupplies.jsx'
 
 
 function ComputerOfficeSubCategory() {

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import LOGO from "../../../../assets/ICONS/location-marker.svg";
-import Banner from "../../../../assets/IMAGES/BagsAndShoes/bags-and-shoes-banner2.jpg";
+import Banner from "../../../../assets/IMAGES/BagsAndShoes/bags-and-shoes-banner.jpg";
 
 const Coupons = () => {
     return (

@@ -31,7 +31,7 @@ const HelpPage = () => {
     <div className="bg-gray-100 h-screen flex flex-row space-x-12">
       {showFeedbackFormState && <FeedbackModal/>}
       {/* Dashboard */}
-      {/* <div className="w-2/5 bg-white flex flex-col space-y-12 ">
+      <div className="w-2/5 bg-white flex flex-col space-y-12 ">
         <div className="flex flex-row mx-8 align-middle mt-6">
           <img className="h-12" src={user} alt="user" />
           <div className="ml-7 justify-center  ">
@@ -68,7 +68,7 @@ const HelpPage = () => {
           <h3 className="mt-8">Sign Out</h3>
           <img className="mt-8 " src={logOut} alt="logout-user" />
         </div>
-      </div> */}
+      </div>
       {/* Dashboard */}
 
       {/* Navigation */}
@@ -131,7 +131,7 @@ const HelpPage = () => {
       <button className="text-cyan-600 text-center text-xl leading-6 whitespace-nowrap justify-center items-stretch border border-[color:var(--Color-Styles-Primary-color-blue-T1000,#2284B6)] self-center mt-28 px-12 py-4 rounded-md border-solid max-md:mt-10 max-md:px-5" onClick={handleToggleFeedbackForm}>Give us feedback</button>
       </div>
       {/* show feedback form depending on the state of the feedback button */}
-      {/* {showFeedbackFormState && (
+      {showFeedbackFormState && (
         <form onSubmit={handleFormSubmit} className="feedback-form"> 
           <h3>Please share your feedback with us!</h3>
           <p>If you still have questions or need help feel free to contact us.</p>
@@ -157,7 +157,7 @@ const HelpPage = () => {
           </div>
           <button type="submit">Send</button>
         </form>
-      )} */}
+      )}
       </div>
     </div>
   );

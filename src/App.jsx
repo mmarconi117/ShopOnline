@@ -25,6 +25,7 @@ import Electronics from './pages/Buyers/Category/Electronics';
 import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement';
 import PhonesAndAccessoriesSubCategory from './pages/Buyers/Category/PhonesAndAccessories/PhonesAndAccessoriesSubCategory';
 import ComputerOfficeSubCategory from './pages/Buyers/Category/ComputerOffice/ComputerOfficeSubCategory'
+import HomePetAndAppliances from './pages/Buyers/Category/HomePetAndAppliances/HomePetAndAppliances';
 
 // layout
 import Layout from './Layout';
@@ -75,6 +76,10 @@ function App() {
               path="/womensfashion"
               element={<WomensFashionSubCategory />}
             />
+            <Route path="/homePetAndAppliances" element={<HomePetAndAppliances/>}/>
+            <Route path="/outdoorsAndSports" element={<OutdoorsFunAndSportsSubCategory />} />
+            <Route path="/womensfashion" element={<WomensFashionSubCategory />} />
+            <Route path="/jewelryAndWatches" element={<JewelleryAndWatchesSubCategory />} />
             <Route path="/mensFashion" element={<MenFashionSubCategories />} />
             <Route
               path="/jewelryAndWatches"
@@ -86,6 +91,8 @@ function App() {
             />
             <Route path='/computersAndOffice' element={<ComputerOfficeSubCategory />} />
             <Route path='/bagsandshoes' element = {<BagsAndShoes />} />
+            <Route path="/homePetsAndAppliances" element={<HomePetAndAppliances/>}/>
+
             <Route path="/productdetails" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/help" element={<Help />} />
@@ -101,7 +108,7 @@ function App() {
             <Route path="/shipping" element={<Shipping />} />
           </Route>
 
-          {/* Sellers Routes */}
+          {/* Sellers Routers */}
           <Route path="/sellers/*" element={<LandingPageforSellers />}>
             <Route path="" element={<Homepage />} />
             <Route path="signup" element={<Signup />} />

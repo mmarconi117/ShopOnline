@@ -14,16 +14,16 @@ const ToolsAndHomeImprovement = () => {
     return (
         <div className="bg-[#f5f5f9]">
             <UpperBody />
-            <Electrical />
-            <Flooring />
-            <Hardware />
             <LightbulbsAndFans />
-            <Mailboxes />
-            <OutdoorTools />
+            <Hardware />
+            <Electrical />
             <Paint />
-            <Plumbing />
-            <Tools />
             <Wallpaper />
+            <Flooring />
+            <Plumbing />
+            <Mailboxes />
+            <Tools />
+            <OutdoorTools />
         </div>
     );
 };

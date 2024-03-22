@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import ShippingAddressForm from "./shippingAddressForm";
 import { editShippingAddress } from "../../../reducersAndActions/actions/checkoutEditAction";
+import { updateShippingForm } from "../../../reducersAndActions/actions/shippingFormAction";
 
-const Checkout = ({ isEditing, editShippingAddress }) => {
+const Checkout = ({ isEditing, editShippingAddress, shippingForm, updateShippingForm }) => {
+  // console.log(shippingForm);
   const navigate = useNavigate();
   const location = useLocation();
   const { carts, subtotal, promoCode, shipping, total } = location.state || { carts: [], subtotal: 0, promoCode: "", shipping: 0, total: 0 };
@@ -25,37 +27,50 @@ const Checkout = ({ isEditing, editShippingAddress }) => {
   return (
     <>
       {/* Shipping Address */}
-      <div className="bg-[#F0F0F0]">
-        <div className="flex px-4 py-8">
-          <div className="w-full max-w-3xl">
-            <div className="flex flex-col lg:grid grid-cols-3">
-              <div className="col-span-2 bg-blue-200 rounded-lg p-4">
-                {/* Shipping Address */}
-                <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
-                  <div>Shipping Address</div>
-                  <div className="flex items-center">
-                    {isEditing ? (
-                      <button className="text-gray-500 text-xs mt-2" onClick={handleCancelEdit}>Cancel</button>
-                    ) : (
-                      <button className="text-gray-500 text-xs mt-2" onClick={handleEdit}>Edit</button>
-                    )}
-                  </div>
-                </div>
-                {/* Shipping Address or Edit Form */}
-                {isEditing ? (
-                  <ShippingAddressForm />
-                ) : (
-                  <div className="border border-gray-300 mb-4 p-4">
-                    <div className="font-semibold mb-1">Mr. Tony Stark</div>
-                    <div className="text-sm mb-1">Top of New York, 84052</div>
-                    <div className="text-sm">+19048588048</div>
-                  </div>
-                )}
-              </div>
+<div className="bg-[#F0F0F0]">
+  <div className="flex px-4 py-8">
+    <div className="w-full max-w-3xl">
+      <div className="flex flex-col lg:grid grid-cols-3">
+        <div className="col-span-2 bg-blue-200 rounded-lg p-4">
+          {/* Shipping Address */}
+          <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
+            <div>Shipping Address</div>
+            <div className="flex items-center">
+              {isEditing ? (
+                <button className="text-gray-500 text-xs mt-2" onClick={handleCancelEdit}>Cancel</button>
+              ) : (
+                <button className="text-gray-500 text-xs mt-2" onClick={handleEdit}>Edit</button>
+              )}
             </div>
           </div>
+          {/* Shipping Address or Edit Form */}
+          {isEditing ? (
+            <ShippingAddressForm shippingForm={shippingForm} updateShippingForm={updateShippingForm} editShippingAddress={editShippingAddress} />
+          ) : (
+            <div>
+            {shippingForm.firstName && (
+              <div>
+                <h2>Shipping Address</h2>
+                <p>{shippingForm.firstName}</p>
+                <p>{shippingForm.lastName}</p>
+                <p>{shippingForm.address}</p>
+                <p>{shippingForm.city}</p>
+                <p>{shippingForm.state}</p>
+                <p>{shippingForm.contactInfo}</p>
+                {/* Render other shipping address fields similarly */}
+              </div>
+            )}
+            {!shippingForm.firstName && (
+              <p>No shipping address provided</p>
+            )}
+          </div>
+          )}
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Payment Method Box */}
       <div className="bg-[#F0F0F0]">
@@ -178,11 +193,12 @@ const Checkout = ({ isEditing, editShippingAddress }) => {
 
             const mapStateToProps = (state) => ({
               isEditing: state.checkoutEditReduce.isEditing,
+              shippingForm: state.shippingFormReducer, // Add shippingForm state
             });
-
 
             const mapDispatchToProps = {
               editShippingAddress,
+              updateShippingForm,
             };
 
             export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

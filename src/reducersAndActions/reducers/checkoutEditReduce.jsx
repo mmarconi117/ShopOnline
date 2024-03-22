@@ -4,10 +4,10 @@ import { EDIT_SHIPPING_ADDRESS } from '../actions/index';
 
 const initialState = {
   shippingAddress: {
-    name: "Mr. Tony Stark",
-    address: "Top of New York",
-    zip: "84052",
-    phone: "+19048588048"
+    name: "",
+    address: "",
+    zip: "",
+    phone: ""
   },
   isEditing: false // Initialize isEditing to false
 };

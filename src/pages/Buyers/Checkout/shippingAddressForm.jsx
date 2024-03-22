@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { editShippingAddress } from "../../../reducersAndActions/actions/checkoutEditAction";
-import { updateShippingForm } from "../../../reducersAndActions/actions/shippinFormAction";
+import { updateShippingForm } from "../../../reducersAndActions/actions/shippingFormAction";
+import shippingFormReducer from "../../../reducersAndActions/reducers/shippingFormReducer";
 
 const ShippingAddressForm = ({ shippingForm, updateShippingForm, editShippingAddress }) => {
   const handleInputChange = (event) => {
@@ -9,10 +10,15 @@ const ShippingAddressForm = ({ shippingForm, updateShippingForm, editShippingAdd
     updateShippingForm({ ...shippingForm, [name]: value });
   };
 
+
+
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-    editShippingAddress(); // Dispatch action to update shipping address
+    event.preventDefault();
+    editShippingAddress()
+    updateShippingForm(shippingForm); // Dispatch action to update shipping address
   };
+
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -97,7 +103,7 @@ const ShippingAddressForm = ({ shippingForm, updateShippingForm, editShippingAdd
 };
 
 const mapStateToProps = (state) => ({
-  shippingForm: state.checkoutEditReduce.shippingAddress,
+  shippingForm: state.shippingFormReducer,
 });
 
 const mapDispatchToProps = {

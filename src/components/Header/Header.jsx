@@ -15,7 +15,7 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
     const cartItems = useSelector(state => state.cartReducer.carts);
     const [search, setSearch] = useState('');
 
-    // Simulated route names for demonstration
+    // Simulated route names
     const routeNames = ['mensFashion', 'womensFashion', 'electronics', 'home', 'cart', 'checkout', "computersAndOffice", "phonesAndAccessories", "jewelryAndWatches" + 
         "furniture ", "bagsAndShoes", "kidsAndToys", "toolsAndHomeImprovement", "automotive", "digitalMedia", "outdoorsAndSports", "homePetsAndAppliances", "help" ];
 

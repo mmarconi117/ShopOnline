@@ -11,6 +11,7 @@ const initialState = {
   state: '',
   zipCode: '',
   contactInfo: '',
+  email: '',
 };
 
 // Define the reducer function to handle actions related to the shipping address form

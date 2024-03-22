@@ -20,6 +20,8 @@ import buyersLoginFormReducer from "./BuyersLoginFormReducer";
 import shipReducer from "./shipReducer";
 import checkoutEditReduce from "./checkoutEditReduce";
 import shippingFormReducer from "./shippingFormReducer";
+import shippingMethodReducer from "./shippingMethodReducer";
+import paymentMethodReducer from "./paymentMethodReducer";
 
 
 
@@ -45,6 +47,8 @@ export const rootReducer = combineReducers({
     buyersLoginFormReducer,
     checkoutEditReduce,
     shippingFormReducer,
+    shippingMethodReducer,
+    paymentMethodReducer
 });
 
 export default rootReducer;

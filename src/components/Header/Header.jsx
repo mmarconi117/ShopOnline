@@ -8,14 +8,31 @@ import Menu from '../Menu/Menu';
 import { PiShoppingCartDuotone } from "react-icons/pi";
 import { Link } from 'react-router-dom';
 import { setSearchQuery } from '../../reducersAndActions/actions/searchAction';
+//import axios from 'axios' //Add this when connected to backend
 
 const Header = ({ menuIsOpened, setMenuIsOpened }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const cartItems = useSelector(state => state.cartReducer.carts);
     const [search, setSearch] = useState('');
+    //const [routeNames, setRouteNames] = useState([]);
 
-    // Simulated route names
+    //Replace to this when connected to backend.
+    /*useEffect(() => {
+
+        try {
+        // Replace 'URL_TO_YOUR_BACKEND_ENDPOINT' with your actual endpoint that returns route names
+            const response = await axios.get('URL_TO_YOUR_BACKEND');
+            setRouteNames(response.data.routeNames);
+        } catch (error) {
+            console.error('Failed to fetch route names: ', error);
+        }
+
+        fetchRouteNames();
+    }); */
+
+
+    // Simulated route names. Remove when connected to backend
     const routeNames = ['mensFashion', 'womensFashion', 'electronics', 'home', 'cart', 'checkout', "computersAndOffice", "phonesAndAccessories", "jewelryAndWatches" + 
         "furniture ", "bagsAndShoes", "kidsAndToys", "toolsAndHomeImprovement", "automotive", "digitalMedia", "outdoorsAndSports", "homePetsAndAppliances", "help" ];
 

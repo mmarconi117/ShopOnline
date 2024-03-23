@@ -1,7 +1,7 @@
 import user from "../../assets/ICONS/user/user-fill.svg";
 import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
-// import logOut from "../../assets/ICONS/logOut.svg";
+import logOut from "../../assets/ICONS/logout.svg";
 import { useEffect } from "react";
 import store from "../../store";
 import { useSelector } from "react-redux";

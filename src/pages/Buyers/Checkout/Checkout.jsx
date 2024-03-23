@@ -294,6 +294,7 @@ const Checkout = ({
 
 
 
+
       {/* Existing Order Summary */}
       <div className="bg-[#F0F0F0]">
         <div className="flex px-4 pt-16 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
@@ -351,9 +352,10 @@ const Checkout = ({
 const mapStateToProps = (state) => ({
   isEditing: state.checkoutEditReduce.isEditing,
   shippingForm: state.shippingFormReducer,
-  shippingMethod: state.shippingMethodReducer,
+  shippingMethod: state.shippingMethodReducer.selectedMethod,
   selectedPaymentMethod: state.paymentMethodReducer,
 });
+
 
 const mapDispatchToProps = {
   editShippingAddress,
@@ -361,5 +363,6 @@ const mapDispatchToProps = {
   selectShippingMethod,
   selectPaymentMethod,
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

@@ -22,7 +22,7 @@ import checkoutEditReduce from "./checkoutEditReduce";
 import shippingFormReducer from "./shippingFormReducer";
 import shippingMethodReducer from "./shippingMethodReducer";
 import paymentMethodReducer from "./paymentMethodReducer";
-
+import searchReducer from "./searchReducer";
 
 
 
@@ -48,7 +48,8 @@ export const rootReducer = combineReducers({
     checkoutEditReduce,
     shippingFormReducer,
     shippingMethodReducer,
-    paymentMethodReducer
+    paymentMethodReducer,
+    searchReducer
 });
 
 export default rootReducer;

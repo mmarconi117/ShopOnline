@@ -1,7 +1,7 @@
 
 import {
-    SEARCH_DISPUTES,
-    TOGGLE_FILTER_DISPUTES,
+    TOGGLE_DISPUTE,
+    TOGGLE_DROP,
     TOGGLE_INSIGHTS,
     UPDATE_STATUS_FILTER
 } from "../actions/index";
@@ -16,12 +16,12 @@ export const updateStatusFilter = (status) => ({
   payload: status,
 });
 
-export const searchDisputes = (data) => ({
-    type: SEARCH_DISPUTES,
+export const toggleDispute = (data) => ({
+    type: TOGGLE_DISPUTE,
     payload: data
 });
 
-export const toggleFilterDisputes = (data) => ({
-    type: TOGGLE_FILTER_DISPUTES,
+export const toggleDrop = (data) => ({
+    type: TOGGLE_DROP,
     payload: data
 });

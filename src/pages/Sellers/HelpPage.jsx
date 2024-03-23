@@ -4,7 +4,7 @@ import { toggleFeedbackForm, submitFeedbackForm, updateEmail, updateQuestion } f
 import user from "../../assets/ICONS/user/user-fill.svg";
 import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
-import logOut from "../../assets/ICONS/logOut.svg";
+import logOut from "../../assets/ICONS/logout.svg";
 import FeedbackModal from '../Buyers/FeedbackModal';
 
 const HelpPage = () => {

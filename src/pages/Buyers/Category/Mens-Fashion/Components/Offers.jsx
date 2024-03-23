@@ -1,38 +1,29 @@
-const OffersComponent = () => {
-    const offers = Array.from({ length: 3 }).map((offer, index) => {
-        return (
-            <div
-                key={index}
-                className="border-2 w-1/6 rounded bg-white p-2"
-            >
-                <div className="flex justify-between">
-                    <div>
-                        <p className="text-2xl text-[#55A0C7] font-bold ">Tour $5 off</p>
-                    </div>
-                    <div>
-                        <span>**98</span>
-                    </div>
-                </div>
-                <div>
-                    <span className="text-xs">Orders over $180</span>
-                </div>
-                <div className="flex justify-between my-2">
-                    <div>
-                        <span>Valid till 02/04</span>
-                    </div>
-                    <div>
-                        <button>copy</button>
-                    </div>
-                </div>
-            </div>
-        );
-    });
+const Offers = () => {
     return (
-        <div
-            id="offers-component"
-            className="w-full my-5"
-        >
-            <div className="flex justify-around">{offers}</div>
+        <div className="font-Roboto min-w-[279px] sm:min-w-[413px] h-[79px] sm:h-[131px] bg-[#F6FAFC] rounded-[8px] p-2 sm:px-6 sm:py-3 flex justify-between border border-[#E6E0E9] border-solid">
+            <div className="flex flex-col justify-between gap-1">
+            <div>
+                <h1 className=" text-xl text-[25px] font-semibold sm:font-bold leading-7 sm:leading-[30px] text-[#55A0C7]">Tour $5 off</h1>
+                <p className="text-[9px] font-normal leading-[14px] sm:text-base sm:leading-[19.2px] text-[#79767D]">Orders over $180</p>
+            </div>
+            <p className="text-xs sm:text-base sm:leading-[19.2px] text-[#48464C]">valid till 02/24</p>
+            </div>
+            <div className="flex flex-col justify-between items-end self-stretch">
+            <div className="p-[10px]">
+                <p className="text-[#48464C] text-xs sm:text-base sm:leading-[19.2px]">**978</p>
+            </div>
+            <div className="bg-[#55A0C7] text-[#F5F5F9] rounded-[400px] py-[6px] px-3 text-xs sm:text-base sm:leading-[19.2px]">Copy</div>
+            </div>
+        </div>
+    );
+}
+
+const OffersComponent = () => {
+    return (
+        <div className="w-full overflow-x-auto sm:w-[95%] px-4 py-8 sm:p-0 mx-auto h-auto flex gap-6 justify-between 2xl:justify-around sm:mt-8">
+            <Offers />
+            <Offers />
+            <Offers />
         </div>
     );
 };

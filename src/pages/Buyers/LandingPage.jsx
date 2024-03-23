@@ -5,6 +5,7 @@ import PopularItems from '../../components/PopularItems/PopularItems';
 import BS_BeautyandPersonal from '../../components/BS_BeautyAndPersonal/BS_BeautyAndPersonal';
 import BS_HomeAndOffice from '../../components/BS_HomeAndOffice/PopularItems';
 import Hero from '../../assets/IMAGES/Landing page/shopNewYork.png';
+import Category from './Category/FunctionalityTest/Category'
 
 const LandingPage = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -41,6 +42,7 @@ const LandingPage = () => {
         <PopularItems />
         <BS_HomeAndOffice />
         <BS_BeautyandPersonal />
+        
       </div>
     </div>
   );

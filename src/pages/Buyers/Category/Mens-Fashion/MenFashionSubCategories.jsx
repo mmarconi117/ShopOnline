@@ -12,7 +12,7 @@ import Offers from "./Components/Offers";
 
 const MenFashionSubCategories = () => {
     return (
-        <div id="men-fashion-sub-categories">
+        <div id="men-fashion-sub-categories" className="bg-[#f5f5f9]">
             <Banner />
             <Offers />
             <CategoriesNav />

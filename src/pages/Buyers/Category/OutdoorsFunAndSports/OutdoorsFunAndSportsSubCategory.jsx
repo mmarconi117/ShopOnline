@@ -7,18 +7,18 @@ import SurvivalAndNavigationRow from './SurvivalAndNavigation/Survival.jsx';
 import GymToolsRow from './GymTools/GymTools.jsx';
 
 
-function OutdoorsFunAndSportsSubCategory() {
+const OutdoorsFunAndSportsSubCategory = () => {
     return (
         <div className="bg-[#f5f5f9]">
-            <UpperBody></UpperBody>
-            <BikesRow></BikesRow>
-            <ClimbingRow></ClimbingRow>
-            <OutdoorRecreationRow></OutdoorRecreationRow>
-            <OutdoorAndSportsRow></OutdoorAndSportsRow>
-            <SurvivalAndNavigationRow></SurvivalAndNavigationRow>
-            <GymToolsRow></GymToolsRow>
+            <UpperBody/>
+            <BikesRow/>
+            <ClimbingRow/>
+            <OutdoorRecreationRow/>
+            <OutdoorAndSportsRow/>
+            <SurvivalAndNavigationRow/>
+            <GymToolsRow/>
         </div>
     );
-}
+};
 
 export default OutdoorsFunAndSportsSubCategory;

@@ -39,8 +39,7 @@ const Checkout = ({
     };
 
 
-    const handleShippingMethodSelect = (method) => {
-      console.log("Selected shipping method:", method); // Add this line for debugging
+    const handleShippingMethodSelect = (method) => {// Add this line for debugging
       // Toggle selection state
       if (shippingMethod === method) {
         selectShippingMethod(null); // Deselect if already selected
@@ -213,6 +212,7 @@ const Checkout = ({
               <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
             </label>
             <div className="text-sm ml-2">5 - 7 business days *</div>
+            <p>Free</p>
           </div>
           {/* Express Shipping */}
           <div className="border border-gray-300 mb-4 p-4 flex flex-col">
@@ -229,6 +229,7 @@ const Checkout = ({
               <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
             </label>
             <div className="text-sm ml-2">2 - 3 business days *</div>
+            <p>$20</p>
           </div>
           {/* Overnight Shipping */}
           <div className="border border-gray-300 mb-4 p-4 flex flex-col">
@@ -245,6 +246,7 @@ const Checkout = ({
               <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
             </label>
             <div className="text-sm ml-2">Next business day *</div>
+            <p>$30</p>
           </div>
         </div>
       </div>

@@ -20,19 +20,19 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
    //import { useEffect } from 'react';
 
     //Replace to this when connected to backend.
-    /*useEffect(() => {
+    /* useEffect(() => {
+     const fetchRouteNames = async () => {
+         try {
+             const response = await axios.get('https://localhost:8000/api/products');
+             setRouteNames(response.data.routeNames);
+         } catch (error) {
+             console.error('Failed to fetch route names: ', error);
+         }
+     };
 
-        try {
-        // Replace 'URL_TO_YOUR_BACKEND_ENDPOINT' with your actual endpoint that returns route names
-            const response = await axios.get('URL_TO_YOUR_BACKEND');
-            setRouteNames(response.data.routeNames);
-        } catch (error) {
-            console.error('Failed to fetch route names: ', error);
-        }
-
-        fetchRouteNames();
-    }); */
-
+     fetchRouteNames();
+ }, []); 
+ */
 
     // Simulated route names. Remove when connected to backend
     const routeNames = ['mensFashion', 'womensFashion', 'electronics', 'home', 'cart', 'checkout', "computersAndOffice", "phonesAndAccessories", "jewelryAndWatches" + 

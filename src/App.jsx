@@ -56,6 +56,8 @@ import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices';
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification';
 import Agreements from './pages/Sellers/Agreements/Agreements';
 
+import Category from './pages/Buyers/Category/FunctionalityTest/Category';
+
 
 function App() {
   return (
@@ -106,6 +108,7 @@ function App() {
             <Route path="/accountsettings" element={<Account />} />
             <Route path="/productcatalogue" element={<ProductCatalogue />} />
             <Route path="/shipping" element={<Shipping />} />
+            <Route path='/practiceCategory' element ={<Category />} />
           </Route>
 
           {/* Sellers Routers */}

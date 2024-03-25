@@ -67,7 +67,7 @@ const CompanyService = () => {
         </div>
         <div className="cursor-pointer font-bold ml-10 flex flex-row  space-x-2">
           <h3 className="mt-8">Sign Out</h3>
-          <img className="mt-8 " src={logout} alt="logout-user" />
+          <img className="mt-8 " src={logOut} alt="logout-user" />
         </div>
       </div>
       {/* Dashboard */}

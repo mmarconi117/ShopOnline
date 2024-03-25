@@ -1,7 +1,7 @@
 import user from "../../assets/ICONS/user/user-fill.svg";
 import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
-import logout from "../../assets/ICONS/logout.svg";
+import logOut from "../../assets/ICONS/logOut.svg";
 import { useEffect } from "react";
 import store from "../../store";
 import { useSelector } from "react-redux";
@@ -67,7 +67,7 @@ const CompanyService = () => {
         </div>
         <div className="cursor-pointer font-bold ml-10 flex flex-row  space-x-2">
           <h3 className="mt-8">Sign Out</h3>
-          <img className="mt-8 " src={logout} alt="logout-user" />
+          <img className="mt-8 " src={logOut} alt="logout-user" />
         </div>
       </div>
       {/* Dashboard */}

@@ -1,8 +1,5 @@
-import { SELECT_PAYMENT_METHOD } from ".";
+import { EDIT_PAYMENT_METHOD } from ".";
 
-export const selectPaymentMethod = (method) => {
-  return {
-    type: SELECT_PAYMENT_METHOD,
-    payload: method
-  };
-};
+export const editPaymentMethod = () => ({
+  type: EDIT_PAYMENT_METHOD,
+});

@@ -1,15 +1,18 @@
 // paymentMethodReducer.jsx
+import { EDIT_PAYMENT_METHOD } from '../actions';
 
-import { SELECT_PAYMENT_METHOD } from '../actions';
+const initialState = {
+  selectedPaymentMethod: null,
+  isPaymentEditing: false,
+};
 
-// Define the initial state for the selected payment method
-const initialState = null;
-
-// Define the reducer function to handle actions related to the selected payment method
 const paymentMethodReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SELECT_PAYMENT_METHOD:
-      return action.payload; // Update the selected payment method based on the payload of the action
+    case EDIT_PAYMENT_METHOD:
+      return {
+        ...state,
+        isPaymentEditing: !state.isPaymentEditing,
+      };
     default:
       return state;
   }

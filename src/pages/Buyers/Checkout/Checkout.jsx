@@ -5,11 +5,13 @@ import ShippingAddressForm from "./shippingAddressForm";
 import { editShippingAddress } from "../../../reducersAndActions/actions/checkoutEditAction";
 import { updateShippingForm } from "../../../reducersAndActions/actions/shippingFormAction";
 import { selectShippingMethod } from "../../../reducersAndActions/actions/shippingMethodAction";
-import { selectPaymentMethod } from "../../../reducersAndActions/actions/paymentMethodAction";
+import { editPaymentMethod } from "../../../reducersAndActions/actions/paymentMethodAction"; // Import action creator for editing payment method
 
 const Checkout = ({
   isEditing,
+  isPaymentEditing, // Add isPaymentEditing from Redux state
   editShippingAddress,
+  editPaymentMethod, // Add editPaymentMethod action creator
   shippingForm,
   updateShippingForm,
   selectShippingMethod,
@@ -17,7 +19,6 @@ const Checkout = ({
   selectedPaymentMethod,
   selectPaymentMethod,
 }) => {
-  // console.log(shippingMethod)
   const navigate = useNavigate();
   const location = useLocation();
   const { carts, subtotal, promoCode, shipping, total } =
@@ -29,37 +30,55 @@ const Checkout = ({
       total: 0,
     };
 
-    const handlePaymentMethod = (method) => {
-      // Toggle selection state
-      if (selectedPaymentMethod === method) {
-        selectPaymentMethod(null); // Deselect if already selected
-      } else {
-        selectPaymentMethod(method); // Select if not already selected
+    const calculateShippingCost = () => {
+      let shippingCost = 0;
+      if (selectShippingMethod === "Standard") {
+        shippingCost = 0; // Set your shipping cost for Standard method
+      } else if (selectShippingMethod === "Express") {
+        shippingCost = 20; // Set your shipping cost for Express method
+      } else if (selectShippingMethod === "Overnight") {
+        shippingCost = 30; // Set your shipping cost for Overnight method
       }
+      return shippingCost;
     };
 
+    const shippingCost = calculateShippingCost();
+    const totalPrice = subtotal + shippingCost;
 
-    const handleShippingMethodSelect = (method) => {// Add this line for debugging
-      // Toggle selection state
-      if (shippingMethod === method) {
-        selectShippingMethod(null); // Deselect if already selected
-      } else {
-        selectShippingMethod(method); // Select if not already selected
-      }
-    };
+  // const handlePaymentMethod = (method) => {
+  //   if (selectedPaymentMethod === method) {
+  //     selectPaymentMethod(null);
+  //   } else {
+  //     selectPaymentMethod(method);
+  //   }
+  // };
 
+  const handleShippingMethodSelect = (method) => {
+    if (shippingMethod === method) {
+      selectShippingMethod(null);
+    } else {
+      selectShippingMethod(method);
+    }
+  };
 
   const handleCheckout = () => {
-    // Implement your checkout logic here, such as navigating to a confirmation page
     navigate("/confirmation");
   };
 
   const handleEdit = () => {
-    editShippingAddress(); // Dispatch action to start editing
+    editShippingAddress();
   };
 
   const handleCancelEdit = () => {
-    editShippingAddress(); // Dispatch action to cancel editing
+    editShippingAddress();
+  };
+
+  const handlePaymentEdit = () => {
+    editPaymentMethod(); // Dispatch action to edit payment method
+  };
+
+  const handleCancelPaymentEdit = () => {
+    editPaymentMethod(); // Dispatch action to cancel payment method editing
   };
 
   return (
@@ -126,66 +145,92 @@ const Checkout = ({
 
 
       {/* Payment Method Box */}
-<div className="bg-[#F0F0F0]">
-  <div className="flex px-4 py-8">
-    <div className="w-full max-w-3xl">
-      <div className="flex flex-col lg:grid grid-cols-3">
-        <div className="col-span-2 bg-blue-200 rounded-lg p-4">
-          <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
-            <div>Payment Method</div>
-            <div className="flex items-center">
-              {/* Content for payment method box goes here */}
-            </div>
-          </div>
-          <div className="border border-gray-300 mb-4 p-4 flex items-center justify-between">
-            <div>Select Payment Method</div>
-            <div>
-              {/* Content for payment method box goes here */}
-              <div className="flex items-center mb-2 cursor-pointer">
-                <input
-                  type="radio"
-                  id="credit"
-                  name="paymentMethod"
-                  checked={selectedPaymentMethod === "credit"}
-                  onChange={() => handlePaymentMethod("credit")}
-                  className="hidden"
-                />
-                <label htmlFor="credit" className="select-none cursor-pointer">
-                  <div
-                    className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${
-                      selectedPaymentMethod === "credit" ? "bg-blue-500" : ""
-                    }`}
-                    onClick={() => handlePaymentMethod("credit")}
-                  ></div>
-                  Credit Card
-                </label>
-              </div>
-              <div className="flex items-center">
-                <input
-                  type="radio"
-                  id="debit"
-                  name="paymentMethod"
-                  checked={selectedPaymentMethod === "debit"}
-                  onChange={() => handlePaymentMethod("debit")}
-                  className="hidden"
-                />
-                <label htmlFor="debit" className="select-none cursor-pointer">
-                  <div
-                    className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${
-                      selectedPaymentMethod === "debit" ? "bg-blue-500" : ""
-                    }`}
-                    onClick={() => handlePaymentMethod("debit")}
-                  ></div>
-                  Debit Card
-                </label>
+      <div className="bg-[#F0F0F0]">
+        <div className="flex px-4 py-8">
+          <div className="w-full max-w-3xl">
+            <div className="flex flex-col lg:grid grid-cols-3">
+              <div className="col-span-2 bg-blue-200 rounded-lg p-4">
+                <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
+                  <div>Payment Method</div>
+                  <div className="flex items-center">
+                    {isPaymentEditing ? (
+                      <button
+                        className="text-gray-500 text-xs mt-2"
+                        onClick={handleCancelPaymentEdit}
+                      >
+                        Cancel
+                      </button>
+                    ) : (
+                      <button
+                        className="text-gray-500 text-xs mt-2"
+                        onClick={handlePaymentEdit}
+                      >
+                        Select Payment Method
+                      </button>
+                    )}
+                  </div>
+                </div>
+                {isPaymentEditing && (
+                  <div className="border border-gray-300 mb-4 p-4">
+                    <form>
+                      <label htmlFor="credit">Card Number</label>
+                      <input
+                        type="text"
+                        id="credit"
+                        name="credit"
+                      />
+                      <label htmlFor="credit">Cardholder Name</label>
+                      <input
+                        type="text"
+                        id="cardholder"
+                        name="cardholder"
+                      />
+                      <label htmlFor="expiryMonth">Expiration Month</label>
+                      <select id="expiryMonth" name="expiryMonth">
+                        <option value="">Month</option>
+                        <option value="01">01 - January</option>
+                        <option value="02">02 - February</option>
+                        <option value="03">03 - March</option>
+                        <option value="04">04 - April</option>
+                        <option value="05">05 - May</option>
+                        <option value="06">06 - June</option>
+                        <option value="07">07 - July</option>
+                        <option value="08">08 - August</option>
+                        <option value="09">09 - September</option>
+                        <option value="10">10 - October</option>
+                        <option value="11">11 - November</option>
+                        <option value="12">12 - December</option>
+                      </select>
+                      {/* Dropdown for selecting year */}
+                      <label htmlFor="expiryYear">Expiration Year</label>
+                      <select id="expiryYear" name="expiryYear">
+                        <option value="">Year</option>
+                        {Array.from({ length: 18 }, (_, i) => (
+                          <option key={i} value={2023 + i}>{2023 + i}</option>
+                        ))}
+                      </select>
+                      <label htmlFor="cvv">CVV</label>
+                      <input
+                        type="text"
+                        id="cvv"
+                        name="cvv"
+                      />
+                      <label>
+                        <input type="checkbox" id="saveCardDetails" name="saveCardDetails" />
+                        Save card details
+                      </label>
+                      {/* Add other input fields as needed */}
+                      <button type="submit">Submit</button>
+                    </form>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+
+
 
 
       {/* Shipping Method */}
@@ -276,6 +321,7 @@ const Checkout = ({
 
 
 
+
       {/* Existing Order Summary */}
       <div className="bg-[#F0F0F0]">
         <div className="flex px-4 pt-16 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
@@ -332,17 +378,19 @@ const Checkout = ({
 
 const mapStateToProps = (state) => ({
   isEditing: state.checkoutEditReduce.isEditing,
+  isPaymentEditing: state.paymentMethodReducer.isPaymentEditing,
   shippingForm: state.shippingFormReducer,
   shippingMethod: state.shippingMethodReducer.selectedMethod,
-  selectedPaymentMethod: state.paymentMethodReducer,
+  selectedPaymentMethod: state.paymentMethodReducer.selectedPaymentMethod,
+  subtotal: state.subtotal,
+  shippingCost: state.shippingMethodReducer.shippingCost, // Map shippingCost from Redux state
 });
-
 
 const mapDispatchToProps = {
   editShippingAddress,
   updateShippingForm,
   selectShippingMethod,
-  selectPaymentMethod,
+  editPaymentMethod,
 };
 
 

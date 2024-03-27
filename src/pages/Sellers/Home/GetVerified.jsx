@@ -42,6 +42,7 @@ function GetVerified({ setShowModal }) {
  
   }, [])
 
+  console.log('formData->',formData)
   return (
       <dialog id="modal" className="rounded-md flex flex-col max-md:max-h-screen gap-5 min-w-full md:min-w-max md:w-[80%] lg:max-w-[1000px] lg:w-[70%] px-5 py-5 bg-[#e3e3e3] border border-5 border-white ">
         <div className="items-stretch flex justify-between gap-5">
@@ -384,6 +385,7 @@ function GetVerified({ setShowModal }) {
                   className="shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-white text-center text-sm font-semibold  whitespace-nowrap bg-zinc-500 grow justify-center px-8 py-2 rounded-[30px] max-md:px-5"
                 >
                   Submit for review
+                
                 </button>
 
               </div>

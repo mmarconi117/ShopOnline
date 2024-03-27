@@ -8,6 +8,7 @@ import GetVerified from './GetVerified'
 
 function Homepage() {
     const [showModal, setShowModal] = useState(false);
+    console.log('showModal->',showModal)
 
     return (
         <div className="self-center flex max-w-full flex-col items-stretch p-10 pb-20 gap-10">

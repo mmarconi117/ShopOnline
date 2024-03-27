@@ -88,7 +88,7 @@ const CompanyService = () => {
           </div>
         </div>
         <h1 className="my-10 text-2xl font-semibold">Company Service</h1>
-      {/* Navigation */}
+        {/* Navigation */}
 
 
         {/* Company Service form */}

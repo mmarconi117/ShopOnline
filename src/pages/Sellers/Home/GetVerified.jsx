@@ -34,7 +34,7 @@ function GetVerified({ setShowModal }) {
   const businessData = async (e) => {
     e.preventDefault()
     dispatch({ type: SET_BUSINESS_DETAILS, payload: formData });
-    console.log(businessDetailsdata)
+    console.log('businessDetail-data-->',businessDetailsdata)
   };
 
   useEffect(() => {

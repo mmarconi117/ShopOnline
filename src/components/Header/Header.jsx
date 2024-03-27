@@ -16,7 +16,8 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
     const navigate = useNavigate();
     const cartItems = useSelector(state => state.cartReducer.carts);
     const [search, setSearch] = useState('');
-    //const [routeNames, setRouteNames] = useState([]);
+   // const [routeNames, setRouteNames] = useState([]);
+   //import { useEffect } from 'react';
 
     //Replace to this when connected to backend.
     /* useEffect(() => {
@@ -32,7 +33,6 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
      fetchRouteNames();
  }, []); 
  */
-
 
     // Simulated route names. Remove when connected to backend
     const routeNames = ['mensFashion', 'womensFashion', 'electronics', 'home', 'cart', 'checkout', "computersAndOffice", "phonesAndAccessories", "jewelryAndWatches" + 

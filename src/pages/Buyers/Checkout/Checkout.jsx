@@ -30,28 +30,13 @@ const Checkout = ({
       total: 0,
     };
 
-    const calculateShippingCost = () => {
-      let shippingCost = 0;
-      if (selectShippingMethod === "Standard") {
-        shippingCost = 0; // Set your shipping cost for Standard method
-      } else if (selectShippingMethod === "Express") {
-        shippingCost = 20; // Set your shipping cost for Express method
-      } else if (selectShippingMethod === "Overnight") {
-        shippingCost = 30; // Set your shipping cost for Overnight method
-      }
-      return shippingCost;
-    };
-
-    const shippingCost = calculateShippingCost();
-    const totalPrice = subtotal + shippingCost;
-
-  // const handlePaymentMethod = (method) => {
-  //   if (selectedPaymentMethod === method) {
-  //     selectPaymentMethod(null);
-  //   } else {
-  //     selectPaymentMethod(method);
-  //   }
-  // };
+  const handlePaymentMethod = (method) => {
+    if (selectedPaymentMethod === method) {
+      selectPaymentMethod(null);
+    } else {
+      selectPaymentMethod(method);
+    }
+  };
 
   const handleShippingMethodSelect = (method) => {
     if (shippingMethod === method) {
@@ -234,77 +219,76 @@ const Checkout = ({
 
 
       {/* Shipping Method */}
-<div className="bg-gray-100">
-  <div className="flex px-4 py-8">
-    <div className="w-full max-w-3xl">
-      <div className="flex flex-col lg:grid grid-cols-3">
-        <div className="col-span-2 bg-blue-200 rounded-lg p-4">
-          <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
-            <div className="text-lg">Shipping Method</div>
-          </div>
-          {/* Standard Shipping */}
-          <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-            <label htmlFor="standard" className="flex items-center mb-2 cursor-pointer">
-              <input
-                type="radio"
-                id="standard"
-                name="shippingMethod"
-                checked={shippingMethod === "Standard"}
-                onChange={() => handleShippingMethodSelect("Standard")}
-                className="hidden"
-              />
-              <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
-              <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
-            </label>
-            <div className="text-sm ml-2">5 - 7 business days *</div>
-            <p>Free</p>
-          </div>
-          {/* Express Shipping */}
-          <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-            <label htmlFor="express" className="flex items-center mb-2 cursor-pointer">
-              <input
-                type="radio"
-                id="express"
-                name="shippingMethod"
-                checked={shippingMethod === "Express"}
-                onChange={() => handleShippingMethodSelect("Express")}
-                className="hidden"
-              />
-              <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Express" ? "bg-blue-500" : ""}`}></div>
-              <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
-            </label>
-            <div className="text-sm ml-2">2 - 3 business days *</div>
-            <p>$20</p>
-          </div>
-          {/* Overnight Shipping */}
-          <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-            <label htmlFor="overnight" className="flex items-center mb-2 cursor-pointer">
-              <input
-                type="radio"
-                id="overnight"
-                name="shippingMethod"
-                checked={shippingMethod === "Overnight"}
-                onChange={() => handleShippingMethodSelect("Overnight")}
-                className="hidden"
-              />
-              <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Overnight" ? "bg-blue-500" : ""}`}></div>
-              <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
-            </label>
-            <div className="text-sm ml-2">Next business day *</div>
-            <p>$30</p>
+      <div className="bg-gray-100">
+        <div className="flex px-4 py-8">
+          <div className="w-full max-w-3xl">
+            <div className="flex flex-col lg:grid grid-cols-3">
+              <div className="col-span-2 bg-blue-200 rounded-lg p-4">
+                <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
+                  <div className="text-lg">Shipping Method</div>
+                </div>
+                {/* Standard Shipping */}
+                <div className="border border-gray-300 mb-4 p-4 flex flex-col">
+                  <label htmlFor="standard" className="flex items-center mb-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      id="standard"
+                      name="shippingMethod"
+                      checked={shippingMethod === "Standard"}
+                      onChange={() => handleShippingMethodSelect("Standard")}
+                      className="hidden"
+                    />
+                    <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
+                    <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
+                  </label>
+                  <div className="text-sm ml-2">5 - 7 business days *</div>
+                  <p>Free</p>
+                </div>
+                {/* Express Shipping */}
+                <div className="border border-gray-300 mb-4 p-4 flex flex-col">
+                  <label htmlFor="express" className="flex items-center mb-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      id="express"
+                      name="shippingMethod"
+                      checked={shippingMethod === "Express"}
+                      onChange={() => handleShippingMethodSelect("Express")}
+                      className="hidden"
+                    />
+                    <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Express" ? "bg-blue-500" : ""}`}></div>
+                    <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
+                  </label>
+                  <div className="text-sm ml-2">2 - 3 business days *</div>
+                  <p>$20</p>
+                </div>
+                {/* Overnight Shipping */}
+                <div className="border border-gray-300 mb-4 p-4 flex flex-col">
+                  <label htmlFor="overnight" className="flex items-center mb-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      id="overnight"
+                      name="shippingMethod"
+                      checked={shippingMethod === "Overnight"}
+                      onChange={() => handleShippingMethodSelect("Overnight")}
+                      className="hidden"
+                    />
+                    <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Overnight" ? "bg-blue-500" : ""}`}></div>
+                    <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
+                  </label>
+                  <div className="text-sm ml-2">Next business day *</div>
+                  <p>$30</p>
+                </div>
+              </div>
+            </div>
+            <button
+              // onClick={handleContinueToPayment}
+              className="bg-yellow-400 text-gray-900 py-2 px-4 rounded hover:bg-yellow-500 w-full"
+            >
+              Continue to Payment
+            </button>
           </div>
         </div>
       </div>
-      <button
-        // onClick={handleContinueToPayment}
-        className="bg-yellow-400 text-gray-900 py-2 px-4 rounded hover:bg-yellow-500 w-full"
-      >
-        Continue to Payment
-      </button>
-    </div>
-  </div>
-</div>
-
 
 
 
@@ -378,12 +362,10 @@ const Checkout = ({
 
 const mapStateToProps = (state) => ({
   isEditing: state.checkoutEditReduce.isEditing,
-  isPaymentEditing: state.paymentMethodReducer.isPaymentEditing,
+  isPaymentEditing: state.paymentMethodReducer.isPaymentEditing, // Map isPaymentEditing from Redux state
   shippingForm: state.shippingFormReducer,
   shippingMethod: state.shippingMethodReducer.selectedMethod,
-  selectedPaymentMethod: state.paymentMethodReducer.selectedPaymentMethod,
-  subtotal: state.subtotal,
-  shippingCost: state.shippingMethodReducer.shippingCost, // Map shippingCost from Redux state
+  selectedPaymentMethod: state.paymentMethodReducer.selectedPaymentMethod, // Make sure to map selectedPaymentMethod from Redux state
 });
 
 const mapDispatchToProps = {

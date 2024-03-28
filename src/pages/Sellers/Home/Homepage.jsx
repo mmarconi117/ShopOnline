@@ -10,7 +10,9 @@ import { set } from 'react-hook-form'
 
 function Homepage() {
     const [showModal, setShowModal] = useState(false);
-    console.log('showModal->',showModal)
+    const [showModalPaid, setShowModalPaid] = useState(false);
+
+    // console.log('showModal->',showModal)
 
     return (
         <div className="self-center flex max-w-full flex-col items-stretch p-10 pb-20 gap-10">
@@ -24,7 +26,6 @@ function Homepage() {
             </div>
 
             <div className="max-w-full flex flex-col justify-start xl:flex-row xl:justify-between items-stretch gap-5">
-                     {/* {showModal && <GetVerified setShowModal={setShowModal} />} */}
                 <div className="relative xl:max-w-[290px] bg-white flex grow px-10 py-4 rounded-md items-stretch">
                     {showModal && <GetVerified setShowModal={setShowModal} />}
 
@@ -52,7 +53,7 @@ function Homepage() {
                 </div>
 
                 <div className="relative xl:max-w-[290px] bg-white flex grow px-10 py-4 rounded-md items-stretch">
-                {showModal && <GetPaid setShowModal={setShowModal} />}
+                {showModalPaid && <GetPaid setShowModalPaid={setShowModalPaid} />}
 
                     <div className="text-black text-left text-base leading-6 grow-0 absolute top-5 left-5">
                         2.
@@ -68,13 +69,14 @@ function Homepage() {
                         </p>
                         <button 
                             className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5"
-                            onClick={() => setShowModal(true)}
+                            onClick={() => setShowModalPaid(true)}
 
                         >
                             Get paid
                         </button>
                     </div>
                 </div>
+
                 <div className="relative xl:max-w-[290px] bg-white flex grow px-10 py-4 rounded-md items-stretch">
                     <div className="text-black text-left text-base leading-6 grow-0 absolute top-5 left-5">
                         3.

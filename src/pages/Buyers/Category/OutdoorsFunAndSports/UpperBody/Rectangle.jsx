@@ -4,10 +4,8 @@ function Rectangle() {
     return (
       <img
         src={logo}
+        // className="object-cover max-h-[423px] xl:max-h-[600px] w-full object-top"
       />
-      // <div
-      //   className="w-full sm:w-[95%] h-[184px] sm:h-[404px] bg-[#E2EFF6] mx-auto rounded-[12px]"
-      // ></div>
     );
   }
   

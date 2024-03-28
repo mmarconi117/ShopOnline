@@ -6,13 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 const GetPaid = ({setShowModalPaid}) => {
     const [isVerified] = useState(false);
     const [formData, setFormData] = useState({
-
       accountHolderName:'',
       accountNumber:'',
       reenterAccountNumber:'',
       IFSCCode:'',
       accountType:''
-  
     });
     const dispatch = useDispatch();
     

@@ -37,7 +37,6 @@ const GetPaid = ({setShowModal}) => {
   
     useEffect(() => {
       document.getElementById('modalPaid').showModal();
-      console.log('effect document->',document)
    
     }, [])
   

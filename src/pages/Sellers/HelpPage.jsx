@@ -20,9 +20,9 @@ const HelpPage = () => {
   };
 
   const handleFormSubmit = (e) => {
-    e.preventDefault(); 
-    const formData = { email, question }; 
-    dispatch(submitFeedbackForm(formData)); 
+    e.preventDefault();
+    const formData = { email, question };
+    dispatch(submitFeedbackForm(formData));
     dispatch(updateEmail(''));
     dispatch(updateQuestion(''));
   };
@@ -132,7 +132,7 @@ const HelpPage = () => {
       </div>
       {/* show feedback form depending on the state of the feedback button */}
       {showFeedbackFormState && (
-        <form onSubmit={handleFormSubmit} className="feedback-form"> 
+        <form onSubmit={handleFormSubmit} className="feedback-form">
           <h3>Please share your feedback with us!</h3>
           <p>If you still have questions or need help feel free to contact us.</p>
           <div>
@@ -141,17 +141,17 @@ const HelpPage = () => {
               id="email"
               type="email"
               placeholder="Your Email"
-              value={email} 
+              value={email}
               onChange={(e) => dispatch(updateEmail(e.target.value))}
             />
           </div>
-          <div style={{ height: '1rem' }}></div> 
+          <div style={{ height: '1rem' }}></div>
           <div>
             <label htmlFor="question">Your question</label>
             <textarea
               id="question"
               placeholder="Your question"
-              value={question} 
+              value={question}
               onChange={(e) => dispatch(updateQuestion(e.target.value))}
             ></textarea>
           </div>

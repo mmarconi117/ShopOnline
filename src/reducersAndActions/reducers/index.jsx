@@ -18,8 +18,11 @@ import loginFormReducer from "./LoginFormReducer";
 import buyersSignupFormReducer from "./BuyersSignupFormReducer";
 import buyersLoginFormReducer from "./BuyersLoginFormReducer";
 import shipReducer from "./shipReducer";
+import checkoutEditReduce from "./checkoutEditReduce";
+import shippingFormReducer from "./shippingFormReducer";
+import shippingMethodReducer from "./shippingMethodReducer";
+import paymentMethodReducer from "./paymentMethodReducer";
 import searchReducer from "./searchReducer";
-
 
 
 
@@ -42,8 +45,11 @@ export const rootReducer = combineReducers({
     feedback: feedbackFormReducer,
     buyersSignupFormReducer,
     buyersLoginFormReducer,
-    search: searchReducer,
-
+    checkoutEditReduce,
+    shippingFormReducer,
+    shippingMethodReducer,
+    paymentMethodReducer,
+    searchReducer
 });
 
 export default rootReducer;

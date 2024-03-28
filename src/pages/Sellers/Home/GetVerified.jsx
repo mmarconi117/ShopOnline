@@ -39,6 +39,7 @@ function GetVerified({ setShowModal }) {
 
   useEffect(() => {
     document.getElementById('modal').showModal();
+    console.log('effect document->',document)
  
   }, [])
 

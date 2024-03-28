@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { SET_BUSINESS_DETAILS } from "../../../reducersAndActions/actions";
+import {SET_PAYMENT_DETAILS} from "../../../reducersAndActions/actions"
 import { useSelector, useDispatch } from "react-redux";
 
 const GetPaid = ({setShowModalPaid}) => {
@@ -14,14 +14,15 @@ const GetPaid = ({setShowModalPaid}) => {
     });
     const dispatch = useDispatch();
     
-    const businessDetailsdata = useSelector((state) => state.businessDetailsReducer);
+    const paymentDetailsdata = useSelector((state) => state.paymentDetailsReducer);
     const isAuthenticated = useSelector((state) => state.loginFormReducer.isAuthenticated)
     const usersData = useSelector((state) => state.loginFormReducer.usersData);
   
-    const businessData = async (e) => {
+    const paymentData = async (e) => {
       e.preventDefault()
-      dispatch({ type: SET_BUSINESS_DETAILS, payload: formData });
-      console.log('businessDetail-data-->',businessDetailsdata)
+      dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
+      console.log('paymentDetail-data-->',paymentDetailsdata)
+
     };
   
     useEffect(() => {
@@ -49,7 +50,7 @@ const GetPaid = ({setShowModalPaid}) => {
               Get Paid
             </div>
   
-            <form onSubmit={businessData}>
+            <form onSubmit={paymentData}>
   
               <div className="items-start bg-white flex flex-col p-6 gap-3 rounded-md">
                 {/* Get yourselves verified */}

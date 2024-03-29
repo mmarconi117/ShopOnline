@@ -39,7 +39,7 @@ const StartShipping = ({setShowModalShipping}) => {
             </div>
             <div className="text-zinc-800 text-center text-sm font-semibold leading-6 underline whitespace-nowrap">
               <form method="dialog">
-                <button className=" bg-white text-zinc-800 rounded-full w-6 h-6 text-base active:bg-red-400 active:text-white" onClick={() => setShowModalPaid(false)}>x</button>
+                <button className=" bg-white text-zinc-800 rounded-full w-6 h-6 text-base active:bg-red-400 active:text-white" onClick={() => setShowModalShipping(false)}>x</button>
               </form>
             </div>
           </div>

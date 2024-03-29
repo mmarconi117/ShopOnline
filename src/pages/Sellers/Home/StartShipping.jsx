@@ -59,9 +59,7 @@ const StartShipping = ({setShowModalShipping}) => {
                 </div>
 
                 <div className="w-full items-stretch flex flex-col gap-2">
-                  <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
-                    Account Holder Name
-                  </label>
+                 
   
                   <input 
                     type="text" 
@@ -69,22 +67,23 @@ const StartShipping = ({setShowModalShipping}) => {
                     value={formData.accountHolderName}
                     onChange={(e) => setFormData({ ...formData, accountHolderName: e.target.value })}
                   />
+                   <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                    Account Holder Name
+                  </label>
                 </div>
 
 
                 {/* Account Holder Number */}
                 <div className="w-full items-stretch flex flex-col gap-2 mt-5">
-                  
-                  <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
-                  Account Number
-                  </label>
-  
                   <input 
                     type="text" 
                     className="w-full py-3 px-5 text-sm items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] border-solid" 
                     value={formData.accountNumber}
                     onChange={(e) => setFormData({ ...formData, accountNumber: e.target.value })}  
                   />
+                  <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                  Account Number
+                  </label>
                 </div>
 
                 {/* Account Holder Number */}

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import ticket from '../../assets/ICONS/ticket.svg';
-import logout from '../../assets/ICONS/logout.svg';
+import logOut from '../../assets/ICONS/logOut.svg';
 import info from '../../assets/ICONS/info.svg';
 import orders from '../../assets/ICONS/order.svg';
 import heart from '../../assets/ICONS/Heart.svg';
@@ -103,7 +103,7 @@ const Account = () => {
                 <button className="hidden lg:flex items-start justify-center gap-[14px]">
                     <span>
                         <img
-                            src={logout}
+                            src={logOut}
                             alt="logout icon"
                             className="w-6 h-6"
                         />

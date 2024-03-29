@@ -1,14 +1,69 @@
 import React from "react";
+import { connect } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import ShippingAddressForm from "./shippingAddressForm";
+import { editShippingAddress } from "../../../reducersAndActions/actions/checkoutEditAction";
+import { updateShippingForm } from "../../../reducersAndActions/actions/shippingFormAction";
+import { selectShippingMethod } from "../../../reducersAndActions/actions/shippingMethodAction";
+import { editPaymentMethod } from "../../../reducersAndActions/actions/paymentMethodAction"; // Import action creator for editing payment method
 
-const Checkout = () => {
+const Checkout = ({
+  isEditing,
+  isPaymentEditing, // Add isPaymentEditing from Redux state
+  editShippingAddress,
+  editPaymentMethod, // Add editPaymentMethod action creator
+  shippingForm,
+  updateShippingForm,
+  selectShippingMethod,
+  shippingMethod,
+  selectedPaymentMethod,
+  selectPaymentMethod,
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { carts, subtotal, promoCode, shipping, total } = location.state || { carts: [], subtotal: 0, promoCode: "", shipping: 0, total: 0 };
+  const { carts, subtotal, promoCode, shipping, total } =
+    location.state || {
+      carts: [],
+      subtotal: 0,
+      promoCode: "",
+      shipping: 0,
+      total: 0,
+    };
+
+  const handlePaymentMethod = (method) => {
+    if (selectedPaymentMethod === method) {
+      selectPaymentMethod(null);
+    } else {
+      selectPaymentMethod(method);
+    }
+  };
+
+  const handleShippingMethodSelect = (method) => {
+    if (shippingMethod === method) {
+      selectShippingMethod(null);
+    } else {
+      selectShippingMethod(method);
+    }
+  };
 
   const handleCheckout = () => {
-    // Implement your checkout logic here, such as navigating to a confirmation page
     navigate("/confirmation");
+  };
+
+  const handleEdit = () => {
+    editShippingAddress();
+  };
+
+  const handleCancelEdit = () => {
+    editShippingAddress();
+  };
+
+  const handlePaymentEdit = () => {
+    editPaymentMethod(); // Dispatch action to edit payment method
+  };
+
+  const handleCancelPaymentEdit = () => {
+    editPaymentMethod(); // Dispatch action to cancel payment method editing
   };
 
   return (
@@ -23,20 +78,56 @@ const Checkout = () => {
                 <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
                   <div>Shipping Address</div>
                   <div className="flex items-center">
-                    <button className="text-gray-500 text-xs mt-2">Edit</button>
+                    {isEditing ? (
+                      <button
+                        className="text-gray-500 text-xs mt-2"
+                        onClick={handleCancelEdit}
+                      >
+                        Cancel
+                      </button>
+                    ) : (
+                      <button
+                        className="text-gray-500 text-xs mt-2"
+                        onClick={handleEdit}
+                      >
+                        Edit
+                      </button>
+                    )}
                   </div>
                 </div>
-                {/* Dummy Profile */}
-                <div className="border border-gray-300 mb-4 p-4">
-                  <div className="font-semibold mb-1">Mr. Tony Stark</div>
-                  <div className="text-sm mb-1">Top of New York, 84052</div>
-                  <div className="text-sm">+19048588048</div>
-                </div>
+                {/* Shipping Address or Edit Form */}
+                {isEditing ? (
+                  <ShippingAddressForm
+                    shippingForm={shippingForm}
+                    updateShippingForm={updateShippingForm}
+                    editShippingAddress={editShippingAddress}
+                  />
+                ) : (
+                  <div>
+                    {shippingForm.firstName && (
+                      <div>
+                        <h2>Shipping Address</h2>
+                        <p>{shippingForm.firstName}</p>
+                        <p>{shippingForm.lastName}</p>
+                        <p>{shippingForm.address}</p>
+                        <p>{shippingForm.city}</p>
+                        <p>{shippingForm.state}</p>
+                        <p>{shippingForm.contactInfo}</p>
+                        <p>{shippingForm.email}</p>
+                        {/* Render other shipping address fields similarly */}
+                      </div>
+                    )}
+                    {!shippingForm.firstName && (
+                      <p>No shipping address provided</p>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
+
 
       {/* Payment Method Box */}
       <div className="bg-[#F0F0F0]">
@@ -47,47 +138,173 @@ const Checkout = () => {
                 <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
                   <div>Payment Method</div>
                   <div className="flex items-center">
-                    {/* Content for payment method box goes here */}
+                    {isPaymentEditing ? (
+                      <button
+                        className="text-gray-500 text-xs mt-2"
+                        onClick={handleCancelPaymentEdit}
+                      >
+                        Cancel
+                      </button>
+                    ) : (
+                      <button
+                        className="text-gray-500 text-xs mt-2"
+                        onClick={handlePaymentEdit}
+                      >
+                        Select Payment Method
+                      </button>
+                    )}
                   </div>
                 </div>
-                <div className="border border-gray-300 mb-4 p-4 flex items-center justify-between">
-                  <div>Select Payment Method</div>
-                  <div>
-                    {/* Content for payment method box goes here */}
+                {isPaymentEditing && (
+                  <div className="border border-gray-300 mb-4 p-4">
+                    <form>
+                      <label htmlFor="credit">Card Number</label>
+                      <input
+                        type="text"
+                        id="credit"
+                        name="credit"
+                      />
+                      <label htmlFor="credit">Cardholder Name</label>
+                      <input
+                        type="text"
+                        id="cardholder"
+                        name="cardholder"
+                      />
+                      <label htmlFor="expiryMonth">Expiration Month</label>
+                      <select id="expiryMonth" name="expiryMonth">
+                        <option value="">Month</option>
+                        <option value="01">01 - January</option>
+                        <option value="02">02 - February</option>
+                        <option value="03">03 - March</option>
+                        <option value="04">04 - April</option>
+                        <option value="05">05 - May</option>
+                        <option value="06">06 - June</option>
+                        <option value="07">07 - July</option>
+                        <option value="08">08 - August</option>
+                        <option value="09">09 - September</option>
+                        <option value="10">10 - October</option>
+                        <option value="11">11 - November</option>
+                        <option value="12">12 - December</option>
+                      </select>
+                      {/* Dropdown for selecting year */}
+                      <label htmlFor="expiryYear">Expiration Year</label>
+                      <select id="expiryYear" name="expiryYear">
+                        <option value="">Year</option>
+                        {Array.from({ length: 18 }, (_, i) => (
+                          <option key={i} value={2023 + i}>{2023 + i}</option>
+                        ))}
+                      </select>
+                      <label htmlFor="cvv">CVV</label>
+                      <input
+                        type="text"
+                        id="cvv"
+                        name="cvv"
+                      />
+                      <label>
+                        <input type="checkbox" id="saveCardDetails" name="saveCardDetails" />
+                        Save card details
+                      </label>
+                      {/* Add other input fields as needed */}
+                      <button type="submit">Submit</button>
+                    </form>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
 
+
+
+
       {/* Shipping Method */}
-      <div className="bg-[#F0F0F0]">
+      <div className="bg-gray-100">
         <div className="flex px-4 py-8">
           <div className="w-full max-w-3xl">
             <div className="flex flex-col lg:grid grid-cols-3">
               <div className="col-span-2 bg-blue-200 rounded-lg p-4">
                 <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
-                  <div className="text-lg font-bold">Shipping Method</div>
+                  <div className="text-lg">Shipping Method</div>
                 </div>
-                {/* Dot notation */}
+                {/* Standard Shipping */}
                 <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-                  {/* Dot for Standard Shipping */}
-                  <div className="flex items-center mb-2">
-                    <div className="w-4 h-4 border border-gray-500 rounded-full mr-2"></div>
-                    <div className="text-md font-bold">Standard Shipping</div> {/* Updated text size and weight */}
-                    <div className="ml-auto">Free</div>
-                  </div>
-                  {/* Days text for Standard Shipping */}
-                  <div className="text-sm ml-2">5 - 7 business days</div>
-                  {/* Add more dots and days text as needed for different shipping options */}
+                  <label htmlFor="standard" className="flex items-center mb-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      id="standard"
+                      name="shippingMethod"
+                      checked={shippingMethod === "Standard"}
+                      onChange={() => handleShippingMethodSelect("Standard")}
+                      className="hidden"
+                    />
+                    <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
+                    <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
+                  </label>
+                  <div className="text-sm ml-2">5 - 7 business days *</div>
+                  <p>Free</p>
+                </div>
+                {/* Express Shipping */}
+                <div className="border border-gray-300 mb-4 p-4 flex flex-col">
+                  <label htmlFor="express" className="flex items-center mb-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      id="express"
+                      name="shippingMethod"
+                      checked={shippingMethod === "Express"}
+                      onChange={() => handleShippingMethodSelect("Express")}
+                      className="hidden"
+                    />
+                    <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Express" ? "bg-blue-500" : ""}`}></div>
+                    <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
+                  </label>
+                  <div className="text-sm ml-2">2 - 3 business days *</div>
+                  <p>$20</p>
+                </div>
+                {/* Overnight Shipping */}
+                <div className="border border-gray-300 mb-4 p-4 flex flex-col">
+                  <label htmlFor="overnight" className="flex items-center mb-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      id="overnight"
+                      name="shippingMethod"
+                      checked={shippingMethod === "Overnight"}
+                      onChange={() => handleShippingMethodSelect("Overnight")}
+                      className="hidden"
+                    />
+                    <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Overnight" ? "bg-blue-500" : ""}`}></div>
+                    <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
+                  </label>
+                  <div className="text-sm ml-2">Next business day *</div>
+                  <p>$30</p>
                 </div>
               </div>
             </div>
+            <button
+              // onClick={handleContinueToPayment}
+              className="bg-yellow-400 text-gray-900 py-2 px-4 rounded hover:bg-yellow-500 w-full"
+            >
+              Continue to Payment
+            </button>
           </div>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Existing Order Summary */}
       <div className="bg-[#F0F0F0]">
@@ -95,10 +312,7 @@ const Checkout = () => {
           <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-blue-200 lg:h-[759px]">
             {carts.map((item, index) => (
               <div key={index} className="border border-gray-300 mb-4 p-4">
-                <img
-                  src={item.product.avatar}
-                  className="w-24 h-24 mb-2"
-                />
+                <img src={item.product.avatar} className="w-24 h-24 mb-2" alt={item.product.name} />
                 <div className="info">
                   <h3 className="text-lg font-semibold mb-1">{item.product.name}</h3>
                   <p className="text-sm mb-1">{item.product.description}</p>
@@ -146,4 +360,20 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+const mapStateToProps = (state) => ({
+  isEditing: state.checkoutEditReduce.isEditing,
+  isPaymentEditing: state.paymentMethodReducer.isPaymentEditing, // Map isPaymentEditing from Redux state
+  shippingForm: state.shippingFormReducer,
+  shippingMethod: state.shippingMethodReducer.selectedMethod,
+  selectedPaymentMethod: state.paymentMethodReducer.selectedPaymentMethod, // Make sure to map selectedPaymentMethod from Redux state
+});
+
+const mapDispatchToProps = {
+  editShippingAddress,
+  updateShippingForm,
+  selectShippingMethod,
+  editPaymentMethod,
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

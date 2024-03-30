@@ -5,13 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const StartShipping = ({setShowModalShipping}) => {
     const [isVerified] = useState(false);
-    const [formData, setFormData] = useState({
-      accountHolderName:'',
-      accountNumber:'',
-      reenterAccountNumber:'',
-      IFSCCode:'',
-      accountType:''
-    });
+    const [formData, setFormData] = useState("Free Shipping");
     const dispatch = useDispatch();
     
     const paymentDetailsdata = useSelector((state) => state.paymentDetailsReducer);
@@ -58,86 +52,39 @@ const StartShipping = ({setShowModalShipping}) => {
                   Set shipping fee you want to charge your customer
                 </div>
 
+
+              {/* Free Shipping */}
                 <div className="w-full items-stretch flex flex-col gap-2">
                  
-  
                   <input 
-                    type="text" 
+                    type="radio" 
+                    name="Free Shipping"
                     className="w-full py-3 px-5 text-sm items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] border-solid" 
-                    value={formData.accountHolderName}
-                    onChange={(e) => setFormData({ ...formData, accountHolderName: e.target.value })}
+                    value="Free Shipping"
+                    checked={formData==="Free Shipping"}
+                    onChange={(e) => setFormData( e.target.value )}
                   />
                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
-                    Account Holder Name
+                    Free Shipping
                   </label>
                 </div>
 
 
-                {/* Account Holder Number */}
+                {/* Set Shipping Fee */}
                 <div className="w-full items-stretch flex flex-col gap-2 mt-5">
                   <input 
-                    type="text" 
+                    type="radio" 
+                    name="Set Shipping Fee"
+                    value="Set Shipping Fee"
                     className="w-full py-3 px-5 text-sm items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] border-solid" 
-                    value={formData.accountNumber}
-                    onChange={(e) => setFormData({ ...formData, accountNumber: e.target.value })}  
+                    checked={formData==="Set Shipping Fee"}
+                    onChange={(e) => setFormData(e.target.value )}  
                   />
                   <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
-                  Account Number
+                  Set Shipping Fee
                   </label>
                 </div>
-
-                {/* Account Holder Number */}
-                <div className="w-full items-stretch flex flex-col gap-2 mt-5">
-                  
-                  <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
-                  Re-enter Account Number
-                  </label>
-  
-                  <input 
-                    type="text" 
-                    className="w-full py-3 px-5 text-sm items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] border-solid" 
-                    value={formData.reenterAccountNumber}
-                    onChange={(e) => setFormData({ ...formData, reenterAccountNumber: e.target.value })}  
-                  />
-                </div>
-
-                {/* IFSC Code */}
-                <div className="w-full items-stretch flex flex-col gap-2 mt-5">
-                  
-                  <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
-                  IFSC Code
-                  </label>
-  
-                  <input 
-                    type="text" 
-                    className="w-full py-3 px-5 text-sm items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] border-solid" 
-                    value={formData.IFSCCode}
-                    onChange={(e) => setFormData({ ...formData, IFSCCode: e.target.value })}  
-                  />
-                </div>
-
-
-                {/*Account Type  */}
-                <div className="justify-between items-stretch self-stretch flex flex-col md:flex-row gap-5">
-
-                  <div className="grow items-stretch flex flex-col gap-2 mt-5">
-                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
-                      Account Type
-                    </label>
-  
-                    <div className="rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] px-4">
-                      <select 
-                      className="w-full py-3 border-solid text-zinc-500 text-xs font-semibold leading-4 outline-none"
-                      value={formData.accountType}
-                      onChange={(e) => setFormData({ ...formData, accountType: e.target.value })}
-                      >
-                        <option value="">Select Your Account Type</option>
-                        <option value="Checking">Checking</option>
-                        <option value="Saving">Saving</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
+             
                 {/* Buttons */}
                 <div className="justify-between items-stretch self-stretch flex flex-col md:flex-row gap-5 px-16 md:px-20 ">
                   <button

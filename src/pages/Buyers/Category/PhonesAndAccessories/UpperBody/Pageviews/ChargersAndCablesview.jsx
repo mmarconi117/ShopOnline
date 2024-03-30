@@ -10,11 +10,9 @@ function ChargersAndCablesview() {
   }
 
   return (
-    <div>
-      <button href="#" onClick={ChargersAndCablesview}>
+      <button className="whitespace-nowrap" href="#" onClick={ChargersAndCablesview}>
         Chargers And Cables
       </button>
-    </div>
   )
 }
 

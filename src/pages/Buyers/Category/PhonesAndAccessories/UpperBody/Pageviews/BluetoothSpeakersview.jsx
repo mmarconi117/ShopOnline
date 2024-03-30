@@ -10,11 +10,10 @@ function BluetoothSpeakersview() {
   }
 
   return (
-    <div>
-      <button href="#" onClick={BluetoothSpeakersview}>
+      <button className="whitespace-nowrap" href="#" onClick={BluetoothSpeakersview}>
         Bluetooth Speakers
       </button>
-    </div>
+    
   )
 }
 

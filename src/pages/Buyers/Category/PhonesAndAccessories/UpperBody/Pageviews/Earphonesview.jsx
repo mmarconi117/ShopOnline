@@ -10,11 +10,9 @@ function Earphonesview() {
   }
 
   return (
-    <div>
-      <button href="#" onClick={Earphonesview}>
+      <button className="whitespace-nowrap" href="#" onClick={Earphonesview}>
         Earphones
       </button>
-    </div>
   )
 }
 

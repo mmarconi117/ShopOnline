@@ -31,7 +31,7 @@ function GetVerified({ setShowModal }) {
   const isAuthenticated = useSelector((state) => state.loginFormReducer.isAuthenticated)
   const usersData = useSelector((state) => state.loginFormReducer.usersData);
 
-  const businessData = async (e) => {
+  const businessData = (e) => {
     e.preventDefault()
     dispatch({ type: SET_BUSINESS_DETAILS, payload: formData });
     console.log('businessDetail-data-->',businessDetailsdata)
@@ -84,7 +84,7 @@ function GetVerified({ setShowModal }) {
 
                     >
                       <option value="">Select Country</option>
-                      <option value="United Sates">United Sates</option>
+                      <option value="United Sates">United States</option>
                     </select>
                   </div>
                 </div>
@@ -153,7 +153,7 @@ function GetVerified({ setShowModal }) {
 
                     >
                       <option value="">Select Country</option>
-                      <option value="United Sates">United Sates</option>
+                      <option value="United States">United States</option>
                     </select>
                   </div>
                 </div>

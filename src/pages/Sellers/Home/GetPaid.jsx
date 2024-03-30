@@ -19,10 +19,12 @@ const GetPaid = ({setShowModalPaid}) => {
     const usersData = useSelector((state) => state.loginFormReducer.usersData);
   
     const paymentData = async (e) => {
-      e.preventDefault()
-      dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
-      console.log('paymentDetail-data-->',paymentDetailsdata)
 
+ 
+        e.preventDefault()
+        dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
+        console.log('paymentDetail-data-->',paymentDetailsdata)
+    
     };
   
     useEffect(() => {
@@ -98,7 +100,8 @@ const GetPaid = ({setShowModalPaid}) => {
                     type="text" 
                     className="w-full py-3 px-5 text-sm items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] border-solid" 
                     value={formData.reenterAccountNumber}
-                    onChange={(e) => setFormData({ ...formData, reenterAccountNumber: e.target.value })}  
+                    onChange={(e) => setFormData({ ...formData, reenterAccountNumber: e.target.value })
+                    }  
                   />
                 </div>
 
@@ -142,7 +145,7 @@ const GetPaid = ({setShowModalPaid}) => {
                 {/* Buttons */}
                 <div className="justify-between items-stretch self-stretch flex flex-col md:flex-row gap-5 px-16 md:px-20 ">
                   <button
-                    type="button"
+                    type="submit"
                     className="shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-zinc-700 text-center text-sm font-semibold  whitespace-nowrap border-[color:var(--color-styles-neutral-600,#79767D)] grow justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5"
                     onClick={() => setShowModalPaid(false)}
                   >

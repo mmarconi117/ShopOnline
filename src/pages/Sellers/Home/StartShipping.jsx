@@ -6,18 +6,27 @@ import { useSelector, useDispatch } from "react-redux";
 const StartShipping = ({setShowModalShipping}) => {
     const [isVerified] = useState(false);
     const [formData, setFormData] = useState("Free Shipping");
+    const [formError,setFormError]=useState({})
     const dispatch = useDispatch();
+
     
     const paymentDetailsdata = useSelector((state) => state.paymentDetailsReducer);
     const isAuthenticated = useSelector((state) => state.loginFormReducer.isAuthenticated)
     const usersData = useSelector((state) => state.loginFormReducer.usersData);
   
+    const validateFormInput=(e)=>{
+      e.preventDefault()
+
+    }
+    
     const paymentData = async (e) => {
       e.preventDefault()
       dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
       console.log('paymentDetail-data-->',paymentDetailsdata)
 
     };
+
+
   
     useEffect(() => {
       document.getElementById('modalShipping').showModal();
@@ -88,7 +97,7 @@ const StartShipping = ({setShowModalShipping}) => {
                 {/* Buttons */}
                 <div className="justify-between items-stretch self-stretch flex flex-col md:flex-row gap-5 px-16 md:px-20 ">
                   <button
-                    type="button"
+                    type="submit"
                     className="shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-zinc-700 text-center text-sm font-semibold  whitespace-nowrap border-[color:var(--color-styles-neutral-600,#79767D)] grow justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5"
                     onClick={() => setShowModalShipping(false)}
                   >

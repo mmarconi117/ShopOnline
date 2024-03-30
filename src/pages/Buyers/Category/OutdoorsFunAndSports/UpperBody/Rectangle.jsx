@@ -1,8 +1,11 @@
+import logo from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/LOGO.png";
+
 function Rectangle() {
     return (
-      <div
-        className="w-full sm:w-[95%] h-[184px] sm:h-[404px] bg-[#E2EFF6] mx-auto rounded-[12px]"
-      ></div>
+      <img
+        src={logo}
+        className="object-cover max-h-[423px] xl:max-h-[600px] w-full object-top"
+      />
     );
   }
   

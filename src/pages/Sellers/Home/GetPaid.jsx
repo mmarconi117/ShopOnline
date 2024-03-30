@@ -12,6 +12,8 @@ const GetPaid = ({setShowModalPaid}) => {
       IFSCCode:'',
       accountType:''
     });
+    const [formError,setFormError]=useState({})
+
     const dispatch = useDispatch();
     
     const paymentDetailsdata = useSelector((state) => state.paymentDetailsReducer);
@@ -26,6 +28,11 @@ const GetPaid = ({setShowModalPaid}) => {
         console.log('paymentDetail-data-->',paymentDetailsdata)
     
     };
+
+    const validateFormInput=(e)=>{
+      e.preventDefault()
+
+    }
   
     useEffect(() => {
       document.getElementById('modalPaid').showModal();

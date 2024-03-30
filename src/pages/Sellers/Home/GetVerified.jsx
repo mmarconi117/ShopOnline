@@ -25,12 +25,23 @@ function GetVerified({ setShowModal }) {
     termsAndconditions: false,
 
   });
+  const [formError,setFormError]=useState({})
+
   const dispatch = useDispatch();
   
   const businessDetailsdata = useSelector((state) => state.businessDetailsReducer);
   const isAuthenticated = useSelector((state) => state.loginFormReducer.isAuthenticated)
   const usersData = useSelector((state) => state.loginFormReducer.usersData);
 
+  
+  const validateFormInput=(e)=>{
+    e.preventDefault()
+
+  }
+  
+  
+  
+  
   const businessData = (e) => {
     e.preventDefault()
     dispatch({ type: SET_BUSINESS_DETAILS, payload: formData });

@@ -17,12 +17,12 @@ function BikesRow() {
         return (
             <li
                 key={imagesList[index % imagesList.length].id}
-                className="flex flex-col items-start bg-white min-w-[175px] min-h-[373px] sm:min-w-[219px] sm:h-auto p-2 pb-3 sm:p-[10px] sm:pb-[16px] rounded-[5px] border border-solid border-[#AEA9B1] gap-4 sm:gap-6"
+                className="min-[391px]:hidden flex flex-col items-start bg-white min-w-[175px] min-h-[373px] sm:min-w-[219px] sm:h-auto p-2 pb-3 sm:p-[10px] sm:pb-[16px] rounded-[5px] border border-solid border-[#AEA9B1] gap-4 sm:gap-6"
             >
                 <img
                     src={imagesList[index % imagesList.length].src}
                     alt={imagesList[index % imagesList.length].alt}
-                    className="min-h-[214px] object-cover rounded-[5px]"
+                    className="h-[200px] w-full object-cover rounded-[5px]"
                 />
                 <div className="flex flex-col justify-center items-start gap-3 sm:gap-4 font-Roboto">
                     <p className="text-sm max-sm:tracking-[0.25px]">
@@ -54,7 +54,7 @@ function BikesRow() {
                         <img
                             src={image.src}
                             alt={image.alt}
-                            className="min-h-[214px] object-cover rounded-[5px]"
+                            className="min-h-[214px] h-[300px] max-w-[260px] w-full object-cover rounded-[5px]"
                         />
                         <div className="flex flex-col justify-center items-start gap-3 sm:gap-4 font-Roboto">
                             <p className="text-sm max-sm:tracking-[0.25px]">

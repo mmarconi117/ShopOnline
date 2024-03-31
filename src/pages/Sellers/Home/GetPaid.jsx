@@ -10,9 +10,17 @@ const GetPaid = ({setShowModalPaid}) => {
       accountNumber:'',
       reenterAccountNumber:'',
       IFSCCode:'',
-      accountType:''
+      accountType:'',
+      sucess:''
     });
-    const [formError,setFormError]=useState({})
+    const [formError,setFormError]=useState({
+      accountHolderName:'',
+      accountNumber:'',
+      reenterAccountNumber:'',
+      IFSCCode:'',
+      accountType:''
+
+    })
 
     const dispatch = useDispatch();
     
@@ -23,7 +31,12 @@ const GetPaid = ({setShowModalPaid}) => {
     const paymentData = async (e) => {
 
  
-        e.preventDefault()
+        e.preventDefault();
+        if(!formData.accountHolderName&& !formData.accountNumber && !formData.reenterAccountNumber && !formData.IFSCCode && !formData.accountType){
+          console.log('empty please fill')
+       }
+       
+
         dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
         console.log('paymentDetail-data-->',paymentDetailsdata)
     
@@ -31,6 +44,57 @@ const GetPaid = ({setShowModalPaid}) => {
 
     const validateFormInput=(e)=>{
       e.preventDefault()
+      
+
+      let inputError={
+        accountHolderName:'',
+        accountNumber:'',
+        reenterAccountNumber:'',
+        IFSCCode:'',
+        accountType:''
+      }
+      ///check if empty
+      if(!formData.accountHolderName&& !formData.accountNumber && !formData.reenterAccountNumber && !formData.IFSCCode && !formData.accountType){
+          setFormError({
+            ...inputError, 
+              accountHolderName:'Empty',
+              accountNumber:'Empty',
+              reenterAccountNumber:'Empty',
+              IFSCCode:'Empty',
+              accountType:'Empty'
+            }
+          );
+          return
+      }
+      if(!formData.accountHolderName){
+        setFormError({
+          ...inputError, 
+            accountHolderName:'Empty',
+          
+          }
+        );
+        return
+      }
+      if( !formData.accountNumber){
+        setFormError({
+          ...inputError, 
+       
+            accountNumber:'Empty',
+          }
+        );
+        return
+    }
+    /////check if account numbers match//
+    if(formData.accountNumber !== formData.reenterAccountNumber){
+      setFormError({
+        ...inputError, 
+
+          reenterAccountNumber:'Do not match',
+ 
+        }
+      );
+      return
+  }
 
     }
   
@@ -154,7 +218,7 @@ const GetPaid = ({setShowModalPaid}) => {
                   <button
                     type="submit"
                     className="shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-zinc-700 text-center text-sm font-semibold  whitespace-nowrap border-[color:var(--color-styles-neutral-600,#79767D)] grow justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5"
-                    onClick={() => setShowModalPaid(false)}
+                    // onClick={() => setShowModalPaid(false)}
                   >
                     Save
                   </button>

@@ -45,11 +45,11 @@ const GetPaid = ({setShowModalPaid}) => {
           console.log('empty please fill');
           setFormError({
             ...inputError, 
-            accountHolderName:'Empty',
-            accountNumber:'Empty',
-            reenterAccountNumber:'Empty',
-            IFSCCode:'Empty',
-            accountType:'Empty'
+            accountHolderName:'Please fill this section',
+            accountNumber:'Please fill this section',
+            reenterAccountNumber:'Please fill this section',
+            IFSCCode:'Please fill this section',
+            accountType:'Please fill this section',
           }
           );
           return
@@ -58,7 +58,7 @@ const GetPaid = ({setShowModalPaid}) => {
       if(!formData.accountHolderName){
         setFormError({
           ...inputError, 
-            accountHolderName:'Empty',
+            accountHolderName:'Please fill this section',
           
           }
         );
@@ -68,7 +68,7 @@ const GetPaid = ({setShowModalPaid}) => {
         setFormError({
           ...inputError, 
        
-            accountNumber:'Empty',
+            accountNumber:'Please fill this section',
           }
         );
         return
@@ -77,7 +77,7 @@ const GetPaid = ({setShowModalPaid}) => {
       setFormError({
         ...inputError, 
      
-          reenterAccountNumber:'Empty',
+          reenterAccountNumber:'Please fill this section',
         }
       );
       return
@@ -87,7 +87,7 @@ const GetPaid = ({setShowModalPaid}) => {
     setFormError({
       ...inputError, 
    
-        IFSCCode:'Empty',
+        IFSCCode:'Please fill this section',
       }
     );
     return
@@ -97,7 +97,7 @@ const GetPaid = ({setShowModalPaid}) => {
     setFormError({
       ...inputError, 
    
-        accountType:'Empty',
+        accountType:'Please fill this section',
       }
     );
     return

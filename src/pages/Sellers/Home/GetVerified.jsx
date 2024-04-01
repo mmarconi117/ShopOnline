@@ -25,8 +25,24 @@ function GetVerified({ setShowModal }) {
     termsAndconditions: false,
 
   });
-  const [formError,setFormError]=useState({})
+  const [formError,setFormError]=useState({
+    countryOfIncorporation: '',
+    taxid: '',
+    businessName: '',
+    businessAddress: '',
+    state: '',
+    city: '',
+    postalCode: '',
+    contactNumber: '',
+    websiteUrl: '',
+    grossValue: '',
+    performingcategory: '',
+    displayName: '',
+    customerServiceNumber: '',
+    customerServiceEmail: '',
+    termsAndconditions: false,
 
+  })
   const dispatch = useDispatch();
   
   const businessDetailsdata = useSelector((state) => state.businessDetailsReducer);
@@ -34,23 +50,213 @@ function GetVerified({ setShowModal }) {
   const usersData = useSelector((state) => state.loginFormReducer.usersData);
 
   
-  const validateFormInput=(e)=>{
-    e.preventDefault()
-
-  }
-  
   
   
   
   const businessData = (e) => {
     e.preventDefault()
+    let inputError={
+      countryOfIncorporation: '',
+      taxid: '',
+      businessName: '',
+      businessAddress: '',
+      state: '',
+      city: '',
+      postalCode: '',
+      contactNumber: '',
+      websiteUrl: '',
+      grossValue: '',
+      performingcategory: '',
+      displayName: '',
+      customerServiceNumber: '',
+      customerServiceEmail: '',
+      termsAndconditions: '',
+    }
+    if(!formData.countryOfIncorporation
+      && !formData.taxid 
+      && !formData.businessName 
+      && !formData.businessAddress 
+      && !formData.state 
+      && !formData.city
+      && !formData.postalCode
+      && !formData.contactNumber
+      && !formData.websiteUrl
+      && !formData.grossValue
+      && !formData.displayName
+      && !formData.customerServiceNumber
+      && !formData.customerServiceEmail
+      && formData.termsAndconditions===false
+      ){
+      console.log('empty please fill');
+      setFormError({
+        ...inputError, 
+        countryOfIncorporation: 'Please fill this section',
+        taxid: 'Please fill this section',
+        businessName: 'Please fill this section',
+        businessAddress: 'Please fill this section',
+        state: 'Please fill this section',
+        city: 'Please fill this section',
+        postalCode: 'Please fill this section',
+        contactNumber: 'Please fill this section',
+        websiteUrl: 'Please fill this section',
+        grossValue: 'Please fill this section',
+        performingcategory: 'Please fill this section',
+        displayName: 'Please fill this section',
+        customerServiceNumber: 'Please fill this section',
+        customerServiceEmail: 'Please fill this section',
+        termsAndconditions: 'Please agree to this term',
+      }
+      );
+      return
+  }
+
+  if(!formData.countryOfIncorporation){
+    console.log('empty please fill');
+    setFormError({
+      ...inputError, 
+      countryOfIncorporation: 'Please fill this section',
+    }
+    );
+    return
+  }
+
+  if(!formData.taxid){
+    setFormError({
+      ...inputError, 
+      taxid: 'Please fill this section',
+    }
+    );
+    return
+  }
+
+  if(!formData.businessName ){
+    setFormError({
+      ...inputError, 
+      businessName: 'Please fill this section',
+    }
+    );
+    return
+  }
+
+  if(!formData.businessAddress){
+    setFormError({
+        ...inputError, 
+        businessAddress: 'Please fill this section',
+      }
+    );
+    return
+  }
+
+  if(!formData.state ){
+    console.log('empty please fill');
+    setFormError({
+        ...inputError, 
+        state: 'Please fill this section',
+      }
+    );
+    return
+  }
+
+  if(!formData.city){
+    setFormError({
+      ...inputError, 
+      city: 'Please fill this section',
+      
+    }
+    );
+    return
+  }
+  if(
+    !formData.postalCode
+    
+    ){
+    setFormError({
+      ...inputError, 
+      postalCode: 'Please fill this section',
+      
+    }
+    );
+    return
+  }
+
+  if(!formData.contactNumber){
+    console.log('empty please fill');
+    setFormError({
+      ...inputError, 
+      contactNumber: 'Please fill this section',
+    }
+    );
+    return
+  }
+
+  if(!formData.websiteUrl){
+    console.log('empty please fill');
+      setFormError({
+        ...inputError, 
+        websiteUrl: 'Please fill this section',
+      }
+    );
+    return
+  }
+
+  if(!formData.grossValue){
+    setFormError({
+        ...inputError, 
+        grossValue: 'Please fill this section',
+      }
+    );
+    return
+  }
+
+  if(!formData.displayName){
+    setFormError({
+        ...inputError, 
+        displayName: 'Please fill this section',
+      }
+    );
+    return
+  }
+
+  if(!formData.customerServiceNumber){
+      setFormError({
+        ...inputError, 
+        customerServiceNumber: 'Please fill this section',
+      }
+    );
+    return
+  }
+  
+  if(!formData.customerServiceEmail){
+      setFormError({
+        ...inputError, 
+        customerServiceEmail: 'Please fill this section',
+      }
+    );
+    return
+  }
+  
+  if(formData.termsAndconditions===false){
+      setFormError({
+        ...inputError, 
+        termsAndconditions: 'Please agree to this term',
+      }
+    );
+    return
+  }
+  
+  else {
     dispatch({ type: SET_BUSINESS_DETAILS, payload: formData });
-    console.log('businessDetail-data-->',businessDetailsdata)
-  };
+    console.log('businessDetail-data-->',businessDetailsdata);
+    setShowModal(false)
+  }
+
+    
+ 
+    
+};
 
   useEffect(() => {
     document.getElementById('modal').showModal();
-    console.log('effect document->',document)
  
   }, [])
 
@@ -95,9 +301,11 @@ function GetVerified({ setShowModal }) {
 
                     >
                       <option value="">Select Country</option>
-                      <option value="United Sates">United States</option>
+                      <option value="United States">United States</option>
                     </select>
                   </div>
+                  <p className="error-message">{formError.countryOfIncorporation}</p>
+
                 </div>
                 <div className="grow items-stretch flex flex-col gap-6">
                   <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
@@ -109,6 +317,8 @@ function GetVerified({ setShowModal }) {
                   value={formData.taxid}
                   onChange={(e) => setFormData({ ...formData, taxid: e.target.value })}
                   />
+                  <p className="error-message">{formError.taxid}</p>
+
                 </div>
               </div>
               {/* Tax Policy */}
@@ -134,6 +344,8 @@ function GetVerified({ setShowModal }) {
                   value={formData.businessName}
                   onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
                 />
+                <p className="error-message">{formError.businessName}</p>
+
               </div>
               {/* Business Address */}
               <div className="w-full items-stretch flex flex-col gap-2 mt-5">
@@ -148,6 +360,8 @@ function GetVerified({ setShowModal }) {
                   value={formData.businessAddress}
                   onChange={(e) => setFormData({ ...formData, businessAddress: e.target.value })}  
                 />
+                <p className="error-message">{formError.businessAddress}</p>
+
               </div>
               {/* Country/ State  */}
               <div className="justify-between items-stretch self-stretch flex flex-col md:flex-row gap-5">
@@ -167,6 +381,8 @@ function GetVerified({ setShowModal }) {
                       <option value="United States">United States</option>
                     </select>
                   </div>
+                  <p className="error-message">{formError.country}</p>
+
                 </div>
                 <div className="grow items-stretch flex flex-col gap-2 mt-5">
                   <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
@@ -232,6 +448,8 @@ function GetVerified({ setShowModal }) {
                       <option value="Wyoming">Wyoming</option>
                     </select>
                   </div>
+                  <p className="error-message">{formError.state}</p>
+
                 </div>
               </div>
               {/* City/ ZipCode */}
@@ -247,6 +465,8 @@ function GetVerified({ setShowModal }) {
                     value={formData.city}
                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}  
                   />
+                <p className="error-message">{formError.city}</p>
+
                 </div>
       
                 <div className="grow items-stretch flex flex-col gap-2 mt-5">
@@ -260,6 +480,7 @@ function GetVerified({ setShowModal }) {
                   value={formData.postalCode}
                   onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}  
                 />
+                <p className="error-message">{formError.postalCode}</p>
                 </div>
               </div>
               {/* Contact number/ website url */}
@@ -275,6 +496,8 @@ function GetVerified({ setShowModal }) {
                     value={formData.contactNumber}
                     onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })} 
                   />
+                  <p className="error-message">{formError.contactNumber}</p>
+
                 </div>
                 <div className="grow items-stretch flex flex-col gap-2 mt-5">
                 <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
@@ -283,11 +506,14 @@ function GetVerified({ setShowModal }) {
 
                 <input 
                   type="url" 
+                  pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" 
                   className="w-full py-3 border-solid text-zinc-500 text-sm font-semibold leading-4 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] px-4"
                   placeholder="http://www.example.com" 
                   value={formData.websiteUrl}
                   onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
                 />
+                                  <p className="error-message">{formError.websiteUrl}</p>
+
                 </div>
               </div>
               {/* GMV/ Highest performing cat. */}
@@ -303,6 +529,8 @@ function GetVerified({ setShowModal }) {
                     value={formData.grossValue}
                     onChange={(e) => setFormData({ ...formData, grossValue: e.target.value })} 
                   />
+                                    <p className="error-message">{formError.grossValue}</p>
+
                 </div>
                 <div className="grow basis-[50%] items-stretch flex flex-col gap-2 mt-5">
                   <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
@@ -315,6 +543,8 @@ function GetVerified({ setShowModal }) {
                     value={formData.performingcategory}
                     onChange={(e) => setFormData({ ...formData, performingcategory: e.target.value })}  
                   />
+                                    <p className="error-message">{formError.performingcategory}</p>
+
                 </div>
               </div>
               {/* Line */}
@@ -340,6 +570,8 @@ function GetVerified({ setShowModal }) {
                   value={formData.displayName}
                   onChange={(e) => setFormData({ ...formData, displayName: e.target.value })} 
                 />
+                                  <p className="error-message">{formError.displayName}</p>
+
               </div>
               {/* Phone no./ Email */}
               <div className="justify-between items-stretch self-stretch flex flex-col md:flex-row gap-5">
@@ -354,6 +586,8 @@ function GetVerified({ setShowModal }) {
                     value={formData.customerServiceNumber}
                     onChange={(e) => setFormData({ ...formData, customerServiceNumber: e.target.value })} 
                   />
+                                    <p className="error-message">{formError.customerServiceNumber}</p>
+
                 </div>
                 <div className="grow items-stretch flex flex-col gap-2 mt-5">
                   <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
@@ -366,6 +600,8 @@ function GetVerified({ setShowModal }) {
                     value={formData.customerServiceEmail}
                     onChange={(e) => setFormData({ ...formData, customerServiceEmail: e.target.value })} 
                   />
+                                    <p className="error-message">{formError.customerServiceEmail}</p>
+
                 </div>
               </div>
               {/* Term and conditions */}
@@ -379,6 +615,8 @@ function GetVerified({ setShowModal }) {
                 <div className="text-black text-base self-center whitespace-nowrap">
                   I agree to the terms & conditions
                 </div>
+                <p className="error-message">{formError.termsAndconditions}</p>
+
               </div>
               {/* Line */}
               <div className="bg-zinc-100 self-stretch shrink-0 h-px mt-8" />

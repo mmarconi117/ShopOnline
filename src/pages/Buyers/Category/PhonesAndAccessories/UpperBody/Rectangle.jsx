@@ -1,8 +1,8 @@
+import Banner from "../../../../../assets/IMAGES/PhonesAndAccessories/Rectangle_189.jpg"
+
 function Rectangle() {
   return (
-    <div
-      className="w-full sm:w-[95%] h-[184px] sm:h-[404px] bg-[#E2EFF6] mx-auto rounded-[12px]"
-    ></div>
+    <img src={Banner} className="object-cover min-h-[184px] w-full"/>
   );
 }
 

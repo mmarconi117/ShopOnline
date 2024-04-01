@@ -109,7 +109,7 @@ const StartShipping = ({setShowModalShipping}) => {
                     <li>Weight of the Package</li>
                     <li>Package Dimension</li>
                     <li>Delivery Times for Shipping</li>
-                    <l1>Trasportation Charge</l1>
+                    <li>Trasportation Charge</li>
                   </ul>
 
                 </div>

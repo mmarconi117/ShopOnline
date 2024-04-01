@@ -31,20 +31,7 @@ const GetPaid = ({setShowModalPaid}) => {
     const paymentData = async (e) => {
 
  
-        e.preventDefault();
-        if(!formData.accountHolderName&& !formData.accountNumber && !formData.reenterAccountNumber && !formData.IFSCCode && !formData.accountType){
-          console.log('empty please fill')
-       }
-       
-
-        dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
-        console.log('paymentDetail-data-->',paymentDetailsdata)
-    
-    };
-
-    const validateFormInput=(e)=>{
-      e.preventDefault()
-      
+      e.preventDefault();
 
       let inputError={
         accountHolderName:'',
@@ -53,19 +40,21 @@ const GetPaid = ({setShowModalPaid}) => {
         IFSCCode:'',
         accountType:''
       }
-      ///check if empty
+      
       if(!formData.accountHolderName&& !formData.accountNumber && !formData.reenterAccountNumber && !formData.IFSCCode && !formData.accountType){
+          console.log('empty please fill');
           setFormError({
             ...inputError, 
-              accountHolderName:'Empty',
-              accountNumber:'Empty',
-              reenterAccountNumber:'Empty',
-              IFSCCode:'Empty',
-              accountType:'Empty'
-            }
+            accountHolderName:'Empty',
+            accountNumber:'Empty',
+            reenterAccountNumber:'Empty',
+            IFSCCode:'Empty',
+            accountType:'Empty'
+          }
           );
           return
       }
+
       if(!formData.accountHolderName){
         setFormError({
           ...inputError, 
@@ -84,19 +73,62 @@ const GetPaid = ({setShowModalPaid}) => {
         );
         return
     }
-    /////check if account numbers match//
-    if(formData.accountNumber !== formData.reenterAccountNumber){
+    if( !formData.reenterAccountNumber){
       setFormError({
         ...inputError, 
-
-          reenterAccountNumber:'Do not match',
- 
+     
+          reenterAccountNumber:'Empty',
         }
       );
       return
   }
 
-    }
+  if( !formData.IFSCCode){
+    setFormError({
+      ...inputError, 
+   
+        IFSCCode:'Empty',
+      }
+    );
+    return
+  }
+
+  if( !formData.accountType){
+    setFormError({
+      ...inputError, 
+   
+        accountType:'Empty',
+      }
+    );
+    return
+}
+    /////check if account numbers match//
+if(formData.accountNumber !== formData.reenterAccountNumber){
+      setFormError({
+        ...inputError, 
+          reenterAccountNumber:'Account Numbers do not match',
+ 
+        }
+      );
+      return
+  }else{
+    dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
+    console.log('paymentDetail-data-->',paymentDetailsdata);
+    setShowModalPaid(false)
+
+
+  }
+  
+       
+
+      
+        
+        
+
+    
+    };
+
+
   
     useEffect(() => {
       document.getElementById('modalPaid').showModal();
@@ -142,6 +174,7 @@ const GetPaid = ({setShowModalPaid}) => {
                     value={formData.accountHolderName}
                     onChange={(e) => setFormData({ ...formData, accountHolderName: e.target.value })}
                   />
+                  <p className="error-message">{formError.accountHolderName}</p>
                 </div>
 
 
@@ -158,9 +191,11 @@ const GetPaid = ({setShowModalPaid}) => {
                     value={formData.accountNumber}
                     onChange={(e) => setFormData({ ...formData, accountNumber: e.target.value })}  
                   />
+                                    <p className="error-message">{formError.accountNumber}</p>
+
                 </div>
 
-                {/* Account Holder Number */}
+                {/*reenter Account Holder Number */}
                 <div className="w-full items-stretch flex flex-col gap-2 mt-5">
                   
                   <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
@@ -174,6 +209,8 @@ const GetPaid = ({setShowModalPaid}) => {
                     onChange={(e) => setFormData({ ...formData, reenterAccountNumber: e.target.value })
                     }  
                   />
+                  <p className="error-message">{formError.reenterAccountNumber}</p>
+
                 </div>
 
                 {/* IFSC Code */}
@@ -189,6 +226,8 @@ const GetPaid = ({setShowModalPaid}) => {
                     value={formData.IFSCCode}
                     onChange={(e) => setFormData({ ...formData, IFSCCode: e.target.value })}  
                   />
+                  <p className="error-message">{formError.IFSCCode}</p>
+
                 </div>
 
 
@@ -211,6 +250,8 @@ const GetPaid = ({setShowModalPaid}) => {
                         <option value="Saving">Saving</option>
                       </select>
                     </div>
+                    <p className="error-message">{formError.accountType}</p>
+
                   </div>
                 </div>
                 {/* Buttons */}
@@ -218,7 +259,6 @@ const GetPaid = ({setShowModalPaid}) => {
                   <button
                     type="submit"
                     className="shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-zinc-700 text-center text-sm font-semibold  whitespace-nowrap border-[color:var(--color-styles-neutral-600,#79767D)] grow justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5"
-                    // onClick={() => setShowModalPaid(false)}
                   >
                     Save
                   </button>

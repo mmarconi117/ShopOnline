@@ -5,24 +5,37 @@ import { useSelector, useDispatch } from "react-redux";
 
 const StartShipping = ({setShowModalShipping}) => {
     const [isVerified] = useState(false);
-    const [formData, setFormData] = useState("Free Shipping");
-    const [formError,setFormError]=useState({})
+    const [formData, setFormData] = useState(
+        {
+          selectedMethod:"Free Shipping",
+          packageWeight:0,
+          packageDimensions:0,
+          DeliveryTime:0,
+          TransportationCharge:0,
+          shippingCostTotal:0
+        }
+      );
+    const [formError,setFormError]=useState({
+      selectedMethod:'',
+      packageWeight:'',
+          packageDimensions:'',
+          DeliveryTime:'',
+          TransportationCharge:'',
+          shippingCostTotal:''
+    })
     const dispatch = useDispatch();
 
     
-    const paymentDetailsdata = useSelector((state) => state.paymentDetailsReducer);
+    const shipmentDetailsdata = useSelector((state) => state.paymentDetailsReducer);
     const isAuthenticated = useSelector((state) => state.loginFormReducer.isAuthenticated)
     const usersData = useSelector((state) => state.loginFormReducer.usersData);
   
-    const validateFormInput=(e)=>{
-      e.preventDefault()
 
-    }
     
-    const paymentData = async (e) => {
+    const shippingData = async (e) => {
       e.preventDefault()
       dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
-      console.log('paymentDetail-data-->',paymentDetailsdata)
+      console.log('shipmentDetailsdata-data-->',shipmentDetailsdata)
 
     };
 
@@ -53,7 +66,7 @@ const StartShipping = ({setShowModalShipping}) => {
               Shipping Fee Details
             </div>
   
-            <form onSubmit={paymentData}>
+            <form onSubmit={shippingData}>
   
               <div className="items-start bg-white flex flex-col p-6 gap-3 rounded-md">
                 {/* Get yourselves verified */}
@@ -92,6 +105,13 @@ const StartShipping = ({setShowModalShipping}) => {
                   <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
                   Set Shipping Fee
                   </label>
+                  <ul>
+                    <li>Weight of the Package</li>
+                    <li>Package Dimension</li>
+                    <li>Delivery Times for Shipping</li>
+                    <l1>Trasportation Charge</l1>
+                  </ul>
+
                 </div>
              
                 {/* Buttons */}

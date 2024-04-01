@@ -1,9 +1,9 @@
-import image1 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Weights.png";
-import image2 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Weights2.png";
-import image3 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Weights3.png";
-import image4 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 BarBell.png";
-import image5 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Ball.png";
-import image6 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 WorkingOut.png";
+import image1 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Weights.png";
+import image2 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Weights2.png";
+import image3 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Weights3.png";
+import image4 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 BarBell.png";
+import image5 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Ball.png";
+import image6 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 WorkingOut.png";
 
 const imagesList = [
     {

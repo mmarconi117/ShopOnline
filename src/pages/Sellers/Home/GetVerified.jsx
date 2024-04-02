@@ -50,9 +50,6 @@ function GetVerified({ setShowModal }) {
   const usersData = useSelector((state) => state.loginFormReducer.usersData);
 
   
-  
-  
-  
   const businessData = (e) => {
     e.preventDefault()
     let inputError={
@@ -249,9 +246,6 @@ function GetVerified({ setShowModal }) {
     console.log('businessDetail-data-->',businessDetailsdata);
     setShowModal(false)
   }
-
-    
- 
     
 };
 
@@ -501,7 +495,8 @@ function GetVerified({ setShowModal }) {
 
                 </div>
                 <div className="grow items-stretch flex flex-col gap-2 mt-5">
-                <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
+                <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap"
+                htmlFor="urlInput">
                 Website URL
                 </label>
 
@@ -509,6 +504,8 @@ function GetVerified({ setShowModal }) {
                   type="url" 
                    className="w-full py-3 border-solid text-zinc-500 text-sm font-semibold leading-4 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] px-4"
                   placeholder="http://www.example.com" 
+                  name="urlInput"
+                  accept="relative"
                   value={formData.websiteUrl}
                   onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
                 />

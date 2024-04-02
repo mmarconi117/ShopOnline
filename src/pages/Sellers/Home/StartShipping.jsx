@@ -83,7 +83,7 @@ const StartShipping = ({setShowModalShipping}) => {
                     name="Free Shipping"
                     className="w-full py-3 px-5 text-sm items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] border-solid" 
                     value="Free Shipping"
-                    checked={formData==="Free Shipping"}
+                    checked="Free Shipping"
                     onChange={(e) => setFormData( e.target.value )}
                   />
                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
@@ -99,7 +99,7 @@ const StartShipping = ({setShowModalShipping}) => {
                     name="Set Shipping Fee"
                     value="Set Shipping Fee"
                     className="w-full py-3 px-5 text-sm items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] border-solid" 
-                    checked={formData==="Set Shipping Fee"}
+                    // checked="Set Shipping Fee"
                     onChange={(e) => setFormData(e.target.value )}  
                   />
                   <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
@@ -123,14 +123,6 @@ const StartShipping = ({setShowModalShipping}) => {
                   >
                     Save
                   </button>
-  
-                  {/* <button
-                    type="submit"
-                    className="shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-white text-center text-sm font-semibold  whitespace-nowrap bg-zinc-500 grow justify-center px-8 py-2 rounded-[30px] max-md:px-5"
-                  >
-                    Submit for review
-                  
-                  </button> */}
   
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import {SET_PAYMENT_DETAILS} from "../../../reducersAndActions/actions"
+import {SET_SHIPPING_DETAILS} from "../../../reducersAndActions/actions"
 import { useSelector, useDispatch } from "react-redux";
 
 const StartShipping = ({setShowModalShipping}) => {
@@ -52,9 +52,8 @@ const StartShipping = ({setShowModalShipping}) => {
         );
         return
       }else{
-        dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
+        dispatch({ type: SET_SHIPPING_DETAILS, payload: formData });
         console.log('shipmentDetailsdata-data-->',shipmentDetailsdata)
-
         setShowModalShipping('false')
       }
     };

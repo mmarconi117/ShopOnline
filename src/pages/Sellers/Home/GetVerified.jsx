@@ -495,20 +495,19 @@ function GetVerified({ setShowModal }) {
 
                 </div>
                 <div className="grow items-stretch flex flex-col gap-2 mt-5">
-                <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap"
-                htmlFor="urlInput">
-                Website URL
-                </label>
+                  <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap"
+                    htmlFor="urlInput">
+                    Website URL
+                  </label>
 
-                <input 
-                  type="url" 
-                   className="w-full py-3 border-solid text-zinc-500 text-sm font-semibold leading-4 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] px-4"
-                  placeholder="http://www.example.com" 
-                  name="urlInput"
-                  accept="relative"
-                  value={formData.websiteUrl}
-                  onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
-                />
+                  <input 
+                    type="url" 
+                    className="w-full py-3 border-solid text-zinc-500 text-sm font-semibold leading-4 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] px-4"
+                    placeholder="http://www.example.com" 
+                    pattern="[^\<\>\^\`\{\|\}\r\n\t\f\v]*"
+                    value={formData.websiteUrl}
+                    onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
+                  />
                                   <p className="error-message">{formError.websiteUrl}</p>
 
                 </div>

@@ -13,6 +13,7 @@ const GetPaid = ({setShowModalPaid}) => {
       accountType:'',
       sucess:''
     });
+
     const [formError,setFormError]=useState({
       accountHolderName:'',
       accountNumber:'',
@@ -64,6 +65,7 @@ const GetPaid = ({setShowModalPaid}) => {
         );
         return
       }
+
       if( !formData.accountNumber){
         setFormError({
           ...inputError, 
@@ -72,63 +74,49 @@ const GetPaid = ({setShowModalPaid}) => {
           }
         );
         return
-    }
-    if( !formData.reenterAccountNumber){
-      setFormError({
-        ...inputError, 
+      }
+
+      if( !formData.reenterAccountNumber){
+        setFormError({
+          ...inputError, 
      
           reenterAccountNumber:'Please fill this section',
         }
-      );
-      return
-  }
-
-  if( !formData.IFSCCode){
-    setFormError({
-      ...inputError, 
-   
-        IFSCCode:'Please fill this section',
+        );
+        return
       }
-    );
-    return
-  }
 
-  if( !formData.accountType){
-    setFormError({
-      ...inputError, 
-   
-        accountType:'Please fill this section',
-      }
-    );
-    return
-}
-    /////check if account numbers match//
-if(formData.accountNumber !== formData.reenterAccountNumber){
-      setFormError({
-        ...inputError, 
-          reenterAccountNumber:'Account Numbers do not match',
- 
+      if( !formData.IFSCCode){
+        setFormError({
+          ...inputError, 
+          IFSCCode:'Please fill this section',
         }
-      );
-      return
-  }else{
-    dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
-    console.log('paymentDetail-data-->',paymentDetailsdata);
-    setShowModalPaid(false)
+        );
+        return
+      }
 
-
-  }
-  
-       
-
-      
-        
-        
-
-    
+      if(!formData.accountType){
+          setFormError({
+            ...inputError,  
+            accountType:'Please fill this section',
+          }
+          );
+          return
+      }
+    /////check if account numbers match//
+      if(formData.accountNumber !== formData.reenterAccountNumber){
+          setFormError({
+            ...inputError, 
+            reenterAccountNumber:'Account Numbers do not match',
+          }
+          );
+          return
+      }else{
+          dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
+          console.log('paymentDetail-data-->',paymentDetailsdata);
+          setShowModalPaid(false)
+      }
     };
-
-
   
     useEffect(() => {
       document.getElementById('modalPaid').showModal();
@@ -230,7 +218,6 @@ if(formData.accountNumber !== formData.reenterAccountNumber){
 
                 </div>
 
-
                 {/*Account Type  */}
                 <div className="justify-between items-stretch self-stretch flex flex-col md:flex-row gap-5">
 
@@ -262,15 +249,6 @@ if(formData.accountNumber !== formData.reenterAccountNumber){
                   >
                     Save
                   </button>
-  
-                  {/* <button
-                    type="submit"
-                    className="shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-white text-center text-sm font-semibold  whitespace-nowrap bg-zinc-500 grow justify-center px-8 py-2 rounded-[30px] max-md:px-5"
-                  >
-                    Submit for review
-                  
-                  </button> */}
-  
                 </div>
               </div>
             </form>

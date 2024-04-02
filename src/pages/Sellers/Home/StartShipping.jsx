@@ -34,9 +34,29 @@ const StartShipping = ({setShowModalShipping}) => {
     
     const shippingData = async (e) => {
       e.preventDefault()
-      dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
-      console.log('shipmentDetailsdata-data-->',shipmentDetailsdata)
+      let inputError=
+      {
+          selectedMethod:'',
+          packageWeight:'',
+          packageDimensions:'',
+          DeliveryTime:'',
+          TransportationCharge:'',
+          shippingCostTotal:''
+      }
 
+      if(formData===null){
+        setFormError({
+          ...inputError, 
+          selectedMethod:"Please select a method"
+        }
+        );
+        return
+      }else{
+        dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
+        console.log('shipmentDetailsdata-data-->',shipmentDetailsdata)
+
+        setShowModalShipping('false')
+      }
     };
 
 
@@ -91,7 +111,6 @@ const StartShipping = ({setShowModalShipping}) => {
                   </label>
                 </div>
 
-
                 {/* Set Shipping Fee */}
                 <div className="w-full items-stretch flex flex-col gap-2 mt-5">
                   <input 
@@ -111,6 +130,7 @@ const StartShipping = ({setShowModalShipping}) => {
                     <li>Delivery Times for Shipping</li>
                     <li>Trasportation Charge</li>
                   </ul>
+                  <p className="error-message">{formError.selectedMethod}</p>
 
                 </div>
              
@@ -119,11 +139,9 @@ const StartShipping = ({setShowModalShipping}) => {
                   <button
                     type="submit"
                     className="shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-zinc-700 text-center text-sm font-semibold  whitespace-nowrap border-[color:var(--color-styles-neutral-600,#79767D)] grow justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5"
-                    onClick={() => setShowModalShipping(false)}
                   >
                     Save
                   </button>
-  
                 </div>
               </div>
             </form>

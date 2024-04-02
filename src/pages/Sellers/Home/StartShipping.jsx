@@ -6,14 +6,15 @@ import { useSelector, useDispatch } from "react-redux";
 const StartShipping = ({setShowModalShipping}) => {
     const [isVerified] = useState(false);
     const [formData, setFormData] = useState(
-        {
-          selectedMethod:"Free Shipping",
-          packageWeight:0,
-          packageDimensions:0,
-          DeliveryTime:0,
-          TransportationCharge:0,
-          shippingCostTotal:0
-        }
+        // {
+        //   selectedMethod:"Free Shipping",
+        //   packageWeight:0,
+        //   packageDimensions:0,
+        //   DeliveryTime:0,
+        //   TransportationCharge:0,
+        //   shippingCostTotal:0
+        // }
+        "Free Shipping"
       );
     const [formError,setFormError]=useState({
       selectedMethod:'',
@@ -83,7 +84,7 @@ const StartShipping = ({setShowModalShipping}) => {
                     name="Free Shipping"
                     className="w-full py-3 px-5 text-sm items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] border-solid" 
                     value="Free Shipping"
-                    checked="Free Shipping"
+                    checked={formData==="Free Shipping"}
                     onChange={(e) => setFormData( e.target.value )}
                   />
                    <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">
@@ -99,7 +100,7 @@ const StartShipping = ({setShowModalShipping}) => {
                     name="Set Shipping Fee"
                     value="Set Shipping Fee"
                     className="w-full py-3 px-5 text-sm items-center rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] border-solid" 
-                    // checked="Set Shipping Fee"
+                    checked={formData==="Set Shipping Fee"}
                     onChange={(e) => setFormData(e.target.value )}  
                   />
                   <label className="text-stone-600 text-[14px] font-semibold leading-4 whitespace-nowrap">

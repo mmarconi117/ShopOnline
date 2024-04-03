@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import ticket from '../../assets/ICONS/ticket.svg';
-import logOut from '../../assets/ICONS/logOut.svg';
+import logOut from '../../assets/ICONS/logoutred.svg';
 import info from '../../assets/ICONS/info.svg';
 import orders from '../../assets/ICONS/order.svg';
 import heart from '../../assets/ICONS/Heart.svg';

@@ -14,6 +14,7 @@ import MensBagsSubCategory from './pages/Buyers/Category/BagsAndShoes/MensBags/M
 import MensShoesSubCategory from './pages/Buyers/Category/BagsAndShoes/MensShoes/MensShoesSubCategory';
 import WomensBagsSubCategory from './pages/Buyers/Category/BagsAndShoes/WomensBags/WomensBagsSubCategory';
 import WomensShoesSubCategory from './pages/Buyers/Category/BagsAndShoes/WomensShoes/WomensShoesSubCategory';
+import PhonesAndAccessoriesSubCategory from './pages/Buyers/Category/PhonesAndAccessories/PhonesAndAccessoriesSubCategory';
 import Cart from "./pages/Buyers/Cart/CartPage";
 import LoginPage from "./pages/Buyers/Login/LoginPage";
 import SignupPage from "./pages/Buyers/Signup/SignupPage";

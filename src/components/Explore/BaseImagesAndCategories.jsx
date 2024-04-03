@@ -65,7 +65,7 @@ export const BaseImagesAndCategories = [
     },
     {
         id: 'digital_media',
-        path: '/digital_media',
+        path: '/digitalMedia',
         category: "Digital Media",
         img: digital_media,
         price: '120',
@@ -85,8 +85,8 @@ export const BaseImagesAndCategories = [
         price: '120',
     },
     {
-        id: 'mensSneakers',
-        path: '/mensSneakers',
+        id: 'mensFashion',
+        path: '/mensFashion',
         category: "Men's Sneakers",
         img: mensSneakers,
         price: '120',

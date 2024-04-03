@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {SET_PAYMENT_DETAILS} from "../../../reducersAndActions/actions"
 import { useSelector, useDispatch } from "react-redux";
+import { set } from "react-hook-form";
 
 const GetPaid = ({setShowModalPaid}) => {
     const [isVerified] = useState(false);
@@ -28,7 +29,17 @@ const GetPaid = ({setShowModalPaid}) => {
     const paymentDetailsdata = useSelector((state) => state.paymentDetailsReducer);
     const isAuthenticated = useSelector((state) => state.loginFormReducer.isAuthenticated)
     const usersData = useSelector((state) => state.loginFormReducer.usersData);
+
+    let inititalState=({
+      accountHolderName:'',
+      accountNumber:'',
+      reenterAccountNumber:'',
+      IFSCCode:'',
+      accountType:'',
+      sucess:''
+    });
   
+
     const paymentData = async (e) => {
 
  
@@ -114,6 +125,7 @@ const GetPaid = ({setShowModalPaid}) => {
       }else{
           dispatch({ type: SET_PAYMENT_DETAILS, payload: formData });
           console.log('paymentDetail-data-->',paymentDetailsdata);
+          setFormData(inititalState)
           setShowModalPaid(false)
       }
     };

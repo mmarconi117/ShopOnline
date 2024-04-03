@@ -30,7 +30,14 @@ const StartShipping = ({setShowModalShipping}) => {
     const isAuthenticated = useSelector((state) => state.loginFormReducer.isAuthenticated)
     const usersData = useSelector((state) => state.loginFormReducer.usersData);
   
-
+    const inititalState= {
+      selectedMethod:"Free Shipping",
+      packageWeight:0,
+      packageDimensions:0,
+      DeliveryTime:0,
+      TransportationCharge:0,
+      shippingCostTotal:0
+    }
     
     const shippingData = async (e) => {
       e.preventDefault()
@@ -53,8 +60,9 @@ const StartShipping = ({setShowModalShipping}) => {
         return
       }else{
         dispatch({ type: SET_SHIPPING_DETAILS, payload: formData });
+        setFormData(inititalState)
         console.log('shipmentDetailsdata-data-->',shipmentDetailsdata)
-        setShowModalShipping('false')
+        setShowModalShipping(false)
       }
     };
 

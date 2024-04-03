@@ -50,6 +50,24 @@ function GetVerified({ setShowModal }) {
   const usersData = useSelector((state) => state.loginFormReducer.usersData);
 
   
+  let inititalState={
+    countryOfIncorporation: '',
+    taxid: '',
+    businessName: '',
+    businessAddress: '',
+    state: '',
+    city: '',
+    postalCode: '',
+    contactNumber: '',
+    websiteUrl: '',
+    grossValue: '',
+    performingcategory: '',
+    displayName: '',
+    customerServiceNumber: '',
+    customerServiceEmail: '',
+    termsAndconditions: false,
+  }
+
   const businessData = (e) => {
     e.preventDefault()
     let inputError={
@@ -163,10 +181,7 @@ function GetVerified({ setShowModal }) {
     );
     return
   }
-  if(
-    !formData.postalCode
-    
-    ){
+  if(!formData.postalCode){
     setFormError({
       ...inputError, 
       postalCode: 'Please fill this section',
@@ -244,6 +259,7 @@ function GetVerified({ setShowModal }) {
   else {
     dispatch({ type: SET_BUSINESS_DETAILS, payload: formData });
     console.log('businessDetail-data-->',businessDetailsdata);
+    setFormData(inititalState);
     setShowModal(false)
   }
     
@@ -255,6 +271,22 @@ function GetVerified({ setShowModal }) {
   }, [])
 
 
+  const handleChangeURL = (e) => {
+    const { value } = e.target;
+    console.log('value change->',value)
+    // Regular expression to validate relative URLs
+    // const regex = /^(\/[a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=]*)?$/;
+    // if(regex.test(value)===true){
+      setFormData({ ...formData, 
+        websiteUrl:
+        value
+      }
+      );
+    // }
+        
+  }
+
+  console.log('formData->',formData)
 
   return (
       <dialog id="modal" className="rounded-md flex flex-col max-md:max-h-screen gap-5 min-w-full md:min-w-max md:w-[80%] lg:max-w-[1000px] lg:w-[70%] px-5 py-5 bg-[#e3e3e3] border border-5 border-white ">
@@ -504,11 +536,11 @@ function GetVerified({ setShowModal }) {
                     type="url" 
                     className="w-full py-3 border-solid text-zinc-500 text-sm font-semibold leading-4 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] px-4"
                     placeholder="http://www.example.com" 
-                    pattern="[^\<\>\^\`\{\|\}\r\n\t\f\v]*"
                     value={formData.websiteUrl}
-                    onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
+                    pattern="^(?!www\.|(?:http|ftp)s?://|[A-Za-z]:\\|//).*"
+                    onChange={handleChangeURL}
                   />
-                                  <p className="error-message">{formError.websiteUrl}</p>
+                      <p className="error-message">{formError.websiteUrl}</p>
 
                 </div>
               </div>

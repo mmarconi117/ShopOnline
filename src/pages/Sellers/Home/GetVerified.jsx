@@ -257,12 +257,24 @@ function GetVerified({ setShowModal }) {
   }
   
   else {
-    dispatch({ type: SET_BUSINESS_DETAILS, payload: formData });
-    console.log('businessDetail-data-->',businessDetailsdata);
-    setFormData(inititalState);
-    setShowModal(false)
+    const isValidUrl = /^(https?:\/\/)?([\w.]+)\.([a-z]{2,})(:\d{1,5})?\/?([\w\/]*)*$/i.test(formData.websiteUrl);
+
+    if(isValidUrl){
+      console.log('this is good');
+      dispatch({ type: SET_BUSINESS_DETAILS, payload: formData });
+      console.log('businessDetail-data-->',businessDetailsdata);
+      setFormData(inititalState);
+      setShowModal(false)
+    }else{
+      console.log('empty please fill');
+      setFormError({
+        ...inputError, 
+        websiteUrl: "Please fill the correct URL",
+      }
+    );
+    return
+    } 
   }
-    
 };
 
   useEffect(() => {
@@ -271,18 +283,7 @@ function GetVerified({ setShowModal }) {
   }, [])
 
 
-  const handleChangeURL = (e) => {
-    const { value } = e.target;
-    console.log('value change->',value)
 
-      setFormData({ ...formData, 
-        websiteUrl:
-        value
-      }
-      );
-
-        
-  }
 
   console.log('formData->',formData)
 
@@ -535,8 +536,10 @@ function GetVerified({ setShowModal }) {
                     className="w-full py-3 border-solid text-zinc-500 text-sm font-semibold leading-4 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] px-4"
                     placeholder="http://www.example.com" 
                     value={formData.websiteUrl}
-                    pattern="^(https?:\/\/)?([\w\-]*\.)*[\w\-]+(\/[\w\- .\/?%&=]*)?$"
-                    onChange={handleChangeURL}
+                    onChange={(e) => {
+                        setFormData({ ...formData, websiteUrl: e.target.value });
+                      }
+                    }
                   />
                       <p className="error-message">{formError.websiteUrl}</p>
 

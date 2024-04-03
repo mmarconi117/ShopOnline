@@ -274,15 +274,13 @@ function GetVerified({ setShowModal }) {
   const handleChangeURL = (e) => {
     const { value } = e.target;
     console.log('value change->',value)
-    // Regular expression to validate relative URLs
-    // const regex = /^(\/[a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=]*)?$/;
-    // if(regex.test(value)===true){
+
       setFormData({ ...formData, 
         websiteUrl:
         value
       }
       );
-    // }
+
         
   }
 
@@ -533,11 +531,11 @@ function GetVerified({ setShowModal }) {
                   </label>
 
                   <input 
-                    type="url" 
+                    type="text" 
                     className="w-full py-3 border-solid text-zinc-500 text-sm font-semibold leading-4 rounded border border-[color:var(--color-styles-neutral-400,#AEA9B1)] px-4"
                     placeholder="http://www.example.com" 
                     value={formData.websiteUrl}
-                    pattern="^(?!www\.|(?:http|ftp)s?://|[A-Za-z]:\\|//).*"
+                    pattern="^(https?:\/\/)?([\w\-]*\.)*[\w\-]+(\/[\w\- .\/?%&=]*)?$"
                     onChange={handleChangeURL}
                   />
                       <p className="error-message">{formError.websiteUrl}</p>

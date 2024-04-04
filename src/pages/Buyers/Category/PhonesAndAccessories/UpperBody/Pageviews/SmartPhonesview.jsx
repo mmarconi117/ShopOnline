@@ -10,11 +10,9 @@ function SmartPhonesview() {
   }
 
   return (
-    <div>
-      <button href="#" onClick={SmartPhonesview}>
+      <button className="whitespace-nowrap" href="#" onClick={SmartPhonesview}>
         Smart Phones
       </button>
-    </div>
   )
 }
 

@@ -22,7 +22,7 @@ function SmartWatchesRow() {
         <img
           src={imagesList[index % imagesList.length].src}
           alt={imagesList[index % imagesList.length].alt}
-          className="min-h-[214px] object-cover rounded-[5px]"
+          className="w-full h-[214px] object-cover rounded-[5px]"
         />
         <div className="flex flex-col justify-center items-start gap-3 sm:gap-4 font-Roboto">
           <p className="text-sm max-sm:tracking-[0.25px]">
@@ -40,11 +40,11 @@ function SmartWatchesRow() {
   })
 
   return (
-    <div className="relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-4 pb-10 sm:pt-16 sm:pb-10 sm:pl-10 sm:pr-0">
-      <h1 className=" text-[#313133] font-Roboto font-medium text-base sm:text-[31px] sm:font-bold sm:leading-[37.2px]">
+    <div className="relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-1 sm:pl-6 mb-10">
+      <h1 className="text-[#313133] font-Roboto font-medium text-base sm:text-[31px] sm:font-bold sm:leading-[37.2px]">
         Smart Watches
       </h1>
-      <ul className="flex w-full items-start gap-2 sm:gap-6 min-[390px]:overflow-x-auto overflow-hidden">
+      <ul className="flex w-full items-start gap-2 sm:gap-4 min-[390px]:overflow-x-auto overflow-hidden">
         {exploreItems}
         {imagesList.map((image) => (
           <li
@@ -54,7 +54,7 @@ function SmartWatchesRow() {
             <img
               src={image.src}
               alt={image.alt}
-              className="min-h-[214px] object-cover rounded-[5px]"
+              className="w-full h-[214px] object-cover rounded-[5px]"
             />
             <div className="flex flex-col justify-center items-start gap-3 sm:gap-4 font-Roboto">
               <p className="text-sm max-sm:tracking-[0.25px]">

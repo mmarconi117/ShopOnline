@@ -4,14 +4,20 @@ import GetVerifiedIcon from '../../../assets/ICONS/GetVerifide.svg'
 import Paid from '../../../assets/ICONS/Paid.svg'
 import Shipping from '../../../assets/ICONS/Shipping.svg'
 import GetVerified from './GetVerified'
+import GetPaid from './GetPaid'
+import StartShipping from './StartShipping'
+import { set } from 'react-hook-form'
 
 
 function Homepage() {
     const [showModal, setShowModal] = useState(false);
+    const [showModalPaid, setShowModalPaid] = useState(false);
+    const [showModalShipping, setShowModalShipping] = useState(false);
+
+
 
     return (
         <div className="self-center flex max-w-full flex-col items-stretch p-10 pb-20 gap-10">
-            {showModal && <GetVerified setShowModal={setShowModal} />}
             <div className="flex flex-col justify-start items-start gap-2 sm:gap-0 sm:flex-row sm:justify-between sm:items-center max-w-full ">
                 <div className="text-zinc-800 text-base font-semibold leading-6 whitespace-nowrap">
                     Follow these 3 easy steps to start selling!
@@ -23,6 +29,8 @@ function Homepage() {
 
             <div className="max-w-full flex flex-col justify-start xl:flex-row xl:justify-between items-stretch gap-5">
                 <div className="relative xl:max-w-[290px] bg-white flex grow px-10 py-4 rounded-md items-stretch">
+                    {showModal && <GetVerified setShowModal={setShowModal} />}
+
                     <div className=" text-black text-left text-base leading-6 grow-0 absolute top-5 left-5">
                         1.
                     </div>
@@ -45,7 +53,10 @@ function Homepage() {
 
                     </div>
                 </div>
+
                 <div className="relative xl:max-w-[290px] bg-white flex grow px-10 py-4 rounded-md items-stretch">
+                {showModalPaid && <GetPaid setShowModalPaid={setShowModalPaid} />}
+
                     <div className="text-black text-left text-base leading-6 grow-0 absolute top-5 left-5">
                         2.
                     </div>
@@ -58,12 +69,19 @@ function Homepage() {
                         <p className="text-zinc-700 text-center text-[16px] leading-6">
                             Tell us where to send your payments. No setup, subscription or monthly fees.
                         </p>
-                        <button className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5">
+                        <button 
+                            className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5"
+                            onClick={() => setShowModalPaid(true)}
+
+                        >
                             Get paid
                         </button>
                     </div>
                 </div>
+
                 <div className="relative xl:max-w-[290px] bg-white flex grow px-10 py-4 rounded-md items-stretch">
+                    {showModalShipping && <StartShipping setShowModalShipping={setShowModalShipping} />}
+
                     <div className="text-black text-left text-base leading-6 grow-0 absolute top-5 left-5">
                         3.
                     </div>
@@ -76,7 +94,9 @@ function Homepage() {
                         <p className="text-zinc-700 text-center text-[16px] leading-6">
                             Select the best shipping price and partners for your budget.
                         </p>
-                        <button className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5">
+                        <button 
+                            className="text-zinc-700 text-center text-sm font-semibold leading-6 whitespace-nowrap items-stretch border-[color:var(--color-styles-neutral-600,#79767D)] self-center justify-center px-8 py-2 rounded-[30px] border-[0.75px] border-solid max-md:px-5"
+                            onClick={()=>setShowModalShipping(true)}>
                             Start shipping
                         </button>
                     </div>

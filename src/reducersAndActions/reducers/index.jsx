@@ -23,7 +23,8 @@ import shippingFormReducer from "./shippingFormReducer";
 import shippingMethodReducer from "./shippingMethodReducer";
 import paymentMethodReducer from "./paymentMethodReducer";
 import searchReducer from "./searchReducer";
-
+import shippingDetailsReducer from './shippingDetailsReducer'
+import paymentDetailsReducer from './paymentDetailsReducer'
 
 
 export const rootReducer = combineReducers({
@@ -49,7 +50,11 @@ export const rootReducer = combineReducers({
     shippingFormReducer,
     shippingMethodReducer,
     paymentMethodReducer,
-    searchReducer
+    searchReducer,
+    shippingDetailsReducer,
+    paymentDetailsReducer
+
+    
 });
 
 export default rootReducer;

@@ -22,15 +22,15 @@ const EmailModal = () => {
 
     return (
         <div id="email-modal">
-            <div onClick={() => closeModal()}>
+            <div>
                 <div>
                     <div>
                         <p>Have a Question or Need Assistance?</p>
                     </div>
                     <div>
                         <p>
-                            If you have questions about our features or need
-                            help with anything feel free to contact us.
+                            If you have questions about our features or need help with anything feel
+                            free to contact us.
                         </p>
                     </div>
                 </div>
@@ -44,9 +44,7 @@ const EmailModal = () => {
                                 required
                                 type="text"
                                 value={name}
-                                onChange={(e) =>
-                                    dispatch(updateName(e.target.value))
-                                }
+                                onChange={(e) => dispatch(updateName(e.target.value))}
                             />
                         </div>
                     </div>
@@ -59,9 +57,7 @@ const EmailModal = () => {
                                 required
                                 type="email"
                                 value={email}
-                                onChange={(e) =>
-                                    dispatch(updateEmail(e.target.value))
-                                }
+                                onChange={(e) => dispatch(updateEmail(e.target.value))}
                             />
                         </div>
                     </div>
@@ -73,9 +69,7 @@ const EmailModal = () => {
                                 name="subject"
                                 type="text"
                                 value={subject}
-                                onChange={(e) =>
-                                    dispatch(updateSubject(e.target.value))
-                                }
+                                onChange={(e) => dispatch(updateSubject(e.target.value))}
                             />
                         </div>
                     </div>
@@ -87,15 +81,13 @@ const EmailModal = () => {
                                 name="message"
                                 rows="6"
                                 value={message}
-                                onChange={(e) =>
-                                    dispatch(updateMessage(e.target.value))
-                                }
+                                onChange={(e) => dispatch(updateMessage(e.target.value))}
                             ></textarea>
                         </div>
                     </div>
                     <div className="flex">
                         <div>
-                            <button>Leave us a message</button>
+                            <button onClick={() => closeModal()}>Leave us a message</button>
                         </div>
                         <div>
                             <img

@@ -25,8 +25,9 @@ import shippingMethodReducer from "./shippingMethodReducer";
 import paymentMethodReducer from "./paymentMethodReducer";
 import searchReducer from "./searchReducer";
 import shippingDetailsReducer from './shippingDetailsReducer'
-import paymentDetailsReducer from './paymentDetailsReducer'
-
+import paymentDetailsReducer from "./paymentDetailsReducer";
+import helpCenterReducer from "./helpCenterReducer";
+import emailModalReducer from "./emailModalReducer";
 
 export const rootReducer = combineReducers({
     cartReducer,
@@ -54,7 +55,9 @@ export const rootReducer = combineReducers({
     paymentMethodReducer,
     searchReducer,
     shippingDetailsReducer,
-    paymentDetailsReducer
+    paymentDetailsReducer,
+    helpCenterReducer,
+    emailModalReducer
 });
 
 export default rootReducer;

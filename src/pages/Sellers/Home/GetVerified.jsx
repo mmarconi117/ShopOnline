@@ -102,7 +102,6 @@ function GetVerified({ setShowModal }) {
       && !formData.customerServiceEmail
       && formData.termsAndconditions===false
       ){
-      console.log('empty please fill');
       setFormError({
         ...inputError, 
         countryOfIncorporation: 'Please fill this section',
@@ -126,7 +125,6 @@ function GetVerified({ setShowModal }) {
   }
 
   if(!formData.countryOfIncorporation){
-    console.log('empty please fill');
     setFormError({
       ...inputError, 
       countryOfIncorporation: 'Please fill this section',
@@ -163,7 +161,6 @@ function GetVerified({ setShowModal }) {
   }
 
   if(!formData.state ){
-    console.log('empty please fill');
     setFormError({
         ...inputError, 
         state: 'Please fill this section',
@@ -192,7 +189,6 @@ function GetVerified({ setShowModal }) {
   }
 
   if(!formData.contactNumber){
-    console.log('empty please fill');
     setFormError({
       ...inputError, 
       contactNumber: 'Please fill this section',
@@ -202,7 +198,6 @@ function GetVerified({ setShowModal }) {
   }
 
   if(!formData.websiteUrl){
-    console.log('empty please fill');
       setFormError({
         ...inputError, 
         websiteUrl: 'Please fill this section',
@@ -260,13 +255,10 @@ function GetVerified({ setShowModal }) {
     const isValidUrl = /^(https?:\/\/)?([\w.]+)\.([a-z]{2,})(:\d{1,5})?\/?([\w\/]*)*$/i.test(formData.websiteUrl);
 
     if(isValidUrl){
-      console.log('this is good');
       dispatch({ type: SET_BUSINESS_DETAILS, payload: formData });
-      console.log('businessDetail-data-->',businessDetailsdata);
       setFormData(inititalState);
       setShowModal(false)
     }else{
-      console.log('empty please fill');
       setFormError({
         ...inputError, 
         websiteUrl: "Please fill the correct URL",
@@ -279,13 +271,11 @@ function GetVerified({ setShowModal }) {
 
   useEffect(() => {
     document.getElementById('modal').showModal();
- 
   }, [])
 
 
 
 
-  console.log('formData->',formData)
 
   return (
       <dialog id="modal" className="rounded-md flex flex-col max-md:max-h-screen gap-5 min-w-full md:min-w-max md:w-[80%] lg:max-w-[1000px] lg:w-[70%] px-5 py-5 bg-[#e3e3e3] border border-5 border-white ">
@@ -599,7 +589,7 @@ function GetVerified({ setShowModal }) {
                   value={formData.displayName}
                   onChange={(e) => setFormData({ ...formData, displayName: e.target.value })} 
                 />
-                                  <p className="error-message">{formError.displayName}</p>
+                  <p className="error-message">{formError.displayName}</p>
 
               </div>
               {/* Phone no./ Email */}
@@ -615,7 +605,7 @@ function GetVerified({ setShowModal }) {
                     value={formData.customerServiceNumber}
                     onChange={(e) => setFormData({ ...formData, customerServiceNumber: e.target.value })} 
                   />
-                                    <p className="error-message">{formError.customerServiceNumber}</p>
+                    <p className="error-message">{formError.customerServiceNumber}</p>
 
                 </div>
                 <div className="grow items-stretch flex flex-col gap-2 mt-5">
@@ -629,7 +619,7 @@ function GetVerified({ setShowModal }) {
                     value={formData.customerServiceEmail}
                     onChange={(e) => setFormData({ ...formData, customerServiceEmail: e.target.value })} 
                   />
-                                    <p className="error-message">{formError.customerServiceEmail}</p>
+                    <p className="error-message">{formError.customerServiceEmail}</p>
 
                 </div>
               </div>

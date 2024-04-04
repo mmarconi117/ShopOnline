@@ -61,7 +61,6 @@ const StartShipping = ({setShowModalShipping}) => {
       }else{
         dispatch({ type: SET_SHIPPING_DETAILS, payload: formData });
         setFormData(inititalState)
-        console.log('shipmentDetailsdata-data-->',shipmentDetailsdata)
         setShowModalShipping(false)
       }
     };
@@ -73,7 +72,6 @@ const StartShipping = ({setShowModalShipping}) => {
    
     }, [])
   
-    console.log('formData->',formData)
     return (
         <dialog id="modalShipping" className="rounded-md flex flex-col max-md:max-h-screen gap-5 min-w-full md:min-w-max md:w-[80%] lg:max-w-[1000px] lg:w-[70%] px-5 py-5 bg-[#e3e3e3] border border-5 border-white ">
           <div className="items-stretch flex justify-between gap-5">

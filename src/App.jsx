@@ -25,6 +25,15 @@ import Electronics from './pages/Buyers/Category/Electronics';
 import ToolsAndHomeImprovement from './pages/Buyers/Category/ToolsAndHomeImprovement';
 import PhonesAndAccessoriesSubCategory from './pages/Buyers/Category/PhonesAndAccessories/PhonesAndAccessoriesSubCategory';
 import ComputerOfficeSubCategory from './pages/Buyers/Category/ComputerOffice/ComputerOfficeSubCategory'
+import HelpCenter from './components/Footer/Help-center/HelpCenter';
+import ContactUs from './components/Footer/Contact-Us/ContactUs';
+import AboutUs from './components/Footer/About-Us/AboutUs';
+import FlashSales from './components/Footer/Flash-Sales/FlashSales';
+import SiteMap from './components/Footer/Site-Map/SiteMap';
+import FAQComponent from './components/Footer/FAQs/FAQComponent';
+import ReturnsHelp from './components/Footer/Returns/ReturnsHelp';
+import PoliciesComponent from './components/Footer/Policies/PoliciesComponent';
+import CareersComponent from './components/Footer/Careers/CareersComponent';
 
 // layout
 import Layout from './Layout';
@@ -55,89 +64,154 @@ import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices';
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification';
 import Agreements from './pages/Sellers/Agreements/Agreements';
 
-
 function App() {
-  return (
-    <div>
-      <Router>
-        <Routes>
-          {/* Buyers Routes */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<Layout />}>
-            <Route path="/" element={<LandingPage />} />
-            <Route
-              path="/toolsAndHomeImprovement"
-              element={<ToolsAndHomeImprovement />}
-            />
-            <Route path="/electronics" element={<Electronics />} />
-            <Route path="/outdoorsAndSports" element={<OutdoorsFunAndSportsSubCategory />} />
-            <Route
-              path="/womensfashion"
-              element={<WomensFashionSubCategory />}
-            />
-            <Route path="/mensFashion" element={<MenFashionSubCategories />} />
-            <Route
-              path="/jewelryAndWatches"
-              element={<JewelleryAndWatchesSubCategory />}
-            />
-            <Route
-              path="/phonesAndAccessories"
-              element={<PhonesAndAccessoriesSubCategory />}
-            />
-            <Route path='/computersAndOffice' element={<ComputerOfficeSubCategory />} />
-            <Route path='/bagsandshoes' element = {<BagsAndShoes />} />
-            <Route path="/productdetails" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/app" element="#" />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/companyService" element={<CompanyService />} />
-            <Route path="/paymentSuccess" element={<PaymentSuccessful />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/reviews" element={<ReviewPage />} />
-            <Route path="/accountsettings" element={<Account />} />
-            <Route path="/productcatalogue" element={<ProductCatalogue />} />
-            <Route path="/shipping" element={<Shipping />} />
-          </Route>
+    return (
+        <div>
+            <Router>
+                <Routes>
+                    {/* Buyers Routes */}
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/" element={<Layout />}>
+                        <Route path="/" element={<LandingPage />} />
+                        <Route
+                            path="/toolsAndHomeImprovement"
+                            element={<ToolsAndHomeImprovement />}
+                        />
+                        <Route path="/electronics" element={<Electronics />} />
+                        <Route
+                            path="/outdoorsAndSports"
+                            element={<OutdoorsFunAndSportsSubCategory />}
+                        />
+                        <Route
+                            path="/womensfashion"
+                            element={<WomensFashionSubCategory />}
+                        />
+                        <Route
+                            path="/mensFashion"
+                            element={<MenFashionSubCategories />}
+                        />
+                        <Route
+                            path="/jewelryAndWatches"
+                            element={<JewelleryAndWatchesSubCategory />}
+                        />
+                        <Route
+                            path="/phonesAndAccessories"
+                            element={<PhonesAndAccessoriesSubCategory />}
+                        />
+                        <Route
+                            path="/computersAndOffice"
+                            element={<ComputerOfficeSubCategory />}
+                        />
+                        <Route
+                            path="/bagsandshoes"
+                            element={<BagsAndShoes />}
+                        />
+                        <Route
+                            path="/productdetails"
+                            element={<ProductDetails />}
+                        />
+                        <Route path="/cart" element={<Cart />} />
+                        <Route path="/help" element={<Help />} />
+                        <Route path="/account" element={<Account />} />
+                        <Route path="/app" element="#" />
+                        <Route path="/signup" element={<SignupPage />} />
+                        <Route
+                            path="/companyService"
+                            element={<CompanyService />}
+                        />
+                        <Route
+                            path="/paymentSuccess"
+                            element={<PaymentSuccessful />}
+                        />
+                        <Route path="/checkout" element={<Checkout />} />
+                        <Route path="/reviews" element={<ReviewPage />} />
+                        <Route
+                            path="/productcatalogue"
+                            element={<ProductCatalogue />}
+                        />
+                        {/* Buyer's Footer */}
+                        <Route path="/shipping" element={<Shipping />} />
+                        <Route path="/help-center" element={<HelpCenter />} />
+                        <Route path="/contact-us" element={<ContactUs />} />
+                        <Route path="/about" element={<AboutUs />} />
+                        <Route path="/flash-sales" element={<FlashSales />} />
+                        <Route path="/sitemap" element={<SiteMap />} />
+                        <Route path="/faqs" element={<FAQComponent />} />
+                        <Route path="/returns-help" element={<ReturnsHelp />} />
+                        <Route
+                            path="/policies"
+                            element={<PoliciesComponent />}
+                        />
+                        <Route path="/careers" element={<CareersComponent />} />
+                    </Route>
 
-          {/* Sellers Routes */}
-          <Route path="/sellers/*" element={<LandingPageforSellers />}>
-            <Route path="" element={<Homepage />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="login" element={<Login />} />
-            <Route path="help" element={<HelpPage />} />
+                    {/* Sellers Routes */}
+                    <Route
+                        path="/sellers/*"
+                        element={<LandingPageforSellers />}
+                    >
+                        <Route path="" element={<Homepage />} />
+                        <Route path="signup" element={<Signup />} />
+                        <Route path="login" element={<Login />} />
+                        <Route path="help" element={<HelpPage />} />
 
-            {/* Analytics Routing */}
-            <Route path="overview" element={<Overview />} />
-            <Route path="payments" element={<Payments />} />
-            <Route path="activityfeed/*" element={<ActivityFeed />} />
-            <Route path="activityfeed/FeedDetail/:id" element={<FeedDetail />} />
-            <Route path="ratingsandreviews" element={<RatingsAndReviews />} />
+                        {/* Analytics Routing */}
+                        <Route path="overview" element={<Overview />} />
+                        <Route path="payments" element={<Payments />} />
+                        <Route
+                            path="activityfeed/*"
+                            element={<ActivityFeed />}
+                        />
+                        <Route
+                            path="activityfeed/FeedDetail/:id"
+                            element={<FeedDetail />}
+                        />
+                        <Route
+                            path="ratingsandreviews"
+                            element={<RatingsAndReviews />}
+                        />
 
-            {/* Product Catalogue Routing */}
-            <Route path="listOfproducts" element={<ListOfProducts />} />
-            <Route path="uploadproduct" element={<UploadProduct />} />
-            <Route path="product" element={<ProductDetail />} />
+                        {/* Product Catalogue Routing */}
+                        <Route
+                            path="listOfproducts"
+                            element={<ListOfProducts />}
+                        />
+                        <Route
+                            path="uploadproduct"
+                            element={<UploadProduct />}
+                        />
+                        <Route path="product" element={<ProductDetail />} />
 
-            {/* Order Management Routing */}
-            <Route path="orderlist" element={<OrderList />} />
-            <Route path="returnsandrefunds" element={<ReturnsAndRefunds />} />
-            <Route path="disputes" element={<Disputes />} />
+                        {/* Order Management Routing */}
+                        <Route path="orderlist" element={<OrderList />} />
+                        <Route
+                            path="returnsandrefunds"
+                            element={<ReturnsAndRefunds />}
+                        />
+                        <Route path="disputes" element={<Disputes />} />
 
-            {/* Notification Setting */}
-            <Route path="notificationsettings" element={<Body />} />
-            <Route path="onlinefulfillment" element={<OnlineFulfillment />} />
-            <Route path="companyinfo" element={<CompanyInfo />} />
-            <Route path="paymentservices" element={<PaymentServices />} />
-            <Route path="twostepverification" element={<TwoStepVerification />} />
-            <Route path="agreements" element={<Agreements />} />
-            <Route path="helppage" element={<HelpPage />} />
-          </Route>
-        </Routes>
-      </Router>
-    </div>
-  )
+                        {/* Notification Setting */}
+                        <Route path="notificationsettings" element={<Body />} />
+                        <Route
+                            path="onlinefulfillment"
+                            element={<OnlineFulfillment />}
+                        />
+                        <Route path="companyinfo" element={<CompanyInfo />} />
+                        <Route
+                            path="paymentservices"
+                            element={<PaymentServices />}
+                        />
+                        <Route
+                            path="twostepverification"
+                            element={<TwoStepVerification />}
+                        />
+                        <Route path="agreements" element={<Agreements />} />
+                        <Route path="helppage" element={<HelpPage />} />
+                    </Route>
+                </Routes>
+            </Router>
+        </div>
+    );
 }
 
 export default App;

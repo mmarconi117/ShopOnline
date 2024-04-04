@@ -18,6 +18,7 @@ import loginFormReducer from "./LoginFormReducer";
 import buyersSignupFormReducer from "./BuyersSignupFormReducer";
 import buyersLoginFormReducer from "./BuyersLoginFormReducer";
 import shipReducer from "./shipReducer";
+import uploadNewProductReducer from "./UploadNewProductReducer";
 import checkoutEditReduce from "./checkoutEditReduce";
 import shippingFormReducer from "./shippingFormReducer";
 import shippingMethodReducer from "./shippingMethodReducer";
@@ -46,6 +47,7 @@ export const rootReducer = combineReducers({
     feedback: feedbackFormReducer,
     buyersSignupFormReducer,
     buyersLoginFormReducer,
+    uploadNewProductReducer,
     checkoutEditReduce,
     shippingFormReducer,
     shippingMethodReducer,
@@ -53,8 +55,6 @@ export const rootReducer = combineReducers({
     searchReducer,
     shippingDetailsReducer,
     paymentDetailsReducer
-
-    
 });
 
 export default rootReducer;

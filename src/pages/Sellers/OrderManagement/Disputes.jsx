@@ -93,7 +93,10 @@ const Disputes = ({
                             <p className="text-[40px] font-bold leading-[60px]">
                                 {getDisputesCount("Pending Review")}
                             </p>
-                            <button className="self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4">
+                            <button 
+                                className="self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4"
+                                onClick={()=>updateStatusFilter("Pending Review")}
+                            >
                                 <p>View Returns</p>
                                 <img
                                     src={rightArrow}
@@ -106,7 +109,10 @@ const Disputes = ({
                             <p className="text-[40px] font-bold leading-[60px]">
                                 {getDisputesCount("In Review")}
                             </p>
-                            <button className="self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4">
+                            <button 
+                                className="self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4"
+                                onClick={()=>updateStatusFilter("In Review")}
+                            >
                                 <p>View Returns</p>
                                 <img
                                     src={rightArrow}
@@ -119,7 +125,10 @@ const Disputes = ({
                             <p className="text-[40px] font-bold leading-[60px]">
                                 {getDisputesCount("Action Needed")}
                             </p>
-                            <button className="self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4">
+                            <button 
+                                className="self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4"
+                                onClick={()=>updateStatusFilter("Action Needed")}
+                            >
                                 <p>View Returns</p>
                                 <img
                                     src={rightArrow}
@@ -132,7 +141,10 @@ const Disputes = ({
                             <p className="text-[40px] font-bold leading-[60px]">
                                 {getDisputesCount("Closed")}
                             </p>
-                            <button className="self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4">
+                            <button 
+                                className="self-stretch pt-4 flex gap-2 items-center justify-center border-t border-[#CAC5CD] mt-4"
+                                onClick={()=>updateStatusFilter("Closed")}
+                            >
                                 <p>View Returns</p>
                                 <img
                                     src={rightArrow}

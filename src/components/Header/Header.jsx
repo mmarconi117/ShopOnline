@@ -17,7 +17,7 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
     const cartItems = useSelector(state => state.cartReducer.carts);
     const [search, setSearch] = useState('');
    // const [routeNames, setRouteNames] = useState([]);
-   //import { useEffect } from 'react';
+   
 
     //Replace to this when connected to backend.
     /* useEffect(() => {

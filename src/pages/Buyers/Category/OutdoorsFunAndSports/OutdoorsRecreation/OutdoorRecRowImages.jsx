@@ -1,9 +1,9 @@
-import image1 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Kayak.png";
-import image2 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Ski.png";
-import image3 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 WaterBoard.png";
-import image4 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Intertube.png";
-import image5 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 SnowBoots.png";
-import image6 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 WaterBoard2.png";
+import image1 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Kayak.png";
+import image2 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Ski.png";
+import image3 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 WaterBoard.png";
+import image4 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Intertube.png";
+import image5 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 SnowBoots.png";
+import image6 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 WaterBoard2.png";
 
 const imagesList = [
     {

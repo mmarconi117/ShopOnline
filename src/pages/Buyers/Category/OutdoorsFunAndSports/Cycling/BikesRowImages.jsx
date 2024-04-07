@@ -1,9 +1,9 @@
-import image1 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Bike.png";
-import image2 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 BikeHelmet.png";
-import image3 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 BikeUnisex.png";
-import image4 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Helmet2.png";
-import image5 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 PhoneHolder.png";
-import image6 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 DrinkHolder.png";
+import image1 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Bike.png";
+import image2 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 BikeHelmet.png";
+import image3 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 BikeUnisex.png";
+import image4 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Helmet2.png";
+import image5 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 PhoneHolder.png";
+import image6 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 DrinkHolder.png";
 
 const imagesList = [
     {

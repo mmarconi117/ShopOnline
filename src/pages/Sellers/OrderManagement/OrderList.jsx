@@ -137,7 +137,7 @@ function OrderList() {
                             className={`text-sm leading-8 whitespace-nowrap lg:grow justify-center items-center px-4 rounded-2xl cursor-pointer ${btnState === "pending" ? "bg-[#EEC643] text-black" : "bg-zinc-200 text-neutral-400"}`}
                             onClick={handlePending}
                         >
-                            Pending (0)
+                            Pending ({order.filter((order) => order.status === 'Pending').length})
                         </button>
                         <button
                             type="button"

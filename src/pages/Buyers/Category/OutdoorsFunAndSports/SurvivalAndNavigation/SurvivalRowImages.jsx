@@ -1,9 +1,9 @@
-import image1 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 GPS.png";
-import image2 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Compass.png";
-import image3 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Talk.png";
-import image4 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Map.png";
-import image5 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 LifeVest.png";
-import image6 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Compass2.png";
+import image1 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 GPS.png";
+import image2 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Compass.png";
+import image3 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Talk.png";
+import image4 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Map.png";
+import image5 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 LifeVest.png";
+import image6 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Compass2.png";
 
 const imagesList = [
     {

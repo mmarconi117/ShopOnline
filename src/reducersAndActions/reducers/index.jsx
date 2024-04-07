@@ -18,13 +18,16 @@ import loginFormReducer from "./LoginFormReducer";
 import buyersSignupFormReducer from "./BuyersSignupFormReducer";
 import buyersLoginFormReducer from "./BuyersLoginFormReducer";
 import shipReducer from "./shipReducer";
+import uploadNewProductReducer from "./UploadNewProductReducer";
 import checkoutEditReduce from "./checkoutEditReduce";
 import shippingFormReducer from "./shippingFormReducer";
 import shippingMethodReducer from "./shippingMethodReducer";
 import paymentMethodReducer from "./paymentMethodReducer";
 import searchReducer from "./searchReducer";
-
-
+import shippingDetailsReducer from './shippingDetailsReducer'
+import paymentDetailsReducer from "./paymentDetailsReducer";
+import helpCenterReducer from "./helpCenterReducer";
+import emailModalReducer from "./emailModalReducer";
 
 export const rootReducer = combineReducers({
     cartReducer,
@@ -45,11 +48,16 @@ export const rootReducer = combineReducers({
     feedback: feedbackFormReducer,
     buyersSignupFormReducer,
     buyersLoginFormReducer,
+    uploadNewProductReducer,
     checkoutEditReduce,
     shippingFormReducer,
     shippingMethodReducer,
     paymentMethodReducer,
-    searchReducer
+    searchReducer,
+    shippingDetailsReducer,
+    paymentDetailsReducer,
+    helpCenterReducer,
+    emailModalReducer
 });
 
 export default rootReducer;

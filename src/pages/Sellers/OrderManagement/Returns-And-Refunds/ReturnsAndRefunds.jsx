@@ -14,6 +14,7 @@ import Table from "./Components/Table/Table";
 
 // icons
 import arrowDown from "../../../../assets//ICONS/ArrowDown.svg";
+import RightArrow from "../../../../assets/ICONS/RightArrow.svg"
 
 // redux
 import {
@@ -54,6 +55,13 @@ function ReturnsAndRefunds({
     useEffect(() => {
         disputes.forEach((item) => (item.selected = false));
     }, []);
+
+    const handleViewReturn = (status) => {
+        // Filter disputes based on status
+        const filteredDisputes = disputes.filter((dispute) => dispute.status === status);
+        // Update disputesCopy with filtered disputes
+        setDisputesCopy(filteredDisputes);
+    };
 
     const updateCopy = (update) => {
         setDisputesCopy(update);
@@ -102,9 +110,67 @@ function ReturnsAndRefunds({
             </div>
             {open && (
                 <div className="flex justify-start lg:justify-center gap-5 items-stretch my-5 flex-col lg:flex-row">
-                    <Initiated />
-                    <Received />
-                    <Completed />
+                    {/* <Initiated /> */}
+                    <div
+                        className="lg:max-w-[300px] min-w-[200px] lg:w-1/6 border-t-4 border-[#EEC643] bg-white rounded-md shadow-md text-center flex lg:flex-col"
+                        id="initiated-returns-component"
+                    >
+                        <div className="py-10 w-10/12 lg:w-full lg:py-5">
+                            <p className="text-[1.25rem]">Initiated</p>
+                            <p className="font-bold text-4xl">
+                            {disputes.filter((dispute) => dispute.status === 'Initiated').length}
+                            </p>
+                        </div>
+                        <div className="border-l-2 lg:border-t-2 border-[#CAC5CD]"></div>
+                        <button 
+                            className="px-2 lg:px-0 grow flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-5 lg:gap-1 py-6 hover:cursor-pointer"
+                            onClick={() => handleViewReturn('Initiated')}
+                        >
+                            <div className="text-xl leading-6 lg:leading-3 whitespace-wrap">View Return</div>
+                            <img src={RightArrow} alt="RightArrow" />
+                        </button>
+                    </div>
+                    {/* <Received /> */}
+                    <div
+            className="lg:max-w-[300px] min-w-[200px] lg:w-1/6 border-t-4 border-[#EEC643] bg-white rounded-md shadow-md text-center flex lg:flex-col"
+            id="received-returns-component"
+        >
+            <div className="py-10 w-10/12 lg:w-full lg:py-5">
+                <p className="text-[1.25rem]">Received</p>
+                <p className="font-bold text-4xl">
+                {disputes.filter((dispute) => dispute.status === 'Received').length}
+                </p>
+            </div>
+            <div className="border-l-2 lg:border-t-2 border-[#CAC5CD]"></div>
+            <button 
+                className="px-2 lg:px-0 grow flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-5 lg:gap-1 py-6 hover:cursor-pointer"
+                onClick={() => handleViewReturn('Received')}
+            >
+                <div className="text-xl leading-6 lg:leading-3 whitespace-wrap">View Return</div>
+                <img src={RightArrow} alt="RightArrow" />
+            </button>
+
+        </div>
+                    {/* <Completed /> */}
+                    <div
+            className="lg:max-w-[300px] min-w-[200px] lg:w-1/6 border-t-4 border-[#EEC643] bg-white rounded-md shadow-md text-center flex lg:flex-col"
+            id="completed-returns-component"
+        >
+            <div className="py-10 w-10/12 lg:w-full lg:py-5">
+                <p className="text-[1.25rem]">Completed</p>
+                <p className="font-bold text-4xl">
+                {disputes.filter((dispute) => dispute.status === 'Completed').length}
+                </p>
+            </div>
+            <div className="border-l-2 lg:border-t-2 border-[#CAC5CD]"></div>
+            <button 
+                className="px-2 lg:px-0 grow flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-5 lg:gap-1 py-6 hover:cursor-pointer"
+                onClick={() => handleViewReturn('Completed')}
+            >
+                <div className="text-xl leading-6 lg:leading-3 whitespace-wrap">View Return</div>
+                <img src={RightArrow} alt="RightArrow" />
+            </button>
+        </div>
                 </div>
             )}
             <FiltersComponent

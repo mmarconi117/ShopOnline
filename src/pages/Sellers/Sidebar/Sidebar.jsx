@@ -94,7 +94,7 @@ function Sidebar(props) {
                 </div>
 
                 <div className="flex self-stretch mt-[248px] pl-11 lg:pl-16 mb-9">
-                    <Link to='/'>
+                    <Link to='login'>
                         <div className="text-[#0F1111] text-sm font-semibold leading-6 grow whitespace-nowrap flex ">
                             Sign out
                             <img

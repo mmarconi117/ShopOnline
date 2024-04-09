@@ -189,7 +189,10 @@ const Topics = ({ currentHash }) => {
 
     const topics = items.map((item, index) => {
         return currentHash == item.hash ? (
-            <div key={index} id={item.hash}>
+            <div
+                key={index}
+                id={item.hash}
+            >
                 {item.topics.map((topic, topicIndex) => {
                     return (
                         <div key={topicIndex + 1}>
@@ -206,11 +209,14 @@ const Topics = ({ currentHash }) => {
                 })}
             </div>
         ) : (
-            <div></div>
+            <div key={index}></div>
         );
     });
     return (
-        <div id="topics-components" className="w-2/5">
+        <div
+            id="topics-components"
+            className="w-2/5"
+        >
             <div>{topics}</div>
         </div>
     );

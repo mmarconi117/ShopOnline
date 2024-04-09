@@ -53,10 +53,13 @@ const SideBar = ({ setCurrentHash }) => {
     };
     const navItems = items.map((item, index) => {
         return (
-            <li key={index} className="p-2" id={item.link}>
+            <li
+                key={index}
+                className="p-2"
+                id={item.link}
+            >
                 <NavLink
-                    onClick={(e) => {
-                        console.log(e);
+                    onClick={() => {
                         updateCurrentHash(item.hash);
                     }}
                     to={item.hash}

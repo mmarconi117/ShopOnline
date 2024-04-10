@@ -1,42 +1,52 @@
 import { NavLink } from 'react-router-dom';
 
-const SideBar = () => {
+const SideBar = ({ setCurrentHash }) => {
     const items = [
         {
-            title: 'Privacy Policy',
-            link: '/policies',
-            hash: '',
+            title: "Privacy Policy",
+            link: "/policies",
+            hash: ""
         },
         {
-            title: 'Shinpping and delivery policy',
-            link: '/policies',
-            hash: '#shinpping&delivery',
+            title: "Shinpping and delivery policy",
+            link: "/policies",
+            hash: "#shinpping&delivery"
         },
         {
-            title: 'Returns and Exchanges policy',
-            link: '/policies',
-            hash: '#return&exchanges',
+            title: "Returns and Exchanges policy",
+            link: "/policies",
+            hash: "#return&exchanges"
         },
         {
-            title: 'Returns and refund policy',
-            link: '/policies',
-            hash: '#returns&refund',
+            title: "Returns and refund policy",
+            link: "/policies",
+            hash: "#returns&refund"
         },
         {
-            title: 'Cancellation',
-            link: '/policies',
-            hash: '#cancellation',
+            title: "Cancellation",
+            link: "/policies",
+            hash: "#cancellation"
         },
         {
-            title: 'Payment and Security Policy',
-            link: '/policies',
-            hash: '#payment&security',
-        },
+            title: "Payment and Security Policy",
+            link: "/policies",
+            hash: "#payment&security"
+        }
     ];
+    const updateCurrentHash = (hash) => {
+        setCurrentHash(hash);
+    };
     const navItems = items.map((item, index) => {
         return (
-            <li key={index} className="p-2" id={item.link}>
+            <li
+                key={index}
+                className="p-2"
+                id={item.link}
+            >
                 <NavLink
+                    onClick={() => {
+                        updateCurrentHash(item.hash);
+                    }}
                     to={item.hash}
                     style={({ isActive }) => {
                         isActive = window.location.hash === item.hash;

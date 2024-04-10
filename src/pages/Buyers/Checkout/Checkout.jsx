@@ -68,294 +68,278 @@ const Checkout = ({
 
   return (
     <>
-      {/* Shipping Address */}
-      <div className="bg-[#F0F0F0]">
-        <div className="flex px-4 py-8">
-          <div className="w-full max-w-3xl">
-            <div className="flex flex-col lg:grid grid-cols-3">
-              <div className="col-span-2 bg-blue-200 rounded-lg p-4">
-                {/* Shipping Address */}
-                <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
-                  <div>Shipping Address</div>
-                  <div className="flex items-center">
+      <div className="flex">
+        <div className="flex flex-col w-full">
+          {/* Shipping Address */}
+          <div className="bg-[#F0F0F0]">
+            <div className="flex px-4 py-8">
+              <div className="w-full">
+                <div className="flex flex-col">
+                  <div className="col-span-2 bg-white rounded-lg p-4">
+                    {/* Shipping Address */}
+                    <div className="border-b border-gray-300 pb-2 font-semibold flex items-center justify-between">
+                      <div>Shipping Address</div>
+                      <div className="flex items-center">
+                        {isEditing ? (
+                          <button
+                            className="text-gray-500 text-xs mt-2"
+                            onClick={handleCancelEdit}
+                          >
+                            Cancel
+                          </button>
+                        ) : (
+                          <button
+                            className="text-gray-500 text-xs mt-2"
+                            onClick={handleEdit}
+                          >
+                            Edit
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    {/* Shipping Address or Edit Form */}
                     {isEditing ? (
-                      <button
-                        className="text-gray-500 text-xs mt-2"
-                        onClick={handleCancelEdit}
-                      >
-                        Cancel
-                      </button>
+                      <ShippingAddressForm
+                        shippingForm={shippingForm}
+                        updateShippingForm={updateShippingForm}
+                        editShippingAddress={editShippingAddress}
+                      />
                     ) : (
-                      <button
-                        className="text-gray-500 text-xs mt-2"
-                        onClick={handleEdit}
-                      >
-                        Edit
-                      </button>
-                    )}
-                  </div>
-                </div>
-                {/* Shipping Address or Edit Form */}
-                {isEditing ? (
-                  <ShippingAddressForm
-                    shippingForm={shippingForm}
-                    updateShippingForm={updateShippingForm}
-                    editShippingAddress={editShippingAddress}
-                  />
-                ) : (
-                  <div>
-                    {shippingForm.firstName && (
                       <div>
-                        <h2>Shipping Address</h2>
-                        <p>{shippingForm.firstName}</p>
-                        <p>{shippingForm.lastName}</p>
-                        <p>{shippingForm.address}</p>
-                        <p>{shippingForm.city}</p>
-                        <p>{shippingForm.state}</p>
-                        <p>{shippingForm.contactInfo}</p>
-                        <p>{shippingForm.email}</p>
-                        {/* Render other shipping address fields similarly */}
+                        {shippingForm.firstName && (
+                          <div>
+                            <h2>Shipping Address</h2>
+                            <p>{shippingForm.firstName}</p>
+                            <p>{shippingForm.lastName}</p>
+                            <p>{shippingForm.address}</p>
+                            <p>{shippingForm.city}</p>
+                            <p>{shippingForm.state}</p>
+                            <p>{shippingForm.contactInfo}</p>
+                            <p>{shippingForm.email}</p>
+                            {/* Render other shipping address fields similarly */}
+                          </div>
+                        )}
+                        {!shippingForm.firstName && (
+                          <p>No shipping address provided</p>
+                        )}
                       </div>
                     )}
-                    {!shippingForm.firstName && (
-                      <p>No shipping address provided</p>
-                    )}
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-
-      {/* Payment Method Box */}
-      <div className="bg-[#F0F0F0]">
-        <div className="flex px-4 py-8">
-          <div className="w-full max-w-3xl">
-            <div className="flex flex-col lg:grid grid-cols-3">
-              <div className="col-span-2 bg-blue-200 rounded-lg p-4">
-                <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
-                  <div>Payment Method</div>
-                  <div className="flex items-center">
-                    {isPaymentEditing ? (
-                      <button
-                        className="text-gray-500 text-xs mt-2"
-                        onClick={handleCancelPaymentEdit}
-                      >
-                        Cancel
-                      </button>
-                    ) : (
-                      <button
-                        className="text-gray-500 text-xs mt-2"
-                        onClick={handlePaymentEdit}
-                      >
-                        Select Payment Method
-                      </button>
+          {/* Payment Method Box */}
+          <div className="bg-[#F0F0F0]">
+            <div className="flex px-4 py-8">
+              <div className="w-full">
+                <div className="flex flex-col lg:grid grid-cols-3">
+                  <div className="col-span-2 bg-white rounded-lg p-4">
+                    <div className="border-b border-gray-300 pb-2 font-semibold flex items-center justify-between">
+                      <div>Payment Method</div>
+                      <div className="flex items-center">
+                        {isPaymentEditing ? (
+                          <button
+                            className="text-gray-500 text-xs mt-2"
+                            onClick={handleCancelPaymentEdit}
+                          >
+                            Cancel
+                          </button>
+                        ) : (
+                          <button
+                            className="text-gray-500 text-xs mt-2"
+                            onClick={handlePaymentEdit}
+                          >
+                            Select Payment Method
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    {isPaymentEditing && (
+                      <div className="border border-gray-300 mb-4 p-4">
+                        <form>
+                          <label htmlFor="credit">Card Number</label>
+                          <input
+                            type="text"
+                            id="credit"
+                            name="credit"
+                          />
+                          <label htmlFor="credit">Cardholder Name</label>
+                          <input
+                            type="text"
+                            id="cardholder"
+                            name="cardholder"
+                          />
+                          <label htmlFor="expiryMonth">Expiration Month</label>
+                          <select id="expiryMonth" name="expiryMonth">
+                            <option value="">Month</option>
+                            <option value="01">01 - January</option>
+                            <option value="02">02 - February</option>
+                            <option value="03">03 - March</option>
+                            <option value="04">04 - April</option>
+                            <option value="05">05 - May</option>
+                            <option value="06">06 - June</option>
+                            <option value="07">07 - July</option>
+                            <option value="08">08 - August</option>
+                            <option value="09">09 - September</option>
+                            <option value="10">10 - October</option>
+                            <option value="11">11 - November</option>
+                            <option value="12">12 - December</option>
+                          </select>
+                          {/* Dropdown for selecting year */}
+                          <label htmlFor="expiryYear">Expiration Year</label>
+                          <select id="expiryYear" name="expiryYear">
+                            <option value="">Year</option>
+                            {Array.from({ length: 18 }, (_, i) => (
+                              <option key={i} value={2023 + i}>{2023 + i}</option>
+                            ))}
+                          </select>
+                          <label htmlFor="cvv">CVV</label>
+                          <input
+                            type="text"
+                            id="cvv"
+                            name="cvv"
+                          />
+                          <label>
+                            <input type="checkbox" id="saveCardDetails" name="saveCardDetails" />
+                            Save card details
+                          </label>
+                          {/* Add other input fields as needed */}
+                          <button type="submit">Submit</button>
+                        </form>
+                      </div>
                     )}
                   </div>
                 </div>
-                {isPaymentEditing && (
-                  <div className="border border-gray-300 mb-4 p-4">
-                    <form>
-                      <label htmlFor="credit">Card Number</label>
-                      <input
-                        type="text"
-                        id="credit"
-                        name="credit"
-                      />
-                      <label htmlFor="credit">Cardholder Name</label>
-                      <input
-                        type="text"
-                        id="cardholder"
-                        name="cardholder"
-                      />
-                      <label htmlFor="expiryMonth">Expiration Month</label>
-                      <select id="expiryMonth" name="expiryMonth">
-                        <option value="">Month</option>
-                        <option value="01">01 - January</option>
-                        <option value="02">02 - February</option>
-                        <option value="03">03 - March</option>
-                        <option value="04">04 - April</option>
-                        <option value="05">05 - May</option>
-                        <option value="06">06 - June</option>
-                        <option value="07">07 - July</option>
-                        <option value="08">08 - August</option>
-                        <option value="09">09 - September</option>
-                        <option value="10">10 - October</option>
-                        <option value="11">11 - November</option>
-                        <option value="12">12 - December</option>
-                      </select>
-                      {/* Dropdown for selecting year */}
-                      <label htmlFor="expiryYear">Expiration Year</label>
-                      <select id="expiryYear" name="expiryYear">
-                        <option value="">Year</option>
-                        {Array.from({ length: 18 }, (_, i) => (
-                          <option key={i} value={2023 + i}>{2023 + i}</option>
-                        ))}
-                      </select>
-                      <label htmlFor="cvv">CVV</label>
-                      <input
-                        type="text"
-                        id="cvv"
-                        name="cvv"
-                      />
-                      <label>
-                        <input type="checkbox" id="saveCardDetails" name="saveCardDetails" />
-                        Save card details
+              </div>
+            </div>
+          </div>
+
+          {/* Shipping Method */}
+          <div className="bg-gray-100">
+            <div className="flex px-4 py-8">
+              <div className="w-full">
+                <div className="flex flex-col lg:grid grid-cols-3">
+                  <div className="col-span-2 bg-white rounded-lg p-4">
+                    <div className="border-b border-gray-300 pb-2 font-semibold flex items-center justify-between">
+                      <div className="text-lg">Shipping Method</div>
+                    </div>
+                    {/* Standard Shipping */}
+                    <div className="border border-gray-300 mb-4 p-4 flex flex-col">
+                      <label htmlFor="standard" className="flex items-center mb-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          id="standard"
+                          name="shippingMethod"
+                          checked={shippingMethod === "Standard"}
+                          onChange={() => handleShippingMethodSelect("Standard")}
+                          className="hidden"
+                        />
+                        <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
+                        <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
                       </label>
-                      {/* Add other input fields as needed */}
-                      <button type="submit">Submit</button>
-                    </form>
+                      <div className="text-sm ml-2">5 - 7 business days *</div>
+                      <p>Free</p>
+                    </div>
+                    {/* Express Shipping */}
+                    <div className="border border-gray-300 mb-4 p-4 flex flex-col">
+                      <label htmlFor="express" className="flex items-center mb-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          id="express"
+                          name="shippingMethod"
+                          checked={shippingMethod === "Express"}
+                          onChange={() => handleShippingMethodSelect("Express")}
+                          className="hidden"
+                        />
+                        <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Express" ? "bg-blue-500" : ""}`}></div>
+                        <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
+                      </label>
+                      <div className="text-sm ml-2">2 - 3 business days *</div>
+                      <p>$20</p>
+                    </div>
+                    {/* Overnight Shipping */}
+                    <div className="border border-gray-300 mb-4 p-4 flex flex-col">
+                      <label htmlFor="overnight" className="flex items-center mb-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          id="overnight"
+                          name="shippingMethod"
+                          checked={shippingMethod === "Overnight"}
+                          onChange={() => handleShippingMethodSelect("Overnight")}
+                          className="hidden"
+                        />
+                        <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Overnight" ? "bg-blue-500" : ""}`}></div>
+                        <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
+                      </label>
+                      <div className="text-sm ml-2">Next business day *</div>
+                      <p>$30</p>
+                    </div>
                   </div>
-                )}
+                </div>
+                <button
+                  // onClick={handleContinueToPayment}
+                  className="bg-yellow-400 text-gray-900 py-2 px-4 rounded hover:bg-yellow-500 w-full"
+                >
+                  Continue to Payment
+                </button>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-
-
-
-      {/* Shipping Method */}
-      <div className="bg-gray-100">
-        <div className="flex px-4 py-8">
-          <div className="w-full max-w-3xl">
-            <div className="flex flex-col lg:grid grid-cols-3">
-              <div className="col-span-2 bg-blue-200 rounded-lg p-4">
-                <div className="border-b border-gray-300 pb-2 font-semibold pl-4 flex items-center justify-between">
-                  <div className="text-lg">Shipping Method</div>
-                </div>
-                {/* Standard Shipping */}
-                <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-                  <label htmlFor="standard" className="flex items-center mb-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      id="standard"
-                      name="shippingMethod"
-                      checked={shippingMethod === "Standard"}
-                      onChange={() => handleShippingMethodSelect("Standard")}
-                      className="hidden"
-                    />
-                    <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
-                    <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
-                  </label>
-                  <div className="text-sm ml-2">5 - 7 business days *</div>
-                  <p>Free</p>
-                </div>
-                {/* Express Shipping */}
-                <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-                  <label htmlFor="express" className="flex items-center mb-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      id="express"
-                      name="shippingMethod"
-                      checked={shippingMethod === "Express"}
-                      onChange={() => handleShippingMethodSelect("Express")}
-                      className="hidden"
-                    />
-                    <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Express" ? "bg-blue-500" : ""}`}></div>
-                    <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
-                  </label>
-                  <div className="text-sm ml-2">2 - 3 business days *</div>
-                  <p>$20</p>
-                </div>
-                {/* Overnight Shipping */}
-                <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-                  <label htmlFor="overnight" className="flex items-center mb-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      id="overnight"
-                      name="shippingMethod"
-                      checked={shippingMethod === "Overnight"}
-                      onChange={() => handleShippingMethodSelect("Overnight")}
-                      className="hidden"
-                    />
-                    <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Overnight" ? "bg-blue-500" : ""}`}></div>
-                    <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
-                  </label>
-                  <div className="text-sm ml-2">Next business day *</div>
-                  <p>$30</p>
-                </div>
+          {/* Existing Order Summary */}
+          <div className="bg-[#F0F0F0]">
+            <div className="flex px-4 pt-16 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
+              <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-white lg:h-[759px]">
+                {
+                carts.map((item, index) => (
+                  <div key={index} className="border border-gray-300 mb-4 p-4">
+                    <img src={item.product.avatar} className="w-24 h-24 mb-2" alt={item.product.name} />
+                    <div className="info">
+                      <h3 className="text-lg font-semibold mb-1">{item.product.name}</h3>
+                      <p className="text-sm mb-1">{item.product.description}</p>
+                      <p className="text-sm mb-1">${item.product.price}</p>
+                      <div className="flex items-center">
+                        <span className="text-gray-700 mr-2">Quantity:</span>
+                        <span>{item.quantity}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            <button
-              // onClick={handleContinueToPayment}
-              className="bg-yellow-400 text-gray-900 py-2 px-4 rounded hover:bg-yellow-500 w-full"
-            >
-              Continue to Payment
-            </button>
           </div>
-        </div>
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* Existing Order Summary */}
-      <div className="bg-[#F0F0F0]">
-        <div className="flex px-4 pt-16 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
-          <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-blue-200 lg:h-[759px]">
-            {carts.map((item, index) => (
-              <div key={index} className="border border-gray-300 mb-4 p-4">
-                <img src={item.product.avatar} className="w-24 h-24 mb-2" alt={item.product.name} />
-                <div className="info">
-                  <h3 className="text-lg font-semibold mb-1">{item.product.name}</h3>
-                  <p className="text-sm mb-1">{item.product.description}</p>
-                  <p className="text-sm mb-1">${item.product.price}</p>
-                  <div className="flex items-center">
-                    <span className="text-gray-700 mr-2">Quantity:</span>
-                    <span>{item.quantity}</span>
-                  </div>
-                </div>
+          </div>
+            {/* Order Summary */}
+          <div className="flex flex-col items-end gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8]">
+            <div className="bg-white p-6 rounded-lg">
+              <div className="text-xl font-semibold mb-4">Order Summary</div>
+              <div className="flex justify-between mb-2">
+                <span>Subtotal:</span>
+                <span>${subtotal}</span>
               </div>
-            ))}
+              <div className="flex justify-between mb-2">
+                <span>Promo code:</span>
+                <span>{promoCode}</span>
+              </div>
+              <div className="flex justify-between mb-2">
+                <span>Shipping:</span>
+                <span>${shipping}</span>
+              </div>
+              <div className="flex justify-between mb-2">
+                <span>Total:</span>
+                <span>${total}</span>
+              </div>
+              <button
+                onClick={handleCheckout}
+                className="bg-[#EEC643] text-[#0F1111] py-2 px-4 rounded hover:bg-[#FFD700] w-full"
+              >
+                Checkout
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Order Summary */}
-      <div className="flex flex-col items-end gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8]">
-        <div className="bg-white p-6 rounded-lg">
-          <div className="text-xl font-semibold mb-4">Order Summary</div>
-          <div className="flex justify-between mb-2">
-            <span>Subtotal:</span>
-            <span>${subtotal}</span>
-          </div>
-          <div className="flex justify-between mb-2">
-            <span>Promo code:</span>
-            <span>{promoCode}</span>
-          </div>
-          <div className="flex justify-between mb-2">
-            <span>Shipping:</span>
-            <span>${shipping}</span>
-          </div>
-          <div className="flex justify-between mb-2">
-            <span>Total:</span>
-            <span>${total}</span>
-          </div>
-          <button
-            onClick={handleCheckout}
-            className="bg-[#EEC643] text-[#0F1111] py-2 px-4 rounded hover:bg-[#FFD700] w-full"
-          >
-            Checkout
-          </button>
-        </div>
-      </div>
     </>
   );
 };
@@ -374,6 +358,5 @@ const mapDispatchToProps = {
   selectShippingMethod,
   editPaymentMethod,
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

@@ -56,8 +56,7 @@ import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices'
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification'
 import Agreements from './pages/Sellers/Agreements/Agreements'
 
-import Category from './pages/Buyers/Category/FunctionalityTest/Category'
-
+import Category from './pages/Buyers/Category/category/Category';
 function App() {
   return (
     <div>

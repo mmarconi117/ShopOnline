@@ -1,0 +1,107 @@
+Test Case: Testing Buttons on the Footer "Let Us Help You" section 
+Objective: Verify the functionality of buttons in the Footer of the Shop ONline New York 
+website. 
+
+Preconditions: 
+1. Ensure the Shop ONline New York Website is accessible. 
+2.  Clear browser cookies and cache. 
+
+Test Steps: 
+Open the Shop ONline New York Website 
+1.  Navigate to the Shop ONline New York Website 
+2. Verify that the website loads successfully. 
+
+Navigate to the Help Center in the footer 
+1. Make sure the Shop ONline New York Website loads 
+2. After scroll all the way down and on the left-hand side of the footer, click on help center 
+3. Once the “Help Center” option is clicked you will be redirected to another page if 
+successful  
+
+Acutal Result:  
+1. Once you click on the “Help Center” option in the footer, a user gets redirected to back 
+the home page. 
+
+Expected Results: 
+1. Once a user Clicks on “Help Center” option it should redirect to another 
+webpage. 
+2. While on the next webpage, a user should be able to see a Frequently Asked 
+Question Board, a Search Bar, a contact us for more extra support. Last but not 
+least we need articles if a user needs help with Buying, Selling, Account, Return 
+and Refunds, Shipping and Tracking, Fees and Billing. Then a user should have 
+easy access to that.  
+
+Pass/ Fail: Fail 
+
+Navigate to the Contact US 
+1. Make sure the Shop ONline New York Website loads   
+2. After the website loads, scroll all the way down and on the  left hand side of the 
+footer, click on “Contact Us” 
+3. Once the “Contact Us”  option is clicked you will be redirected to another page if 
+successful. 
+ 
+Actual Result: 
+1. Once you click on the “Contact Us” option in the footer, a user gets redirected to the 
+home page so this is an error. 
+
+Expected Results: 
+1. Once a user Clicks on “Contact Us” option it should redirect to another webpage. 
+2. Once you get into another page you should get the option to find useful articles whether 
+it be for buying or selling  
+3. Also check if there is a contact us chatbox, phone number, email and inquiry box. 
+
+Pass/ Fail: Fail 
+
+Navigate To the FAQs 
+1. Make sure the Shop ONline New York Website loads   
+2. After the website loads, scroll all the way down and on the  left hand side of the 
+footer, click on Contact Us 
+3. Once the “FAQs” option is clicked you will be redriected to another page if 
+successful  
+
+Acutal Result: 
+1. Once a user Clicks  “FAQs” option it goes back to the home page. 
+Expected Results: 
+1. If successful the user should get redirected to the Frequently Asked Questions (FAQ) 
+Webpage. 
+2. Once Here on the FAQ page,  it should have a list of options of which questions have 
+been asked.  
+3. You can also have specific sections to the website and also have a link taking you into 
+full detail about the questions that have been answered. 
+Pass/ Fail: Fail 
+
+Navigate To the Returns Section 
+1. Make sure the Shop ONline New York Website loads   
+2. After the website loads, scroll all the way down and on the  left-hand side of the footer, 
+click on Contact Us 
+3. Once the “Returns” option is clicked you will be redirected to another page if successful  
+
+Actual Result: 
+Once a user Clicks  “Returns” option, it goes back to the home page. 
+Expected Results: 
+1. Once the Return is clicked you will be redirected to another webpage  
+2. Once on the next webpage you will have access to returns webpage of “ Shop ONline 
+New York”  
+3. Once on the returns website of  “ Shop ONline New York”  Verify the presence and 
+functionality of the "Manage Returns" section, check if functionality of the "Frequently 
+Asked Questions" (FAQ) section is there and, verify the presence and accessibility of the 
+"Return Policy" section. Last but not least check if you can return an order.  
+
+Pass/ Fail: Fail 
+
+Navigate To the Policies Section in the Footer 
+1. Make sure the Shop ONline New York Website loads   
+2. After the website loads, scroll all the way down of the webpage and on the  left hand 
+side of the footer, click on Policies 
+3. Once the “Policies ” option is clicked you will be redirected to another page if successful  
+
+Acutal Result: Once a user Clicks  “Policies” option, it goes back to the home page. 
+
+Expected Results: 
+1. The website loads successfully at the beginning of each step. 
+2. Clicking on  Shop ONline New York "Policies" should redirect a user with a detailed 
+description and extra links that have to do how Shop ONline New York works. 
+3. If the page loads it should have a detailed page of Policies and some topics like "Intellectual 
+Property," "Terms of Use," "Privacy Policy," and "Job Opportunities" buttons in the footer 
+navigates to the correct pages. 
+
+Pass/ Fail: Fail 

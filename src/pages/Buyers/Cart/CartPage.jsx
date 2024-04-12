@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
+import EmptyCart from './EmptyCart';
+import { useSelector } from 'react-redux';
+import { increaseQuantityCart, decreaseQuantityCart, removeFromCart, setCarts } from "../../../reducersAndActions/actions/cartAction";
+
 
 const CartPage = () => {
   const navigate = useNavigate();
+  const cart = useSelector(setCarts);
 
-  const [dummy, setDummy] = useState([
+  if (!cart.length) return <EmptyCart />;
+
+  {/*const [dummy, setDummy] = useState([
     {
       product: {
         id: 1,
@@ -37,6 +44,8 @@ const CartPage = () => {
       quantity: 3 // Example quantity in cart
     }
   ]);
+*/}
+
 
   const navigateToCheckout = () => {
     const subtotal = getSubtotal();
@@ -48,14 +57,14 @@ const CartPage = () => {
 
     // Pass the carts data, subtotal, promoCode, shipping, and total to the checkout route
     try {
-      navigate("/checkout", { state: { carts: dummy, subtotal, promoCode, shipping, total } });
+      navigate("/checkout", { state: { carts: cart, subtotal, promoCode, shipping, total } });
     } catch (error) {
       console.error("Error navigating to checkout:", error);
     }
   };
 
   const handleIncreaseQuantity = (id) => {
-    const updatedData = dummy.map(item => {
+    const updatedData = cart.map(item => {
       if (item.product.id === id) {
         return {
           ...item,
@@ -64,11 +73,12 @@ const CartPage = () => {
       }
       return item;
     });
-    setDummy(updatedData);
+    setCarts(updatedData);
   };
 
+
   const handleDecreaseQuantity = (id) => {
-    const updatedData = dummy.map(item => {
+    const updatedData = cart.map(item => {
       if (item.product.id === id && item.quantity > 0) {
         return {
           ...item,
@@ -77,8 +87,9 @@ const CartPage = () => {
       }
       return item;
     });
-    setDummy(updatedData);
+    setCarts(updatedData);
   };
+
 
   const getSubtotal = () => {
     return dummy.reduce(
@@ -100,8 +111,8 @@ const CartPage = () => {
 
   const deleteCart = (id) => {
     if (window.confirm("Are you sure to delete this product from the cart?")) {
-      const updatedData = dummy.filter((item) => item.product.id !== id);
-      setDummy(updatedData);
+      const updatedData = cart.filter((item) => item.product.id !== id);
+      setCarts(updatedData);
       console.log(`Deleted product with ID: ${id}`);
     }
   };
@@ -110,7 +121,7 @@ const CartPage = () => {
     <div className="bg-[#F0F0F0]">
       <div className="flex px-4 pt-8 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
         <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-blue-200 lg:h-[759px]">
-          {dummy.map((item, index) => (
+          {cart.map((item, index) => (
             <div key={index} style={{ border: "1px solid #e5e5e5", marginBottom: "20px", padding: "20px", display: "flex", alignItems: "center", flexDirection: "column" }}>
               {item.product && (
                 <>

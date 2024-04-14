@@ -12,7 +12,7 @@ const OverallSales = () => {
             id="overall-sales-component"
         >
             <div className="flex flex-col-reverse xl:flex-row gap-8">
-                <div className="flex xl:flex-col gap-2 xl:gap-8 justify-between items-stretch xl:basis-1/4 xl:grow-0">
+                <div className="hidden xl:flex xl:flex-col gap-2 xl:gap-8 justify-between items-stretch xl:basis-1/4 xl:grow-0">
                     <TotalInventory />
                     <TotalIncome />
                     <Withdrawal />
@@ -21,6 +21,11 @@ const OverallSales = () => {
             </div>
             <div className="flex flex-col xl:flex-row gap-8">
                 <FinanceSummary />
+                <div className="xl:hidden flex xl:flex-col gap-2 xl:gap-8 justify-between items-stretch xl:basis-1/4 xl:grow-0">
+                    <TotalInventory />
+                    <TotalIncome />
+                    <Withdrawal />
+                </div>
                 <FinanceSummary2 />
             </div>
         </div>

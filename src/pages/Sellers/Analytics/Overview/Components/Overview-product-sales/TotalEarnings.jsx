@@ -12,7 +12,7 @@ const TotalEarnings = () => {
                     <div className="py-1 bg-[#EEC643] w-5/6"></div>
                 </div>
                 <div className="flex flex-col xl:flex-row justify-between items-center">
-                    <p className="text-lg xl:text-2xl font-bold">$98,768.09</p>
+                    <p className="text-sm xl:text-2xl font-bold">$98,768.09</p>
                     <div className="flex text-[#1A6D97] align-sub">
                         <div>
                             <svg

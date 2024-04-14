@@ -12,7 +12,7 @@ const TotalOrders = () => {
                     <div className="py-1 bg-[#EEC643] w-3/5"></div>
                 </div>
                 <div className="flex flex-col xl:flex-row justify-between items-center">                    
-                    <p className="text-lg xl:text-2xl font-bold">243k</p>
+                    <p className="text-sm xl:text-2xl font-bold">243k</p>
                     <div className="flex text-[#1A6D97]">
                         <div>
                             <svg

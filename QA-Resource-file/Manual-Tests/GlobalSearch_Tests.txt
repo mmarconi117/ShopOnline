@@ -1,0 +1,217 @@
+Test Case 1: Empty Search
+
+Objective: Verify that the application doesn't allow empty search and gives user proper feedback 
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+
+Open the e-commerce website.
+a) Navigate to the homepage "shoponlineapi.in".
+b) Confirm/Verify that the homepage loads successfully.
+Leave the search bar empty.
+a) Ensure the search bar is empty.
+Click the search button or press Enter.
+a) Activate the search function.
+b) Observe the search results.
+Expected Result:
+a) No search results should be displayed.
+b) A message prompting the user to enter a search query should appear.
+
+Test Case 2: Positive Search
+Objective: Verify that application returns results for existing product with correct query (between 3 and 40 characters)
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+3. Shoes are available in the application
+
+Open the e-commerce website.
+a) Navigate to the homepage.
+b) Confirm that the homepage loads successfully.
+Enter a valid search query in the search bar. (shoes)
+a) Input a specific search term. (shoes)
+Click the search button or press Enter.
+a) Activate the search function.
+b) Observe the search results.
+Expected Result:
+a) Relevant search results matching the query should be displayed.
+
+
+Test Case 3: Boundary Minimum Search Length (3 characters)
+
+Objective: Application allows searches for queries 3 characters long
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+Open the e-commerce website.
+a) Navigate to the homepage.
+b) Confirm that the homepage loads successfully.
+Enter a search query with three characters in the search bar.
+a) Input a search term of three characters.
+Click the search button or press Enter.
+a) Activate the search function.
+b) Observe the search results.
+Expected Result:
+a) Relevant search results matching the query should be displayed.
+
+
+Test Case 4: Boundary Minimum Search Length (2 characters)
+Objective: Verify that application will not returns results for minimum query (2 characters)
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+Open the e-commerce website.
+a) Navigate to the homepage.
+b) Confirm that the homepage loads successfully.
+Enter a search query with two characters in the search bar.
+a) Input a search term of two characters.
+Click the search button or press Enter.
+a) Activate the search function.
+b) Observe the search results.
+Expected Result:
+a) No search results should be displayed.
+b) User is shown information  Minimum 3 characters required for search 
+
+Test Case 5: Boundary Maximum Search Length (40)
+Objective: Verify that application returns results for query with max lengh (40 characters)
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+Open the e-commerce website.
+a) Navigate to the homepage.
+b) Confirm that the homepage loads successfully.
+Enter a search query with forty characters in the search bar.
+a) Input a search term of forty characters.
+Click the search button or press Enter.
+a) Activate the search function.
+b) Observe the search results.
+Expected Result:
+a) Relevant search results matching the query should be displayed.
+
+Test Case 6: Boundary Maximum Search Length (41)
+Objective: Verify that application will not returns results for product with query (41 characters) 
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+Open the e-commerce website.
+a) Navigate to the homepage.
+b) Confirm that the homepage loads successfully.
+Enter a search query with forty-one characters in the search bar.
+a) Input a search term of forty-one characters.
+Click the search button or press Enter.
+a) Activate the search function.
+b) Observe the search results.
+Expected Result:
+a) a) No search results should be displayed. 
+b) User is shown information  Maximum 40 characters allowed for search 
+
+
+Test Case 7: Special Characters in Search (.)
+Objective: Verify that the application doesn't allow use special characters and gives user proper feedback 
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+Open the e-commerce website.
+a) Navigate to the homepage.
+b) Confirm that the homepage loads successfully.
+Enter a search query with special characters in the search bar.
+a) Input a search term containing special characters (e.g., ".").
+Click the search button or press Enter.
+a) Activate the search function.
+b) Observe the search results.
+Expected Result:
+a) No search results should be displayed.
+b) User is shown information  Only alphanumeric characters allowed [a-zA-z 0-9] 
+
+Test Case 8: Check if the search bar works correctly on different devices (e.g., computer, tablet, phone):
+Objective: Verify that the application allow search and gives user proper feedback on different devices 
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+a) Open the page with the search bar on a computer, tablet, and phone.
+b) Ensure that the search bar is visible and functions correctly on each of these devices.
+Expected Result:
+a) The search bar should be fully functional and displayed properly on all tested devices (computer, tablet, phone).
+b) The search functionality should work seamlessly without any visual or functional issues across different devices.
+c) User should be able to input search queries, trigger the search function, and view search results without encountering any errors or abnormalities.
+d) The layout and appearance of the search bar should adapt appropriately to the screen size and orientation of each device.
+e) Overall, the search bar should provide a consistent and intuitive user experience across various devices.
+
+Test Case 9: Test how the search bar behaves in different web browsers:
+Objective: Verify that the application allow search and gives user proper feedback  
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+a) Open the page with the search bar in various browsers (e.g., Chrome, Firefox, Safari, Edge).
+b) Verify if the search bar behaves as expected in each browser.
+Expected Result:
+a)The search bar should function correctly and be visually consistent across different web browsers (e.g., Chrome, Firefox, Safari, Edge).
+b)User should be able to interact with the search bar without encountering any compatibility issues or errors specific to a particular browser.
+
+Test Case 10: Auto-suggestion display to user for relevant searches:
+Objective: Verify that the application gives clickable auto-suggestion which reflect the user's query and relevant
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+Verify if the auto-suggestion feature in the search bar works correctly:
+a) Type the term "sho" into the search bar.
+b) Check if suggestions related to the entered term, such as "shoes," appear.
+Expected Result for Test Case 10 (User Interaction Testing):
+a)The auto-suggest feature in the search bar should function correctly, providing relevant suggestions as the user types.
+b)When the user begins typing a search query, the search bar should display a drop-down menu or list of suggested terms that match the entered text.
+c)The suggestions should be dynamically updated as the user continues typing, reflecting the most relevant matches based on the input.
+d)Each suggestion in the auto-suggest list should be clickable, allowing the user to select a suggestion and populate the search bar with the chosen term.
+
+Test Case 11: Accuracy of Search Results Display:
+Objective: Verify that in the application the search results should accurately reflect the user's search query, displaying relevant items that match the entered term 
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+Check if the search results match the user's expectations (e.g., verify if items related to the term "gloves" are displayed):
+a) Enter the term "gloves" into the search bar.
+b) Ensure that the search results include products related to gloves.
+Expected Result:
+a)The search results should accurately reflect the user's search query, displaying relevant items that match the entered term(s).
+
+Test Case 12: Verify if the results are displayed in alphabetical order:
+Objective: Verify that the application allow search and gives user proper feedback so it helps him find searched item
+
+Preconditions:
+1. Ensure the "shoponlineapi.in" website is accessible 
+2. Clear browser cookies and cache
+
+Test steps:
+a) Perform a search query that yields multiple results (hat)
+b) Confirm if the search results are sorted alphabetically.
+Expected Result:
+a)The search results should be displayed in alphabetical order based on a predetermined sorting criterion (e.g., product name).

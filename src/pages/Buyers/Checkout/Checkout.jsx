@@ -68,16 +68,18 @@ const Checkout = ({
 
   return (
     <>
-      <div className="flex">
-        <div className="flex flex-col w-full">
+      <div className="flex border-2 border-red-400">
+        <div className="flex flex-col w-[2000px] border-2 border-blue-400">
+
           {/* Shipping Address */}
-          <div className="bg-[#F0F0F0]">
-            <div className="flex px-4 py-8">
-              <div className="w-full">
-                <div className="flex flex-col">
-                  <div className="col-span-2 bg-white rounded-lg p-4">
+          <div className="bg-[#F0F0F0] border-2 border-green-400">
+            <div className="flex  py-8">
+              <div className="w-full border-2 border-yellow-400">
+                <div className="flex flex-col lg:grid grid-cols-3 ">
+                  <div className="col-span-2 bg-white rounded-lg p-4 border-2 border-purple-400">
+
                     {/* Shipping Address */}
-                    <div className="border-b border-gray-300 pb-2 font-semibold flex items-center justify-between">
+                    <div className="border-b border-gray-300 pb-2 font-semibold flex items-center justify-between border-2 border-orange-400">
                       <div>Shipping Address</div>
                       <div className="flex items-center">
                         {isEditing ? (
@@ -311,9 +313,10 @@ const Checkout = ({
             </div>
           </div>
           </div>
+          
             {/* Order Summary */}
-          <div className="flex flex-col items-end gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8] w-20">
-            <div className="bg-white p-6 rounded-lg m-20 w-40 border-2 border-blue-200">
+          <div className="flex flex-col items-center gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8] border-2 border-black-600">
+            <div className="bg-white p-6 rounded-lg m-[-20] w-[250px] border-2 border-blue-200">
               <div className="text-xl font-semibold mb-4">Order Summary</div>
               <div className="flex justify-between mb-2">
                 <span>Subtotal:</span>

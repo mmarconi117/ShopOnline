@@ -17,6 +17,11 @@ function Payments() {
       <div className="self-center sm:self-start text-[32px] font-semibold leading-[52px] text-[#313133] mb-4">
         Payments
       </div>
+      <div>
+        dafsdf
+      </div>
+
+
       <div className="flex items-stretch justify-center sm:justify-start gap-4">
         <button
           className={`p-[10px] ${statementPage ? "bg-[#FFFEFB] border-t-4 border-[#EEC643] rounded-t-md" : ""} text-xl font-medium outline-none`}
@@ -27,6 +32,8 @@ function Payments() {
         >
           Statements
         </button>
+
+
         <button
           className={`p-[10px] ${statementPage ? "" : "bg-[#FFFEFB] border-t-4 border-[#EEC643] rounded-t-md"} text-xl font-medium outline-none`}
           onClick={() => {

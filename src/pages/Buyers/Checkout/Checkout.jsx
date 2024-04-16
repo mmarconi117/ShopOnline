@@ -69,11 +69,11 @@ const Checkout = ({
   return (
     <>
       <div className="flex border-2 border-red-400">
-        <div className="flex flex-col w-[2000px] border-2 border-blue-400">
+        <div className="flex flex-col w-[1200px] border-2 border-blue-400">
 
           {/* Shipping Address */}
           <div className="bg-[#F0F0F0] border-2 border-green-400">
-            <div className="flex  py-8">
+            <div className="flex py-8">
               <div className="w-full border-2 border-yellow-400">
                 <div className="flex flex-col lg:grid grid-cols-3 ">
                   <div className="col-span-2 bg-white rounded-lg p-4 border-2 border-purple-400">
@@ -313,10 +313,10 @@ const Checkout = ({
             </div>
           </div>
           </div>
-          
+
             {/* Order Summary */}
-          <div className="flex flex-col items-center gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8] border-2 border-black-600">
-            <div className="bg-white p-6 rounded-lg m-[-20] w-[250px] border-2 border-blue-200">
+          <div className="flex flex-col items-center gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8] w-[450px] pt-8 border-2 border-black-600">
+            <div className="bg-white p-6 rounded-lg m-[-20] w-[450px] border-2 border-blue-200">
               <div className="text-xl font-semibold mb-4">Order Summary</div>
               <div className="flex justify-between mb-2">
                 <span>Subtotal:</span>

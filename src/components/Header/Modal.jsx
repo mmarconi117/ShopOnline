@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Modal = ({ isOpen, onClose, content }) => {
     useEffect(() => {
         const handleEscape = (event) => {
-            if (event.keyCode === 27) onClose();
+            if (event.keyCode === 27) onClose(); //Close the modal when the Escape key is pressed
         };
         document.addEventListener('keydown', handleEscape);
         return () => document.removeEventListener('keydown', handleEscape);

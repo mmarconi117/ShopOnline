@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
 import EmptyCart from './EmptyCart';
+import PromoCode from "./PromoCode";
+import Returns from "./Returns";
 import { useSelector } from 'react-redux';
 import { increaseQuantityCart, decreaseQuantityCart, removeFromCart, setCarts } from "../../../reducersAndActions/actions/cartAction";
 
@@ -45,7 +47,6 @@ const CartPage = () => {
     }
   ]);
 */}
-
 
   const navigateToCheckout = () => {
     const subtotal = getSubtotal();
@@ -92,7 +93,7 @@ const CartPage = () => {
 
 
   const getSubtotal = () => {
-    return dummy.reduce(
+    return cart.reduce(
       (total, item) => total + item.product.price * item.quantity,
       0
     ).toFixed(2);
@@ -107,6 +108,7 @@ const CartPage = () => {
     const subtotal = parseFloat(getSubtotal());
     const shipping = parseFloat(getShippingCost());
     return (subtotal + shipping).toFixed(2);
+
   };
 
   const deleteCart = (id) => {
@@ -152,7 +154,7 @@ const CartPage = () => {
                 <div className="text-base font-medium lg:text-xl lg:leading-[30px] text-[#605D64]">${getSubtotal()}</div>
               </div>
               <div className="flex justify-between items-center self-stretch">
-                <div className="text-[14px] font-normal leading-5 lg:text-xl lg:leading-6 text-[#605D64]">Promo code</div>
+                <div className="text-[14px] font-normal leading-5 lg:text-xl lg:leading-6 text-[#605D64]">Promo Code</div>
                 <div className="text-base font-medium lg:text-xl lg:leading-[30px] text-[#605D64]">ADC345</div>
               </div>
               <div className="flex justify-between items-center self-stretch">
@@ -166,11 +168,13 @@ const CartPage = () => {
             </div>
             <button
               onClick={navigateToCheckout}
-              className="flex justify-center items-center rounded-[5px] gap-[10px] text-[#0F1111] bg-[#EEC643] h-[44px] lg:w-[70%] px-[30px] py-[14px] text-[14px] font-semibold leading-5 lg:text-base lg:leading-[19.2px] lg:font-normal"
+              className="flex justify-center items-center rounded-[5px] gap-[10px] text-[#0F1111] bg-[#EEC643] h-[44px] lg:w-[100%] px-[30px] py-[14px] text-[14px] font-semibold leading-5 lg:text-base lg:leading-[19.2px] lg:font-normal"
             >
               Checkout
             </button>
           </div>
+          <PromoCode></PromoCode>
+          <Returns></Returns>
         </div>
       </div>
     </div>

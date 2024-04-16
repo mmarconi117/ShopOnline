@@ -5,6 +5,13 @@ import { displayStatement as statement } from "../../../../reducersAndActions/ac
 import { displayTransaction as transaction } from "../../../../reducersAndActions/actions/paymentAction";
 import { useState, useEffect } from "react";
 function Payments() {
+
+  const [formPaymentData,setFormPaymentData]=useState({
+      attachment:"",
+      childIssue:"",
+      linkIssue:""
+  })
+
   const dispatch = useDispatch();
   const { displayStatement, displayTransaction } = useSelector(
     (state) => state.paymentReducer
@@ -18,7 +25,19 @@ function Payments() {
         Payments
       </div>
       <div>
-        dafsdf
+        <form>
+          <ul>
+            <li>
+              <input
+              type='file'
+              label="Attach"
+              />
+
+            </li>
+
+          </ul>
+
+        </form>
       </div>
 
 

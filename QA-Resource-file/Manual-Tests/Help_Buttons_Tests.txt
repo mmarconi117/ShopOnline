@@ -1,0 +1,243 @@
+Test Case for help button
+
+Objective:  
+Validate user is able to click on the help button on the toolbar given.
+
+Test Steps:
+Open the SONNY Webpage: 
+1.	Login into SONNY
+2.	Validate user is on the SONNY webpage. 
+Access the help button:
+1.	Validate user is able to click on the HELP button. 
+2.	Validate user lands on the help page
+3.	Validate user is able to view the text “Need help? Let us help you!”
+4.	Validate user is able to view all options of help on the left panel. 
+
+Test Case for order button on the help page
+
+Objective:  
+Validate user is able to click on the order button on the help page on the  toolbar given.
+Test Steps:
+Open the SONNY Webpage:
+1.	Validate user is on the SONNY webpage. 
+Access the help button: 
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+
+Access the view order button:
+5.	Validate user is able to view the order button.
+6.	Validate user is able to click on the order buttons
+7.	Validate user is able to view all the order details.
+8.	Validate user is able to click on all the buttons mentioned on the web page.
+
+Test Case for info button on the help page
+
+Objective:  
+Validate user is able to click on the info button on the help page on the toolbar given.
+Test Steps:
+Open the SONNY Webpage:
+1.	Validate user is on the SONNY webpage. 
+Access the help button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the view info button:
+1.	Validate user is able to view the info button.
+2.	Validate user is able to click on the info buttons.
+3.	Validate user is able to view all the user’s order information details is displayed
+
+Test Case for pending reviews on the help page
+
+Objective:  
+Validate user is able to click on the pending reviews on the help page on the toolbar given.
+Test Steps:
+Open SONNY Webpage:
+
+1.	Validate user is on the SONNY webpage. 
+Access the Help Button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the pending reviews:
+5.	Validate user is able to view the pending reviews button.
+6.	Validate user is able to click on the pending review buttons
+7.	Validate user is able to view all the pending reviews details is displayed
+
+Test Case for voucher on the help page
+
+Objective:  
+Validate user is able to click on the voucher on the help page on the toolbar given.
+Test Steps:
+Open the SONNY Webpage:
+1.	Validate user is on the SONNY webpage. 
+Access the Help Button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the VoucherButton:
+5.	Validate user is able to view the voucher button.
+6.	Validate user is able to click on the voucher buttons
+7.	Validate user is able to view all the voucher details is displayed.
+
+Test Case for recently viewed on the help page
+
+Objective:  
+Validate user is able to click on the recently viewed on the help page on the toolbar given.
+Test Steps:
+Open the SONNY Webpage:
+1.	Validate user is on the SONNY webpage. 
+Access the HELP Button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the recently viewed button:
+5.	Validate user is able to view the recently viewed button.
+6.	Validate user is able to click on the recently viewed buttons.
+7.	Validate user is able to view all the recently viewed details displayed.
+
+Test Case for notifications button on the help page. 
+
+Objective:  
+Validate user is able to click on the notifications on the help page on the toolbar given.
+Test Steps:
+Open the SONNY Webpage:
+1.	Validate user is on the SONNY webpage. 
+Access the help button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the View Notifications Button:
+5.	Validate user is able to view the notifications button.
+6.	Validate user is able to click on the notifications buttons.
+7.	Validate user is able to view all the notifications  details displayed.
+
+Test Case for the wishlist button on the help page.
+
+Objective:  
+Validate user is able to click on the wishlist on the help page on the toolbar given.
+Test Steps:
+Open the SONNY:
+1.	Validate user is on the SONNY webpage. 
+Access the help button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the view wishlist button:
+5.	Validate user is able to view the wishlist button.
+6.	Validate user is able to click on the Wishlist buttons.
+7.	Validate user is able to view all the wishlist  details displayed.
+
+Test Case Description:  
+Validate user is able to click on the wishlist on the help page on the toolbar given.
+Test Steps:
+Open the SONNY Webpage:
+1.	Validate user is on the SONNY webpage. 
+Access the help button:
+
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the wishlist button:
+5.	Validate user is able to view the wishlist button.
+6.	Validate user is able to click on the Wishlist buttons.
+7.	Validate user is able to view all the wishlist  details displayed.
+
+Test Case for the viewed button on the help page.
+
+Objective:  
+Validate user is able to click on the viewed on the help page on the toolbar given.
+Test Steps:
+Open SONNY Webpage:
+1.	Validate user is on the SONNY webpage. 
+Access the HELP button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the viewed button:
+5.	Validate user is able to view the viewed button.
+6.	Validate user is able to click on the viewed buttons.
+7.	Validate user is able to view all the viewed  details displayed
+
+Test Case for the coupons button on the help page.
+
+Objective:  
+Validate user is able to click on the coupons on the help page on the toolbar given.
+Test Steps:
+Open SONNY webpage:
+1.	Validate user is on the SONNY webpage. 
+Access the HELP Button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the coupons button:
+5.	Validate user is able to view the coupons button.
+6.	Validate user is able to click on the coupons buttons.
+7.	Validate user is able to view all the coupons  details displayed
+
+Test Case for account management button on the help page.
+
+Objective:  
+Validate user is able to click on the account management on the help page on the toolbar given.
+Test Steps:
+Open SONNY Website:
+1.	Validate user is on the SONNY webpage. 
+Access the HELP button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the account management buttons:
+5.	Validate user is able to view the account management button.
+6.	Validate user is able to click on the account management buttons.
+7.	Validate user is able to view all the account management  details displayed
+
+Test Case for edit shipping address button on the help page
+
+Objective:  
+Validate user is able to click on the edit shipping address on the help page on the toolbar given.
+Test Steps:
+Open SONNY Website:
+1.	Validate user is on the SONNY webpage. 
+Access the help button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access he edit shipping address button:
+5.	Validate user is able to view the edit shipping address button.
+6.	Validate user is able to click on the edit shipping address buttons.
+7.	Validate user is able to view all the edit shipping  details displayed.
+8.	Validate user Is able to edit the shipping address.
+
+Test Case for customer service button on the help page.
+
+Objective:  
+Validate user is able to click on the customer service on the help page on the toolbar given.
+Test Steps:
+Open the SONNY Webpaage:
+1.	Validate user is on the SONNY webpage. 
+Access the help button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the customer service button:
+5.	Validate user is able to view the customer service button.
+6.	Validate user is able to click on the customer service buttons.
+7.	Validate user is able to view all the customer service displayed.
+8.	Validate user Is able to view the customer service options on the screen
+
+Test Case for logout button on the help page
+
+Objective:  
+Validate user is able to click on the logout button on the help page on the toolbar given.
+Test Steps:
+Open the SONNY Webpage:
+1.	Validate user is on the SONNY webpage. 
+Access the HELP Button:
+2.	Validate user is able to click on the HELP button. 
+3.	Validate user lands on the help page.
+4.	Validate user can view the text “Need help? Let us help you!”
+Access the  logout button:
+5.	Validate user is able to view the logout button.
+6.	Validate user is able to click on the logout buttons.
+7.	Validate user is able to view all the logout informtion displayed.
+8.	Validate user is redirected to the SONNY home page.

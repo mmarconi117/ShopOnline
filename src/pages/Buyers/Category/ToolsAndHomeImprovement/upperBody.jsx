@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import LOGO from "../../../../assets/ICONS/location-marker.svg";
 import Banner from "../../../../assets/IMAGES/ToolsAndHomeImprovement/banner.png";
 
+
 const Coupons = () => {
     return (
         <div className="font-Roboto min-w-[279px] sm:min-w-[413px] h-[79px] sm:h-[131px] bg-[#F6FAFC] rounded-[8px] p-2 sm:px-6 sm:py-3 flex justify-between border border-[#E6E0E9] border-solid">

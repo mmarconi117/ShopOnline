@@ -2,11 +2,27 @@ import searchIcon from "../../../../assets/ICONS/SearchIcons.svg";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import  {SET_TRANSACTIONS} from "../../../../reducersAndActions/actions"
+import { SET_TRANSACTION } from "../../../../reducersAndActions/actions";
 
 
 
 
 const Transactions = () => {
+
+
+  const [transaction,setTransaction]=useState(  
+      {
+      isRowChecked:false,
+      transactionsPOCO:'',
+      transactionsType:'',
+      transactionsDate:'',
+      transactionsTimeID:'',
+      transactionsQty:'',
+      transactionsAmount:'',
+      transactionsStatus:''
+  
+    }
+  )
 
   const [transactions,setTransactions]=useState([
   //   {
@@ -30,7 +46,9 @@ const Transactions = () => {
 
 
   useEffect(()=>{
-    setTransactions(dispatch({type: SET_TRANSACTIONS, payload: transactions }))
+    setTransactions(dispatch({type: SET_TRANSACTIONS, payload: transactions }));
+    setTransaction(dispatch({type: SET_TRANSACTION, payload: transaction }));
+
   },[]);
 
   

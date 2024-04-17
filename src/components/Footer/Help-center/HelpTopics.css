@@ -1,0 +1,55 @@
+#help-center {
+    text-align: center;
+}
+
+.suggested-help-text {
+    color: blue;
+    font-weight: bold;
+}
+
+.topics-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px; 
+
+    padding: 10px;
+}
+
+.topic-item {
+    text-decoration: none;
+    color: rgb(0, 26, 255);
+    padding: 70px;
+    margin: 30px;
+    border: 1px solid #ccc;
+    background-color: white; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.more-topics {
+    text-decoration: none;
+    color: rgb(0, 26, 255);
+    padding: 50px;
+    margin: 40px;
+    border: 1px solid #ccc;
+    background-color: white; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.arrow-icon {
+    margin-left: 5px; 
+}

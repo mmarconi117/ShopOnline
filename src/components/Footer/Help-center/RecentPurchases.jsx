@@ -60,11 +60,11 @@ const RecentPurchases = () => {
 
     return (
         <div id="recent-purchases" className="my-5 p-10">
-            <div>
-                <p className="help-text">
+           
+                <p className="help-text ">
                     Do you want help with your recent purchase?
                 </p>
-            </div>
+            
             <div className="image-row mt-9">{recentPurchases}</div>
         </div>
     );

@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setTopicPrompt } from '../../../reducersAndActions/actions/helpCenterAction';
+import './TopicsPrompt.css'; 
 
 const TopicsPrompt = () => {
     const topicsPrompt = useSelector(
@@ -11,7 +12,11 @@ const TopicsPrompt = () => {
         dispatch(setTopicPrompt(topicIndex));
     };
 
-    const navItems = topicsPrompt.map((item, index) => {
+  
+    const firstRowTopics = topicsPrompt.slice(0, 7);
+    const secondRowTopics = topicsPrompt.slice(7);
+
+    const firstRowNavItems = firstRowTopics.map((item, index) => {
         return (
             <li key={index}>
                 <button onClick={() => selectTopicPrompt(index)}>
@@ -21,10 +26,21 @@ const TopicsPrompt = () => {
         );
     });
 
+    const secondRowNavItems = secondRowTopics.map((item, index) => {
+        return (
+            <li key={index + 7}>
+                <button onClick={() => selectTopicPrompt(index + 7)}>
+                    {item.name}
+                </button>
+            </li>
+        );
+    });
+
     return (
         <div id="help-center-nav" className="my-5">
             <nav>
-                <ul>{navItems}</ul>
+                <ul>{firstRowNavItems}</ul>
+                <ul>{secondRowNavItems}</ul>
             </nav>
         </div>
     );

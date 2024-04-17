@@ -13,7 +13,7 @@ const SearchBar = () => {
     return (
         <div className="flex justify-center mt-20">
             <div id="help-center-search-bar" className="my-5 flex items-center">
-                <div className="border-blue-500 border rounded-md p-2 w-96 relative">
+                <div className="border-blue-500 border rounded-md p-2 w-[50vw] relative">
                     <input
                         value={inputValue}
                         onChange={(e) => onChange(e.target.value)}

@@ -278,6 +278,10 @@ const Checkout = ({
                       <div className="text-sm ml-2">Next business day *</div>
                       <p>$30</p>
                     </div>
+                    <div className="col-span-2 bg-white rounded-lg p-4 border border-gray-300">
+                      <p className="font-bold">Gift Wrap Options</p>
+                      <p>Add a Gift Message / Gift Wrap</p>
+                    </div>
                   </div>
                 </div>
                 <button
@@ -343,7 +347,13 @@ const Checkout = ({
                 Checkout
               </button>
             </div>
+            <div className="bg-white p-6 rounded-lg m-[-20] mt-9 w-[400px] lg:w-auto border-2 border-blue-200">
+            <p className="font-bold">Returns are easy</p>
+            <p>Free return within 15 days for Official Store items and 7 days for other eligible items.</p>
+            <a href="">See more</a>
           </div>
+          </div>
+          
         </div>
     </>
   );

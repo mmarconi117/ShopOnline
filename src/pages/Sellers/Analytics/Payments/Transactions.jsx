@@ -4,26 +4,22 @@ import { useSelector, useDispatch } from "react-redux";
 import  {SET_TRANSACTIONS} from "../../../../reducersAndActions/actions"
 
 
-const singleTransaction=()=>{
-  
-}
-
 
 
 const Transactions = () => {
 
   const [transactions,setTransactions]=useState([
-    {
-    isRowChecked:false,
-    transactionsPOCO:'',
-    transactionsType:'',
-    transactionsDate:'',
-    transactionsTimeID:'',
-    transactionsQty:'',
-    transactionsAmount:'',
-    transactionsStatus:''
+  //   {
+  //   isRowChecked:false,
+  //   transactionsPOCO:'',
+  //   transactionsType:'',
+  //   transactionsDate:'',
+  //   transactionsTimeID:'',
+  //   transactionsQty:'',
+  //   transactionsAmount:'',
+  //   transactionsStatus:''
 
-  }
+  // }
 ])
 
   const listTransctions=useSelector((state)=>state.transactionsReducer)

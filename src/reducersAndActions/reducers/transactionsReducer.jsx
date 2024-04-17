@@ -1,7 +1,7 @@
 import { SET_TRANSACTIONS } from "../actions";
 
-const initialState =[ 
-  ]
+const initialState =[];
+
  const transactionsReducer = (state = initialState, action) => {
     switch (action.type) {
       case SET_TRANSACTIONS:

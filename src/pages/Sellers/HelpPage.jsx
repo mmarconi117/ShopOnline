@@ -4,7 +4,6 @@ import { toggleFeedbackForm, submitFeedbackForm, updateEmail, updateQuestion } f
 import user from "../../assets/ICONS/user/user-fill.svg";
 import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
-import logOut from "../../assets/ICONS/logOut.svg";
 import FeedbackModal from '../Buyers/FeedbackModal';
 
 const HelpPage = () => {
@@ -29,7 +28,7 @@ const HelpPage = () => {
 
   return (
     <div className="bg-gray-100 h-screen flex flex-row space-x-12">
-      {showFeedbackFormState && <FeedbackModal/>}
+      {showFeedbackFormState && <FeedbackModal />}
       {/* Dashboard */}
       <div className="w-2/5 bg-white flex flex-col space-y-12 ">
         <div className="flex flex-row mx-8 align-middle mt-6">
@@ -83,81 +82,81 @@ const HelpPage = () => {
           </div>
         </div>
         <h1 className="my-10 text-2xl font-semibold">Seller's Online Help Services </h1>
-      {/* Navigation */}
-      <div className="flex h-[300px] bg-Banner bg-cover bg-center align-center justify-center">
-        {/* Contact Information */}
-        <div className="flex flex-col w-[300px] mt-10">
-          <div>Give us a call: 1-800-123-4657</div>
-          <div>Email us: nyshopping@shopping.com</div>
-          <div>Monday-Friday 6am - 5pm EST</div>
-          <div>Saturday - Sunday 8am - 2pm EST</div>
+        {/* Navigation */}
+        <div className="flex h-[300px] bg-Banner bg-cover bg-center align-center justify-center">
+          {/* Contact Information */}
+          <div className="flex flex-col w-[300px] mt-10">
+            <div>Give us a call: 1-800-123-4657</div>
+            <div>Email us: nyshopping@shopping.com</div>
+            <div>Monday-Friday 6am - 5pm EST</div>
+            <div>Saturday - Sunday 8am - 2pm EST</div>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col h-300 content-between">
-      {/* search bar */}
-        <input
-        className="mt-10"
-        type="search"
-        placeholder="What can we help you with?"
-        aria-label="Search through site content"
-      />
+        <div className="flex flex-col h-300 content-between">
+          {/* search bar */}
+          <input
+            className="mt-10"
+            type="search"
+            placeholder="What can we help you with?"
+            aria-label="Search through site content"
+          />
 
-      {/* title */}
-      <h2>See frequently asked question on popular Topics</h2>
-      {/* title */}
+          {/* title */}
+          <h2>See frequently asked question on popular Topics</h2>
+          {/* title */}
 
-      {/* question list */}
-      <div>
-        <details>
-          <summary>Frequently Asked Questions on Account</summary>
-        </details>
-        <details>
-          <summary>Frequently Asked Questions on Payments & Refunds</summary>
-        </details>
-        <details>
-          <summary>Frequently Asked Questions on Orders, Shipping & Tracking</summary>
-        </details>
-        <details>
-          <summary>Frequently Asked Questions on Returns & Exchanges</summary>
-        </details>
-        <details>
-          <summary>Frequently Asked Questions on Product</summary>
-        </details>
-        <details>
-          <summary>Frequently Asked Questions on Marketing Inquiries</summary>
-        </details>
-      </div>
-      {/* feedback button */}
-      <button className="text-cyan-600 text-center text-xl leading-6 whitespace-nowrap justify-center items-stretch border border-[color:var(--Color-Styles-Primary-color-blue-T1000,#2284B6)] self-center mt-28 px-12 py-4 rounded-md border-solid max-md:mt-10 max-md:px-5" onClick={handleToggleFeedbackForm}>Give us feedback</button>
-      </div>
-      {/* show feedback form depending on the state of the feedback button */}
-      {showFeedbackFormState && (
-        <form onSubmit={handleFormSubmit} className="feedback-form">
-          <h3>Please share your feedback with us!</h3>
-          <p>If you still have questions or need help feel free to contact us.</p>
+          {/* question list */}
           <div>
-            <label htmlFor="email">Your Email</label>
-            <input
-              id="email"
-              type="email"
-              placeholder="Your Email"
-              value={email}
-              onChange={(e) => dispatch(updateEmail(e.target.value))}
-            />
+            <details>
+              <summary>Frequently Asked Questions on Account</summary>
+            </details>
+            <details>
+              <summary>Frequently Asked Questions on Payments & Refunds</summary>
+            </details>
+            <details>
+              <summary>Frequently Asked Questions on Orders, Shipping & Tracking</summary>
+            </details>
+            <details>
+              <summary>Frequently Asked Questions on Returns & Exchanges</summary>
+            </details>
+            <details>
+              <summary>Frequently Asked Questions on Product</summary>
+            </details>
+            <details>
+              <summary>Frequently Asked Questions on Marketing Inquiries</summary>
+            </details>
           </div>
-          <div style={{ height: '1rem' }}></div>
-          <div>
-            <label htmlFor="question">Your question</label>
-            <textarea
-              id="question"
-              placeholder="Your question"
-              value={question}
-              onChange={(e) => dispatch(updateQuestion(e.target.value))}
-            ></textarea>
-          </div>
-          <button type="submit">Send</button>
-        </form>
-      )}
+          {/* feedback button */}
+          <button className="text-cyan-600 text-center text-xl leading-6 whitespace-nowrap justify-center items-stretch border border-[color:var(--Color-Styles-Primary-color-blue-T1000,#2284B6)] self-center mt-28 px-12 py-4 rounded-md border-solid max-md:mt-10 max-md:px-5" onClick={handleToggleFeedbackForm}>Give us feedback</button>
+        </div>
+        {/* show feedback form depending on the state of the feedback button */}
+        {showFeedbackFormState && (
+          <form onSubmit={handleFormSubmit} className="feedback-form">
+            <h3>Please share your feedback with us!</h3>
+            <p>If you still have questions or need help feel free to contact us.</p>
+            <div>
+              <label htmlFor="email">Your Email</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Your Email"
+                value={email}
+                onChange={(e) => dispatch(updateEmail(e.target.value))}
+              />
+            </div>
+            <div style={{ height: '1rem' }}></div>
+            <div>
+              <label htmlFor="question">Your question</label>
+              <textarea
+                id="question"
+                placeholder="Your question"
+                value={question}
+                onChange={(e) => dispatch(updateQuestion(e.target.value))}
+              ></textarea>
+            </div>
+            <button type="submit">Send</button>
+          </form>
+        )}
       </div>
     </div>
   );

@@ -73,7 +73,7 @@ const Checkout = ({
 
           {/* Shipping Address */}
           <div className="bg-[#F0F0F0]">
-            <div className="flex py-8">
+            <div className="flex px-4 py-8">
               <div className="w-full">
                 <div className="flex flex-col lg:grid grid-cols-3 ">
                   <div className="col-span-2 bg-white rounded-lg p-4">
@@ -286,7 +286,7 @@ const Checkout = ({
                 </div>
                 <button
                   // onClick={handleContinueToPayment}
-                  className="bg-yellow-400 text-gray-900 py-2 px-4 rounded hover:bg-yellow-500 w-[400px]"
+                  className="bg-yellow-400 text-gray-900 py-2 px-16 ml-40 mt-5 rounded hover:bg-yellow-500 w-[400px]"
                 >
                   Continue to Payment
                 </button>
@@ -323,7 +323,7 @@ const Checkout = ({
           <div className="bg-[#F0F0F0]">
             <div className="bg-white p-6 rounded-lg m-[-20] mt-9 w-[400px] lg:w-auto">
             {/* <div className="flex px-4 py-8"> */}
-              <div className="text-xl font-semibold mb-4">Order Summary</div>
+              <div className="text-xl font-semibold mb-4">ORDER SUMMARY</div>
               <div className="flex justify-between mb-2">
                 <span>Subtotal:</span>
                 <span>${subtotal}</span>

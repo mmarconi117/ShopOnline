@@ -28,7 +28,8 @@ import shippingDetailsReducer from './shippingDetailsReducer'
 import paymentDetailsReducer from "./paymentDetailsReducer";
 import helpCenterReducer from "./helpCenterReducer";
 import emailModalReducer from "./emailModalReducer";
-
+import statementsReducer from "./statementsReducer";
+import transactionsReducer from "./transactionsReducer"
 export const rootReducer = combineReducers({
     cartReducer,
     shipReducer,
@@ -57,7 +58,9 @@ export const rootReducer = combineReducers({
     shippingDetailsReducer,
     paymentDetailsReducer,
     helpCenterReducer,
-    emailModalReducer
+    emailModalReducer,
+    statementsReducer,
+    transactionsReducer
 });
 
 export default rootReducer;

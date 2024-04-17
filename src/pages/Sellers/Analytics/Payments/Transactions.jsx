@@ -9,38 +9,25 @@ import { SET_TRANSACTION } from "../../../../reducersAndActions/actions";
 
 const Transactions = () => {
 
-
+////each of the transactions
   const [transaction,setTransaction]=useState(  
       {
-      isRowChecked:false,
-      transactionsPOCO:'',
-      transactionsType:'',
-      transactionsDate:'',
-      transactionsTimeID:'',
-      transactionsQty:'',
-      transactionsAmount:'',
-      transactionsStatus:''
+      isRowChecked:'',
+      transactionPOCO:'',
+      transactionType:'',
+      transactionDate:'',
+      transactionTimeID:'',
+      transactionQty:'',
+      transactionAmount:'',
+      transactionStatus:''
   
     }
   )
 
+  ////alll transaction
   const [transactions,setTransactions]=useState([
-  //   {
-  //   isRowChecked:false,
-  //   transactionsPOCO:'',
-  //   transactionsType:'',
-  //   transactionsDate:'',
-  //   transactionsTimeID:'',
-  //   transactionsQty:'',
-  //   transactionsAmount:'',
-  //   transactionsStatus:''
 
-  // }
 ])
-
-  const listTransctions=useSelector((state)=>state.transactionsReducer)
-  console.log('listTransactions->',listTransctions);
-  const transactionsArr=listTransctions.transactions;
 
   const dispatch = useDispatch();
 
@@ -51,6 +38,10 @@ const Transactions = () => {
 
   },[]);
 
+  const listTransctions=useSelector((state)=>state.transactionsReducer)
+  const eachTransaction=useSelector((state)=>state.transactionReducer)
+  console.log('listTransactions->',listTransctions);
+ console.log('eachTransaction->',eachTransaction)
   
 
   return (
@@ -93,29 +84,42 @@ const Transactions = () => {
           </thead>
 
           <tbody>
-            {}
+            {transactions.map(transaction=>{
+
+<tr className="">
+  <td className="px-3 py-4 text-left 2xl:text-center align-top">
+    <input  
+      id="check1" 
+      name="check1" 
+      className="w-6 h-6"
+      type="checkbox" 
+      checked={transaction.isRowChecked}
+      onChange={(e) => setTransaction({ ...transaction, isRowChecked: e.target.checked })} 
+      />
+  </td>
+  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionPOCO}</td>
+  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionType}</td>
+  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionDate}</td>
+  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionTimeID}</td>
+  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionQty}</td>
+  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionAmount}</td>
+  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">
+    <div className="bg-[#F6E099] rounded-md py-0.5 px-1">{transaction.transactionStatus}</div>
+  </td>
+  <td className="px-3 py-6 text-left 2xl:text-center align-top">
+    <div className="flex gap-1">
+      <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
+      <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
+      <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
+    </div>
+  </td>
+</tr>
+
+            })}
             
          
       
-            <tr className="">
-              <td className="px-3 py-4 text-left 2xl:text-center align-top"><input type="checkbox" id="check1" name="check1" className="w-6 h-6"/></td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">999999</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">Dispute Settlement</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">June 23,2023</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">999999</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">1</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">$99.99</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">
-                <div className="bg-[#F6E099] rounded-md py-0.5 px-1">Settled</div>
-              </td>
-              <td className="px-3 py-6 text-left 2xl:text-center align-top">
-                <div className="flex gap-1">
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                </div>
-              </td>
-            </tr>
+     
 
           </tbody>
         </table>

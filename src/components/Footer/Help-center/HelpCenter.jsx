@@ -3,7 +3,7 @@ import Search from './SearchBar';
 import TopicsPrompt from './TopicsPrompt';
 import RecentPurchases from './RecentPurchases';
 import HelpTopics from './HelpTopics';
-// import CommunicationOptions from './CommunicationOptions';
+import CommunicationOptions from './CommunicationOptions';
 
 const HelpCenter = () => {
     return (
@@ -13,6 +13,7 @@ const HelpCenter = () => {
             <TopicsPrompt />
             <RecentPurchases />
             <HelpTopics />
+            <CommunicationOptions />
 
 
         </div>

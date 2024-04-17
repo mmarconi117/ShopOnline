@@ -1,5 +1,5 @@
 import rightArrow from '../../../assets/ICONS/RightArrowLine.svg';
-import './HelpTopics.css'; // Assuming you have a CSS file for styling
+import './HelpTopics.css'; 
 
 const HelpTopics = () => {
     const items = [

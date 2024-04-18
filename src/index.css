@@ -16,9 +16,3 @@
   font-family: 'Sansita One', sans-serif;
 }
 
-.banner-container {
-  background: linear-gradient(180deg, #001C43 0%, rgba(0, 28, 67, 0.24) 122.22%),
-radial-gradient(46.82% 4276.44% at 46.82% 67.09%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.4) 53.77%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-linear-gradient(180deg, rgba(0, 28, 67, 0.8) 70.05%, rgba(0, 0, 0, 0) 100%);
-margin-top: -100px;
-}

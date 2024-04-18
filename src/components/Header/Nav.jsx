@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import "./Nav.css";
 import { setAuthenticated } from "../../reducersAndActions/actions/BuyersLoginFormAction";
 
 export default function Nav() {
@@ -22,95 +21,82 @@ export default function Nav() {
   };
 
   return (
-    <ul className=" text-[#b7b9ba]  gap-3   py-2 px-10 nav-container ">
-      <li
-        onClick={() => {
-          setMenu("home");
-        }}
-      >
-        <Link to="/" style={{ textDecoration: "none" }}>
+    <ul className="text-[#b7b9ba] 2xl:w-[1980px] sm:w-[990px] py-2 px-10 bg-[#001c43] h-16 flex justify-between items-center">
+
+      {/* For small screens */}
+      <li className="sm:hidden flex justify-center w-full ">
+        <Link to="/" className="text-white mr-6">
           Home
         </Link>
-        {menu === "home" ? (
-          <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]" />
-        ) : (
-          <></>
-        )}
-      </li>
-      <li
-        onClick={() => {
-          setMenu("sell");
-        }}
-      >
         <Link
           to="/sellers/login"
-          style={{
-            textDecoration: "none",
-            color: isAuthenticated ? "gray" : "",
-          }}
           className={`cursor-pointer ${
             isAuthenticated
-              ? "pointer-events-none opacity-50 cursor-not-allowed"
-              : "opacity-100"
-          }`}
+              ? "pointer-events-none opacity-50 cursor-not-allowed text-gray-400"
+              : "opacity-100 text-white"
+          } mr-6`}
         >
           Sell
         </Link>
-        {menu === "sell" ? (
-          <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]" />
+        <Link to="/language" className="text-white mr-6">
+          English/US
+        </Link>
+        <Link to="/help" className="text-white mr-6">
+          Help
+        </Link>
+        {isAuthenticated ? (
+          <Link to="/account" className="text-white mr-6">
+            Account
+          </Link>
+        ) : null}
+        {isAuthenticated ? (
+          <button onClick={handleLogout} className="text-white">
+            Logout
+          </button>
         ) : (
-          <></>
+          <Link to="/login" className="text-white">
+            Login
+          </Link>
         )}
       </li>
-      <li
-        onClick={() => {
-          setMenu("language");
-        }}
-      >
-        <Link to="/language">English/US</Link>
-        {menu === "language" ? (
-          <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]" />
+
+      {/* For screens larger than sm */}
+      <li className="hidden sm:flex justify-center w-full">
+        <Link to="/" className="text-white mr-6">
+          Home
+        </Link>
+        <Link
+          to="/sellers/login"
+          className={`cursor-pointer ${
+            isAuthenticated
+              ? "pointer-events-none opacity-50 cursor-not-allowed text-gray-400"
+              : "opacity-100 text-white"
+          } mr-6`}
+        >
+          Sell
+        </Link>
+        <Link to="/language" className="text-white mr-6">
+          English/US
+        </Link>
+        <Link to="/help" className="text-white mr-6">
+          Help
+        </Link>
+        {isAuthenticated ? (
+          <Link to="/account" className="text-white mr-6">
+            Account
+          </Link>
+        ) : null}
+        {isAuthenticated ? (
+          <button onClick={handleLogout} className="text-white">
+            Logout
+          </button>
         ) : (
-          <></>
+          <Link to="/login" className="text-white">
+            Login
+          </Link>
         )}
       </li>
-      <li
-        onClick={() => {
-          setMenu("help");
-        }}
-      >
-        <Link to="/help">Help</Link>
-        {menu === "help" ? (
-          <hr className="border-none w-full h-1 rounded-lg bg-[#09618E]" />
-        ) : (
-          <></>
-        )}
-      </li>
-      <li>
-       
-          {isAuthenticated ? <Link to="/account">Account</Link> : <></>}
-        
-        {/* no dropdwn */}
-       </li>
-       <li>
-          {isAuthenticated && (
-            <>
-              <button onClick={handleLogout}>Logout</button>
-              {/* Add other menu items as needed */}
-            </>
-          )}
-          {!isAuthenticated && <Link to="/login">Login</Link>}
-       
-      </li>
+
     </ul>
   );
 }
-
-{
-  /* <Link to="/settings">Settings</Link>
-<Link to="/info">Info</Link>
-<Link to="/orders">Orders</Link> */
-}
-
-// orders page not done
-// info page not done

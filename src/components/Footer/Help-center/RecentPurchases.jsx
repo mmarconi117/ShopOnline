@@ -1,4 +1,4 @@
-import img from '../../../assets/IMAGES/Recent-purchases/Rectangle-1.jpeg';
+import img from '../../../assets/IMAGES/Recent-purchases/Rectangle-1.svg';
 import img2 from '../../../assets/IMAGES/Recent-purchases/Rectangle-2.jpeg';
 import img3 from '../../../assets/IMAGES/Recent-purchases/Rectangle-3.jpeg';
 import img4 from '../../../assets/IMAGES/Recent-purchases/Rectangle-4.jpeg';

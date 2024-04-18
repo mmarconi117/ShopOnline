@@ -1,6 +1,7 @@
 import callUsImg from '../../../assets/IMAGES/Footer/Call-us/Rectangle-1.jpeg';
 import emailUs from '../../../assets/IMAGES/Footer/email-us/Rectangle-1.jpeg';
 import phoneIcon from '../../../assets/ICONS/Phone.svg';
+import messageImage from '../../../assets/ICONS/MessageUs.svg';
 import emailIcon from '../../../assets/ICONS/Email.svg';
 import messageIcon from '../../../assets/ICONS/MessageIcon.svg';
 import EmailModal from '../EmailModal/EmailModal';
@@ -30,6 +31,7 @@ const CommunicationOptions = () => {
         {
             description: 'Message us',
             icon: messageIcon,
+            img: messageImage,
         },
     ];
 

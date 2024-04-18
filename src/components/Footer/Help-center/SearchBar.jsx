@@ -13,7 +13,7 @@ const SearchBar = () => {
   return (
     <div className="flex justify-center mt-20">
       <div id="help-center-search-bar" className="my-5 flex items-center">
-        <div className="border-blue-500 border rounded-md p-2  md:w-[1460px] w-[500px] relative">
+        <div className="border-blue-500 border rounded-md p-2  md:w-[1460px] rounded-tr-none rounded-br-none relative">
           <input
             value={inputValue}
             onChange={(e) => onChange(e.target.value)}
@@ -23,7 +23,7 @@ const SearchBar = () => {
           />
         </div>
 
-        <div className="flex items-center pr-3 bg-[#001C43] h-10 w-14 rounded-md p-4">
+        <div className="flex items-center pr-3 bg-[#001C43] h-10 w-14 rounded-md p-4 rounded-tl-none rounded-bl-none">
           <img src={search} className="w-6 h-6" />
         </div>
       </div>

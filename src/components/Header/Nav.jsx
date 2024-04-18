@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import "./Nav.css";
 import { setAuthenticated } from "../../reducersAndActions/actions/BuyersLoginFormAction";
 
 export default function Nav() {
@@ -21,7 +22,7 @@ export default function Nav() {
   };
 
   return (
-    <ul className="flex bg-[#001c43] text-[#b7b9ba] justify-between gap-3 sm:justify-end sm:gap-10  py-2 px-3 ">
+    <ul className=" text-[#b7b9ba]  gap-3   py-2 px-10 nav-container ">
       <li
         onClick={() => {
           setMenu("home");

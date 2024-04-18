@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setTopicPrompt } from '../../../reducersAndActions/actions/helpCenterAction';
 
@@ -14,17 +14,14 @@ const TopicsPrompt = () => {
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
     const isMobile = windowWidth <= 640;
 
-    const numItemsPerRow = isMobile ? 3 : 7;
+    let numItemsPerRow = isMobile ? 3 : 7;
+
+    // Adjust the number of items per row for desktop if there are more than 14 items
+    if (!isMobile && topicsPrompt.length > 14) {
+        numItemsPerRow = 7;
+    }
 
     const rows = [];
     for (let i = 0; i < topicsPrompt.length; i += numItemsPerRow) {

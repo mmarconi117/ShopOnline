@@ -219,7 +219,7 @@ const Checkout = ({
           </div>
 
           {/* Shipping Method */}
-          <div className="bg-gray-100">
+          <div className="bg-[#F0F0F0]">
             <div className="flex px-4 py-8">
               <div className="w-full">
                 <div className="flex flex-col lg:grid grid-cols-3">
@@ -286,7 +286,7 @@ const Checkout = ({
                 </div>
                 <button
                   // onClick={handleContinueToPayment}
-                  className="bg-yellow-400 text-gray-900 py-2 px-16 ml-40 mt-5 rounded hover:bg-yellow-500 w-[400px]"
+                  className="bg-[#EEC643] text-gray-900 py-2 px-16 ml-30 mt-5 rounded hover:bg-yellow-500 w-[400px]"
                 >
                   Continue to Payment
                 </button>
@@ -342,14 +342,14 @@ const Checkout = ({
               </div>
               <button
                 onClick={handleCheckout}
-                className="bg-[#EEC643] text-[#0F1111] py-2 px-4 rounded hover:bg-[#FFD700] w-[400px]"
+                className="bg-none text-[#0F1111] py-2 px-4 rounded hover:bg-[#FFD700] w-[300px] border-2 border-blue-200"
               >
                 Checkout
               </button>
             </div>
             <div className="bg-white p-6 rounded-lg m-[-20] mt-9 w-[400px] lg:w-auto">
-            <p className="font-bold">Returns are easy</p>
-            <p>Free return within 15 days for Official Store items and 7 days for other eligible items.</p>
+              <p className="font-bold">Returns are easy</p>
+              <p>Free return within 15 days for Official Store items and 7 days for other eligible items.</p>
             <a href="">See more</a>
           </div>
           </div>

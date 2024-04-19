@@ -2,46 +2,50 @@ import searchIcon from "../../../../assets/ICONS/SearchIcons.svg";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import  {SET_TRANSACTIONS} from "../../../../reducersAndActions/actions"
-import { SET_TRANSACTION } from "../../../../reducersAndActions/actions";
+// import { SET_TRANSACTION } from "../../../../reducersAndActions/actions";
+import axios from "axios";
 
 
 
 
 const Transactions = () => {
 
-////each of the transactions
-  const [transaction,setTransaction]=useState(  
-      {
-      isRowChecked:'',
-      transactionPOCO:'',
-      transactionType:'',
-      transactionDate:'',
-      transactionTimeID:'',
-      transactionQty:'',
-      transactionAmount:'',
-      transactionStatus:''
-  
-    }
-  )
+
 
   ////alll transaction
   const [transactions,setTransactions]=useState([
-
 ])
 
   const dispatch = useDispatch();
 
 
-  useEffect(()=>{
-    setTransactions(dispatch({type: SET_TRANSACTIONS, payload: transactions }));
-    setTransaction(dispatch({type: SET_TRANSACTION, payload: transaction }));
+  // useEffect(()=>{
+  //   setTransactions(dispatch({type: SET_TRANSACTIONS, payload: transactions }));
+  //   // setTransaction(dispatch({type: SET_TRANSACTION, payload: transaction }));
 
-  },[]);
+  // },[]);
 
-  const listTransctions=useSelector((state)=>state.transactionsReducer)
-  const eachTransaction=useSelector((state)=>state.transactionReducer)
-  console.log('listTransactions->',listTransctions);
- console.log('eachTransaction->',eachTransaction)
+
+  // const listTransctions=useSelector((state)=>state.transactionsReducer)
+  // const eachTransaction=useSelector((state)=>state.transactionReducer)
+  // console.log('listTransactions->',listTransctions);
+//  console.log('eachTransaction->',eachTransaction)
+
+useEffect(() => {
+  const fetchTransactions = async () => {
+      try {
+          const transactionRes = await axios.get("https://sonnyny-be.onrender.com/api/subcategories");
+          const items = transactionRes.data
+          // .map((item) => (
+          //     <CategoryItems key={item.id} subcategory={item.subcategory_name} path={item.subcategory_url} />
+          // ));
+          setTransaction(items);
+      } catch (error) {
+          console.error("Error fetching categories:", error);
+      }
+  };
+
+  console.log('look at translation-->',transactions)
   
 
   return (

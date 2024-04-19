@@ -30,46 +30,95 @@ const RecentPurchases = () => {
       img: img4,
     },
   ];
-  const recentPurchases = purchases.map((item, index) => {
-    return (
-      <div
-        key={index}
-        className="bg-white px-10 text-left relative py-20 flex flex-col items-center"
-      >
-        <div className="mb-4">
-          <img
-            src={item.img}
-            alt="last purchased item"
-            className="inset-0  md:w-[213px] w-full h-[300px]"
-          />
-        </div>
-        <div className="  ">
-          <div className="">
-            <p>{item.description}</p>
-          </div>
 
-          <br />
-
-          <div>
-            <p>
-              from <span className="text-blue-800 font-bold text-[24px]">${item.cost}</span>
-            </p>
+  const defaultView = (
+    <div id="recent-purchases" className="my-5 flex justify-center items-center  gap-5">
+      {purchases.map((item, index) => (
+        <div
+          key={index}
+          className="bg-white px-10 text-left relative py-20 flex flex-col items-center w-full md:w-1/2"
+        >
+          <div className="mb-4">
+            <img
+              src={item.img}
+              alt="last purchased item"
+              className="inset-0 md:w-[213px] w-full h-[300px]"
+            />
           </div>
-          <br />
-          <div>
-            <span className="font-bold">Last Purchased on {item.purchasedDate}</span>
+          <div className="  ">
+            <div className="">
+              <p>{item.description}</p>
+            </div>
+            <br />
+            <div>
+              <p>
+                from{" "}
+                <span className="text-blue-800 font-bold text-[24px]">
+                  ${item.cost}
+                </span>
+              </p>
+            </div>
+            <br />
+            <div>
+              <span className="font-bold">
+                Last Purchased on {item.purchasedDate}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    );
-  });
-  return (
-    <div
-      id="recent-purchases"
-      className="my-5 flex justify-center items-center"
-    >
-      <div className="flex gap-5 p-10">{recentPurchases}</div>
+      ))}
     </div>
+  );
+
+  const mobileView = (
+    <div id="recent-purchases" className="my-5 flex justify-center items-center flex-col gap-5">
+      {[...Array(Math.ceil(purchases.length / 2))].map((_, rowIndex) => (
+        <div key={rowIndex} className="flex flex-row gap-5">
+          {purchases.slice(rowIndex * 2, rowIndex * 2 + 2).map((item, index) => (
+            <div
+              key={index}
+              className="bg-white px-10 text-left relative py-20 flex flex-col items-center w-full md:w-1/2 rounded-xl"
+            >
+              <div className="mb-4">
+                <img
+                  src={item.img}
+                  alt="last purchased item"
+                  className="inset-0 md:w-[213px] w-full h-[300px]"
+                />
+              </div>
+              <div className="  ">
+                <div className="">
+                  <p>{item.description}</p>
+                </div>
+                <br />
+                <div>
+                  <p>
+                    from{" "}
+                    <span className="text-blue-800 font-bold text-[24px]">
+                      ${item.cost}
+                    </span>
+                  </p>
+                </div>
+                <br />
+                <div>
+                  <span className="font-bold">
+                    Last Purchased on {item.purchasedDate}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <>
+      <p className="pl-10 text-[22px] mb-[-20px] text-[#243292] font-semibold">Do you want help with your recent purchase?</p>
+      <div className="hidden md:flex mt-[-5] p-10">{defaultView}</div>
+      <div className="md:hidden p-10">{mobileView}</div>
+    </>
   );
 };
 

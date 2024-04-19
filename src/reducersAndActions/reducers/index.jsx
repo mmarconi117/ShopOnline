@@ -30,7 +30,6 @@ import helpCenterReducer from "./helpCenterReducer";
 import emailModalReducer from "./emailModalReducer";
 import statementsReducer from "./statementsReducer";
 import transactionsReducer from "./transactionsReducer"
-import transactionReducer from "./transactionReducer";
 
 
 export const rootReducer = combineReducers({
@@ -64,7 +63,6 @@ export const rootReducer = combineReducers({
     emailModalReducer,
     statementsReducer,
     transactionsReducer,
-    transactionReducer
 });
 
 export default rootReducer;

@@ -1,16 +1,12 @@
 import searchIcon from "../../../../assets/ICONS/SearchIcons.svg";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import  {SET_TRANSACTIONS} from "../../../../reducersAndActions/actions"
-// import { SET_TRANSACTION } from "../../../../reducersAndActions/actions";
+import { fetchTransactions } from "../../../../reducersAndActions/actions/transactionsAction";
 import axios from "axios";
-
-
+import EachTransaction from "./EachTransaction";
 
 
 const Transactions = () => {
-
-
 
   ////alll transaction
   const [transactions,setTransactions]=useState([
@@ -19,33 +15,24 @@ const Transactions = () => {
   const dispatch = useDispatch();
 
 
-  // useEffect(()=>{
-  //   setTransactions(dispatch({type: SET_TRANSACTIONS, payload: transactions }));
-  //   // setTransaction(dispatch({type: SET_TRANSACTION, payload: transaction }));
-
-  // },[]);
-
-
-  // const listTransctions=useSelector((state)=>state.transactionsReducer)
-  // const eachTransaction=useSelector((state)=>state.transactionReducer)
-  // console.log('listTransactions->',listTransctions);
-//  console.log('eachTransaction->',eachTransaction)
-
 useEffect(() => {
+  ////eventually you will want to import a thunk creator from redux and dispatch that thunk creator to grab the data when it renders
   const fetchTransactions = async () => {
       try {
           const transactionRes = await axios.get("https://sonnyny-be.onrender.com/api/subcategories");
           const items = transactionRes.data
           // .map((item) => (
-          //     <CategoryItems key={item.id} subcategory={item.subcategory_name} path={item.subcategory_url} />
-          // ));
-          setTransaction(items);
-      } catch (error) {
+          //     console.log('item->',item)
+          //   ));
+          setTransactions(items);
+      } 
+      catch (error) {
           console.error("Error fetching categories:", error);
       }
-  };
-
-  console.log('look at translation-->',transactions)
+    }
+    fetchTransactions();
+  },[])
+  console.log('look at translations-->',transactions)
   
 
   return (
@@ -88,38 +75,14 @@ useEffect(() => {
           </thead>
 
           <tbody>
-            {transactions.map(transaction=>{
 
-<tr className="">
-  <td className="px-3 py-4 text-left 2xl:text-center align-top">
-    <input  
-      id="check1" 
-      name="check1" 
-      className="w-6 h-6"
-      type="checkbox" 
-      checked={transaction.isRowChecked}
-      onChange={(e) => setTransaction({ ...transaction, isRowChecked: e.target.checked })} 
-      />
-  </td>
-  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionPOCO}</td>
-  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionType}</td>
-  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionDate}</td>
-  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionTimeID}</td>
-  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionQty}</td>
-  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">{transaction.transactionAmount}</td>
-  <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">
-    <div className="bg-[#F6E099] rounded-md py-0.5 px-1">{transaction.transactionStatus}</div>
-  </td>
-  <td className="px-3 py-6 text-left 2xl:text-center align-top">
-    <div className="flex gap-1">
-      <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-      <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-      <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-    </div>
-  </td>
-</tr>
+             {transactions.map( transaction=>{
+              return(
+                transaction && <EachTransaction key={transaction.id} transaction={transaction}/> 
+              )
+            }
 
-            })}
+            )}
             
          
       

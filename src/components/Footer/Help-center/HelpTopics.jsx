@@ -33,21 +33,23 @@ const HelpTopics = () => {
     ];
     const topics = items.map((item, index) => {
         return (
-            <a href={item.url} key={index}>
+            <a href={item.url} key={index} className="text-blue-700 font-bold p-5 m-5 border border-gray-300 bg-white flex justify-center items-center h-full w-full">
                 {item.name}
             </a>
         );
     });
     return (
-        <div id="help-center" className="my-5">
+        <div id="help-center" className="my-5 text-center">
             <div>
-                <p>Suggested Help Topics</p>
+                <p className="text-blue-700 font-bold text-[24px]">Suggested Help Topics</p>
             </div>
-            <div>
-                <div>{topics}</div>
-                <div>
-                    <p>More </p>
-                    <img className="w-6 h-6" src={rightArrow} />
+            <div className="topics-container">
+                <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-10 p-10 text-[20px]">
+                    {topics}
+                    <div className="mt-5 flex justify-center items-center border border-gray-300 bg-white text-blue-700 font-bold  p-10 h-full w-full">
+                        <p>More </p>
+                        <img className="w-6 h-4 ml-2" src={rightArrow} alt="Right Arrow" />
+                    </div>
                 </div>
             </div>
         </div>

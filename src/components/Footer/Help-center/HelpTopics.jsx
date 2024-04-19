@@ -1,5 +1,4 @@
 import rightArrow from '../../../assets/ICONS/RightArrowLine.svg';
-import './HelpTopics.css'; 
 
 const HelpTopics = () => {
     const items = [
@@ -32,27 +31,23 @@ const HelpTopics = () => {
             url: '',
         },
     ];
-
     const topics = items.map((item, index) => {
         return (
-            <a href={item.url} key={index} className="topic-item">
+            <a href={item.url} key={index}>
                 {item.name}
             </a>
         );
     });
-
     return (
-        <div id="help-center" className="my-5 bg-[#BBBBBB2]">
-            <div className="suggested-help-topics">
-                <p className="suggested-help-text text-[32px]">Suggested Help Topics</p>
+        <div id="help-center" className="my-5">
+            <div>
+                <p>Suggested Help Topics</p>
             </div>
-            <div className="topics-container">
-                <div className="topics-grid">
-                    {topics}
-                    <div className="more-topics">
-                        <p>More </p>
-                        <img className="arrow-icon h-[50px] w-[20px]" src={rightArrow} alt="Right Arrow" />
-                    </div>
+            <div>
+                <div>{topics}</div>
+                <div>
+                    <p>More </p>
+                    <img className="w-6 h-6" src={rightArrow} />
                 </div>
             </div>
         </div>

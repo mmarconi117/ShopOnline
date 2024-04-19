@@ -2,8 +2,8 @@ import Banner from './Banner';
 import Search from './SearchBar';
 import TopicsPrompt from './TopicsPrompt';
 import RecentPurchases from './RecentPurchases';
-import HelpTopics from './HelpTopics';
-import CommunicationOptions from './CommunicationOptions';
+// import HelpTopics from './HelpTopics';
+// import CommunicationOptions from './CommunicationOptions';
 
 const HelpCenter = () => {
     return (
@@ -12,8 +12,6 @@ const HelpCenter = () => {
             <Search />
             <TopicsPrompt />
             <RecentPurchases />
-            <HelpTopics />
-            <CommunicationOptions />
 
 
         </div>

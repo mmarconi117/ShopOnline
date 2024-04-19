@@ -66,7 +66,11 @@ import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices'
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification'
 import Agreements from './pages/Sellers/Agreements/Agreements'
 
-import Category from './pages/Buyers/Category/category/Category';
+import CategoryPage from './pages/Buyers/Category/category/Category';
+
+
+
+
 function App() {
   return (
     <div>
@@ -78,7 +82,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route
               path="/toolsAndHomeImprovement"
-              element={<ToolsAndHomeImprovement />}
+              element={<CategoryPage />}
             />
             <Route path="/electronics" element={<Electronics />} />
             <Route
@@ -139,7 +143,6 @@ function App() {
             <Route path="/accountsettings" element={<Account />} />
             <Route path="/productcatalogue" element={<ProductCatalogue />} />
             <Route path="/shipping" element={<Shipping />} />
-            <Route path="/practiceCategory" element={<Category />} />
             {/* Buyer's Footer */}
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/help-center" element={<HelpCenter />} />

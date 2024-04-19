@@ -1,79 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Category() {
-  const [categories, setCategories] = useState([]);
+const CategoryPage = () => {
   const [subcategories, setSubcategories] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedSubcategory, setSelectedSubcategory] = useState('');
 
   useEffect(() => {
-    fetchCategories();
+    const fetchSubcategories = async () => {
+      try {
+        const response = await axios.get('https://sonnyny-be.onrender.com/api/subcategories');
+        setSubcategories(response.data);
+      } catch (error) {
+        console.error('Error fetching subcategories:', error);
+      }
+    };
+
+    fetchSubcategories();
   }, []);
 
-  const fetchCategories = async () => {
+  const fetchProductsForSubcategory = async (subcategoryId) => {
     try {
-      const response = await axios.get('https://sonnyny-be.onrender.com/api/categories');
-      setCategories(response.data); // Use response.data directly
+      const response = await axios.get(`https://sonnyny-be.onrender.com/api/subcategories/1`);
+      console.log(response.data.products)
+      return response.data;
     } catch (error) {
-      console.error('Error fetching categories:', error);
+      console.error(`Error fetching products for subcategory ${subcategory_name}:`, error);
+      return [];
     }
-  };
-
-  const fetchCategoriesById = async (categoryId) => {
-    try {
-      const response = await axios.get(`https://sonnyny-be.onrender.com/api/categories/${categoryId}`);
-      setCategories(response.data); // Use response.data directly
-    } catch (error) {
-      console.error('Error fetching categories:', error);
-    }
-  };
-
-  const fetchProducts = async (subcategoryId) => {
-    try {
-      const response = await axios.get(`https://sonnyny-be.onrender.com/api/products/${subcategoryId}`);
-      setProducts(response.data); // Use response.data directly
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
-  };
-
-  const handleCategoryChange = (e) => {
-    const categoryId = e.target.value;
-    setSelectedCategory(categoryId);
-    setSelectedSubcategory('');
-    fetchCategoriesById(categoryId);
-    setProducts([]);
-  };
-
-  const handleSubcategoryChange = (e) => {
-    const subcategoryId = e.target.value;
-    setSelectedSubcategory(subcategoryId);
-    fetchProducts(subcategoryId);
   };
 
   return (
-    <div>
-      <select value={selectedCategory} onChange={handleCategoryChange}>
-        <option value="">Select Category</option>
-        {categories.map(category => (
-          <option key={category.id} value={category.id}>{category.category_name}</option>
-        ))}
-      </select>
-      <select value={selectedSubcategory} onChange={handleSubcategoryChange}>
-        <option value="">Select Subcategory</option>
-        {subcategories.map(subcategory => (
-          <option key={subcategory.subcategory_id} value={subcategory.subcategory_id}>{subcategory.subcategory_name}</option>
-        ))}
-      </select>
-      <ul>
-        {products.map(product => (
-          <li key={product.product_id}>{product.product_name}</li>
-        ))}
-      </ul>
+    <div className="category-container">
+      {subcategories.map(subcategory => (
+        <div className="subcategory" key={subcategory.id}>
+          <h2 className="subcategory-title">{subcategory.subcategory_name}</h2>
+          <div className="products">
+            {fetchProductsForSubcategory(subcategory.id).then(products => (
+              products.map(product => (
+                <div className="product" key={product.id}>
+                  <img src={product.product_images[0]} alt={product.product_name} />
+                  <p>{product.product_name}</p>
+                  <p>${product.product_price.toFixed(2)}</p>
+                </div>
+              ))
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
-}
+};
 
-export default Category;
+export default CategoryPage;

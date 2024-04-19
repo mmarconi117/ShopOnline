@@ -1,10 +1,9 @@
 
 
-const EachTransaction=(props)=> {
+const EachTransaction=({transaction})=> {
 
-    const {transaction}=props
+    console.log('each transaction->',transaction)
     
-    console.log('transaction=>',transaction)
   return (
         <tr className="">
   <td className="px-3 py-4 text-left 2xl:text-center align-top">

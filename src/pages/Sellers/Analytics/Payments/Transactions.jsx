@@ -21,16 +21,13 @@ useEffect(() => {
       try {
           const transactionRes = await axios.get("https://sonnyny-be.onrender.com/api/subcategories");
           const items = transactionRes.data
-          // .map((item) => (
-          //     console.log('item->',item)
-          //   ));
           setTransactions(items);
       } 
       catch (error) {
           console.error("Error fetching categories:", error);
       }
     }
-    fetchTransactions();
+  fetchTransactions();
   },[])
   console.log('look at translations-->',transactions)
   

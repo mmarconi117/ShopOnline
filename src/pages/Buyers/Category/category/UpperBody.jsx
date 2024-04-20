@@ -5,7 +5,7 @@ const subcategoryRes = axios.get(
   "https://sonnyny-be.onrender.com/subcategories"
 );
 const subcategory = subcategoryRes.data;
-const categoryRes = axios.get("https://sonnyny-be.onrender.com/categories");
+const categoryRes = axios.get("https://api.shoponlinenewyork.com/api/categories");
 const category = categoryRes.data;
 
 function UpperBody() {

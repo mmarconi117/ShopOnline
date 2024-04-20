@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { ExploreItem } from "./ExploreItem";
-import rightArrow from "../../assets/ICONS/Fill/arrow-right.svg";
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { ExploreItem } from './ExploreItem'; 
+import rightArrow from '../../assets/ICONS/Fill/arrow-right.svg'; 
 
 const Explore = () => {
     const [exploreItems, setExploreItems] = useState([]);
@@ -9,10 +9,17 @@ const Explore = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const categoriesRes = await axios.get("https://sonnyny-be.onrender.com/api/categories");
-                const items = categoriesRes.data.map((item) => (
-                    <ExploreItem key={item.id} src={item.category_banner} category={item.category_name} path={item.category_url} />
-                ));
+                const categoriesRes = await axios.get("https://api.shoponlinenewyork.com/api/categories");
+                console.log(categoriesRes.data); // Check what the API returns
+                const items = categoriesRes.data.map((item) => {
+                    if (!item.categoryUrl) {
+                        console.warn(`Missing categoryUrl for category ID: ${item.id}`);
+                        return null; // Skip rendering this item if categoryUrl is missing
+                    }
+                    return (
+                        <ExploreItem key={item.id} src={item.categoryBanner} category={item.categoryName} path={item.categoryUrl} />
+                    );
+                });
                 setExploreItems(items);
             } catch (error) {
                 console.error("Error fetching categories:", error);
@@ -39,4 +46,4 @@ const Explore = () => {
     );
 };
 
-export default Explore
+export default Explore;

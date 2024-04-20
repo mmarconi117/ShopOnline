@@ -1,53 +1,83 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 const CategoryPage = () => {
-  const [subcategories, setSubcategories] = useState([]);
-  const [products, setProducts] = useState({});  // Products will be stored with subcategory IDs as keys
-  useEffect(() => {
-    const fetchSubcategories = async () => {
-      try {
-        const response = await axios.get('https://sonnyny-be.onrender.com/api/subcategories');
-        setSubcategories(response.data);
-        response.data.forEach(subcategory => {
-          fetchProductsForSubcategory(subcategory.id);  // Fetch products for each subcategory
-        });
-      } catch (error) {
-        console.error('Error fetching subcategories:', error);
-      }
+    const [categories, setCategories] = useState([]);  // Storing categories
+    const [products, setProducts] = useState({});  // Products stored by subcategory ID
+    const [searchTerm, setSearchTerm] = useState('');
+
+    useEffect(() => {
+        const fetchCategoriesAndSubcategories = async () => {
+            try {
+                const res = await axios.get('https://api.shoponlinenewyork.com/api/categories');
+                setCategories(res.data);
+                res.data.forEach(category => {
+                    category.subcategories.forEach(subcategory => {
+                        fetchProductsForSubcategory(subcategory.id);
+                    });
+                });
+            } catch (error) {
+                console.error('Error fetching categories and subcategories:', error);
+                setCategories([]); // Set to empty array on error
+            }
+        };
+
+        fetchCategoriesAndSubcategories();
+    }, []);
+
+    const fetchProductsForSubcategory = async (subcategoryId) => {
+        try {
+            const res = await axios.get(`https://api.shoponlinenewyork.com/api/products?subcategoryId=${subcategoryId}`);
+            setProducts(prevProducts => ({
+                ...prevProducts,
+                [subcategoryId]: res.data  // Assuming the API returns the array of products directly
+            }));
+        } catch (error) {
+            console.error(`Error fetching products for subcategory ${subcategoryId}:`, error);
+            setProducts(prevProducts => ({ ...prevProducts, [subcategoryId]: [] })); // Set to empty array on error
+        }
     };
-    fetchSubcategories();
-  }, []);
-  const fetchProductsForSubcategory = async (subcategoryId) => {
-    try {
-      const response = await axios.get(`https://sonnyny-be.onrender.com/api/subcategories/${subcategoryId}`);
-      setProducts(prevProducts => ({
-        ...prevProducts,
-        [subcategoryId]: response.data.products  // Store products under their subcategory ID
-      }));
-    } catch (error) {
-      console.error(`Error fetching products for subcategory ${subcategoryId}:`, error);
-      setProducts(prevProducts => ({ ...prevProducts, [subcategoryId]: [] }));  // Handle errors by setting an empty array for products
-    }
-  };
-  return (
-    <div className="category-container">
-      {subcategories.map(subcategory => (
-        <div className="subcategory" key={subcategory.id}>
-          <h2 className="subcategory-title">{subcategory.subcategory_name}</h2>
-          <div className="products">
-            {products[subcategory.id]?.map(product => (  // Conditional rendering based on product availability
-              <div className="product" key={product.id}>
-                <img src={product.product_images.map(img => {
-                  
-                })} alt={product.product_name} />
-                <p>{product.product_name}</p>
-                <p>${product.product_price}</p>
-              </div>
+
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    return (
+        <div className="category-container">
+            <input
+                type="text"
+                placeholder="Search products..."
+                value={searchTerm}
+                onChange={handleSearchChange}
+                style={{ margin: "10px", padding: "5px", width: "95%" }}
+            />
+            {categories.map(category => (
+                <div key={category.id}>
+                    <h2 className="category-title">{category.categoryName}</h2>
+                    {category.subcategories.map(subcategory => (
+                        <div key={subcategory.id}>
+                            <h3 className="subcategory-title">{subcategory.subcategoryName}</h3>
+                            <div className="products">
+                                {products[subcategory.id]?.filter(product =>
+                                    product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+                                ).map(product => (
+                                    <div className="product" key={product.id}>
+                                        {product.productImages && product.productImages.length > 0 ? (
+                                            <img src={product.productImages[0]} alt={product.productName} />
+                                        ) : (
+                                            <div>No Image Available</div> // Placeholder in case there are no images
+                                        )}
+                                        <p>{product.productName}</p>
+                                        <p>${product.productPrice}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
             ))}
-          </div>
         </div>
-      ))}
-    </div>
-  );
+    );
 };
+
 export default CategoryPage;

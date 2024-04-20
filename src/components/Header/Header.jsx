@@ -10,12 +10,14 @@ import { Link } from 'react-router-dom';
 import { setSearchQuery } from '../../reducersAndActions/actions/searchAction';
 //import axios from 'axios' //Add this when connected to backend
 //import { useEffect } from 'react';
+import Modal from './Modal';
 
 const Header = ({ menuIsOpened, setMenuIsOpened }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const cartItems = useSelector(state => state.cartReducer.carts);
     const [search, setSearch] = useState('');
+    const [showModal, setShowModal] = useState(false);
    // const [routeNames, setRouteNames] = useState([]);
    
 
@@ -54,7 +56,7 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
             navigate(`/${matchedRoute}`); // Redirect to the matched route
         } else {
             // Handle no match found: stay on the current page or show a search result message
-            console.log('No matching page. Consider showing search results or stay on the page.');
+            setShowModal(true); //Show modal if no results are found
         }
     };
 
@@ -86,6 +88,7 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
                     </Link>
                 </div>
             </div>
+            <Modal isOpen={showModal} onClose={() => setShowModal(false)} content="No products found." />
             <Menu />
         </>
     );

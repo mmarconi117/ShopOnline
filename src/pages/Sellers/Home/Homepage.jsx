@@ -110,7 +110,7 @@ function Homepage() {
             Access millions of customers, boost sales, build trust, simplify
             operations, and stay ahead of the competition.
           </div>
-          <button className="max-md:text-[#09618E] self-center mt-8 px-3 py-[14px] md:px-8 md:py-4 bg-transparent md:bg-[#E6E0E9] rounded-md flex items-center gap-2 border-solid border-[#2284B6] max-md:border">
+          <button className="text-[#AEA9B1] hover:text-[#1D1B20] hover:bg-[#EEC643] bg-[#E6E0E9] max-md:text-[#09618E] self-center mt-8 px-3 py-[14px] md:px-8 md:py-4 bg-transparent md:bg-[#E6E0E9] rounded-md flex items-center gap-2 border-solid border-[#2284B6] max-md:border transition duration-300">
             <p className="text-xl">
               +
             </p>

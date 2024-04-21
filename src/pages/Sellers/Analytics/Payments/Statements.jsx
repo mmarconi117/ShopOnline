@@ -25,7 +25,7 @@ const Statements = () => {
               console.error("Error fetching categories:", error);
           }
       };
-      fetchStatements()
+     fetchStatements()
   },[]);
 
   console.log('statements->',statements)

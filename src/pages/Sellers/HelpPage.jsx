@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFeedbackForm, submitFeedbackForm, updateEmail, updateQuestion } from '../../reducersAndActions/actions/feedbackFormActions';
-import user from "../../assets/ICONS/user/user-fill.svg";
-import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
 import FeedbackModal from '../Buyers/FeedbackModal';
 
@@ -29,47 +27,6 @@ const HelpPage = () => {
   return (
     <div className="bg-gray-100 h-screen flex flex-row space-x-12">
       {showFeedbackFormState && <FeedbackModal />}
-      {/* Dashboard */}
-      <div className="w-2/5 bg-white flex flex-col space-y-12 ">
-        <div className="flex flex-row mx-8 align-middle mt-6">
-          <img className="h-12" src={user} alt="user" />
-          <div className="ml-7 justify-center  ">
-            <h4 className="font-bold text-xl">Hello,Name</h4>
-            <div>ID:XXXXXXXXX</div>
-          </div>
-          <img
-            src={closeDashboard}
-            className="h-12 ml-20 cursor-pointer"
-            alt="close-dashboard"
-          />
-        </div>
-        <div className="flex flex-col align-middle  text-left space-y-2">
-          <h3 className="font-bold ml-10">Analytics</h3>
-          <div className="ml-20 leading-7 cursor-pointer">
-            <h1>Overview</h1>
-            <h1>Payments</h1>
-            <h1>Activity Feed</h1>
-            <h1>Ratings & Reviews</h1>
-          </div>
-          <h3 className="font-bold ml-10">Product Catalogue</h3>
-          <div className="ml-20 leading-7 cursor-pointer">
-            <h1>List of products</h1>
-            <h1>Upload a Product</h1>
-          </div>
-          <h3 className="font-bold ml-10">Order Management</h3>
-          <div className="ml-20 leading-7 cursor-pointer">
-            <h1>Order List</h1>
-            <h1>Returns & Refunds</h1>
-            <h1>Disputes</h1>
-          </div>
-        </div>
-        <div className="cursor-pointer font-bold ml-10 flex flex-row  space-x-2">
-          <h3 className="mt-8">Sign Out</h3>
-          <img className="mt-8 " src={logOut} alt="logout-user" />
-        </div>
-      </div>
-      {/* Dashboard */}
-
       {/* Navigation */}
       <div className="flex flex-col w-full p-5">
         <div className="flex flex-row space-x-2">

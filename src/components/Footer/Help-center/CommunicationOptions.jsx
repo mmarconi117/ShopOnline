@@ -43,12 +43,26 @@ const CommunicationOptions = () => {
     return (
       <div
         key={index}
-        className="option-container flex flex-col items-center space-y-4 p-10 md:p-0"
+        className="option-container flex flex-col w-full items-center max-w-[25vw] "
       >
-        <div className="bg-[#e9f0f5] p-16  rounded-lg hidden md:block md:m-10">
-          <img src={item.img} className="w-80 h-60" alt={item.description} />
+        <div className="bg-[#e9f0f5] rounded-lg w-full mx-4 gap-6 aspect-square flex-col px-10  hidden md:flex items-center justify-center p-10  md:m-10">
+          <img
+            src={item.img}
+            width={260}
+            height={172}
+            className=" w-[172px] h-[172px] "
+            alt={item.description}
+          />
+          <div className="hidden w-[172px] md:flex aspect-square  md:aspect-auto items-center justify-center bg-white px-2 py-2 shadow-lg  rounded-lg  md:flex-row md:items-start md:justify-center md:py-1  ">
+            <img
+              className="w-6 h-6 mr-3  md:mb-3"
+              src={item.icon}
+              alt={item.description}
+            />
+            <button onClick={() => toggle()}>{item.description}</button>
+          </div>
         </div>
-        <div className="flex items-center justify-center bg-white px-10 py-5 rounded-lg shadow-lg md:flex-row md:items-start md:justify-center md:py-3  ">
+        <div className="flex aspect-square md:hidden  w-full md:aspect-auto items-center justify-center bg-white px-8 py-8 shadow-lg  rounded-lg  md:flex-row md:items-start md:justify-center md:py-3  ">
           <img
             className="w-6 h-6 mr-3  md:mb-3"
             src={item.icon}
@@ -61,10 +75,17 @@ const CommunicationOptions = () => {
   });
 
   return (
-    <div id="help-center-comunnication-options" className="px-10 w-full">
-      <p className="font-bold text-blue-700 text-[24px]">Need Help? We are here for you.</p>
+    <div
+      id="help-center-comunnication-options"
+      className="px-32 w-full flex justify-center items-start flex-col "
+    >
+      <p className="font-bold text-blue-700 text-[24px]">
+        Need Help? We are here for you.
+      </p>
       {displayEmailModal && <EmailModal />}
-      <div className="flex justify-center items-center  md:mb-6 ">{commOptions}</div>
+      <div className="grid grid-cols-3 gap-4 w-full   md:gap-16 ">
+        {commOptions}
+      </div>
     </div>
   );
 };

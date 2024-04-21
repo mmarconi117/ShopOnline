@@ -21,8 +21,7 @@ export default function Nav() {
   };
 
   return (
-    <ul className="text-[#b7b9ba] 2xl:w-[1980px] sm:w-[990px] py-2 px-10 bg-[#001c43] h-16 flex justify-between items-center">
-
+    <ul className="text-[#b7b9ba] w-full py-2 px-10 bg-[#001c43] h-16 flex justify-between items-center">
       {/* For small screens */}
       <li className="sm:hidden flex justify-center w-full ">
         <Link to="/" className="text-white mr-6">
@@ -96,7 +95,6 @@ export default function Nav() {
           </Link>
         )}
       </li>
-
     </ul>
   );
 }

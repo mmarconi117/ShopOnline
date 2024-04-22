@@ -8,7 +8,7 @@ const Banner = () => {
       <div className="bg-[url(../../src/assets/IMAGES/Footer/Contact-Us/Rectangle-1.jpeg)]  w-full md:h-[325px] h-[240px]">
         <div className="flex items-center flex-row justify-center ">
          
-          <img src={banner} alt='banner' className='w-full md:max-w-[1890px] '></img>
+          <img src={banner} alt='banner' className='w-full md:max-w-[1890px] h-full'></img>
           
         </div>
       </div>

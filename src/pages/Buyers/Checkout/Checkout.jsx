@@ -320,7 +320,7 @@ const Checkout = ({
 
             {/* Order Summary */}
           {/* <div className="flex flex-col items-center gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8] w-[400px] pt-8 border-2 border-black-600"> */}
-          <div className="bg-[#F0F0F0]">
+          <div className="bg-[#F0F0F0] mr-4 ">
             <div className="bg-white p-6 rounded-lg m-[-20] mt-9 w-[400px] lg:w-auto">
             {/* <div className="flex px-4 py-8"> */}
               <div className="text-xl font-semibold mb-4">ORDER SUMMARY</div>

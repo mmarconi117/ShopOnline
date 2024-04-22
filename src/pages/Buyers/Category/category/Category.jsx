@@ -2,76 +2,80 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const CategoryPage = () => {
-    const [categories, setCategories] = useState([]);  // Storing categories
-    const [products, setProducts] = useState({});  // Products stored by subcategory ID
+    const [categories, setCategories] = useState([]);
+    const [activeCategoryProducts, setActiveCategoryProducts] = useState([]);
+    const [activeCategoryId, setActiveCategoryId] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        const fetchCategoriesAndSubcategories = async () => {
-            try {
-                const res = await axios.get('https://api.shoponlinenewyork.com/api/categories');
-                setCategories(res.data);
-                res.data.forEach(category => {
-                    category.subcategories.forEach(subcategory => {
-                        fetchProductsForSubcategory(subcategory.id);
-                    });
-                });
-            } catch (error) {
-                console.error('Error fetching categories and subcategories:', error);
-                setCategories([]); // Set to empty array on error
-            }
-        };
-
-        fetchCategoriesAndSubcategories();
+        fetchCategories();
     }, []);
 
-    const fetchProductsForSubcategory = async (subcategoryId) => {
+    const fetchCategories = async () => {
+        setLoading(true);
         try {
-            const res = await axios.get(`https://api.shoponlinenewyork.com/api/products?subcategoryId=${subcategoryId}`);
-            setProducts(prevProducts => ({
-                ...prevProducts,
-                [subcategoryId]: res.data  // Assuming the API returns the array of products directly
-            }));
+            const res = await axios.get('https://api.shoponlinenewyork.com/api/categories');
+            setCategories(res.data);
         } catch (error) {
-            console.error(`Error fetching products for subcategory ${subcategoryId}:`, error);
-            setProducts(prevProducts => ({ ...prevProducts, [subcategoryId]: [] })); // Set to empty array on error
+            console.error('Error fetching categories:', error);
+        } finally {
+            setLoading(false);
         }
     };
 
-    const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value);
+    const handleCategoryClick = async (categoryId) => {
+        if (activeCategoryId === categoryId) {
+            setActiveCategoryId(null);
+            setActiveCategoryProducts([]);
+        } else {
+            setActiveCategoryId(categoryId);
+            fetchProductsForCategory(categoryId);
+        }
+    };
+
+    const fetchProductsForCategory = async (categoryId) => {
+        setLoading(true);
+        try {
+            const { data: products } = await axios.get('https://api.shoponlinenewyork.com/api/products');
+            const selectedCategory = categories.find(cat => cat.id === categoryId);
+            const subcategoryIds = new Set(selectedCategory.subcategories.map(sc => sc.id));
+            const filteredProducts = products.filter(product => subcategoryIds.has(product.subcategoryId));
+            setActiveCategoryProducts(filteredProducts);
+        } catch (error) {
+            console.error('Error fetching products:', error);
+            setActiveCategoryProducts([]);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
         <div className="category-container">
             <input
                 type="text"
-                placeholder="Search products..."
+                placeholder="Search categories..."
                 value={searchTerm}
-                onChange={handleSearchChange}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 style={{ margin: "10px", padding: "5px", width: "95%" }}
             />
-            {categories.map(category => (
+            {loading && <div>Loading...</div>}
+            {categories.filter(category =>
+                category.categoryName.toLowerCase().includes(searchTerm.toLowerCase())
+            ).map(category => (
                 <div key={category.id}>
-                    <h2 className="category-title">{category.categoryName}</h2>
-                    {category.subcategories.map(subcategory => (
-                        <div key={subcategory.id}>
-                            <h3 className="subcategory-title">{subcategory.subcategoryName}</h3>
-                            <div className="products">
-                                {products[subcategory.id]?.filter(product =>
-                                    product.productName.toLowerCase().includes(searchTerm.toLowerCase())
-                                ).map(product => (
-                                    <div className="product" key={product.id}>
-                                        {product.productImages && product.productImages.length > 0 ? (
-                                            <img src={product.productImages[0]} alt={product.productName} />
-                                        ) : (
-                                            <div>No Image Available</div> // Placeholder in case there are no images
-                                        )}
-                                        <p>{product.productName}</p>
-                                        <p>${product.productPrice}</p>
-                                    </div>
-                                ))}
-                            </div>
+                    <h2 onClick={() => handleCategoryClick(category.id)} style={{ cursor: 'pointer' }}>
+                        {category.categoryName}
+                    </h2>
+                    {activeCategoryId === category.id && activeCategoryProducts.map(product => (
+                        <div key={product.id} style={{ margin: "10px" }}>
+                            {product.productImages && product.productImages.length > 0 ? (
+                                <img src={product.productImages[0]} alt={product.productName} style={{ width: "100px", height: "100px" }} />
+                            ) : (
+                                <div>No Image Available</div>
+                            )}
+                            <p>{product.productName}</p>
+                            <p>${product.productPrice}</p>
                         </div>
                     ))}
                 </div>

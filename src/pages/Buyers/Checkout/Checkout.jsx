@@ -312,8 +312,8 @@ const Checkout = ({
           </div>
           </div>
             {/* Order Summary */}
-          <div className="flex flex-col items-end gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8]">
-            <div className="bg-white p-6 rounded-lg">
+          <div className="flex flex-col items-end gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8] w-20">
+            <div className="bg-white p-6 rounded-lg m-20 w-40 border-2 border-blue-200">
               <div className="text-xl font-semibold mb-4">Order Summary</div>
               <div className="flex justify-between mb-2">
                 <span>Subtotal:</span>

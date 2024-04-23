@@ -1,0 +1,77 @@
+
+               Test Case: Testing Buttons on the Header 
+Objective: Verify the functionality of buttons in the Header of the Shop ONline New York 
+website. 
+
+Preconditions: 
+1. Ensure the Shop ONline New York Website is accessible. 
+2.  Clear browser cookies and cache. 
+Test Steps: 
+1. Open the Shop ONline New York Website: 
+2. Navigate to the Shop ONline New York Website. 
+3. Verify that the website loads successfully. 
+4. Verify the buttons on header work successfully. 
+Navigate to Home Option in the header: 
+1. Once you get to the home page, go to the right hand side. 
+2. Click on the " Home " option which is on the header's right side. 
+3. If a user can click then you have a successful navigation to  the “Shop ONline New York” 
+home page. 
+Expected Results: 
+1. Once you click on “Home Page” you should get redirected to the homepage. 
+Navigate to the Sell Page in the header: 
+1.  Make sure you have access to the Shop ONline New York Website 
+2.  Maker sure you can go to the header 
+3.  Click on the “Sell” option on the header. 
+4.  A user should be navigated to another page that has all the login  information 
+5. If you are a first time user create an account go through the process  
+6. If you are an existing user, login with your email or password. 
+7. Once Logged in you will be redirected into sellers account 
+ 
+Expected Results: 
+1. Once a user click the “Sell”  page  in the header they should be redirected to another 
+webpage. 
+2. Next a user should be able to create an account or login. 
+3. After this they will be redirected to a sellers webpage. 
+ 
+ 
+ 
+Navigate To the Language Section in the header 
+1.  Scroll to the Shop ONline New York Website 
+2. Maker sure you can go to the header 
+3.  Click on the “English/ US” option on the header. 
+ 
+Actual Results:  
+1. Once a user Clicks  “English/ US” option it goes to another webpage, although the 
+webpage is a blank page. 
+Expected Results: 
+1. Once a user Clicks on “English/ US” option it should redirect to another webpage. 
+2. While on the next webpage, a user should be able to change the language that they 
+desire the website to be in. The user should also make sure they can change the 
+countries' origin. 
+ 
+Navigate To the Help Section 
+1.  Scroll to the Shop ONline New York Website 
+2.  Maker sure you can you navigate to the header 
+3.  Click on the “Help” option on the header. 
+4. Once the Help is clicked you will be redirected to another webpage  
+5. Once on this webpage you will have access to contact “ Shop ONline New York” via 
+email, phone and also view available hours and view frequently asked questions. You 
+will also be able to see your account. 
+   
+Navigate To the Login Section in the Header 
+1.  Scroll to the Shop ONline New York Website 
+2.  Make sure you can you the header 
+3.  Click on the “Login Button ” option on the header. 
+4. Once click on the Login Button you will be redirected to another page 
+5. The option to enter your email, password, option to stay signed in and login should pop 
+up. 
+6. Once you enter your email, password, login in you will be redirected to home page. 
+Actual Results: 
+3. Once a user clicks on The Login Button in the header it redirects to another webpage 
+and works as intended. 
+4.  A user is redirected to another webpage. 
+Expected Results: 
+1. The website loads successfully at the beginning of each step. 
+2.  The “Login Button” feature redirects you to another webpage.  
+3. As a User if you have an account you should be able to log in, create an Account, or 
+Sign in with a Social Media Platform.

@@ -1,7 +1,6 @@
 import user from "../../assets/ICONS/user/user-fill.svg";
 import closeDashboard from "../../assets/ICONS/closeDashboard.svg";
 import navigationArrow from "../../assets/ICONS/navigationArrow.svg";
-import logOut from "../../assets/ICONS/logOut.svg";
 import { useEffect } from "react";
 import store from "../../store";
 import { useSelector } from "react-redux";
@@ -88,7 +87,7 @@ const CompanyService = () => {
           </div>
         </div>
         <h1 className="my-10 text-2xl font-semibold">Company Service</h1>
-      {/* Navigation */}
+        {/* Navigation */}
 
 
         {/* Company Service form */}

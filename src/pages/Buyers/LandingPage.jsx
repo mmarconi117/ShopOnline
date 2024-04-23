@@ -31,20 +31,24 @@ const LandingPage = () => {
 //     return () => clearTimeout(confettiTimeout);
 //   }, []);
 
-  return (
-    <div className="bg-gray-100 relative">
-      <div className="w-full min-[1512px]:px-3 min-[1450px]:pb-3 overflow-auto relative">
-        <img src={Hero} alt="shop online New York" />
-        {/* <Confetti active={showConfetti} config={confettiConfig} style={{ position: 'absolute', left: 0, top: 0 }} /> */}
+    return (
+    <>
+      <div className="text-center py-2 bg-red-600 text-white text-xl font-bold">
+        Site Under Construction
       </div>
-      <Explore />
-      <div className="flex flex-col items-center min-[1512px]:items-center">
-        <PopularItems />
-        <BS_HomeAndOffice />
-        <BS_BeautyandPersonal />
-        
+      <div className="bg-gray-100 relative">
+        <div className="w-full overflow-auto relative">
+          <img src={Hero} alt="shop online New York" className='w-full object-cover'/>
+          {/* <Confetti active={showConfetti} config={confettiConfig} style={{ position: 'absolute', left: 0, top: 0 }} /> */}
+        </div>
+        <Explore />
+        <div className="flex flex-col items-center min-[1512px]:items-center">
+          <PopularItems />
+          <BS_HomeAndOffice />
+          <BS_BeautyandPersonal />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

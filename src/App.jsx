@@ -26,15 +26,16 @@ import PhonesAndAccessoriesSubCategory from './pages/Buyers/Category/PhonesAndAc
 import ComputerOfficeSubCategory from './pages/Buyers/Category/ComputerOffice/ComputerOfficeSubCategory'
 import HomePetAndAppliances from './pages/Buyers/Category/HomePetAndAppliances/HomePetAndAppliances'
 import AutomotiveSubCategory from './pages/Buyers/Category/Automotive/AutomotiveSubCategory'
-import HelpCenter from "./components/Footer/Help-center/HelpCenter";
-import ContactUs from "./components/Footer/Contact-Us/ContactUs";
-import AboutUs from "./components/Footer/About-Us/AboutUs";
-import FlashSales from "./components/Footer/Flash-Sales/FlashSales";
-import SiteMap from "./components/Footer/Site-Map/SiteMap";
-import FAQComponent from "./components/Footer/FAQs/FAQComponent";
-import ReturnsHelp from "./components/Footer/Returns/ReturnsHelp";
-import PoliciesComponent from "./components/Footer/Policies/PoliciesComponent";
-import CareersComponent from "./components/Footer/Careers/CareersComponent";
+import HelpCenter from './components/Footer/Help-center/HelpCenter'
+import ContactUs from './components/Footer/Contact-Us/ContactUs'
+import AboutUs from './components/Footer/About-Us/AboutUs'
+import FlashSales from './components/Footer/Flash-Sales/FlashSales'
+import SiteMap from './components/Footer/Site-Map/SiteMap'
+import FAQComponent from './components/Footer/FAQs/FAQComponent'
+import ReturnsHelp from './components/Footer/Returns/ReturnsHelp'
+import PoliciesComponent from './components/Footer/Policies/PoliciesComponent'
+import CareersComponent from './components/Footer/Careers/CareersComponent'
+import DigitalMedia from './pages/Buyers/Category/DigitalMedia/DigitalMediaSubCategory'
 
 // layout
 import Layout from './Layout'
@@ -145,6 +146,10 @@ function App() {
                           path="/homePetsAndAppliances"
                           element={<HomePetAndAppliances />}
                       />
+                      <Route
+                          path="/digitalMedia"
+                          element={<DigitalMedia />}
+                      />
 
                       <Route
                           path="/productdetails"
@@ -238,6 +243,10 @@ function App() {
                       <Route
                           path="/policies"
                           element={<PoliciesComponent />}
+                      />
+                      <Route
+                          path="/careers"
+                          element={<CareersComponent />}
                       />
                   </Route>
 

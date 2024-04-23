@@ -25,7 +25,7 @@ const Card = ({ imagesList, subCategory, isLast = false }) => {
     });
 
     return (
-        <div className={`relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-4 ${!isLast ? 'sm:pt-16 sm:pb-1' : 'pb-10 sm:pt-16 sm:pb-10'} sm:pl-6`} >
+        <div className={`relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-1 ${!isLast ? 'sm:pt-16 sm:pb-1' : 'pb-10 sm:pt-16 sm:pb-10'} sm:pl-6`} >
             <h1 className=" text-[#313133] font-Roboto font-medium text-base sm:text-[31px] sm:font-bold sm:leading-[37.2px]">{subCategory}</h1>
             <ul className="flex w-full items-start gap-2 sm:gap-4 min-[390px]:overflow-x-auto overflow-hidden">
                 {exploreItems}

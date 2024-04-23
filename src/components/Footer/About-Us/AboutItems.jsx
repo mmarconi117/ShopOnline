@@ -28,13 +28,22 @@ const AboutItems = () => {
   return (
     <div id="about-items-section" className="my-10">
       {items.map((item, idx) => (
-        <div key={idx} className="w-full grid grid-cols-1 px-10 md:grid-cols-2">
-          <div className={`w-full md:order-${idx % 2 === 0 ? '1' : '2'} md:col-span-1 md:text-left bg-black bg-opacity-65`}>
-            <img src={item.img} alt={item.title} className="h-full w-full "/>
+        <div key={idx} className="w-full grid grid-cols-1 px-10 md:grid-cols-2 ">
+          <div
+            className={`w-full flex bg-white ${
+              idx % 2 != 0 ? "md:order-last" : ""
+            }  md:text-left `}
+            
+          >
+            <img src={item.img} alt={item.title} className="h-full w-full " />
           </div>
-          <div className={`w-full flex flex-col justify-center items-center md:order-${idx % 2 === 0 ? '1' : '2'}`}>
-            <h1 className="font-bold text-[39px] md:mt-10 mt-[-300px]">{item.title}</h1>
-            <p className="w-full p-20 md:h-full h-[-28px] mt-[210px] md:mt-0">{item.description}</p>
+          <div className={`w-full flex flex-col justify-center items-center `}>
+            <h1 className="font-bold text-[39px] md:mt-10 mt-[-300px] relative">
+              {item.title}
+            </h1>
+            <p className="w-full p-20 md:h-full h-[-28px] mt-[210px] md:mt-0 relative">
+              {item.description}
+            </p>
           </div>
         </div>
       ))}

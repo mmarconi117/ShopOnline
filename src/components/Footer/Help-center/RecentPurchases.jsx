@@ -1,7 +1,7 @@
 import img from "../../../assets/IMAGES/Recent-purchases/Rectangle-1.svg";
-import img2 from "../../../assets/IMAGES/Recent-purchases/Rectangle-2.jpeg";
-import img3 from "../../../assets/IMAGES/Recent-purchases/Rectangle-3.jpeg";
-import img4 from "../../../assets/IMAGES/Recent-purchases/Rectangle-4.jpeg";
+import img2 from "../../../assets/IMAGES/Recent-purchases/Rectangle-2.svg";
+import img3 from "../../../assets/IMAGES/Recent-purchases/Rectangle-3.svg";
+import img4 from "../../../assets/IMAGES/Recent-purchases/Rectangle-4.svg";
 
 const RecentPurchases = () => {
   const purchases = [
@@ -77,7 +77,7 @@ const RecentPurchases = () => {
           {purchases.slice(rowIndex * 2, rowIndex * 2 + 2).map((item, index) => (
             <div
               key={index}
-              className="bg-white px-10 text-left relative py-20 flex flex-col items-center w-full md:w-1/2 rounded-xl"
+              className="bg-white md:px-10  px-8 py-5  text-left relative md:py-20 flex flex-col items-center w-full md:w-1/2 rounded-xl"
             >
               <div className="mb-4">
                 <img
@@ -115,7 +115,7 @@ const RecentPurchases = () => {
 
   return (
     <>
-      <p className="pl-10 text-[22px] mb-[-20px] text-[#243292] font-semibold">Do you want help with your recent purchase?</p>
+      <p className="pl-10 text-[22px] mb-[-20px] text-[#243292] font-semibold mt-20">Do you want help with your recent purchase?</p>
       <div className="hidden md:flex mt-[-5] p-10">{defaultView}</div>
       <div className="md:hidden p-10">{mobileView}</div>
     </>

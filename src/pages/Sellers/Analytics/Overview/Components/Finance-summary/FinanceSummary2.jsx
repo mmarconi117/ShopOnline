@@ -4,12 +4,11 @@ const FinanceSummary2 = () => {
             <div className="mb-5">
                 <p className="font-bold text-center">Financial Summary</p>
             </div>
-            <div className="w-1/2 mx-auto">
-                <p className="text-center">
-                    Lorem ipsum dolor sit amet consectetur. Sollicitudin in accumsan tortor volutpat
-                    tellus eu.
-                </p>
-            </div>
+            <p className="text-center">
+                Lorem ipsum dolor sit amet consectetur. Sollicitudin in accumsan tortor volutpat
+                tellus eu.
+            </p>
+            
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import banner from "../../../assets/IMAGES/Footer/Help-center/Rectangle-1.jpeg";
+import banner from "../../../assets/IMAGES/Footer/Help-center/Rectangle-1.svg";
 import "./Banner.css";
 
 const Banner = () => {

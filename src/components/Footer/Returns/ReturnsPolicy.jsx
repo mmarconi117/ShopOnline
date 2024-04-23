@@ -85,8 +85,9 @@ const ReturnPolicy = () => {
       title: "Contact Us:",
       sections: [
         {
-          description:
-            "If you have any questions or concerns regarding our return policy, please reach out to our customer service team at [customer service email/phone number]. We appreciate your business and thank you for choosing [Your Company Name]. Your satisfaction is our priority, and we are committed to providing a positive shopping experience.",
+          description: `If you have any questions or concerns regarding our return policy, please reach out to our customer service team at [customer service email/phone number].
+    
+    We appreciate your business and thank you for choosing [Your Company Name]. Your satisfaction is our priority, and we are committed to providing a positive shopping experience.`,
         },
       ],
     },

@@ -6,7 +6,9 @@ const Banner = () => {
         <div className="p-2 bg-slate-400 w-fit lg:w-1/6 m-auto">
           <div className="p-2 bg-slate-300">
             <div className="p-2 bg-slate-200">
-              <p className="text-black p-2 bg-white text-center">Returns</p>
+              <p className="text-black p-2 bg-white text-center text-xl md:text-2xl">
+                Returns
+              </p>
             </div>
           </div>
         </div>

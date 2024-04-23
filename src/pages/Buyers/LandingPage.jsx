@@ -37,8 +37,8 @@ const LandingPage = () => {
         Site Under Construction
       </div>
       <div className="bg-gray-100 relative">
-        <div className="w-full min-[1512px]:px-3 min-[1450px]:pb-3 overflow-auto relative">
-          <img src={Hero} alt="shop online New York" />
+        <div className="w-full overflow-auto relative">
+          <img src={Hero} alt="shop online New York" className='w-full object-cover'/>
           {/* <Confetti active={showConfetti} config={confettiConfig} style={{ position: 'absolute', left: 0, top: 0 }} /> */}
         </div>
         <Explore />

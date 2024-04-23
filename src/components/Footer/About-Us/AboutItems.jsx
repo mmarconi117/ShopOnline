@@ -29,9 +29,8 @@ const AboutItems = () => {
     <div id="about-items-section" className="my-10">
       {items.map((item, idx) => (
         <div key={idx} className="w-full grid grid-cols-1 px-10 md:grid-cols-2">
-          <div id="image" className={`w-full md:order-${idx % 2 === 0 ? '2' : '1'} md:col-span-1 md:text-left`}>
-            <img src={item.img} alt={item.title} className="h-full w-full"/>
-            
+          <div className={`w-full md:order-${idx % 2 === 0 ? '1' : '2'} md:col-span-1 md:text-left bg-black bg-opacity-65`}>
+            <img src={item.img} alt={item.title} className="h-full w-full "/>
           </div>
           <div className={`w-full flex flex-col justify-center items-center md:order-${idx % 2 === 0 ? '1' : '2'}`}>
             <h1 className="font-bold text-[39px] md:mt-10 mt-[-300px]">{item.title}</h1>

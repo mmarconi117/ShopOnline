@@ -8,76 +8,60 @@ import SubscribeForm from "./SubscribeForm";
 
 const footerSectionsData = [
     {
-        title: 'LET US HELP YOU',
+        title: "LET US HELP YOU",
         items: [
             {
-                title: 'Help Center',
-                link: '/help-center',
+                title: "Help Center",
+                link: "/help-center"
             },
             {
-                title: 'Contact Us',
-                link: '/contact-us',
+                title: "Contact Us",
+                link: "/contact-us"
             },
             {
-                title: 'FAQs',
-                link: '/faqs',
+                title: "FAQs",
+                link: "/faqs"
             },
             {
-                title: 'Returns',
-                link: '/returns-help',
+                title: "Returns",
+                link: "/returns-help"
             },
             {
-                title: 'Policies',
-                link: '/policies',
-            },
-        ],
+                title: "Policies",
+                link: "/policies"
+            }
+        ]
     },
     {
-        title: 'ABOUT YORK SHOPPERS',
+        title: "ABOUT YORK SHOPPERS",
         items: [
             {
-                title: 'About Us',
-                link: '/about',
+                title: "About Us",
+                link: "/about"
             },
             {
-                title: "York Shoppers' Express",
-                link: '/ys-express',
+                title: "Careers",
+                link: "/careers"
             },
             {
-                title: 'Cookie Notice',
-                link: '/cookie-notice',
-            },
-            {
-                title: 'Legal and Privacy Notices',
-                link: '/privacy-notices',
-            },
-            {
-                title: 'Flash Sales',
-                link: '/flash-sales',
-            },
-        ],
-    },
+                title: "Flash Sales",
+                link: "/flash-sales"
+            }
+        ]
+    }
 ];
 
 const footerSectionsDataMobile = [
-  [
-    'Yorkshoppers.com',
-    'Your Lists',
-    'Find a Gift',
-    'Browsing History',
-    'Returns',
-    'Cookie Notice',
-    'Help Center'
-  ],
-  [
-    'Your Orders',
-    'Gift Cards & Registry',
-    'Your Account',
-    'Become a seller',
-    'Terms and Conditions',
-    'Contact Us',
-  ]
-]
+    ["Your Lists", "Find a Gift", "Browsing History", "Returns", "Help Center"],
+    [
+        "Your Orders",
+        "Gift Cards & Registry",
+        "Your Account",
+        "Become a seller",
+        "Terms and Conditions",
+        "Contact Us"
+    ]
+];
 
 const Footer = () => {
   return (

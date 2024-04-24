@@ -28,20 +28,28 @@ const AboutItems = () => {
   return (
     <div id="about-items-section" className="my-10">
       {items.map((item, idx) => (
-        <div key={idx} className="w-full grid grid-cols-1 px-10 md:grid-cols-2 ">
+        <div
+          key={idx}
+          className="w-full grid grid-cols-1 px-10 md:grid-cols-2 "
+        >
           <div
-            className={`w-full flex bg-white ${
+            className={`w-full flex  ${
               idx % 2 != 0 ? "md:order-last" : ""
             }  md:text-left `}
-            
           >
-            <img src={item.img} alt={item.title} className="h-full w-full " />
+            <img
+              src={item.img}
+              alt={item.title}
+              className="md:h-full w-full h-[168px] "
+            />
           </div>
-          <div className={`w-full flex flex-col justify-center items-center `}>
-            <h1 className="font-bold text-[39px] md:mt-10 mt-[-300px] relative">
+          <div
+            className={`w-full flex flex-col justify-center items-center `}
+          >
+            <h1 className="font-bold text-[39px] md:mt-10 mt-[-165px] relative bg-black bg-opacity-65 md:bg-transparent md:text-black text-white w-full text-center h-[158px] p-10">
               {item.title}
             </h1>
-            <p className="w-full p-20 md:h-full h-[-28px] mt-[210px] md:mt-0 relative">
+            <p className="w-full p-20 md:h-full h-[-28px] mt-[-50px] md:mt-0 relative">
               {item.description}
             </p>
           </div>

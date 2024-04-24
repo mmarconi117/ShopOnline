@@ -66,7 +66,10 @@ import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices'
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification'
 import Agreements from './pages/Sellers/Agreements/Agreements'
 
-import Category from './pages/Buyers/Category/FunctionalityTest/Category'
+import CategoryPage from './pages/Buyers/Category/category/Category';
+
+
+
 
 function App() {
   return (
@@ -151,104 +154,30 @@ function App() {
                           element={<DigitalMedia />}
                       />
 
-                      <Route
-                          path="/productdetails"
-                          element={<ProductDetails />}
-                      />
-                      <Route
-                          path="/cart"
-                          element={<Cart />}
-                      />
-                      <Route
-                          path="/help"
-                          element={<Help />}
-                      />
-                      <Route
-                          path="/account"
-                          element={<Account />}
-                      />
-                      <Route
-                          path="/app"
-                          element="#"
-                      />
-                      <Route
-                          path="/signup"
-                          element={<SignupPage />}
-                      />
-                      <Route
-                          path="/companyService"
-                          element={<CompanyService />}
-                      />
-                      <Route
-                          path="/paymentSuccess"
-                          element={<PaymentSuccessful />}
-                      />
-                      <Route
-                          path="/checkout"
-                          element={<Checkout />}
-                      />
-                      <Route
-                          path="/reviews"
-                          element={<ReviewPage />}
-                      />
-                      <Route
-                          path="/accountsettings"
-                          element={<Account />}
-                      />
-                      <Route
-                          path="/productcatalogue"
-                          element={<ProductCatalogue />}
-                      />
-                      <Route
-                          path="/shipping"
-                          element={<Shipping />}
-                      />
-                      <Route
-                          path="/practiceCategory"
-                          element={<Category />}
-                      />
-                      {/* Buyer's Footer */}
-                      <Route
-                          path="/shipping"
-                          element={<Shipping />}
-                      />
-                      <Route
-                          path="/help-center"
-                          element={<HelpCenter />}
-                      />
-                      <Route
-                          path="/contact-us"
-                          element={<ContactUs />}
-                      />
-                      <Route
-                          path="/about"
-                          element={<AboutUs />}
-                      />
-                      <Route
-                          path="/flash-sales"
-                          element={<FlashSales />}
-                      />
-                      <Route
-                          path="/sitemap"
-                          element={<SiteMap />}
-                      />
-                      <Route
-                          path="/faqs"
-                          element={<FAQComponent />}
-                      />
-                      <Route
-                          path="/returns-help"
-                          element={<ReturnsHelp />}
-                      />
-                      <Route
-                          path="/policies"
-                          element={<PoliciesComponent />}
-                      />
-                      <Route
-                          path="/careers"
-                          element={<CareersComponent />}
-                      />
-                  </Route>
+            <Route path="/productdetails" element={<ProductDetails />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/help" element={<Help />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/app" element="#" />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/companyService" element={<CompanyService />} />
+            <Route path="/paymentSuccess" element={<PaymentSuccessful />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/reviews" element={<ReviewPage />} />
+            <Route path="/accountsettings" element={<Account />} />
+            <Route path="/productcatalogue" element={<ProductCatalogue />} />
+            <Route path="/shipping" element={<Shipping />} />
+            {/* Buyer's Footer */}
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/help-center" element={<HelpCenter />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/flash-sales" element={<FlashSales />} />
+            <Route path="/sitemap" element={<SiteMap />} />
+            <Route path="/faqs" element={<FAQComponent />} />
+            <Route path="/returns-help" element={<ReturnsHelp />} />
+            <Route path="/policies" element={<PoliciesComponent />} />
+          </Route>
 
                   {/* Sellers Routers */}
                   <Route

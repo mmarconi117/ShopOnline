@@ -1,13 +1,33 @@
-import { ExploreItem } from "./ExploreItem";
-import { BaseImagesAndCategories } from "./BaseImagesAndCategories";
-import rightArrow from "../../assets/ICONS/Fill/arrow-right.svg";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { ExploreItem } from './ExploreItem'; 
+import rightArrow from '../../assets/ICONS/Fill/arrow-right.svg'; 
 
-export const Explore = () => {
-    // In your Explore component, pass the path to ExploreItem
-    const exploreItems = BaseImagesAndCategories.map((item) => (
-        <ExploreItem key={item.id} src={item.img} category={item.category} path={item.path} />
-    ));
+const Explore = () => {
+    const [exploreItems, setExploreItems] = useState([]);
 
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const categoriesRes = await axios.get('http://localhost:8000/api/categories');
+                console.log(categoriesRes.data); // Check what the API returns
+                const items = categoriesRes.data.map((item) => {
+                    if (!item.category_url) {
+                        console.warn(`Missing categoryUrl for category ID: ${item.id}`);
+                        return null; // Skip rendering this item if categoryUrl is missing
+                    }
+                    return (
+                        <ExploreItem key={item.id} src={item.category_banner} category={item.category_name} path={item.category_url} />
+                    );
+                });
+                setExploreItems(items);
+            } catch (error) {
+                console.error("Error fetching categories:", error);
+            }
+        };
+
+        fetchCategories();
+    }, []);
 
     return (
       <section className="bg-[#BAD9E8] w-full flex flex-col items-start justify-center gap-2 pl-2 py-8 min-[391px]:pl-4 min-[391px]:pt-8 min-[391px]:gap-[18px] min-[391px]:min-h-[651px] min-[1360px]:px-6 min-[1512px]:px-10">

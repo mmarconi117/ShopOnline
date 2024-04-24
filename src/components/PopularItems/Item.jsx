@@ -7,7 +7,7 @@ export const Item = ({ src, description, price }) => {
   return (
       <Link
       to="/productdetails"
-      className="bg-white flex flex-col p-2 pb-3 justify-start items-start gap-4 min-w-[175px] min-h-[373px] rounded-[5px] border border-solid border-[#AEA9B1] min-[465px]:w-[219px] min-[465px]:p-[10px] min-[465px]:pb-4 min-[465px]:gap-6 min-[465px]:border-0"
+      className="bg-[#BAD9E8] flex flex-col p-2 pb-3 justify-start items-start gap-4 min-w-[175px] min-h-[373px] rounded-[5px] border border-solid border-[#AEA9B1] min-[465px]:w-[219px] min-[465px]:p-[10px] min-[465px]:pb-4 min-[465px]:gap-6 min-[465px]:border-0"
     >
       <img
         src={src}

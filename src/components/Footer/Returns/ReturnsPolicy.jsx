@@ -85,9 +85,8 @@ const ReturnPolicy = () => {
       title: "Contact Us:",
       sections: [
         {
-          description: `If you have any questions or concerns regarding our return policy, please reach out to our customer service team at [customer service email/phone number].
-    
-    We appreciate your business and thank you for choosing [Your Company Name]. Your satisfaction is our priority, and we are committed to providing a positive shopping experience.`,
+          description:
+            "If you have any questions or concerns regarding our return policy, please reach out to our customer service team at [customer service email/phone number].",
         },
       ],
     },
@@ -100,7 +99,7 @@ const ReturnPolicy = () => {
           <p>{index + 1}. </p>
           <p>{item.title}</p>
         </div>
-        <ol className="list-disc list-inside pl-1">
+        <ol className="list-disc pl-4">
           {item.sections.map((section, sectionIndex) => {
             return <li>{section.description}</li>;
           })}
@@ -125,6 +124,11 @@ const ReturnPolicy = () => {
         </p>
       </div>
       <div className="text-gray-900">{policies}</div>
+      <div className=" -mt-5">
+        We appreciate your business and thank you for choosing [Your Company
+        Name]. Your satisfaction is our priority, and we are committed to
+        providing a positive shopping experience.
+      </div>
     </div>
   );
 };

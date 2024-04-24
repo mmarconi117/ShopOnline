@@ -82,7 +82,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route
               path="/toolsAndHomeImprovement"
-              element={<CategoryPage />}
+              element={<ToolsAndHomeImprovement />}
             />
             <Route path="/electronics" element={<Electronics />} />
             <Route

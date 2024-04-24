@@ -2,15 +2,18 @@ import axios from "axios";
 import LowerRectangle from "../PhonesAndAccessories/UpperBody/LowerRectangle";
 
 const subcategoryRes = axios.get(
-  "https://sonnyny-be.onrender.com/subcategories"
+  'http://localhost:8000/api/subcategories'
 );
 const subcategory = subcategoryRes.data;
-const categoryRes = axios.get("https://sonnyny-be.onrender.com/categories");
+const categoryRes = axios.get('http://localhost:8000/api/categories');
 const category = categoryRes.data;
 
 function UpperBody() {
   return (
     <div>
+      {category[category.id].map(cat => {
+        
+      })}
       <img
         src={category.category_banner}
         className="object-cover min-h-[184px] w-full"

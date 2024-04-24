@@ -90,7 +90,7 @@ function Login() {
       <div className="flex w-full md:w-[705px] max-w-full flex-col items-stretch">
         <div className="self-center">
           <img src={logo} className="object-contain object-center" />
-          <Link to="/">
+          <Link to="/" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Return to Home
           </Link>
         </div>

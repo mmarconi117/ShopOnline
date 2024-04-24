@@ -9,15 +9,15 @@ const Explore = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const categoriesRes = await axios.get('https://localhost:8000/api/categories');
+                const categoriesRes = await axios.get('http://localhost:8000/api/categories');
                 console.log(categoriesRes.data); // Check what the API returns
                 const items = categoriesRes.data.map((item) => {
-                    if (!item.categoryUrl) {
+                    if (!item.category_url) {
                         console.warn(`Missing categoryUrl for category ID: ${item.id}`);
                         return null; // Skip rendering this item if categoryUrl is missing
                     }
                     return (
-                        <ExploreItem key={item.id} src={item.categoryBanner} category={item.categoryName} path={item.categoryUrl} />
+                        <ExploreItem key={item.id} src={item.category_banner} category={item.category_name} path={item.category_url} />
                     );
                 });
                 setExploreItems(items);
@@ -30,21 +30,6 @@ const Explore = () => {
     }, []);
 
     return (
-<<<<<<< HEAD
-        <section className="bg-[#F3F4F6] w-full flex flex-col items-start justify-center gap-4 py-8 px-4">
-            <div className="w-full flex justify-between items-center">
-                <div className="font-Roboto text-[#313133] text-lg md:text-xl font-bold">Explore our Top Categories</div>
-                <button className="w-6 h-6 hidden md:block">
-                    <img src={rightArrow} alt="right-arrow" />
-                </button>
-            </div>
-            <div className="w-full overflow-x-auto">
-                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {exploreItems}
-                </div>
-            </div>
-        </section>
-=======
       <section className="bg-[#BAD9E8] w-full flex flex-col items-start justify-center gap-2 pl-2 py-8 min-[391px]:pl-4 min-[391px]:pt-8 min-[391px]:gap-[18px] min-[391px]:min-h-[651px] min-[1360px]:px-6 min-[1512px]:px-10">
       <div className="w-full flex justify-between items-center">
         <div className="font-Roboto text-[#313133] text-base font-medium min-[391px]:text-xl min-[391px]:font-bold min-[391px]:leading-normal whitespace-nowrap">Explore our Top Categories</div>
@@ -58,7 +43,6 @@ const Explore = () => {
       </div>
     </div>
     </section>
->>>>>>> cf34982d4871a35bb9a00c679b598029ef1a507b
     );
 };
 

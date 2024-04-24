@@ -1,0 +1,26 @@
+.nav-container {
+    background-color: #001c43;
+    height: 50px;
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    font-size: 32px;
+    color: white;
+    margin-left: 20px; 
+  }
+  
+@media screen and (max-width: 390px) {
+.nav-container {
+    max-width: 810px;
+    padding: 10px;
+}
+
+.nav-link {
+    margin-left: 10px; 
+}
+}
+  

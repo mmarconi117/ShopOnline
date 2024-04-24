@@ -52,7 +52,7 @@ const TopicsPrompt = () => {
 
   return (
     <div id="help-center-nav" className="my-5 flex flex-col   items-center">
-      <div className=" w-[70%] grid lg:grid-cols-6 grid-cols-3 md:grid-cols-4 xl:grid-cols-8 gap-3 ">
+      <div className=" w-[70%] grid lg:grid-cols-6 grid-cols-3 md:grid-cols-4 xl:grid-cols-7 gap-5 ">
         {navItems}
       </div>
     </div>

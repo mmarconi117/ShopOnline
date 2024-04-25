@@ -77,13 +77,13 @@ const CommunicationOptions = () => {
   return (
     <div
       id="help-center-comunnication-options"
-      className="px-12 w-full flex justify-center items-start flex-col mb-10 "
+      className="px-4 sm:px-12 w-full flex justify-center items-start flex-col mb-10 "
     >
       <p className="font-bold text-blue-700 text-[24px] mb-10">
         Need Help? We are here for you.
       </p>
       {displayEmailModal && <EmailModal />}
-      <div className="grid grid-cols-3 gap-10 w-full  justify-center items-center md:gap-16 ">
+      <div className="grid grid-cols-3 gap-4 w-full  justify-center items-center md:gap-16 ">
         {commOptions}
       </div>
     </div>

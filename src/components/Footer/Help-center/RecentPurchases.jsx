@@ -32,11 +32,11 @@ const RecentPurchases = () => {
   ];
 
   const defaultView = (
-    <div id="recent-purchases" className="my-5 flex justify-center items-center  gap-5">
+    <div id="recent-purchases" className="flex justify-center items-center gap-5">
       {purchases.map((item, index) => (
         <div
           key={index}
-          className="bg-white px-10 text-left relative py-20 flex flex-col items-center w-full md:w-1/2"
+          className="bg-white px-10 text-left relative py-4 xl:py-20 flex flex-col items-center w-full md:w-1/2"
         >
           <div className="mb-4">
             <img
@@ -114,11 +114,11 @@ const RecentPurchases = () => {
   );
 
   return (
-    <>
-      <p className="pl-10 text-[22px] mb-[-20px] text-[#243292] font-semibold mt-20">Do you want help with your recent purchase?</p>
-      <div className="hidden md:flex mt-[-5] p-10">{defaultView}</div>
-      <div className="md:hidden p-10">{mobileView}</div>
-    </>
+    <div className="px-4 sm:px-10 mt-20">
+      <p className="text-center sm:text-left text-[22px] text-[#243292] font-semibold">Do you want help with your recent purchase?</p>
+      <div className="max-md:hidden py-4">{defaultView}</div>
+      <div className="md:hidden py-4 ">{mobileView}</div>
+    </div>
   );
 };
 

@@ -101,7 +101,7 @@ function Homepage() {
         </div>
       </div>
       <div className="md:hidden mb-[-20px] text-lg font-semibold text-[#48464C]">Become a Seller Now!</div>
-      <div className="w-full bg-cover bg-top md:bg-center bg-Banner flex flex-col justify-center items-center md:mt-10 md:px-16 py-12 rounded-md max-md:max-w-full ">
+      <div className="w-full bg-cover bg-top md:bg-center bg-HomePage-Banner flex flex-col justify-center items-center md:mt-10 md:px-16 py-12 rounded-md max-md:max-w-full ">
         <div className="flex w-[400px] max-w-full flex-col items-stretch mt-7 mb-6">
           <div className="hidden md:block text-zinc-800 text-2xl font-semibold leading-10 self-center whitespace-nowrap">
             Become a Seller Now!

@@ -5,8 +5,8 @@ import infoIcon from "../../../assets/ICONS/info.svg";
 
 import { connect } from "react-redux";
 
-// import { setCarts, addToCart } from "../../../reducersAndActions/actions/cartAction";
-// import { getProductDetails } from "../../../reducersAndActions/actions/productTestAction";
+import { setCarts, addToCart } from "../../../reducersAndActions/actions/cartAction";
+import { getProductDetails } from "../../../reducersAndActions/actions/productTestAction";
 
 import PropTypes from "prop-types";
 
@@ -27,9 +27,19 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-    addToCart: (data) => dispatch(addToCart(data)),
-});
+const mapDispatchToProps = (dispatch) => (
+    
+    {
+  
+    addToCart: (data) =>{ 
+        console.log('data add to cart->',data)
+        dispatch(addToCart(data))
+    
+    }
+}
+      
+)
+;
 
 function ProductDetails({
     productTestState: { product },
@@ -37,6 +47,7 @@ function ProductDetails({
     carts: { carts },
     similarProductsTest: { similarProductsTest },
 }) {
+
     const [breadCrumb, setBreadCrumb] = useState([]);
     const [qty, setQty] = useState(1);
     // current urls e.g /products/product-details

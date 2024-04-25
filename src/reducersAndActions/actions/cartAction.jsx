@@ -38,3 +38,9 @@ export const increaseQuantityCart = (productId) => {
       payload: { productId }
     };
   };
+
+
+
+  ////Thunk creator//////
+
+  

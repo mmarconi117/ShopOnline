@@ -228,54 +228,62 @@ const Checkout = ({
                       <div className="text-lg">Shipping Method</div>
                     </div>
                     {/* Standard Shipping */}
-                    <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-                      <label htmlFor="standard" className="flex items-center mb-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          id="standard"
-                          name="shippingMethod"
-                          checked={shippingMethod === "Standard"}
-                          onChange={() => handleShippingMethodSelect("Standard")}
-                          className="hidden"
-                        />
-                        <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
-                        <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
-                      </label>
-                      <div className="text-sm ml-2">5 - 7 business days *</div>
+                    <div className="flex justify-between border border-gray-300 mb-4 p-4">
+                      <div className="flex flex-col">
+                        <label htmlFor="standard" className="flex items-center mb-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            id="standard"
+                            name="shippingMethod"
+                            checked={shippingMethod === "Standard"}
+                            onChange={() => handleShippingMethodSelect("Standard")}
+                            className="hidden"
+                          />
+                          <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
+                          <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
+                        </label>
+                        <div className="text-sm ml-2">5 - 7 business days *</div>
+                        
+                      </div>
                       <p>Free</p>
                     </div>
                     {/* Express Shipping */}
-                    <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-                      <label htmlFor="express" className="flex items-center mb-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          id="express"
-                          name="shippingMethod"
-                          checked={shippingMethod === "Express"}
-                          onChange={() => handleShippingMethodSelect("Express")}
-                          className="hidden"
-                        />
-                        <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Express" ? "bg-blue-500" : ""}`}></div>
-                        <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
-                      </label>
-                      <div className="text-sm ml-2">2 - 3 business days *</div>
+                    <div className="flex justify-between border border-gray-300 mb-4 p-4">
+                      <div className="flex flex-col">
+                        <label htmlFor="express" className="flex items-center mb-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            id="express"
+                            name="shippingMethod"
+                            checked={shippingMethod === "Express"}
+                            onChange={() => handleShippingMethodSelect("Express")}
+                            className="hidden"
+                          />
+                          <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Express" ? "bg-blue-500" : ""}`}></div>
+                          <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
+                        </label>
+                        <div className="text-sm ml-2">2 - 3 business days *</div>
+                      </div>
                       <p>$20</p>
                     </div>
                     {/* Overnight Shipping */}
-                    <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-                      <label htmlFor="overnight" className="flex items-center mb-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          id="overnight"
-                          name="shippingMethod"
-                          checked={shippingMethod === "Overnight"}
-                          onChange={() => handleShippingMethodSelect("Overnight")}
-                          className="hidden"
-                        />
-                        <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Overnight" ? "bg-blue-500" : ""}`}></div>
-                        <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
-                      </label>
-                      <div className="text-sm ml-2">Next business day *</div>
+                    <div className="flex justify-between border border-gray-300 mb-4 p-4">
+                      <div className="flex flex-col">
+                        <label htmlFor="overnight" className="flex items-center mb-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            id="overnight"
+                            name="shippingMethod"
+                            checked={shippingMethod === "Overnight"}
+                            onChange={() => handleShippingMethodSelect("Overnight")}
+                            className="hidden"
+                          />
+                          <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Overnight" ? "bg-blue-500" : ""}`}></div>
+                          <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
+                        </label>
+                        <div className="text-sm ml-2">Next business day *</div>
+                        
+                      </div>
                       <p>$30</p>
                     </div>
                     <div className="col-span-2 bg-white rounded-lg p-4 border border-gray-300">

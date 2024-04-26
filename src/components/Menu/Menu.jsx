@@ -4,78 +4,6 @@ import axios from 'axios';
 
 const Menu = ({menuIsOpen, handler}) => {
     const [categories, setCategories] = useState([]);
-    const cats = [
-        {
-            id:1,
-            category_url: "/",
-            category_name: "Automotive"
-        },
-        {
-            id:2,
-            category_url: "/",
-            category_name: "Digital Devices"
-        },
-        {
-            id:3,
-            category_url: "/",
-            category_name: "Men's Fashion"
-        },
-        {
-            id:4,
-            category_url: "/",
-            category_name: "Women's Fashion"
-        },
-        {
-            id:5,
-            category_url: "/",
-            category_name: "Home Electronics"
-        },
-        {
-            id:6,
-            category_url: "/",
-            category_name: "Toys, Kids & Babies"
-        },
-        {
-            id:7,
-            category_url: "/",
-            category_name: "Phone"
-        },
-        {
-            id:8,
-            category_url: "/",
-            category_name: "Home pet appliances"
-        },
-        {
-            id:9,
-            category_url: "/",
-            category_name: "Home imrpovement and toosl"
-        },
-        {
-            id:1,
-            category_url: "/",
-            category_name: "Automotive"
-        },
-        {
-            id:2,
-            category_url: "/",
-            category_name: "Digital Devices"
-        },
-        {
-            id:3,
-            category_url: "/",
-            category_name: "Men's Fashion"
-        },
-        {
-            id:4,
-            category_url: "/",
-            category_name: "Women's Fashion"
-        },
-        {
-            id:5,
-            category_url: "/",
-            category_name: "Home Electronics"
-        },
-    ]
     useEffect(() => {
         axios.get('http://localhost:8000/api/categories')
             .then(res => {
@@ -102,7 +30,7 @@ const Menu = ({menuIsOpen, handler}) => {
             </button>
             <p className="text-xl font-bold whitespace-nowrap">All Categories</p>
             <div className={`duration-300 absolute ${menuIsOpen ? "grid" : "hidden"} bg-gray-100 opacity-95 z-10 left-0 md:left-2 rounded-br-md p-4 top-11 md:top-8 w-full md:w-[30%] gap-16 text-left grid-cols-2`}>
-                {cats.map((category) => (
+                {categories.map((category) => (
                     <Link key={category.id} to={category.category_url} className="text-base leading-[19.2px] text-blue-800" onClick={menuHandler}>
                         {category.category_name}
                     </Link>

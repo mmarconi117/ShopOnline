@@ -5,7 +5,7 @@ const CareersComponent = () => {
     return (
         <div id="careers-component">
             <Banner />
-            <div>
+            {/* <div>
                 <div>
                     <p>
                         Dive into a world of abundant professional opportunities
@@ -39,7 +39,7 @@ const CareersComponent = () => {
                 <div>
                     <Link>EXPLORE INTERNSHIPS</Link>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

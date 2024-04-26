@@ -5,7 +5,7 @@ const CareersComponent = () => {
     return (
         <div id="careers-component">
             <Banner />
-            {/* <div>
+            <div className='flex flex-col justify-center items-center text-center md:px-28 mt-20 text-[24px] px-10'>
                 <div>
                     <p>
                         Dive into a world of abundant professional opportunities
@@ -19,6 +19,7 @@ const CareersComponent = () => {
                         of success.
                     </p>
                 </div>
+                <br/>
                 <div>
                     <p>
                         As we navigate the exciting trajectory of growth, we
@@ -32,14 +33,14 @@ const CareersComponent = () => {
                     </p>
                 </div>
             </div>
-            <div>
-                <div>
+            <div className=' flex md:flex-row flex-col md:gap-16 gap-5 mt-20 justify-center items-center mb-20 w-full px-5'>
+                <div className=' bg-[#09618E] text-white px-10 py-3'>
                     <Link>EXPLORE JOB OPPORTUNITIES</Link>
                 </div>
-                <div>
+                <div className='bg-[#09618E] text-white px-10 py-3'>
                     <Link>EXPLORE INTERNSHIPS</Link>
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 };

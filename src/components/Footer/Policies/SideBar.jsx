@@ -40,7 +40,7 @@ const SideBar = ({ setCurrentHash }) => {
         return (
             <li
                 key={index}
-                className="p-2"
+                className=""
                 id={item.link}
             >
                 <NavLink
@@ -52,6 +52,7 @@ const SideBar = ({ setCurrentHash }) => {
                         isActive = window.location.hash === item.hash;
                         return isActive ? activeLink : {};
                     }}
+                    className="block w-full py-12 pr-16 h-32 text-center text-xl"
                 >
                     {item.title}
                 </NavLink>
@@ -59,17 +60,25 @@ const SideBar = ({ setCurrentHash }) => {
         );
     });
     return (
-        <div id="sidebar-component">
-            <nav className="w-full">
-                <ul>{navItems}</ul>
-            </nav>
-        </div>
+        <div id="faq-sidebar-nav-component divide-y divide-solid" className="w-1/5 flex flex-col justify-center mb-12 hidden md:block ">
+        <nav className="w-full">
+            <ul className="divide-y divide-solid text-center  mt-0">
+                <li className="py-0">
+                </li>
+                {navItems}
+                <li className="py-0">
+                </li>
+            </ul>
+        </nav>
+    </div>
     );
 };
 const activeLink = {
-    backgroundColor: 'red',
+      backgroundColor: 'white',
     fontWeight: 'bold',
     color: 'black',
+    padding: '3rem 3.5rem',
+    fontSize: '18px' ,
 };
 
 export default SideBar;

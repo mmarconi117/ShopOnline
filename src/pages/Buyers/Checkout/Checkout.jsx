@@ -347,16 +347,21 @@ const Checkout = ({
                       
                 {
                 dummy.map((item, index) => (
-                  <div key={index} className="border border-gray-300 mb-4 p-4">
+                  <div key={index} className="flex border border-red-300 mb-4 p-4">
+                    <div className="flex">
                     <img src={item.product.avatar} className="w-24 h-24 mb-2" alt={item.product.name} />
-                    <div className="info">
-                      <h3 className="text-lg font-semibold mb-1">{item.product.name}</h3>
-                      <p className="text-sm mb-1">{item.product.description}</p>
-                      <p className="text-sm mb-1">${item.product.price}</p>
-                      <div className="flex items-center">
-                        <span className="text-gray-700 mr-2">Quantity:</span>
-                        <span>{item.quantity}</span>
+                      <div className="info flex flex-col">
+                        <h3 className="text-lg font-semibold mb-1">{item.product.name}</h3>
+                        <p className="text-sm mb-1">{item.product.description}</p>
+                        
+                        <div className="flex items-center">
+                          <span className="text-gray-700 mr-2">Quantity:</span>
+                          <span>{item.quantity}</span>
+                        </div>
                       </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <p className="text-sm mb-1">${item.product.price}</p>
                     </div>
                   </div>
                 ))}

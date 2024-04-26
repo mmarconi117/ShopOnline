@@ -127,6 +127,7 @@ function ProductDetails({
         },
     };
     console.log('where the product->',product)
+    console.log('addotCart->',addToCart)
     return (
         <div id="product-details-component" className="p-4 lg:px-10 lg:pt-8 lg:pb-16 flex flex-col gap-8">
             <div id="navigation-history-container">

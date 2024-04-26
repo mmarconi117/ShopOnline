@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { increaseQuantity, decreaseQuantity } from '../../../../reducersAndActions/actions/shipAction';
 import { addToCart } from '../../../../reducersAndActions/actions/cartAction';
+import { useDispatch } from 'react-redux';
 
-const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts }) => {
+const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts, addToCart}) => {
 
     console.log('quantity->',quantity)
     console.log('carts inside shipping->',carts)
@@ -44,6 +45,10 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts 
     const decrementQty = () => {
         decreaseQuantity();
     };
+
+    const addCart=()=>{
+        addToCart();
+    }
 
     const handleBuyNow = () => {
 
@@ -130,7 +135,7 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts 
                                 type="button"
                                 className="mb-10 rounded-lg bg-amber-500"
                                 style={styles.btnStyles}
-                                onClick={addToCart}
+                                onClick={addCart}
                             >
                                 Add To Cart
                             </button>
@@ -158,9 +163,19 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = {
-    increaseQuantity,
-    decreaseQuantity
+
+const mapDispatchToProps ={
+
+        increaseQuantity,
+        decreaseQuantity,
+        addToCart
+ 
 };
+// const mapDispatchToProps=dispatch=>{
+//     return{
+//         increaseQuantity:increaseQuantity,
+//         decreaseQuantity:decreaseQuantity
+//     }
+// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShippingComponent);

@@ -347,8 +347,9 @@ const Checkout = ({
                       
                 {
                 dummy.map((item, index) => (
-                  <div key={index} className="flex border border-red-300 mb-4 p-4">
-                    <div className="flex">
+                  <div key={index} className="flex border border-gray-300 mb-4 p-4">
+                    <div className="flex justify-between w-full">
+                    <div className="flex justify-start">
                     <img src={item.product.avatar} className="w-24 h-24 mb-2" alt={item.product.name} />
                       <div className="info flex flex-col">
                         <h3 className="text-lg font-semibold mb-1">{item.product.name}</h3>
@@ -361,7 +362,8 @@ const Checkout = ({
                       </div>
                     </div>
                     <div className="flex justify-end">
-                      <p className="text-sm mb-1">${item.product.price}</p>
+                      <p className="mb-1 text-lg font-semibold">${item.product.price}</p>
+                    </div>
                     </div>
                   </div>
                 ))}

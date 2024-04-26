@@ -341,12 +341,9 @@ const Checkout = ({
           <div className="flex px-4 py-8 bg-[#F0F0F0] w-full">
             <div className="w-full">
                 <div className="flex flex-col">
-                  
                   <div className="col-span-2 bg-white rounded-lg p-4">
                     <div className="font-semibold">Review items and shipping</div>
-                    
                     <div className="border-b border-gray-300 mb-2 pb-2 font-semibold flex items-center justify-between"></div>
-                      
                 {
                 dummy.map((item, index) => (
                   <div key={index} className="flex border border-gray-300 mb-4 p-4">
@@ -369,7 +366,6 @@ const Checkout = ({
                     </div>
                   </div>
                 ))}
-                
                 </div>
               </div>
             </div>
@@ -377,8 +373,8 @@ const Checkout = ({
           </div>
 
           {/* Order Summary */}
-          <div className="bg-[#F0F0F0] mr-4 ml-4 border-2 border-blue-400">
-            <div className="flex flex-col bg-white p-6 rounded-lg m-[-20] mt-8 mr-5 w-full lg:w-auto border-2 border-red-400">
+          <div className="bg-[#F0F0F0]  border-2 border-blue-400">
+            <div className="flex flex-col bg-white p-6 rounded-lg ml-5 mt-8 mr-5 w-full lg:w-auto border-2 border-red-400">
               <div className="text-xl font-semibold mb-4">ORDER SUMMARY</div>
               <div className="flex justify-between mb-2">
                 <span>Subtotal:</span>
@@ -405,7 +401,7 @@ const Checkout = ({
                 </button>
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg m-[-20] mt-9 mr-5 w-full lg:w-auto">
+            <div className="bg-white p-6 rounded-lg  ml-5 mt-9 mr-5 mb-5 w-full lg:w-auto">
               <p className="font-bold">Returns are easy</p>
               <p>Free return within 15 days for Official Store items and 7 days for other eligible items.</p>
             <a href="">See more</a>

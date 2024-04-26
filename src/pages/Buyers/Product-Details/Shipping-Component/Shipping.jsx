@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { increaseQuantity, decreaseQuantity } from '../../../../reducersAndActions/actions/shipAction';
 import { addToCart } from '../../../../reducersAndActions/actions/cartAction';
 
-const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => {
+const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts }) => {
 
+    console.log('quantity->',quantity)
+    console.log('carts inside shipping->',carts)
     const navigate = useNavigate();
 
     const styles = {

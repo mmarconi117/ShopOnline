@@ -48,8 +48,10 @@ function ProductDetails({
     similarProductsTest: { similarProductsTest },
 }) {
 
+    console.log('carts on the props of prodcutDetails->',carts)
     const [breadCrumb, setBreadCrumb] = useState([]);
     const [qty, setQty] = useState(1);
+    console.log('lets look at breadCrumb->',breadCrumb)
     // current urls e.g /products/product-details
     const currentUrl = useHref();
     useEffect(() => {
@@ -62,8 +64,9 @@ function ProductDetails({
     }, []);
 
     const setUrlsPath = () => {
-        // console.log(history);
+        console.log(history);
         const histories = currentUrl.split("/");
+        console.log('histories->',histories)
         const paths = [];
         for (let i = 0; i < histories.length; i++) {
             if (histories[i] === "") {
@@ -76,6 +79,7 @@ function ProductDetails({
                 }
             }
         }
+        console.log('paths dee->',paths)
         setBreadCrumb(paths);
     };
 
@@ -96,6 +100,7 @@ function ProductDetails({
     };
 
     const breadCrumbComp = breadCrumb.map((path, index, arr) => {
+        ////////this is home/productdetails link on top left
         return (
             <Link
                 className={`font-Roboto text-base lg:text-xl font-medium lg:font-semibold tight-[0.15px] p-1 ${index === arr.length - 1 ? "text-[#2284B6]": "text-[#938F96]"}`}
@@ -121,7 +126,7 @@ function ProductDetails({
             transition: "ease-in",
         },
     };
-
+    console.log('where the product->',product)
     return (
         <div id="product-details-component" className="p-4 lg:px-10 lg:pt-8 lg:pb-16 flex flex-col gap-8">
             <div id="navigation-history-container">
@@ -269,7 +274,7 @@ function ProductDetails({
                     <AboutProduct />
                 </div>
                 {/* Shipping Component */}
-                <ShippingComponent />
+                <ShippingComponent  carts={carts} />
             </div>
             {/* Similar Products */}
             <SimilarProducts similarProducts={similarProductsTest} />

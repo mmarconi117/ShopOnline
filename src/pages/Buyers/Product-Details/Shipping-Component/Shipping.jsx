@@ -5,10 +5,11 @@ import { increaseQuantity, decreaseQuantity } from '../../../../reducersAndActio
 import { addToCart } from '../../../../reducersAndActions/actions/cartAction';
 import { useDispatch } from 'react-redux';
 
-const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts, addToCart}) => {
+const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts, addCart}) => {
 
     console.log('quantity->',quantity)
     console.log('carts inside shipping->',carts)
+    console.log('look at addCart at shipping detail props=>',addCart)
     const navigate = useNavigate();
 
     const styles = {
@@ -46,9 +47,8 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts,
         decreaseQuantity();
     };
 
-    const addCart=()=>{
-        addToCart();
-    }
+    ///add to chart action creator///
+ 
 
     const handleBuyNow = () => {
 
@@ -168,7 +168,6 @@ const mapDispatchToProps ={
 
         increaseQuantity,
         decreaseQuantity,
-        addToCart
  
 };
 // const mapDispatchToProps=dispatch=>{

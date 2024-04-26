@@ -5,7 +5,7 @@ import infoIcon from "../../../assets/ICONS/info.svg";
 
 import { connect } from "react-redux";
 
-import { setCarts, addToCart } from "../../../reducersAndActions/actions/cartAction";
+import {  addToCart } from "../../../reducersAndActions/actions/cartAction";
 import { getProductDetails } from "../../../reducersAndActions/actions/productTestAction";
 
 import PropTypes from "prop-types";
@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => (
     
     {
   
-    addToCart: (data) =>{ 
+    addCart: (data) =>{ 
         console.log('data add to cart->',data)
         dispatch(addToCart(data))
     
@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch) => (
 
 function ProductDetails({
     productTestState: { product },
-    addToCart,
+    addCart,
     carts: { carts },
     similarProductsTest: { similarProductsTest },
 }) {
@@ -275,7 +275,7 @@ function ProductDetails({
                     <AboutProduct />
                 </div>
                 {/* Shipping Component */}
-                <ShippingComponent  carts={carts} />
+                <ShippingComponent  carts={carts} addCart={addCart} />
             </div>
             {/* Similar Products */}
             <SimilarProducts similarProducts={similarProductsTest} />

@@ -269,15 +269,16 @@ const Checkout = ({
                           <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
                           
                         </label>
-                        <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
-                        <div className="text-sm ml-2">5 - 7 business days *</div>
-                        
+                        <div className="flex flex-col">
+                          <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
+                          <div className="text-sm">5 - 7 business days *</div>
+                        </div>
                       </div>
                       <p>Free</p>
                     </div>
                     {/* Express Shipping */}
                     <div className="flex justify-between border border-gray-300 mb-4 p-4">
-                      <div className="flex flex-col">
+                      <div className="flex">
                         <label htmlFor="express" className="flex items-center mb-2 cursor-pointer">
                           <input
                             type="radio"
@@ -288,15 +289,18 @@ const Checkout = ({
                             className="hidden"
                           />
                           <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Express" ? "bg-blue-500" : ""}`}></div>
-                          <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
+                          
                         </label>
-                        <div className="text-sm ml-2">2 - 3 business days *</div>
+                        <div className="flex flex-col">
+                          <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
+                          <div className="text-sm">2 - 3 business days *</div>
+                        </div>
                       </div>
                       <p>$20</p>
                     </div>
                     {/* Overnight Shipping */}
                     <div className="flex justify-between border border-gray-300 mb-4 p-4">
-                      <div className="flex flex-col">
+                      <div className="flex">
                         <label htmlFor="overnight" className="flex items-center mb-2 cursor-pointer">
                           <input
                             type="radio"
@@ -307,10 +311,12 @@ const Checkout = ({
                             className="hidden"
                           />
                           <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Overnight" ? "bg-blue-500" : ""}`}></div>
-                          <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
+                          
                         </label>
-                        <div className="text-sm ml-2">Next business day *</div>
-                        
+                        <div className="flex flex-col">
+                          <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
+                          <div className="text-sm">Next business day *</div>
+                        </div>
                       </div>
                       <p>$30</p>
                     </div>

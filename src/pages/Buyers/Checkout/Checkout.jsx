@@ -373,8 +373,8 @@ const Checkout = ({
           </div>
 
           {/* Order Summary */}
-          <div className="bg-[#F0F0F0]  border-2 border-blue-400">
-            <div className="flex flex-col bg-white p-6 rounded-lg ml-5 mt-8 mr-5 w-full lg:w-auto border-2 border-red-400">
+          <div className="bg-[#F0F0F0]">
+            <div className="flex flex-col bg-white p-6 rounded-lg ml-5 mt-8 mr-5 w-full min-[375px]:w-auto">
               <div className="text-xl font-semibold mb-4">ORDER SUMMARY</div>
               <div className="flex justify-between mb-2">
                 <span>Subtotal:</span>
@@ -401,7 +401,7 @@ const Checkout = ({
                 </button>
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg  ml-5 mt-9 mr-5 mb-5 w-full lg:w-auto">
+            <div className="bg-white p-6 rounded-lg ml-5 mt-9 mr-5 mb-5 min-[375px]:w-auto w-full">
               <p className="font-bold">Returns are easy</p>
               <p>Free return within 15 days for Official Store items and 7 days for other eligible items.</p>
             <a href="">See more</a>

@@ -1,9 +1,9 @@
-import image1 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Climber.png";
-import image2 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Rope.png";
-import image3 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 GirlMountain.png";
-import image4 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 MetalHooks.png";
-import image5 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 Cord.png";
-import image6 from "../../../../../assets/IMAGES/Outdoors, Fun and Sports/Rectangle181 MetalHooks2.png";
+import image1 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Climber.png";
+import image2 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Rope.png";
+import image3 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 GirlMountain.png";
+import image4 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 MetalHooks.png";
+import image5 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 Cord.png";
+import image6 from "../../../../../assets/IMAGES/Outdoors-Fun-and-Sports/Rectangle181 MetalHooks2.png";
 
 const imagesList = [
     {

@@ -1,0 +1,102 @@
+Test Case: Testing the Buttons of the All Categories Menu
+
+Objective: Verify the functionality of the category buttons in the All Categories menu of the
+Shop Online New York website homepage.
+
+Preconditions:
+1. Ensure the Shop Online New York website is accessible.
+2. Clear browser cookies & cache
+
+Test Steps:
+
+Open the SONNY Website Homepage:
+1. Navigate to the SONNY homepage.
+2. Verify that the website loads successfully.
+
+Navigate to the Women’s Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Women’ in the all categories menu.
+4. Verify successful navigation to the Women’s category page.
+
+Navigate to the Men’s Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Men’ in the all categories menu.
+4. Verify successful navigation to the Men’s category page.
+
+Navigate to the Phones & Accessories Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Phones & Accessories’ in the all categories menu.
+4. Verify successful navigation to the Phones & Accessories category page.
+
+Navigate to the Computer, Office & Security Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Computer, Office & Security’ in the all categories menu.
+4. Verify successful navigation to the Computer, Office & Security category page.
+
+Navigate to the Electronics Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Electronics’ in the all categories menu.
+4. Verify successful navigation to the Electronics category page.
+
+Navigate to the Jewelry Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.3. Click ‘Jewelry’ in the all categories menu.
+4. Verify successful navigation to the Jewelry category page.
+
+Navigate to the Furniture Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Furniture’ in the all categories menu.
+4. Verify successful navigation to the Furniture category page.
+
+Navigate to the Bags & Shoes Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Bags & Shoes’ in the all categories menu.
+4. Verify successful navigation to the Bags & Shoes category page.
+
+Navigate to the Kids & Toys Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Kids & Toys’ in the all categories menu.
+4. Verify successful navigation to the Kids & Toys category page.
+
+Navigate to the Tools & Home Improvement Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Tools & Home Improvement’ in the all categories menu.
+4. Verify successful navigation to the Tools & Home Improvement category page.
+
+Navigate to the Automotive Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Automotive’ in the all categories menu.
+4. Verify successful navigation to the Automotive category page.
+
+Navigate to the Digital Media Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Digital Media’ in the all categories menu.
+4. Verify successful navigation to the Digital Media category page.
+
+Navigate to the Outdoor Fun & Sports Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Outdoor Fun & Sports’ in the all categories menu.
+4. Verify successful navigation to the Outdoor Fun & Sports category page.
+
+Navigate to the Home, Pets & Appliances Category Page:
+1. Click the menu button labeled ‘All Categories’.
+2. Verify the all categories menu appears.
+3. Click ‘Home, Pets & Appliances’ in the all categories menu.
+4. Verify successful navigation to the Home, Pets & Appliances category page.
+
+Expected Results:
+1. The website loads successfully at the beginning of each test step.
+2. The all categories menu appears successfully when clicked during each test step.
+3. Clicking each of the category buttons in the menu successfully navigates to the correct product category pages.

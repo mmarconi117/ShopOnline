@@ -25,9 +25,9 @@ const Card = ({ imagesList, subCategory, isLast = false }) => {
     });
 
     return (
-        <div className={`relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-4 ${!isLast ? 'sm:pt-16 sm:pb-1' : 'pb-10 sm:pt-16 sm:pb-10'} sm:pl-10 sm:pr-0`} >
+        <div className={`relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-1 ${!isLast ? 'sm:pt-16 sm:pb-1' : 'pb-10 sm:pt-16 sm:pb-10'} sm:pl-6`} >
             <h1 className=" text-[#313133] font-Roboto font-medium text-base sm:text-[31px] sm:font-bold sm:leading-[37.2px]">{subCategory}</h1>
-            <ul className="flex w-full items-start gap-2 sm:gap-6 min-[390px]:overflow-x-auto overflow-hidden">
+            <ul className="flex w-full items-start gap-2 sm:gap-4 min-[390px]:overflow-x-auto overflow-hidden">
                 {exploreItems}
                 {imagesList.map((image) =>(
                     <li key={image.id} className="max-[390px]:hidden flex flex-col items-start bg-white min-w-[175px] min-h-[373px] sm:min-w-[219px] sm:h-auto p-2 pb-3 sm:p-[10px] sm:pb-[16px] rounded-[5px] border border-solid border-[#AEA9B1] gap-4 sm:gap-6">

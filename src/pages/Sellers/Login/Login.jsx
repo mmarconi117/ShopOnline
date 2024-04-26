@@ -8,6 +8,7 @@ import { validateForm } from './formValidation';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../../../firebase-config';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 let initialStoreData = {
   email: '',
@@ -77,6 +78,11 @@ function Login() {
     const { value } = e.target;
     dispatch({ type: 'LOGIN_SUBMIT_FORM', payload: { [fieldName]: value } });
   };
+
+  useEffect(() => {
+    localStorage.clear();
+  }, [])
+  
 
 
   return (

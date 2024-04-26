@@ -1,6 +1,6 @@
-import SideBar from '../../../components/SideBar/SideBar';
+
 import Body from './Components/Body';
-import TopBar from '../../../components/TopBar/TopBar'
+
 
 
 function OnlineFulfillment() {

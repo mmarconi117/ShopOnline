@@ -9,28 +9,32 @@ import { PiShoppingCartDuotone } from "react-icons/pi";
 import { Link } from 'react-router-dom';
 import { setSearchQuery } from '../../reducersAndActions/actions/searchAction';
 //import axios from 'axios' //Add this when connected to backend
+//import { useEffect } from 'react';
+import Modal from './Modal';
 
 const Header = ({ menuIsOpened, setMenuIsOpened }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const cartItems = useSelector(state => state.cartReducer.carts);
     const [search, setSearch] = useState('');
-    //const [routeNames, setRouteNames] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+   // const [routeNames, setRouteNames] = useState([]);
+   
 
     //Replace to this when connected to backend.
-    /*useEffect(() => {
+    /* useEffect(() => {
+     const fetchRouteNames = async () => {
+         try {
+             const response = await axios.get('https://localhost:8000/api/products');
+             setRouteNames(response.data.routeNames);
+         } catch (error) {
+             console.error('Failed to fetch route names: ', error);
+         }
+     };
 
-        try {
-        // Replace 'URL_TO_YOUR_BACKEND_ENDPOINT' with your actual endpoint that returns route names
-            const response = await axios.get('URL_TO_YOUR_BACKEND');
-            setRouteNames(response.data.routeNames);
-        } catch (error) {
-            console.error('Failed to fetch route names: ', error);
-        }
-
-        fetchRouteNames();
-    }); */
-
+     fetchRouteNames();
+ }, []); 
+ */
 
     // Simulated route names. Remove when connected to backend
     const routeNames = ['mensFashion', 'womensFashion', 'electronics', 'home', 'cart', 'checkout', "computersAndOffice", "phonesAndAccessories", "jewelryAndWatches" + 
@@ -52,7 +56,7 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
             navigate(`/${matchedRoute}`); // Redirect to the matched route
         } else {
             // Handle no match found: stay on the current page or show a search result message
-            console.log('No matching page. Consider showing search results or stay on the page.');
+            setShowModal(true); //Show modal if no results are found
         }
     };
 
@@ -84,6 +88,7 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
                     </Link>
                 </div>
             </div>
+            <Modal isOpen={showModal} onClose={() => setShowModal(false)} content="No products found." />
             <Menu />
         </>
     );

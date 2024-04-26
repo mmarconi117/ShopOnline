@@ -336,9 +336,15 @@ const Checkout = ({
           </div>
 
           {/* Existing Order Summary */}
-          <div className="bg-[#F0F0F0]">
-            <div className="flex px-4 pt-16 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
-              <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-white lg:h-[759px]">
+          <div className="flex px-4 py-8 bg-[#F0F0F0] w-full">
+            <div className="w-full">
+                <div className="flex flex-col">
+                  
+                  <div className="col-span-2 bg-white rounded-lg p-4">
+                    <div className="font-semibold">Review items and shipping</div>
+                    
+                    <div className="border-b border-gray-300 mb-2 pb-2 font-semibold flex items-center justify-between"></div>
+                      
                 {
                 dummy.map((item, index) => (
                   <div key={index} className="border border-gray-300 mb-4 p-4">
@@ -354,6 +360,8 @@ const Checkout = ({
                     </div>
                   </div>
                 ))}
+                
+                </div>
               </div>
             </div>
           </div>

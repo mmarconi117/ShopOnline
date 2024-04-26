@@ -101,8 +101,8 @@ const Checkout = ({
 
   return (
     <>
-      <div className="flex">
-        <div className="flex flex-col grow">
+      <div className="flex min-[375px]:flex-col sm:flex-row">
+        <div className="flex flex-col sm:grow sm:w-full">
           {/* Shipping Address */}
           <div className="flex px-4 py-8 bg-[#F0F0F0] w-full">
               <div className="w-full">
@@ -377,7 +377,7 @@ const Checkout = ({
           </div>
 
           {/* Order Summary */}
-          <div className=" bg-[#F0F0F0] mr-4 ">
+          <div className="bg-[#F0F0F0] mr-4">
             <div className="flex flex-col bg-white p-6 rounded-lg m-[-20] mt-9 mr-5 w-[400px] lg:w-auto">
               <div className="text-xl font-semibold mb-4">ORDER SUMMARY</div>
               <div className="flex justify-between mb-2">

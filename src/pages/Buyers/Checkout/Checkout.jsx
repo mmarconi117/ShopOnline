@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import ShippingAddressForm from "./shippingAddressForm";
@@ -66,16 +66,47 @@ const Checkout = ({
     editPaymentMethod(); // Dispatch action to cancel payment method editing
   };
 
+  const [dummy, setDummy] = useState([
+    {
+      product: {
+        id: 1,
+        name: "Product 1",
+        description: "Description for Product 1",
+        price: 20.99,
+        avatar: "https://example.com/product1.jpg",
+      },
+      quantity: 2 // Example quantity in cart
+    },
+    {
+      product: {
+        id: 2,
+        name: "Product 2",
+        description: "Description for Product 2",
+        price: 15.49,
+        avatar: "https://example.com/product2.jpg",
+      },
+      quantity: 1 // Example quantity in cart
+    },
+    {
+      product: {
+        id: 3,
+        name: "Product 3",
+        description: "Description for Product 3",
+        price: 30.00,
+        avatar: "https://example.com/product3.jpg",
+      },
+      quantity: 3 // Example quantity in cart
+    }
+  ]);
+
   return (
     <>
       <div className="flex">
-        <div className="flex flex-col w-[1800px]">
-
+        <div className="flex flex-col grow">
           {/* Shipping Address */}
-          <div className="bg-[#F0F0F0]">
-            <div className="flex px-4 py-8">
+          <div className="flex px-4 py-8 bg-[#F0F0F0] w-full">
               <div className="w-full">
-                <div className="flex flex-col lg:grid grid-cols-3 ">
+                <div className="flex flex-col">
                   <div className="col-span-2 bg-white rounded-lg p-4">
 
                     {/* Shipping Address */}
@@ -129,14 +160,12 @@ const Checkout = ({
                   </div>
                 </div>
               </div>
-            </div>
           </div>
 
           {/* Payment Method Box */}
-          <div className="bg-[#F0F0F0]">
-            <div className="flex px-4 py-8">
-              <div className="w-full">
-                <div className="flex flex-col lg:grid grid-cols-3">
+          <div className="flex px-4 py-8 bg-[#F0F0F0] w-full">
+            <div className="w-full">
+                <div className="flex flex-col">
                   <div className="col-span-2 bg-white rounded-lg p-4">
                     <div className="border-b border-gray-300 pb-2 font-semibold flex items-center justify-between">
                       <div>Payment Method</div>
@@ -214,22 +243,20 @@ const Checkout = ({
                     )}
                   </div>
                 </div>
-              </div>
             </div>
           </div>
 
           {/* Shipping Method */}
-          <div className="bg-[#F0F0F0]">
-            <div className="flex px-4 py-8">
+          <div className="flex px-4 py-8 bg-[#F0F0F0] w-full">
               <div className="w-full">
-                <div className="flex flex-col lg:grid grid-cols-3">
+                <div className="flex flex-col">
                   <div className="col-span-2 bg-white rounded-lg p-4">
                     <div className="border-b border-gray-300 pb-2 font-semibold flex items-center justify-between">
                       <div className="text-lg">Shipping Method</div>
                     </div>
                     {/* Standard Shipping */}
                     <div className="flex justify-between border border-gray-300 mb-4 p-4">
-                      <div className="flex flex-col">
+                      <div className="flex">
                         <label htmlFor="standard" className="flex items-center mb-2 cursor-pointer">
                           <input
                             type="radio"
@@ -240,8 +267,9 @@ const Checkout = ({
                             className="hidden"
                           />
                           <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
-                          <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
+                          
                         </label>
+                        <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
                         <div className="text-sm ml-2">5 - 7 business days *</div>
                         
                       </div>
@@ -299,7 +327,6 @@ const Checkout = ({
                   Continue to Payment
                 </button>
               </div>
-            </div>
           </div>
 
           {/* Existing Order Summary */}
@@ -307,7 +334,7 @@ const Checkout = ({
             <div className="flex px-4 pt-16 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
               <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-white lg:h-[759px]">
                 {
-                carts.map((item, index) => (
+                dummy.map((item, index) => (
                   <div key={index} className="border border-gray-300 mb-4 p-4">
                     <img src={item.product.avatar} className="w-24 h-24 mb-2" alt={item.product.name} />
                     <div className="info">

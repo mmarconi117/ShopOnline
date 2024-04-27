@@ -6,7 +6,7 @@ const CareersComponent = () => {
         <div id="careers-component">
             <Banner />
             <div className='flex flex-col justify-center items-center text-center md:px-28 mt-20 text-[24px] px-5 '>
-                <div className="text-left md:text-center">
+                <div className="text-left lg:text-center sm:text-left md:text-center">
                     <p>
                         Dive into a world of abundant professional opportunities
                         at our company, where we pride ourselves on fostering a
@@ -20,7 +20,7 @@ const CareersComponent = () => {
                     </p>
                 </div>
                 <br/>
-                <div className="text-left md:text-center">
+                <div className="text-left lg:text-center sm:text-left md:text-center">
                     <p>
                         As we navigate the exciting trajectory of growth, we
                         extend a warm invitation for you to become an integral

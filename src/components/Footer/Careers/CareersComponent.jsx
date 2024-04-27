@@ -5,8 +5,8 @@ const CareersComponent = () => {
     return (
         <div id="careers-component">
             <Banner />
-            <div className='flex flex-col justify-center items-center text-center md:px-28 mt-20 text-[24px] px-10'>
-                <div>
+            <div className='flex flex-col justify-center items-center text-center md:px-28 mt-20 text-[24px] px-5 '>
+                <div className="text-left md:text-center">
                     <p>
                         Dive into a world of abundant professional opportunities
                         at our company, where we pride ourselves on fostering a
@@ -20,7 +20,7 @@ const CareersComponent = () => {
                     </p>
                 </div>
                 <br/>
-                <div>
+                <div className="text-left md:text-center">
                     <p>
                         As we navigate the exciting trajectory of growth, we
                         extend a warm invitation for you to become an integral
@@ -33,12 +33,12 @@ const CareersComponent = () => {
                     </p>
                 </div>
             </div>
-            <div className=' flex md:flex-row flex-col md:gap-16 gap-5 mt-20 justify-center items-center mb-20 w-full px-5'>
-                <div className=' bg-[#09618E] text-white px-10 py-3'>
-                    <Link>EXPLORE JOB OPPORTUNITIES</Link>
+            <div className='flex md:flex-row flex-col md:gap-16 gap-5 mt-20 justify-center items-center mb-20 w-full px-5'>
+                <div className='bg-[#09618E] text-white px-5 py-3 md:w-[300px] text-center'>
+                    <Link className="w-full md:w-auto">EXPLORE JOB OPPORTUNITIES</Link>
                 </div>
-                <div className='bg-[#09618E] text-white px-10 py-3'>
-                    <Link>EXPLORE INTERNSHIPS</Link>
+                <div className='bg-[#09618E] text-white px-5 py-3  md:w-[300px] w-64 text-center'>
+                    <Link className="w-full md:w-auto">EXPLORE INTERNSHIPS</Link>
                 </div>
             </div>
         </div>

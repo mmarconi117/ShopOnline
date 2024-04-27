@@ -31,9 +31,8 @@ const mapDispatchToProps = (dispatch) => (
     
     {
   
-    addCart: (data) =>{ 
-        console.log('data add to cart->',data)
-        dispatch(addToCart(data))
+    addCart: (product) =>{ 
+        dispatch(addToCart(product))
     
     }
 }
@@ -79,7 +78,6 @@ function ProductDetails({
                 }
             }
         }
-        console.log('paths dee->',paths)
         setBreadCrumb(paths);
     };
 
@@ -127,7 +125,7 @@ function ProductDetails({
         },
     };
     console.log('where the product->',product)
-    console.log('addotCart->',addToCart)
+    console.log('addCart detail products->',addCart)
     return (
         <div id="product-details-component" className="p-4 lg:px-10 lg:pt-8 lg:pb-16 flex flex-col gap-8">
             <div id="navigation-history-container">
@@ -275,7 +273,7 @@ function ProductDetails({
                     <AboutProduct />
                 </div>
                 {/* Shipping Component */}
-                <ShippingComponent  carts={carts} addCart={addCart} />
+                <ShippingComponent  carts={carts} addCart={addCart} product={product} />
             </div>
             {/* Similar Products */}
             <SimilarProducts similarProducts={similarProductsTest} />

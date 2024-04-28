@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useHref } from "react-router-dom";
 import infoIcon from "../../../assets/ICONS/info.svg";
 import { connect } from "react-redux";
-import {  addToCart } from "../../../reducersAndActions/actions/cartAction";
+import {  addToCart,setCarts } from "../../../reducersAndActions/actions/cartAction";
 import { getProductDetails } from "../../../reducersAndActions/actions/productTestAction";
 import PropTypes from "prop-types";
 
@@ -18,8 +18,8 @@ import ShippingComponent from "./Shipping-Component/Shipping";
 
 const mapStateToProps = (state) => {
     return {
-        productTestState: state.productTestReducer,
-        carts: state.cartReducer,
+        productTestState: state.productTestReducer,  ///product state
+        carts: state.cartReducer, /////carts state
         similarProductsTest: state.similarProductsTestReducer,
     };
 };
@@ -27,7 +27,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => (
     
     {
-  
+        
+        setTheCarts: (userCart)=>{
+            dispatch(setCarts(userCart))
+        },
         addCart: (data) =>{ 
         dispatch(addToCart(data))/////
         /////This will eventaully involve a Thunk creationr to dispatch
@@ -44,10 +47,9 @@ function ProductDetails({
     similarProductsTest: { similarProductsTest },
 }) {
 
-    console.log('carts on the props of prodcutDetails->',carts)
+    console.log('carts on the props of prodcutDetails->',carts);
     const [breadCrumb, setBreadCrumb] = useState([]);
     const [qty, setQty] = useState(1);
-    console.log('lets look at breadCrumb->',breadCrumb)
     // current urls e.g /products/product-details
     const currentUrl = useHref();
     useEffect(() => {
@@ -61,7 +63,6 @@ function ProductDetails({
 
     const setUrlsPath = () => {
         const histories = currentUrl.split("/");
-        console.log('histories->',histories)
         const paths = [];
         for (let i = 0; i < histories.length; i++) {
             if (histories[i] === "") {
@@ -120,8 +121,9 @@ function ProductDetails({
             transition: "ease-in",
         },
     };
-    console.log('where the product->',product)
-    console.log('addCart detail products->',addCart)
+    
+    console.log('where the product in ProductDetails->',product)
+    console.log('addCart detail ProductDetails->',addCart)
     return (
         <div id="product-details-component" className="p-4 lg:px-10 lg:pt-8 lg:pb-16 flex flex-col gap-8">
             <div id="navigation-history-container">

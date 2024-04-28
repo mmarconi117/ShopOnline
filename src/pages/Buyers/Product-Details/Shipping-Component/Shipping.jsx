@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { increaseQuantity, decreaseQuantity } from '../../../../reducersAndActions/actions/shipAction';
-import { addToCart } from '../../../../reducersAndActions/actions/cartAction';
 import { useDispatch } from 'react-redux';
 
 const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts, addCart,product}) => {
@@ -45,15 +44,10 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts,
         decreaseQuantity();
     };
 
-//    async function handleAddChart(event){
-//         event.preventDefault();
+    const handleCart=(product)=>{
+        addCart(product)
+    }
 
-//         await addCart(...product)
-
-
-//     }
-
- 
 
     const handleBuyNow = () => {
 
@@ -140,7 +134,7 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts,
                                 type="button"
                                 className="mb-10 rounded-lg bg-amber-500"
                                 style={styles.btnStyles}
-                                onClick={addCart}
+                                onClick={()=>handleCart(product)}
                             >
                                 Add To Cart
                             </button>

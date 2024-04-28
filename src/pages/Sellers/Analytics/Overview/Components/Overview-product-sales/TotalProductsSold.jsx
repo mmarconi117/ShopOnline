@@ -1,4 +1,7 @@
+import { getTotalProductsSold } from "../../DashboardComputations";
+
 const TotalProductsSold = () => {
+
     return (
         <div
             className="bg-white rounded-md p-3 basis-1/3 shadow-md"
@@ -12,7 +15,8 @@ const TotalProductsSold = () => {
             </div>
             <div className="flex justify-between">
                 <div>
-                    <p className="text-2xl font-bold">$9,878.50</p>
+                    {/*<p className="text-2xl font-bold">$9,878.50</p>*/}
+                    <p className="text-2xl font-bold">${getTotalProductsSold()}</p>
                 </div>
                 <div className="flex text-[#1A6D97]">
                     <div>

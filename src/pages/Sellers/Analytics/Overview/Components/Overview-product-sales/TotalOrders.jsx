@@ -1,4 +1,7 @@
+import { orders, getTotalOrders } from "../../DashboardComputations";
+
 const TotalOrders = () => {
+
     return (
         <div
             className="bg-white rounded-md p-3 basis-1/3 shadow-md"
@@ -12,7 +15,8 @@ const TotalOrders = () => {
             </div>
             <div className="flex justify-between">
                 <div>
-                    <p className="text-2xl font-bold">243k</p>
+                    {/*<p className="text-2xl font-bold">243k</p>*/}
+                    <p className="text-2xl font-bold">{getTotalOrders(orders)}</p>
                 </div>
                 <div className="flex text-[#1A6D97]">
                     <div>

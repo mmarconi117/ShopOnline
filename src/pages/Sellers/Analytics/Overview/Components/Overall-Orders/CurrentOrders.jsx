@@ -1,4 +1,7 @@
+import { orders, getCurrentOrders } from "../../DashboardComputations";
+
 const CurrentOrders = () => {
+
     return (
         <div className="flex justify-between gap-4 items-center p-[10px]" id="current-orders-components">
             <div className="bg-stone-200 rounded-full p-4">
@@ -20,7 +23,8 @@ const CurrentOrders = () => {
             </div>
             <div className="flex flex-col justify-between items-start gap-[10px] whitespace-nowrap">
                 <div className="leading-5">Today's order</div>
-                <div className="text-2xl font-bold leading-7">5</div>
+                {/*<div className="text-2xl font-bold leading-7">5</div>*/}
+                <div className="text-2xl font-bold leading-7">{getCurrentOrders(orders)}</div>
             </div>
         </div>
     );

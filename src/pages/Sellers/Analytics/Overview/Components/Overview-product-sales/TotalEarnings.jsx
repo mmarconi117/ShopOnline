@@ -1,4 +1,7 @@
+import { getTotalEarnings } from "../../DashboardComputations";
+
 const TotalEarnings = () => {
+
     return (
         <div
             className="bg-white  rounded-md p-3 basis-1/3 shadow-md "
@@ -12,7 +15,8 @@ const TotalEarnings = () => {
             </div>
             <div className="flex justify-between">
                 <div>
-                    <p className="text-2xl font-bold">$98,768.09</p>
+                    {/*<p className="text-2xl font-bold">$98,768.09</p>*/}
+                    <p className="text-2xl font-bold">${getTotalEarnings()}</p>
                 </div>
                 <div className="flex text-[#1A6D97] align-sub">
                     <div>

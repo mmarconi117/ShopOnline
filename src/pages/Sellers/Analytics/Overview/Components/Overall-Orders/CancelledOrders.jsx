@@ -1,4 +1,7 @@
+import { orders, getCancelledOrders } from "../../DashboardComputations";
+
 const CancelledOrders = () => {
+
     return (
         <div className="flex pr-[37px] justify-between gap-4 items-center p-[10px]" id="current-orders-components">
             <div className="bg-stone-200 rounded-full p-4">
@@ -20,7 +23,8 @@ const CancelledOrders = () => {
             </div>
             <div className="flex flex-col justify-between items-start gap-[10px] whitespace-nowrap">
                 <div className="leading-5">Cancelled</div>
-                <div className="text-2xl font-bold leading-7">2</div>
+                {/* <div className="text-2xl font-bold leading-7">2</div>*/}
+                <div className="text-2xl font-bold leading-7">{getCancelledOrders(orders)}</div>
             </div>
         </div>
     );

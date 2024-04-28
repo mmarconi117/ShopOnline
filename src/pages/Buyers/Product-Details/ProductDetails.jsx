@@ -2,12 +2,9 @@
 import { useState, useEffect } from "react";
 import { Link, useHref } from "react-router-dom";
 import infoIcon from "../../../assets/ICONS/info.svg";
-
 import { connect } from "react-redux";
-
 import {  addToCart } from "../../../reducersAndActions/actions/cartAction";
 import { getProductDetails } from "../../../reducersAndActions/actions/productTestAction";
-
 import PropTypes from "prop-types";
 
 // components
@@ -31,11 +28,11 @@ const mapDispatchToProps = (dispatch) => (
     
     {
   
-    addCart: (product) =>{ 
-        dispatch(addToCart(product))
-    
+        addCart: (data) =>{ 
+        dispatch(addToCart(data))/////
+        /////This will eventaully involve a Thunk creationr to dispatch
+        }
     }
-}
       
 )
 ;
@@ -63,7 +60,6 @@ function ProductDetails({
     }, []);
 
     const setUrlsPath = () => {
-        console.log(history);
         const histories = currentUrl.split("/");
         console.log('histories->',histories)
         const paths = [];

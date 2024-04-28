@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 
 const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts, addCart,product}) => {
 
+    console.log('looking at the product in shipping->',product)
     console.log('carts inside shipping->',carts)
     console.log('look at addCart at shipping detail props=>',addCart)
     const navigate = useNavigate();
@@ -44,13 +45,13 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts,
         decreaseQuantity();
     };
 
-   async function handleAddChart(event){
-        event.preventDefault();
+//    async function handleAddChart(event){
+//         event.preventDefault();
 
-        await addCart(...product)
+//         await addCart(...product)
 
 
-    }
+//     }
 
  
 
@@ -139,7 +140,7 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts,
                                 type="button"
                                 className="mb-10 rounded-lg bg-amber-500"
                                 style={styles.btnStyles}
-                                onClick={handleAddChart}
+                                onClick={addCart}
                             >
                                 Add To Cart
                             </button>

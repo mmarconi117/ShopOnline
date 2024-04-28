@@ -6,9 +6,7 @@ import { useDispatch } from 'react-redux';
 
 const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts, addCart,product}) => {
 
-    console.log('looking at the product in shipping->',product)
-    console.log('carts inside shipping->',carts)
-    console.log('look at addCart at shipping detail props=>',addCart)
+
     const navigate = useNavigate();
 
     const styles = {

@@ -47,7 +47,6 @@ function ProductDetails({
     similarProductsTest: { similarProductsTest },
 }) {
 
-    console.log('carts on the props of prodcutDetails->',carts);
     const [breadCrumb, setBreadCrumb] = useState([]);
     const [qty, setQty] = useState(1);
     // current urls e.g /products/product-details
@@ -122,8 +121,6 @@ function ProductDetails({
         },
     };
     
-    console.log('where the product in ProductDetails->',product)
-    console.log('addCart detail ProductDetails->',addCart)
     return (
         <div id="product-details-component" className="p-4 lg:px-10 lg:pt-8 lg:pb-16 flex flex-col gap-8">
             <div id="navigation-history-container">

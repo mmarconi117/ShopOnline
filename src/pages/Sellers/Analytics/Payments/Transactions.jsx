@@ -1,5 +1,37 @@
-import searchIcon from "../../../../assets/ICONS/SearchIcons.svg"
+import searchIcon from "../../../../assets/ICONS/SearchIcons.svg";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchTransactions } from "../../../../reducersAndActions/actions/transactionsAction";
+import axios from "axios";
+import EachTransaction from "./EachTransaction";
+
+
 const Transactions = () => {
+
+  ////alll transaction
+  const [transactions,setTransactions]=useState([
+])
+
+  const dispatch = useDispatch();
+
+
+useEffect(() => {
+  ////eventually you will want to import a thunk creator from redux and dispatch that thunk creator to grab the data when it renders
+  const fetchTransactions = async () => {
+      try {
+          const transactionRes = await axios.get("https://sonnyny-be.onrender.com/api/subcategories");
+          const items = transactionRes.data
+          setTransactions(items);
+      } 
+      catch (error) {
+          console.error("Error fetching categories:", error);
+      }
+    }
+  fetchTransactions();
+  },[])
+  console.log('look at translations-->',transactions)
+  
+
   return (
     <div className="flex flex-col items-stretch justify-start gap-10">
       <div className="xl:pl-8 xl:pr-3 flex flex-col lg:flex-row justify-start lg:justify-between items-stretch gap-2 xl:gap-4 w-full">
@@ -40,82 +72,18 @@ const Transactions = () => {
           </thead>
 
           <tbody>
-            <tr className="">
-              <td className="px-3 py-4 text-left 2xl:text-center align-top"><input type="checkbox" id="check1" name="check1" className="w-6 h-6"/></td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">999999</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">Dispute Settlement</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">June 23,2023</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">999999</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">1</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">$99.99</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">
-                <div className="bg-[#F6E099] rounded-md py-0.5 px-1">Settled</div>
-              </td>
-              <td className="px-3 py-6 text-left 2xl:text-center align-top">
-                <div className="flex gap-1">
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                </div>
-              </td>
-            </tr>
-            <tr className="">
-              <td className="px-3 py-4 text-left 2xl:text-center align-top"><input type="checkbox" id="check1" name="check1" className="w-6 h-6"/></td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">999999</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">Dispute Settlement</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">June 23,2023</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">999999</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">1</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">$99.99</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">
-                <div className="bg-[#F6E099] rounded-md py-0.5 px-1">Settled</div>
-              </td>
-              <td className="px-3 py-6 text-left 2xl:text-center align-top">
-                <div className="flex gap-1">
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                </div>
-              </td>
-            </tr>
-            <tr className="">
-              <td className="px-3 py-4 text-left 2xl:text-center align-top"><input type="checkbox" id="check1" name="check1" className="w-6 h-6"/></td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">999999</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">Dispute Settlement</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">June 23,2023</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">999999</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">1</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">$99.99</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">
-                <div className="bg-[#F6E099] rounded-md py-0.5 px-1">Settled</div>
-              </td>
-              <td className="px-3 py-6 text-left 2xl:text-center align-top">
-                <div className="flex gap-1">
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                </div>
-              </td>
-            </tr>
-            <tr className="">
-              <td className="px-3 py-4 text-left 2xl:text-center align-top"><input type="checkbox" id="check1" name="check1" className="w-6 h-6"/></td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">999999</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">Dispute Settlement</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">June 23,2023</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">999999</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">1</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">$99.99</td>
-              <td className="pr-4 xl:pr-8 2xl:pr-16 py-4 text-left 2xl:text-center align-top">
-                <div className="bg-[#F6E099] rounded-md py-0.5 px-1">Settled</div>
-              </td>
-              <td className="px-3 py-6 text-left 2xl:text-center align-top">
-                <div className="flex gap-1">
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                  <div className="w-1 h-1 bg-[#515A6A] rounded-full"/>
-                </div>
-              </td>
-            </tr>
+
+             {transactions.map( transaction=>{
+              return(
+                transaction && <EachTransaction key={transaction.id} transaction={transaction}/> 
+              )
+            }
+
+            )}
+            
+         
+      
+     
 
           </tbody>
         </table>

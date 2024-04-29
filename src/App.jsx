@@ -148,7 +148,7 @@ function App() {
             <Route path="/accountsettings" element={<Account />} />
             <Route path="/productcatalogue" element={<ProductCatalogue />} />
             <Route path="/shipping" element={<Shipping />} />
-            <Route path="/practiceCategory" element={<Category />} />
+            <Route path="/practiceCategory" element={<CategoryPage />} />
             {/* Buyer's Footer */}
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/help-center" element={<HelpCenter />} />

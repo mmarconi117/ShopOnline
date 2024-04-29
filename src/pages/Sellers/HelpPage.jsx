@@ -43,7 +43,9 @@ const HelpPage = () => {
         {/* Navigation */}
         <div className="flex h-[300px] bg-Banner bg-cover bg-center align-center justify-center">
           {/* Contact Information */}
-          <div className="flex flex-col w-[300px] mt-10">
+          <div className="flex flex-col justify-center items-center w-[300px] mt-10">
+            <div className="text-xl">Need help? Let us help you!</div>
+            <br/>
             <div>Give us a call: 1-800-123-4657</div>
             <div>Email us: nyshopping@shopping.com</div>
             <div>Monday-Friday 6am - 5pm EST</div>
@@ -58,13 +60,14 @@ const HelpPage = () => {
             placeholder="What can we help you with?"
             aria-label="Search through site content"
           />
+          <br/>
 
           {/* title */}
-          <h2>See frequently asked question on popular Topics</h2>
+          <h2 className="whitespace-nowrap">See frequently asked question on popular Topics</h2>
           {/* title */}
-
+          <br/>
           {/* question list */}
-          <div>
+          <div className="max-sm:text-xs whitespace-nowrap">
             <details>
               <summary>Frequently Asked Questions on Account</summary>
             </details>

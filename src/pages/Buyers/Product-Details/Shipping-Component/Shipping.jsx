@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts, addCart,product}) => {
 
-
+    console.log('carts->',carts)
     const navigate = useNavigate();
 
     const styles = {
@@ -43,7 +43,7 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts,
     };
 
     const handleCart=(product)=>{
-        addCart(product)
+        addCart(product)  ///addding product to cart state
     }
 
 

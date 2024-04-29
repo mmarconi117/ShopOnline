@@ -27,9 +27,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => (
     
     {
-        
-        setTheCarts: (userCart)=>{
-            dispatch(setCarts(userCart))
+        setTheCarts: ()=>{
+            dispatch(setCarts())
         },
         addCart: (data) =>{ 
         dispatch(addToCart(data))/////
@@ -59,6 +58,7 @@ function ProductDetails({
     useEffect(() => {
         setUrlsPath();
     }, []);
+
 
     const setUrlsPath = () => {
         const histories = currentUrl.split("/");

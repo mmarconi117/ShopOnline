@@ -27,6 +27,7 @@ const HelpPage = () => {
   return (
     <div className="bg-gray-100 h-screen flex flex-row space-x-12">
       {showFeedbackFormState && <FeedbackModal />}
+
       {/* Navigation */}
       <div className="flex flex-col w-full p-5">
         <div className="flex flex-row space-x-2">

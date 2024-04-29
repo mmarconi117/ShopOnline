@@ -3,7 +3,7 @@ import { disputes, getDisputedOrders } from "../../DashboardComputations";
 const OrdersDispute = () => {
 
     return (
-        <div className="flex justify-between gap-4 items-center p-[10px]" id="current-orders-components">
+        <div className="flex flex-col xl:flex-row justify-between xl:justify-start gap-4 items-center p-2 xl:p-[10px] basis-1/4" id="current-orders-components">
             <div className="bg-stone-200 rounded-full p-4">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

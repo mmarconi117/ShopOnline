@@ -9,7 +9,7 @@ const Withdrawal = () => {
 
     return (
         <div
-            className="flex min-h-[130px] min-w-[180px] justify-between items-stretch rounded-lg py-3 px-6 bg-white shadow-md"
+            className="max-xl:basis-1/3 flex xl:min-h-[130px] xl:min-w-[180px] justify-between items-stretch rounded-lg py-4 px-1 xl:py-3 xl:px-6 bg-white shadow-md"
             id="withdrawal-component"
         >
             <div className="flex flex-col justify-start items-start gap-[6px]">

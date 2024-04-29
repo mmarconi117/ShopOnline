@@ -1,5 +1,5 @@
-import './index.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import "./index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // components
 // buyers
@@ -36,9 +36,10 @@ import ReturnsHelp from './components/Footer/Returns/ReturnsHelp'
 import PoliciesComponent from './components/Footer/Policies/PoliciesComponent'
 import CareersComponent from './components/Footer/Careers/CareersComponent'
 import DigitalMedia from './pages/Buyers/Category/DigitalMedia/DigitalMediaSubCategory'
+import ToysKidsAndBabiesSubCategory from './pages/Buyers/Category/ToysKidsAndBabies/ToysKidsAndBabiesSubCategory'
 
 // layout
-import Layout from './Layout'
+import Layout from "./Layout";
 
 // Sellers component
 
@@ -66,7 +67,7 @@ import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices'
 import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerification'
 import Agreements from './pages/Sellers/Agreements/Agreements'
 
-import Category from './pages/Buyers/Category/FunctionalityTest/Category'
+import CategoryPage from './pages/Buyers/Category/category/Category'
 
 function App() {
   return (
@@ -108,6 +109,10 @@ function App() {
             />
             <Route path="/mensFashion" element={<MenFashionSubCategories />} />
             <Route
+              path="/toyskidsandbabies"
+              element={<ToysKidsAndBabiesSubCategory />} 
+            />
+            <Route
               path="/jewelryAndWatches"
               element={<JewelleryAndWatchesSubCategory />}
             />
@@ -134,6 +139,9 @@ function App() {
             <Route path="/app" element="#" />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/companyService" element={<CompanyService />} />
+
+            <Route path="/careers" element={<CareersComponent />} />
+
             <Route path="/paymentSuccess" element={<PaymentSuccessful />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/reviews" element={<ReviewPage />} />
@@ -151,6 +159,7 @@ function App() {
             <Route path="/faqs" element={<FAQComponent />} />
             <Route path="/returns-help" element={<ReturnsHelp />} />
             <Route path="/policies" element={<PoliciesComponent />} />
+            <Route path="/careers" element={<CareersComponent />} />
           </Route>
 
           {/* Sellers Routers */}
@@ -195,7 +204,7 @@ function App() {
         </Routes>
       </Router>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -6,10 +6,9 @@ import { useDispatch } from 'react-redux';
 
 const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts, addCart,product}) => {
 
-    console.log('carts->',carts)
     const navigate = useNavigate();
 
-
+    
 
     const incrementQty = () => {
         increaseQuantity();
@@ -30,7 +29,6 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts,
     }
 
     return (
-<<<<<<< HEAD
         <div id="shipping-component" className="w-1/4">
             <div className="w-5/6 m-auto">
                 {/* shipping to div */}
@@ -126,7 +124,8 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts,
                             </button>
                         </div>
                     </div>
-=======
+            </div>
+        </div>
         <div
             id="shipping-component"
             className="min-w-max lg:min-w-[340px] 2xl:min-w-[400px] hidden lg:flex flex-col gap-6"
@@ -136,7 +135,6 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts,
                 <div className="flex justify-between">
                     <p className="font-bold">Ship to</p>
                     <p>UK</p>
->>>>>>> 1a619d88b0b8229ae71ad295674f100511bab9ba
                 </div>
 
                 <div className="h-px w-full bg-[#DEDEEA]"/>
@@ -219,6 +217,7 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts,
                 </button>
             </div>
         </div>
+    </div>
     );
 }
 
@@ -235,11 +234,6 @@ const mapDispatchToProps ={
         decreaseQuantity,
  
 };
-// const mapDispatchToProps=dispatch=>{
-//     return{
-//         increaseQuantity:increaseQuantity,
-//         decreaseQuantity:decreaseQuantity
-//     }
-// }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShippingComponent);

@@ -41,7 +41,7 @@ const HelpPage = () => {
         </div>
         <h1 className="my-10 text-2xl font-semibold">Seller's Online Help Services </h1>
         {/* Navigation */}
-        <div className="flex h-[300px] bg-Banner bg-cover bg-center align-center justify-center">
+        <div className="flex h-[300px] pb-5 bg-Banner bg-cover bg-center align-center justify-center">
           {/* Contact Information */}
           <div className="flex flex-col justify-center items-center w-[300px] mt-10">
             <div className="text-xl">Need help? Let us help you!</div>
@@ -88,7 +88,7 @@ const HelpPage = () => {
             </details>
           </div>
           {/* feedback button */}
-          <button className="text-cyan-600 text-center text-xl leading-6 whitespace-nowrap justify-center items-stretch border border-[color:var(--Color-Styles-Primary-color-blue-T1000,#2284B6)] self-center mt-28 px-12 py-4 rounded-md border-solid max-md:mt-10 max-md:px-5" onClick={handleToggleFeedbackForm}>Give us feedback</button>
+          <button className="text-cyan-600 text-center text-xl leading-6 whitespace-nowrap justify-center items-stretch border border-[color:var(--Color-Styles-Primary-color-blue-T1000,#2284B6)] self-center mt-5 px-12 py-4 rounded-md border-solid max-md:mt-2 max-md:px-5" onClick={handleToggleFeedbackForm}>Give us feedback</button>
         </div>
         {/* show feedback form depending on the state of the feedback button */}
         {showFeedbackFormState && (

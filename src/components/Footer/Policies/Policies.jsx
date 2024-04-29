@@ -279,7 +279,7 @@ const Policies = ({ currentHash }) => {
                                     </p>
                                 </div>
                                 <div>
-                                    <p className="ml-14 mr-4 pt-2 pr-12 text-base">{policy.description}</p>
+                                    <p className="ml-14 mr-4 pt-2 pb-4 pr-12 text-base">{policy.description}</p>
                                 </div>
                             </div>
                         );
@@ -320,7 +320,7 @@ const Policies = ({ currentHash }) => {
 
     return (
         <div id="policies-component"
-            className="w-2/3"
+            className="w-full"
             style={{
                 backgroundColor: 'white',
                 marginLeft: 0,

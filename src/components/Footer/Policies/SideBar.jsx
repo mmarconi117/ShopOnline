@@ -8,7 +8,7 @@ const SideBar = ({ setCurrentHash }) => {
             hash: ""
         },
         {
-            title: "Shinpping and delivery policy",
+            title: "Shipping and delivery policy",
             link: "/policies",
             hash: "#shinpping&delivery"
         },
@@ -52,7 +52,7 @@ const SideBar = ({ setCurrentHash }) => {
                         isActive = window.location.hash === item.hash;
                         return isActive ? activeLink : {};
                     }}
-                    className="block w-full py-12 pr-16 h-32 text-center text-xl"
+                    className="block w-full py-12 pr-16 h-32 pl-4 text-left text-xl"
                 >
                     {item.title}
                 </NavLink>
@@ -77,7 +77,7 @@ const activeLink = {
       backgroundColor: 'white',
     fontWeight: 'bold',
     color: 'black',
-    padding: '3rem 3.5rem',
+    padding: '3rem 1rem',
     fontSize: '18px' ,
 };
 

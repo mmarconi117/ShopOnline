@@ -205,15 +205,17 @@ const Topics = ({ currentHash }) => {
     return (
         <div
             id="topics-components"
-            className="w-2/3"
+            className="w-full"
             style={{
                 backgroundColor: 'white',
-                marginLeft: 0,
+                marginLeft: '0',
+                marginRight: '0',
                 paddingBottom: '10px',
                 maxHeight: '62.3vh',
                 overflowY: 'auto',
                 ...(window.innerWidth <= 768 && {
-                    marginLeft: '100px',
+                    marginLeft: '0',
+                    marginRight: '0',
                     maxHeight: '100%',
                 })
             }}

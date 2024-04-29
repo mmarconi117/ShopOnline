@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import ShippingAddressForm from "./shippingAddressForm";
@@ -66,16 +66,49 @@ const Checkout = ({
     editPaymentMethod(); // Dispatch action to cancel payment method editing
   };
 
+  const [dummy, setDummy] = useState([
+    {
+      product: {
+        id: 1,
+        name: "Product 1",
+        description: "Description for Product 1",
+        price: 20.99,
+        avatar: "https://example.com/product1.jpg",
+      },
+      quantity: 2 // Example quantity in cart
+    },
+    {
+      product: {
+        id: 2,
+        name: "Product 2",
+        description: "Description for Product 2",
+        price: 15.49,
+        avatar: "https://example.com/product2.jpg",
+      },
+      quantity: 1 // Example quantity in cart
+    },
+    {
+      product: {
+        id: 3,
+        name: "Product 3",
+        description: "Description for Product 3",
+        price: 30.00,
+        avatar: "https://example.com/product3.jpg",
+      },
+      quantity: 3 // Example quantity in cart
+    }
+  ]);
+
   return (
     <>
-      <div className="flex">
-        <div className="flex flex-col w-full">
+      <div className="flex min-[375px]:flex-col sm:flex-row">
+        <div className="flex flex-col sm:grow sm:w-full">
           {/* Shipping Address */}
-          <div className="bg-[#F0F0F0]">
-            <div className="flex px-4 py-8">
+          <div className="flex px-4 py-8 bg-[#F0F0F0] w-full">
               <div className="w-full">
                 <div className="flex flex-col">
                   <div className="col-span-2 bg-white rounded-lg p-4">
+
                     {/* Shipping Address */}
                     <div className="border-b border-gray-300 pb-2 font-semibold flex items-center justify-between">
                       <div>Shipping Address</div>
@@ -127,14 +160,12 @@ const Checkout = ({
                   </div>
                 </div>
               </div>
-            </div>
           </div>
 
           {/* Payment Method Box */}
-          <div className="bg-[#F0F0F0]">
-            <div className="flex px-4 py-8">
-              <div className="w-full">
-                <div className="flex flex-col lg:grid grid-cols-3">
+          <div className="flex px-4 py-8 bg-[#F0F0F0] w-full">
+            <div className="w-full">
+                <div className="flex flex-col">
                   <div className="col-span-2 bg-white rounded-lg p-4">
                     <div className="border-b border-gray-300 pb-2 font-semibold flex items-center justify-between">
                       <div>Payment Method</div>
@@ -212,109 +243,139 @@ const Checkout = ({
                     )}
                   </div>
                 </div>
-              </div>
             </div>
           </div>
 
           {/* Shipping Method */}
-          <div className="bg-gray-100">
-            <div className="flex px-4 py-8">
+          <div className="flex px-4 py-8 bg-[#F0F0F0] w-full">
               <div className="w-full">
-                <div className="flex flex-col lg:grid grid-cols-3">
+                <div className="flex flex-col">
                   <div className="col-span-2 bg-white rounded-lg p-4">
                     <div className="border-b border-gray-300 pb-2 font-semibold flex items-center justify-between">
                       <div className="text-lg">Shipping Method</div>
                     </div>
                     {/* Standard Shipping */}
-                    <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-                      <label htmlFor="standard" className="flex items-center mb-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          id="standard"
-                          name="shippingMethod"
-                          checked={shippingMethod === "Standard"}
-                          onChange={() => handleShippingMethodSelect("Standard")}
-                          className="hidden"
-                        />
-                        <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
-                        <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
-                      </label>
-                      <div className="text-sm ml-2">5 - 7 business days *</div>
+                    <div className="flex justify-between border border-gray-300 mb-4 p-4">
+                      <div className="flex">
+                        <label htmlFor="standard" className="flex items-center mb-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            id="standard"
+                            name="shippingMethod"
+                            checked={shippingMethod === "Standard"}
+                            onChange={() => handleShippingMethodSelect("Standard")}
+                            className="hidden"
+                          />
+                          <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Standard" ? "bg-blue-500" : ""}`}></div>
+                          
+                        </label>
+                        <div className="flex flex-col">
+                          <div className={`text-md ${shippingMethod === "Standard" ? "font-bold" : ""}`}>Standard Shipping</div>
+                          <div className="text-sm">5 - 7 business days *</div>
+                        </div>
+                      </div>
                       <p>Free</p>
                     </div>
                     {/* Express Shipping */}
-                    <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-                      <label htmlFor="express" className="flex items-center mb-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          id="express"
-                          name="shippingMethod"
-                          checked={shippingMethod === "Express"}
-                          onChange={() => handleShippingMethodSelect("Express")}
-                          className="hidden"
-                        />
-                        <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Express" ? "bg-blue-500" : ""}`}></div>
-                        <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
-                      </label>
-                      <div className="text-sm ml-2">2 - 3 business days *</div>
+                    <div className="flex justify-between border border-gray-300 mb-4 p-4">
+                      <div className="flex">
+                        <label htmlFor="express" className="flex items-center mb-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            id="express"
+                            name="shippingMethod"
+                            checked={shippingMethod === "Express"}
+                            onChange={() => handleShippingMethodSelect("Express")}
+                            className="hidden"
+                          />
+                          <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Express" ? "bg-blue-500" : ""}`}></div>
+                          
+                        </label>
+                        <div className="flex flex-col">
+                          <div className={`text-md ${shippingMethod === "Express" ? "font-bold" : ""}`}>Express Shipping</div>
+                          <div className="text-sm">2 - 3 business days *</div>
+                        </div>
+                      </div>
                       <p>$20</p>
                     </div>
                     {/* Overnight Shipping */}
-                    <div className="border border-gray-300 mb-4 p-4 flex flex-col">
-                      <label htmlFor="overnight" className="flex items-center mb-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          id="overnight"
-                          name="shippingMethod"
-                          checked={shippingMethod === "Overnight"}
-                          onChange={() => handleShippingMethodSelect("Overnight")}
-                          className="hidden"
-                        />
-                        <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Overnight" ? "bg-blue-500" : ""}`}></div>
-                        <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
-                      </label>
-                      <div className="text-sm ml-2">Next business day *</div>
+                    <div className="flex justify-between border border-gray-300 mb-4 p-4">
+                      <div className="flex">
+                        <label htmlFor="overnight" className="flex items-center mb-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            id="overnight"
+                            name="shippingMethod"
+                            checked={shippingMethod === "Overnight"}
+                            onChange={() => handleShippingMethodSelect("Overnight")}
+                            className="hidden"
+                          />
+                          <div className={`w-6 h-6 border border-gray-500 rounded-full mr-2 ${shippingMethod === "Overnight" ? "bg-blue-500" : ""}`}></div>
+                          
+                        </label>
+                        <div className="flex flex-col">
+                          <div className={`text-md ${shippingMethod === "Overnight" ? "font-bold" : ""}`}>Overnight Shipping</div>
+                          <div className="text-sm">Next business day *</div>
+                        </div>
+                      </div>
                       <p>$30</p>
+                    </div>
+                    <div className="col-span-2 bg-white rounded-lg p-4 border border-gray-300">
+                      <p className="font-bold">Gift Wrap Options</p>
+                      <p>Add a Gift Message / Gift Wrap</p>
                     </div>
                   </div>
                 </div>
-                <button
-                  // onClick={handleContinueToPayment}
-                  className="bg-yellow-400 text-gray-900 py-2 px-4 rounded hover:bg-yellow-500 w-full"
-                >
-                  Continue to Payment
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    // onClick={handleContinueToPayment}
+                    className="bg-[#EEC643] text-gray-900 py-2 px-16 ml-30 mt-5 rounded hover:bg-yellow-500 w-[300px] "
+                  >
+                    Continue to Payment
+                  </button>
+                </div>
               </div>
-            </div>
           </div>
 
           {/* Existing Order Summary */}
-          <div className="bg-[#F0F0F0]">
-            <div className="flex px-4 pt-16 flex-col mx-auto gap-8 lg:grid grid-cols-3 lg:max-h-[827px] lg:px-10 lg:pt-[68px]">
-              <div className="flex flex-col justify-center items-start col-start-1 col-end-3 bg-white lg:h-[759px]">
+          <div className="flex px-4 py-8 bg-[#F0F0F0] w-full">
+            <div className="w-full">
+                <div className="flex flex-col">
+                  <div className="col-span-2 bg-white rounded-lg p-4">
+                    <div className="font-semibold">Review items and shipping</div>
+                    <div className="border-b border-gray-300 mb-2 pb-2 font-semibold flex items-center justify-between"></div>
                 {
-                carts.map((item, index) => (
-                  <div key={index} className="border border-gray-300 mb-4 p-4">
+                dummy.map((item, index) => (
+                  <div key={index} className="flex border border-gray-300 mb-4 p-4">
+                    <div className="flex justify-between w-full">
+                    <div className="flex justify-start">
                     <img src={item.product.avatar} className="w-24 h-24 mb-2" alt={item.product.name} />
-                    <div className="info">
-                      <h3 className="text-lg font-semibold mb-1">{item.product.name}</h3>
-                      <p className="text-sm mb-1">{item.product.description}</p>
-                      <p className="text-sm mb-1">${item.product.price}</p>
-                      <div className="flex items-center">
-                        <span className="text-gray-700 mr-2">Quantity:</span>
-                        <span>{item.quantity}</span>
+                      <div className="info flex flex-col">
+                        <h3 className="text-lg font-semibold mb-1">{item.product.name}</h3>
+                        <p className="text-sm mb-1">{item.product.description}</p>
+                        
+                        <div className="flex items-center">
+                          <span className="text-gray-700 mr-2">Quantity:</span>
+                          <span>{item.quantity}</span>
+                        </div>
                       </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <p className="mb-1 text-lg font-semibold">${item.product.price}</p>
+                    </div>
                     </div>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
           </div>
           </div>
-            {/* Order Summary */}
-          <div className="flex flex-col items-end gap-4 lg:gap-2 col-start-3 col-end-4 mt-[-8] w-20">
-            <div className="bg-white p-6 rounded-lg m-20 w-40 border-2 border-blue-200">
-              <div className="text-xl font-semibold mb-4">Order Summary</div>
+
+          {/* Order Summary */}
+          <div className="bg-[#F0F0F0]">
+            <div className="flex flex-col bg-white p-6 rounded-lg ml-5 mt-8 mr-5 w-full min-[375px]:w-auto">
+              <div className="text-xl font-semibold mb-4">ORDER SUMMARY</div>
               <div className="flex justify-between mb-2">
                 <span>Subtotal:</span>
                 <span>${subtotal}</span>
@@ -331,14 +392,22 @@ const Checkout = ({
                 <span>Total:</span>
                 <span>${total}</span>
               </div>
-              <button
-                onClick={handleCheckout}
-                className="bg-[#EEC643] text-[#0F1111] py-2 px-4 rounded hover:bg-[#FFD700] w-full"
-              >
-                Checkout
-              </button>
+              <div className="flex justify-center">
+                <button
+                  onClick={handleCheckout}
+                  className="bg-none text-[#0F1111] py-2 px-4 rounded hover:bg-[#FFD700] w-[300px] border-2 border-blue-200"
+                >
+                  Checkout
+                </button>
+              </div>
             </div>
+            <div className="bg-white p-6 rounded-lg ml-5 mt-9 mr-5 mb-5 min-[375px]:w-auto w-full">
+              <p className="font-bold">Returns are easy</p>
+              <p>Free return within 15 days for Official Store items and 7 days for other eligible items.</p>
+            <a href="">See more</a>
           </div>
+          </div>
+          
         </div>
     </>
   );

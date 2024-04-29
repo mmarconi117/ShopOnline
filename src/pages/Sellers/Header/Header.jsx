@@ -25,7 +25,7 @@ function Header(props) {
       </div>
       <div className="items-stretch hidden sm:flex justify-between gap-5 pr-4 md:gap-10 md:pr-8">
         <div className="items-stretch flex justify-between gap-5 md:gap-10 max-md:justify-center">
-          <Link to="/" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
+          <Link to="/sellers" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
             Home
           </Link>
           <Link to="/sellers/onlinefulfillment" className="text-zinc-600 text-base leading-6 whitespace-nowrap">

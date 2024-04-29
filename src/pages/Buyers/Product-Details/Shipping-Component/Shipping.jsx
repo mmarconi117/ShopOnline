@@ -2,15 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { increaseQuantity, decreaseQuantity } from '../../../../reducersAndActions/actions/shipAction';
-import { addToCart } from '../../../../reducersAndActions/actions/cartAction';
+import { useDispatch } from 'react-redux';
 
-const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => {
+const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity,carts, addCart,product}) => {
 
     const navigate = useNavigate();
 
-
-
-
+    
 
     const incrementQty = () => {
         increaseQuantity();
@@ -20,12 +18,18 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => 
         decreaseQuantity();
     };
 
+    const handleCart=(product)=>{
+        addCart(product)  ///addding product to cart state
+    }
+
+
     const handleBuyNow = () => {
 
         navigate('/checkout');
     }
 
     return (
+
         <div
             id="shipping-component"
             className="min-w-max lg:min-w-[340px] 2xl:min-w-[400px] hidden lg:flex flex-col gap-6"
@@ -83,7 +87,7 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => 
                     <button
                         type="button"
                         className="rounded bg-[#EEC643] py-4 px-8 border border-solid border-[#EEC643]"
-                        onClick={addToCart}
+                        onClick={()=>handleCart(product)}
                     >
                         Add To Cart
                     </button>
@@ -117,6 +121,7 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity }) => 
                 </button>
             </div>
         </div>
+ 
     );
 }
 
@@ -126,9 +131,13 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = {
-    increaseQuantity,
-    decreaseQuantity
+
+const mapDispatchToProps ={
+
+        increaseQuantity,
+        decreaseQuantity,
+ 
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShippingComponent);

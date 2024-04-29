@@ -7,7 +7,7 @@ import CommunicationOptions from "./CommunicationOptions";
 
 const HelpCenter = () => {
   return (
-    <div id="w-full w-[100vw]">
+    <div >
       <Banner />
       <Search />
       <TopicsPrompt />

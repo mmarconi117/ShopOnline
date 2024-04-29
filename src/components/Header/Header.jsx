@@ -18,6 +18,7 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
     const cartItems = useSelector(state => state.cartReducer.carts);
     const [search, setSearch] = useState('');
     const [showModal, setShowModal] = useState(false);
+    const [menuIsOpen, setMenuIsOpen] = useState(false);
    // const [routeNames, setRouteNames] = useState([]);
    
 
@@ -59,10 +60,12 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
             setShowModal(true); //Show modal if no results are found
         }
     };
-
+    const menuHandler = () => {
+        setMenuIsOpen(false)
+    }
     return (
         <>
-            <div>
+            <div onClick={menuHandler}>
                 <Nav />
                 <div className="flex items-center justify-center gap-6 my-5 px-5">
                     <img src={LOGO} alt="Logo" className="hidden lg:flex" />
@@ -89,7 +92,7 @@ const Header = ({ menuIsOpened, setMenuIsOpened }) => {
                 </div>
             </div>
             <Modal isOpen={showModal} onClose={() => setShowModal(false)} content="No products found." />
-            <Menu />
+            <Menu menuIsOpen={menuIsOpen} handler={setMenuIsOpen}/>
         </>
     );
 };

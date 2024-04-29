@@ -34,7 +34,7 @@ const HelpTopics = () => {
     ];
 
     const topics = items.map((item, index) => (
-        <a href={item.url} key={index} className="text-blue-700 font-bold p-5 m-5 border border-gray-300 bg-white flex justify-center items-center h-full w-full">
+        <a href={item.url} key={index} className="max-w-[200px] sm:min-w-[150px] text-blue-700 font-bold p-5 m-5 border border-gray-300 bg-white flex justify-center items-center">
             {item.name}
         </a>
     ));
@@ -44,15 +44,15 @@ const HelpTopics = () => {
             <div>
                 <p className="text-blue-700 font-bold text-[24px]">Suggested Help Topics</p>
             </div>
-            <div className="topics-container">
-                <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-10 p-10 text-[20px] w-full">
-                    {topics}
-                    <div className=" ml-5 mt-5 flex justify-center items-center border border-gray-300 bg-white text-blue-700 font-bold w-full h-full">
-                        <p>More </p>
-                        <img className="w-6 h-4 ml-2" src={rightArrow} alt="Right Arrow" />
-                    </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-4 grid-rows-2 gap-10 p-5 sm:p-10 text-[20px] w-full">
+                {topics}
+                <div className=" max-w-[200px] sm:min-w-[150px] text-blue-700 font-bold p-5 m-5 border border-gray-300 bg-white flex justify-center items-center">
+                    <p>More </p>
+                    <img className="w-6 h-4 ml-2" src={rightArrow} alt="Right Arrow" />
                 </div>
             </div>
+            
         </div>
     );
 };

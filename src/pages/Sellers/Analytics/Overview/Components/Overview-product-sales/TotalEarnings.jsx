@@ -1,15 +1,22 @@
+import { getTotalEarnings } from "../../DashboardComputations";
+
 const TotalEarnings = () => {
+
     return (
         <div
             className="bg-white rounded-md p-[7px] xl:p-3 basis-1/3 shadow-md flex flex-col justify-between"
             id="total-earnings-component"
         >
-        
-            <h1 className="text-[#4A4A4A] max-xl:text-center">Total earnings</h1>
-            
-            <div className="flex flex-col-reverse xl:flex-col ">
-                <div className="border-2 my-2 bg-[#E6E0E9] rounded-xl ">
-                    <div className="py-1 bg-[#EEC643] w-5/6"></div>
+            <div>
+                <h1 className="text-[#4A4A4A]">Total earnings</h1>
+            </div>
+            <div className="border-2 my-2 bg-[#E6E0E9] rounded-xl ">
+                <div className="py-1 bg-[#EEC643] w-5/6"></div>
+            </div>
+            <div className="flex justify-between">
+                <div>
+                    {/*<p className="text-2xl font-bold">$98,768.09</p>*/}
+                    <p className="text-2xl font-bold">${getTotalEarnings()}</p>
                 </div>
                 <div className="flex flex-col xl:flex-row justify-between items-center">
                     <p className="text-sm xl:text-2xl font-bold">$98,768.09</p>

@@ -329,8 +329,8 @@ const Policies = ({ currentHash }) => {
                 overflowY: 'auto',
                
                 ...(window.innerWidth <= 768 && {
-                    marginLeft: '100px',
-                    maxHeight: '100%',
+                    marginLeft: '0',
+                    maxHeight: '0',
                     marginRight:'100px',
                 })
             }}>

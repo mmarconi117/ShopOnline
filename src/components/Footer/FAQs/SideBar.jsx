@@ -81,11 +81,9 @@ const SideBar = ({ setCurrentHash }) => {
         <div id="faq-sidebar-nav-component divide-y divide-solid" className="w-1/5 flex flex-col justify-center mb-12 hidden md:block">
             <nav className="w-full">
                 <ul className="divide-y divide-solid m mt-0">
-                    <li className="py-0">
-                    </li>
                     {navItems}
                     <li className="py-0">
-                    </li>
+                </li>
                 </ul>
             </nav>
         </div>
@@ -97,7 +95,7 @@ const activeLink = {
     fontWeight: 'bold',
     color: 'black',
     padding: '1.3rem 1.6rem',
-    fontSize: '16px' ,
+    fontSize: '16px',
 };
 
 export default SideBar;

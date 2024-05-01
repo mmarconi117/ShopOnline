@@ -1,4 +1,5 @@
 const Policies = ({ currentHash }) => {
+    
     const items = [
         {
             hash: "",
@@ -264,36 +265,76 @@ const Policies = ({ currentHash }) => {
                 "If you have any questions or concerns regarding our Payment and Security Policy, please contact our customer support at [Contact Email/Phone]."
         }
     ];
-    const policiesItem = items.map((item, itemIndex) => {
-        return currentHash == item.hash ? (
-            <div
-                key={itemIndex}
-                id={item.hash}
-            >
-                <div>{item.policyIntroduction}</div>
-                {item.policies.map((policy, policyIndex) => {
-                    return (
-                        <div key={policyIndex + 1}>
-                            <div>
-                                <p>
-                                    {policyIndex + 1}. {policy.title}
-                                </p>
+    const renderPoliciesDesktop = () => {
+        return items.map((item, itemIndex) => {
+            return currentHash === item.hash ? (
+                <div key={itemIndex} id={item.hash}>
+                    <div className="ml-14 mt-4">{item.policyIntroduction}</div>
+                    {item.policies.map((policy, policyIndex) => {
+                        return (
+                            <div key={policyIndex + 1}>
+                                <div>
+                                    <p className="ml-14 pt-2 text-xl font-bold">
+                                        {policyIndex + 1}. {policy.title}
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className="ml-14 mr-4 pt-2 pb-4 pr-12 text-base">{policy.description}</p>
+                                </div>
                             </div>
-                            <div>
-                                <p>{policy.description}</p>
+                        );
+                    })}
+                    <div className="ml-14 mt-4" key={itemIndex}>{item.moreInquire}</div>
+                </div>
+            ) : (
+                <div key={itemIndex}></div>
+            );
+        });
+    };
+
+    
+    const renderPoliciesMobile = () => {
+        return (
+            <div>
+                {items.map((item, itemIndex) => (
+                    <div key={itemIndex} id={item.hash}>
+                        <div className="ml-14 mt-4">{item.policyIntroduction}</div>
+                        {item.policies.map((policy, policyIndex) => (
+                            <div key={policyIndex + 1}>
+                                <div>
+                                    <p className="ml-14 pt-2 text-xl font-bold">
+                                        {policyIndex + 1}. {policy.title}
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className="ml-14 mr-4 pt-2 pr-12 text-base">{policy.description}</p>
+                                </div>
                             </div>
-                        </div>
-                    );
-                })}
-                <div key={itemIndex}>{item.moreInquire}</div>
+                        ))}
+                        <div className="ml-14 mt-4" key={itemIndex}>{item.moreInquire}</div>
+                    </div>
+                ))}
             </div>
-        ) : (
-            <div key={itemIndex}></div>
         );
-    });
+    };
+
     return (
-        <div id="policies-component">
-            <div>{policiesItem}</div>
+        <div id="policies-component"
+            className="w-full"
+            style={{
+                backgroundColor: 'white',
+                marginLeft: 0,
+                paddingBottom: '10px',
+                maxHeight: '82.5vh',
+                overflowY: 'auto',
+               
+                ...(window.innerWidth <= 768 && {
+                    marginLeft: '0',
+                    maxHeight: '0',
+                    marginRight:'100px',
+                })
+            }}>
+            {window.innerWidth <= 768 ? renderPoliciesMobile() : renderPoliciesDesktop()}
         </div>
     );
 };

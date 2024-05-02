@@ -12,7 +12,7 @@ const HelpCenter = () => {
     window.scrollTo(0, 0);
 }, []);
   return (
-    <div id="w-full w-[100vw]">
+    <div >
       <Banner />
       <Search />
       <TopicsPrompt />

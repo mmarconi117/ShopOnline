@@ -90,6 +90,9 @@ function Login() {
       <div className="flex w-full md:w-[705px] max-w-full flex-col items-stretch">
         <div className="self-center">
           <img src={logo} className="object-contain object-center" />
+          <Link to="/" className="text-zinc-600 text-base leading-6 whitespace-nowrap">
+            Return to Home
+          </Link>
         </div>
         <form onSubmit={handleSubmit} className='flex flex-col items-center'>
           <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">

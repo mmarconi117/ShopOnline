@@ -14,7 +14,7 @@ const FAQComponent = () => {
     return (
         <div id="faq-component">
             <Banner />
-            <div className="flex my-10">
+            <div className="flex item-stretch my-10 ">
                 <SideBar setCurrentHash={setCurrentHash} />
                 <Topics currentHash={currentHash} />
             </div>

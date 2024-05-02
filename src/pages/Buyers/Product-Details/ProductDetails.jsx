@@ -2,12 +2,9 @@
 import { useState, useEffect } from "react";
 import { Link, useHref } from "react-router-dom";
 import infoIcon from "../../../assets/ICONS/info.svg";
-
 import { connect } from "react-redux";
-
-// import { setCarts, addToCart } from "../../../reducersAndActions/actions/cartAction";
-// import { getProductDetails } from "../../../reducersAndActions/actions/productTestAction";
-
+import {  addToCart,setCarts } from "../../../reducersAndActions/actions/cartAction";
+import { getProductDetails } from "../../../reducersAndActions/actions/productTestAction";
 import PropTypes from "prop-types";
 
 // components
@@ -21,22 +18,34 @@ import ShippingComponent from "./Shipping-Component/Shipping";
 
 const mapStateToProps = (state) => {
     return {
-        productTestState: state.productTestReducer,
-        carts: state.cartReducer,
+        productTestState: state.productTestReducer,  ///product state
+        carts: state.cartReducer, /////carts state
         similarProductsTest: state.similarProductsTestReducer,
     };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-    addToCart: (data) => dispatch(addToCart(data)),
-});
+const mapDispatchToProps = (dispatch) => (
+    
+    {
+        setTheCarts: ()=>{
+            dispatch(setCarts())
+        },
+        addCart: (data) =>{ 
+        dispatch(addToCart(data))/////
+        /////This will eventaully involve a Thunk creationr to dispatch
+        }
+    }
+      
+)
+;
 
 function ProductDetails({
     productTestState: { product },
-    addToCart,
+    addCart,
     carts: { carts },
     similarProductsTest: { similarProductsTest },
 }) {
+
     const [breadCrumb, setBreadCrumb] = useState([]);
     const [qty, setQty] = useState(1);
     // current urls e.g /products/product-details
@@ -50,8 +59,8 @@ function ProductDetails({
         setUrlsPath();
     }, []);
 
+
     const setUrlsPath = () => {
-        // console.log(history);
         const histories = currentUrl.split("/");
         const paths = [];
         for (let i = 0; i < histories.length; i++) {
@@ -85,6 +94,7 @@ function ProductDetails({
     };
 
     const breadCrumbComp = breadCrumb.map((path, index, arr) => {
+        ////////this is home/productdetails link on top left
         return (
             <Link
                 className={`font-Roboto text-base lg:text-xl font-medium lg:font-semibold tight-[0.15px] p-1 ${index === arr.length - 1 ? "text-[#2284B6]": "text-[#938F96]"}`}
@@ -110,7 +120,7 @@ function ProductDetails({
             transition: "ease-in",
         },
     };
-
+    
     return (
         <div id="product-details-component" className="p-4 lg:px-10 lg:pt-8 lg:pb-16 flex flex-col gap-8">
             <div id="navigation-history-container">
@@ -258,7 +268,7 @@ function ProductDetails({
                     <AboutProduct />
                 </div>
                 {/* Shipping Component */}
-                <ShippingComponent />
+                <ShippingComponent  carts={carts} addCart={addCart} product={product} />
             </div>
             {/* Similar Products */}
             <SimilarProducts similarProducts={similarProductsTest} />

@@ -3,16 +3,16 @@ Objective: Verify the functionality of buttons in the Footer of the Shop ONline 
 website. 
 
 Preconditions: 
-1. Ensure the Shop ONline New York Website is accessible. 
+1. Ensure the Shop ONline New York (https://shoponlinenewyork.com/)  Website is accessible. 
 2.  Clear browser cookies and cache. 
 
 Test Steps: 
-Open the Shop ONline New York Website 
-1.  Navigate to the Shop ONline New York Website 
+Open the “https://shoponlinenewyork.com/”  Website 
+1.  Navigate to the “https://shoponlinenewyork.com/”  Website 
 2. Verify that the website loads successfully. 
 
 Navigate to the Help Center in the footer 
-1. Make sure the Shop ONline New York Website loads 
+1. Make sure the “https://shoponlinenewyork.com/”  Website loads 
 2. After scroll all the way down and on the left-hand side of the footer, click on help center 
 3. Once the “Help Center” option is clicked you will be redirected to another page if 
 successful  
@@ -33,7 +33,7 @@ easy access to that.
 Pass/ Fail: Fail 
 
 Navigate to the Contact US 
-1. Make sure the Shop ONline New York Website loads   
+1. Make sure the “https://shoponlinenewyork.com/”  Website loads   
 2. After the website loads, scroll all the way down and on the  left hand side of the 
 footer, click on “Contact Us” 
 3. Once the “Contact Us”  option is clicked you will be redirected to another page if 
@@ -52,7 +52,7 @@ it be for buying or selling
 Pass/ Fail: Fail 
 
 Navigate To the FAQs 
-1. Make sure the Shop ONline New York Website loads   
+1. Make sure the “https://shoponlinenewyork.com/”  Website loads   
 2. After the website loads, scroll all the way down and on the  left hand side of the 
 footer, click on Contact Us 
 3. Once the “FAQs” option is clicked you will be redriected to another page if 
@@ -70,7 +70,7 @@ full detail about the questions that have been answered.
 Pass/ Fail: Fail 
 
 Navigate To the Returns Section 
-1. Make sure the Shop ONline New York Website loads   
+1. Make sure the “https://shoponlinenewyork.com/”  Website loads   
 2. After the website loads, scroll all the way down and on the  left-hand side of the footer, 
 click on Contact Us 
 3. Once the “Returns” option is clicked you will be redirected to another page if successful  
@@ -79,8 +79,7 @@ Actual Result:
 Once a user Clicks  “Returns” option, it goes back to the home page. 
 Expected Results: 
 1. Once the Return is clicked you will be redirected to another webpage  
-2. Once on the next webpage you will have access to returns webpage of “ Shop ONline 
-New York”  
+2. Once on the next webpage you will have access to returns webpage of “https://shoponlinenewyork.com/” 
 3. Once on the returns website of  “ Shop ONline New York”  Verify the presence and 
 functionality of the "Manage Returns" section, check if functionality of the "Frequently 
 Asked Questions" (FAQ) section is there and, verify the presence and accessibility of the 
@@ -89,12 +88,12 @@ Asked Questions" (FAQ) section is there and, verify the presence and accessibili
 Pass/ Fail: Fail 
 
 Navigate To the Policies Section in the Footer 
-1. Make sure the Shop ONline New York Website loads   
-2. After the website loads, scroll all the way down of the webpage and on the  left hand 
+1. Make sure the “https://shoponlinenewyork.com/” website loads   
+2. After the “https://shoponlinenewyork.com/”  loads, scroll all the way down of the webpage and on the  left hand 
 side of the footer, click on Policies 
 3. Once the “Policies ” option is clicked you will be redirected to another page if successful  
 
-Acutal Result: Once a user Clicks  “Policies” option, it goes back to the home page. 
+Acutal Result: Once a user Clicks “Policies” option, it goes back to the home page. 
 
 Expected Results: 
 1. The website loads successfully at the beginning of each step. 
@@ -109,18 +108,18 @@ Pass/ Fail: Fail
                    Test Case Footer Part Two:  "About York Shoppers" section 
  
 Objective: Verify the functionality of the section “About York Shoppers” buttons in the Footer of 
-the Shop ONline New York website work. 
+the “https://shoponlinenewyork.com/”  website work. 
 
 Preconditions: 
-1. Ensure the Shop ONline New York Website is accessible. 
+1. Ensure the “https://shoponlinenewyork.com/”  Website is accessible. 
 2.  Clear browser cookies and cache. 
 
 Test Steps: 
-Open the Shop ONline New York Website 
-1.  Navigate to the Shop ONline New York Website 
+Open the “https://shoponlinenewyork.com/”  Website 
+1.  Navigate to the “https://shoponlinenewyork.com/”  Website 
 2. Verify that the website loads successfully. 
 Navigate to the About US section  in the footer 
-1. Make sure the Shop ONline New York Website loads 
+1. Make sure the “https://shoponlinenewyork.com/”  Website loads 
 2. After scroll all the way down and left hand side of the footer, click on “About Us” 
 3. Once the “About Us”  option is clicked you will be redriected to another page if 
 successful 
@@ -129,14 +128,13 @@ Acutal Result: Once you click on the “About Us” option in the footer, a user
 redirected back to the home page. 
 
 Expected Results: 
-1. Once you click on “About us” it should lead to another webpage with Shop 
-ONline New York company information. 
-2.  While Clicking on  Shop ONline New York "About Us" section it  should redirect 
+1. Once you click on “About us” it should lead to another webpage with “https://shoponlinenewyork.com/”  company information. 
+2.  While Clicking on “https://shoponlinenewyork.com/”  "About Us" section it  should redirect 
 a user with information on how SONNY operates, principles, and policies. 
 Pass/ Fail: Fail 
 
 Navigate to the York Shoppers’ Express section  in the footer 
-1. Make sure the Shop ONline New York Website loads. 
+1. Make sure the “https://shoponlinenewyork.com/”  Website loads. 
 2. After the website loads scroll all the way down and left hand side of the footer, click on 
 “About Us”. 
 3. Once the “About Us”  option is clicked you will be redriected to another page if 
@@ -147,13 +145,13 @@ redirected back to the home page.
 
 Expected Results: 
 1. Once you click on “York Shoppers ‘ Express” it should lead to another webpage 
-with Shop ONline New York company information. 
+with “https://shoponlinenewyork.com/”  company information. 
        
 Pass/ Fail: Fail 
 
 
 Navigate to the Cookie Notice section  in the footer 
-1. Make sure the Shop ONline New York Website loads. 
+1. Make sure the “https://shoponlinenewyork.com/”  Website loads. 
 2. After scroll all the way down and left hand side of the footer, click on 
 “Cookie Notice ”. 
 3. Once the “Cookie Notice” option is clicked you will be redriected to 
@@ -165,8 +163,8 @@ redirected back to the home page.
 Expected Results: 
 1. Once you click on “Cookie Notice ” it should lead to another webpage with Shop ONline 
 New York company information.  
-2.  While Clicking on  Shop ONline New York "Cookie Notice" section, it  should redirect a 
-user to another webpage. It should state that Shop ONline New York uses technology to 
+2.  While Clicking on  “https://shoponlinenewyork.com/”  "Cookie Notice" section, it  should redirect a 
+user to another webpage. It should state that “https://shoponlinenewyork.com/”  uses technology to 
 save information and store data.  
 3. On this page there should also be extra links that lead you to a summary of the cookie 
 notice. 
@@ -174,7 +172,7 @@ notice.
 Pass/ Fail: Fail 
 
 Navigate to the Legal and Privacy Notices  section in the footer 
-1. Make sure the Shop ONline New York Website loads 
+1. Make sure the “https://shoponlinenewyork.com/”  Website loads 
 2. After scroll all the way down and left hand side of the footer, click on “ Legal and Privacy 
 Notices ” 
 3. Once the “ Legal and Privacy Notices” option is clicked you will be redirected to another 
@@ -193,7 +191,7 @@ extra links.
 Pass/ Fail: Fail 
 
 Navigate to the Flash Sales section in the footer 
-1. Make sure the Shop ONline New York Website loads 
+1. Make sure the “https://shoponlinenewyork.com/”  Website loads 
 2. After scroll all the way down and left hand side of the footer, click on “Flash Sales” 
 3. Once the “Flash Sales” option is clicked you will be redirected to another page if 
 successful 
@@ -212,22 +210,22 @@ for the users, whether based on a section or a single item.
 Pass/ Fail: Fail 
 
                     Test Case Part Three: Testing Buttons on the Footer 
-Objective: Verify the functionality of buttons in the Footer of the Shop ONline New York website. 
+Objective: Verify the functionality of buttons in the Footer of the “https://shoponlinenewyork.com/”  website. 
 
 Preconditions: 
 1. Ensure you have access to a free browser. 
-2. Ensure the Shop ONline New York Website is accessible. 
+2. Ensure the “https://shoponlinenewyork.com/” Website is accessible. 
  
 Test Steps: 
-Open the Shop ONline New York Website 
-1.  Navigate to the Shop ONline New York Website 
+Open the “https://shoponlinenewyork.com/”  Website 
+1.  Navigate to “https://shoponlinenewyork.com/”  Website 
 2. Verify that the website loads successfully. 
 Navigate to the Subscribe to Newsletter in the footer 
-1. Make sure the Shop ONline New York Website loads 
+1. Make sure the “https://shoponlinenewyork.com/”  Website loads 
 2. After the website loads scroll all the way down and right side of the footer and go to the 
 section where you can subscribe to the newsletter 
 3. Once on the newsletter where it says email type in your personal email and click submit 
-to get news from the Shop ONline New York platform. 
+to get news from the “https://shoponlinenewyork.com/”  platform. 
 
 Actual Results: Once you type in your Email and click on the submit button option in the footer 
 it does not send the email and an error does not pop up. 
@@ -242,7 +240,7 @@ applicable.
 Pass / Fail: Fail 
 
 Navigate to the Condition of Use in the footer 
-1. Make sure the Shop ONline New York Website loads 
+1. Make sure the “https://shoponlinenewyork.com/” Website loads 
 2. After the website loads scroll all the way down and in the way bottom of the 
 footer and go to the section where it says condition of use.  
 3. Try to click on condition of user to go onto a new webpage. 
@@ -257,7 +255,7 @@ Pass / Fail: Fail
  
 Navigate to the Privacy Notice in the footer 
 
-1. Make sure the Shop ONline New York Website loads 
+1. Make sure the “https://shoponlinenewyork.com/” Website loads 
 2. After the website loads scroll down and in the bottom of the footer and go 
 to the section where it says “Privacy Notice”. 
 3. Try to click on condition of user to go onto a new webpage. 

@@ -186,38 +186,54 @@ const Topics = ({ currentHash }) => {
             ],
         },
     ];
+ 
+    const mobileTopics = items.flatMap((item) => item.topics); 
+    
 
-    const topics = items.map((item, index) => {
-        return currentHash == item.hash ? (
-            <div
-                key={index}
-                id={item.hash}
-            >
-                {item.topics.map((topic, topicIndex) => {
-                    return (
-                        <div key={topicIndex + 1}>
-                            <div>
-                                <p>
-                                    {topicIndex + 1}. {topic.title}
-                                </p>
-                            </div>
-                            <div>
-                                <p>{topic.description}</p>
-                            </div>
-                        </div>
-                    );
-                })}
+    const renderTopics = (topics) => {
+        return topics.map((topic, index) => (
+            <div key={index}>
+                <div>
+                    <p className="ml-16 pt-10 text-xl font-bold">{index + 1}. {topic.title}</p>
+                </div>
+                <div>
+                    <p className="ml-14 mr-4 pt-4 pr-12 text-lg">{topic.description}</p>
+                </div>
             </div>
-        ) : (
-            <div key={index}></div>
-        );
-    });
+        ));
+    };
     return (
         <div
             id="topics-components"
-            className="w-2/5"
+            className="w-full"
+            style={{
+                backgroundColor: 'white',
+                marginLeft: '0',
+                marginRight: '0',
+                paddingBottom: '10px',
+                maxHeight: '62.3vh',
+                overflowY: 'auto',
+                ...(window.innerWidth <= 768 && {
+                    marginLeft: '0',
+                    marginRight: '0',
+                    maxHeight: '100%',
+                })
+            }}
         >
-            <div>{topics}</div>
+            
+            {window.innerWidth > 768 ? (
+                items.map((item, index) =>
+                    currentHash === item.hash ? (
+                        <div key={index} id={item.hash}>
+                            {renderTopics(item.topics)}
+                        </div>
+                    ) : null
+                )
+            ) : (
+                <div>
+                    {renderTopics(mobileTopics)}
+                </div>
+            )}
         </div>
     );
 };

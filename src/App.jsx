@@ -13,11 +13,11 @@ import BagsAndShoes from './pages/Buyers/Category/BagsAndShoes/BagsAndShoes'
 import Cart from './pages/Buyers/Cart/CartPage'
 import LoginPage from './pages/Buyers/Login/LoginPage'
 import SignupPage from './pages/Buyers/Signup/SignupPage'
-import Help from './pages/Buyers/Help'
+import CustomerService from './pages/Buyers/Aacount/CustomerService'
 import PaymentSuccessful from './pages/Buyers/PaymentSuccessful'
 import Checkout from './pages/Buyers/Checkout/Checkout'
-import Account from './pages/Buyers/Account'
-import ReviewPage from './pages/Buyers/ReviewPage'
+import MyAccount from './components/Account/MyAccount'
+import PendingReviews from './pages/Buyers/Aacount/PendingReviews'
 import ProductDetails from './pages/Buyers/Product-Details/ProductDetails'
 import ProductCatalogue from './pages/Buyers/Product-Catalogue/ProductCatalogue'
 import Electronics from './pages/Buyers/Category/Electronics'
@@ -67,6 +67,8 @@ import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerif
 import Agreements from './pages/Sellers/Agreements/Agreements'
 
 import Category from './pages/Buyers/Category/FunctionalityTest/Category'
+import AacountLayout from './components/Account/AacountLayout'
+import Orders from './pages/Buyers/Aacount/Orders/Orders'
 
 function App() {
   return (
@@ -159,14 +161,30 @@ function App() {
                           path="/cart"
                           element={<Cart />}
                       />
-                      <Route
-                          path="/help"
-                          element={<Help />}
-                      />
+                      
                       <Route
                           path="/account"
-                          element={<Account />}
-                      />
+                          element={<AacountLayout />}
+                      >
+                            <Route
+                                path=""
+                                element={<MyAccount />} 
+                            />
+                            <Route
+                                path="orders"
+                                element={<Orders />}
+                            />
+                            <Route
+                                path="pendingreviews"
+                                element={<PendingReviews />}                    
+                            />
+                            <Route
+                                path="customer-service"
+                                element={<CustomerService />}
+                            />
+
+
+                      </Route>
                       <Route
                           path="/app"
                           element="#"
@@ -187,14 +205,10 @@ function App() {
                           path="/checkout"
                           element={<Checkout />}
                       />
-                      <Route
-                          path="/reviews"
-                          element={<ReviewPage />}
-                      />
-                      <Route
+                      {/* <Route
                           path="/accountsettings"
                           element={<Account />}
-                      />
+                      /> */}
                       <Route
                           path="/productcatalogue"
                           element={<ProductCatalogue />}

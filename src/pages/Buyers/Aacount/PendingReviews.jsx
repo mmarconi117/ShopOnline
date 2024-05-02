@@ -1,8 +1,7 @@
 import React from 'react';
-import Footer from "../../components/Footer/Footer";
-import AccountNavigation from "../../components/AccountNavigation/AccountNavigation";
+import {Link} from 'react-router-dom';
 
-const ReviewPage = () => {
+const PendingReviews = () => {
     const reviewsData = [
       {
         id: 1,
@@ -19,10 +18,10 @@ const ReviewPage = () => {
     ];
 
     return (
-      <div className="flex flex-col min-h-screen">
+      <div className="w-full lg:w-[70%] flex flex-col lg:gap-14">
         <div className="flex-grow flex">
           <aside className="w-64"> 
-            <AccountNavigation />
+            {/* <AccountNavigation /> */}
           </aside>
           <main className="flex-grow">
             <h2>Pending reviews</h2>
@@ -31,16 +30,15 @@ const ReviewPage = () => {
                 <img src={review.imageUrl} alt={review.name} className="w-20 h-auto" />
                 <div>{review.name}</div>
                 <div>Delivered on {review.deliveredDate}</div>
-                <a href="/order-details">View Order Details</a>
+                <Link href="/order-details">View Order Details</Link>
                 <button>Rate This Product</button>
                 {/* add stars */}
               </div>
             ))}
           </main>
         </div>
-        <Footer />
       </div>
     );
 };
 
-export default ReviewPage;
+export default PendingReviews;

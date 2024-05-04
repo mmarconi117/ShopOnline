@@ -1,9 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD:src/pages/Buyers/Aacount/PendingReviews.jsx
-import {Link} from 'react-router-dom';
-=======
-import AccountNavigation from "../../components/AccountNavigation/AccountNavigation";
->>>>>>> bcc162946a4691bbd089cbaecc2b4120c61d4d95:src/pages/Buyers/ReviewPage.jsx
 
 const PendingReviews = () => {
     const reviewsData = [
@@ -23,26 +18,8 @@ const PendingReviews = () => {
     ];
 
     return (
-<<<<<<< HEAD:src/pages/Buyers/Aacount/PendingReviews.jsx
-      <div className="w-full lg:w-[70%] flex flex-col lg:gap-14">
-        <div className="flex-grow flex">
-          <aside className="w-64"> 
-            {/* <AccountNavigation /> */}
-          </aside>
-          <main className="flex-grow">
-            <h2>Pending reviews</h2>
-            {reviewsData.map((review) => (
-              <div key={review.id} className="mb-4">
-                <img src={review.imageUrl} alt={review.name} className="w-20 h-auto" />
-                <div>{review.name}</div>
-                <div>Delivered on {review.deliveredDate}</div>
-                <Link href="/order-details">View Order Details</Link>
-                <button>Rate This Product</button>
-                {/* add stars */}
-=======
       
         <div className="flex-grow flex bg-[#F5F5F9] min-h-screen items-start">
-          <AccountNavigation />
           <main className="bg-white grow m-4 lg:m-10 p-2 lg:p-8 flex flex-col">
             <h2 className='text-2xl leading-10 font-semibold text-center pb-6'>Pending reviews</h2>
             {reviewsData.map((review) => (
@@ -80,15 +57,10 @@ const PendingReviews = () => {
                   </div>
                 </div>
                 <button className='self-center max-w-min whitespace-nowrap bg-[#EEC643] rounded-md text-[#48464C] px-4 py-2'>Rate this button</button>
->>>>>>> bcc162946a4691bbd089cbaecc2b4120c61d4d95:src/pages/Buyers/ReviewPage.jsx
               </div>
             ))}
           </main>
         </div>
-<<<<<<< HEAD:src/pages/Buyers/Aacount/PendingReviews.jsx
-      </div>
-=======
->>>>>>> bcc162946a4691bbd089cbaecc2b4120c61d4d95:src/pages/Buyers/ReviewPage.jsx
     );
 };
 

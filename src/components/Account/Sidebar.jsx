@@ -11,9 +11,12 @@ import paymentIcon from '../../assets/ICONS/paymentIcon.svg';
 import user from '../../assets/ICONS/user.png';
 import leftArrow from '../../assets/ICONS/LeftArrow.svg';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import LogoutModal from '../../pages/Buyers/Aacount/LogoutModal';
 
 
-const Account = () => {
+const Sidebar = () => {
+    const [showLogoutModal, setShowLogoutModal] = useState(false)
 
     return (
         
@@ -58,21 +61,15 @@ const Account = () => {
                 </div>
                 <div className="hidden lg:flex gap-[14px] items-start">
                     <span>
-                        <img src={ticket} alt="" className="w-6 h-6" />
-                    </span>
-                    <Link to="voucher">Voucher</Link>
-                </div>
-                <div className="hidden lg:flex gap-[14px] items-start">
-                    <span>
                         <img src={Heart} alt="" className="w-6 h-6" />
                     </span>
-                    <Link to="info">Saved Items</Link>
+                    <Link to="wishList">Wish List</Link>
                 </div>
                 <div className="hidden lg:flex gap-[14px] items-start">
                     <span>
                         <img src={clock} alt="" className="w-6 h-6" />
                     </span>
-                    <Link to="recently-viewed">Recently Viewed</Link>
+                    <Link to="recentlyViewed">Recently Viewed</Link>
                 </div>
                 <div className="hidden lg:flex gap-[14px] items-start pb-5 border-b border-[#938F96] border-solid">
                     <span>
@@ -81,27 +78,28 @@ const Account = () => {
                     <Link to="notifications">Notifications</Link>
                 </div>
                 <div className="hidden lg:block">
-                    <Link to="account-management">Account Management</Link>
+                    <Link to="accountManagement">Account Management</Link>
                 </div>
                 <div className="hidden lg:block">
-                    <Link to="edit-shipping-address">Edit Shipping address</Link>
-                </div>
-                <div className="hidden lg:block">
-                    <Link to="support">Digital service and device Support</Link>
+                    <Link to="editShippingAddress">Edit Shipping address</Link>
                 </div>
                 <div className="hidden lg:block pb-5 border-b border-[#938F96] border-solid">
                     <Link to="customer-service">Customer Service</Link>
                 </div>
-                <Link to="/login" className="hidden lg:flex items-start justify-center gap-[14px]">
+                {showLogoutModal && <LogoutModal setShowLogoutModal={setShowLogoutModal}/>}
+                <button 
+                    className="hidden lg:flex items-start justify-center gap-[14px]"
+                    onClick={() => setShowLogoutModal(true)}
+                >
                         <img
                             src={logOut}
                             alt="logout icon"
                             className="w-6 h-6"
                         />
                     <div className="text-[#E46962]">LOGOUT</div>
-                </Link>
+                </button>
             </div>
     );
 };
 
-export default Account;
+export default Sidebar;

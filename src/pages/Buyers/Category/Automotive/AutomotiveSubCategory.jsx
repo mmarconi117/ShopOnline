@@ -10,16 +10,16 @@ import WheelsAndTiresRow from './WheelsAndTires/WheelsAndTires.jsx'
  
 function AutomotiveSubCategory() {
   return (
-    <div className="bg-[#f5f5f9]">
-      <UpperBody></UpperBody>
-      <ExteriorAccessoriesRow></ExteriorAccessoriesRow>
-      <InteriorAccessoriesRow></InteriorAccessoriesRow>
-      <CarCareRow></CarCareRow>
-      <WheelsAndTiresRow></WheelsAndTiresRow>
-      <ToolsAndEquipmentRow></ToolsAndEquipmentRow>
-      <ElectronicsAndGadgetsRow></ElectronicsAndGadgetsRow>
-      <FluidAndChemicalsRow></FluidAndChemicalsRow>
-      <AutoPartsRow></AutoPartsRow>
+    <div className="">
+      <UpperBody />
+      {/* <ExteriorAccessoriesRow></ExteriorAccessoriesRow> */}
+      {/* <InteriorAccessoriesRow></InteriorAccessoriesRow> */}
+      {/* <CarCareRow></CarCareRow> */}
+      {/* <WheelsAndTiresRow></WheelsAndTiresRow> */}
+      {/* <ToolsAndEquipmentRow></ToolsAndEquipmentRow> */}
+      {/* <ElectronicsAndGadgetsRow></ElectronicsAndGadgetsRow> */}
+      {/* <FluidAndChemicalsRow></FluidAndChemicalsRow> */}
+      {/* <AutoPartsRow></AutoPartsRow> */}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 function Button() {
   return (
     <div
-      className="w-[461px] h-[131px] bg-[#F6FAFC] rounded-lg border-solid border border-[#E6E0E9] px-10 py-5 flex justify-between">
+      className="md:w-[461px] md:h-[131px]   bg-[#F6FAFC] rounded-lg border-solid border border-[#E6E0E9] px-10 py-5 flex justify-between min-w-[350px]">
       <div className="flex flex-col justify-between gap-1">
         <div>
           <h1 className="  text-[25px] font-bold  text-[#55A0C7]">

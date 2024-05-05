@@ -2,7 +2,7 @@ import Button from "./Button";
 function LowerRectangle() {
   return (
     <div
-      className="w-full  flex flex-row justify-evenly mt-10 gap-5 px-36"
+      className="md:w-[100vw] overflow-auto  flex flex-row  mt-10 gap-5 md:px-36 mb-10 px-10"
     >
       <Button></Button>
       <Button></Button>

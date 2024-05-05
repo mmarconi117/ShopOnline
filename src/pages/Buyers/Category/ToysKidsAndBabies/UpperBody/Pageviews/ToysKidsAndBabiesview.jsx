@@ -10,17 +10,17 @@
     );
 }*/ //this is a click function. Leaving it commented out for now.
 
-import LOGO from '../../../../../../assets/ICONS/location-marker.svg'
+import LOGO from "../../../../../../assets/ICONS/location-marker.svg";
 
 function ToysKidsAndBabies() {
   return (
     <div className="flex justify-between items-center font-Roboto">
       <img src={LOGO} className="w-5 h-5"></img>
       <div className="text-xl sm:text-[31px] sm:leading-[31.2px] text-[#09618E] whitespace-nowrap font-semibold sm:font-bold">
-        Toys,Kids, and Babies
+        Toys, Kids, and Babies
       </div>
     </div>
-  )
+  );
 }
 
-export default ToysKidsAndBabies
+export default ToysKidsAndBabies;

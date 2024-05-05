@@ -12,7 +12,7 @@ function AutomotiveSubCategory() {
   return (
     <div className="">
       <UpperBody />
-      {/* <ExteriorAccessoriesRow /> */}
+      <ExteriorAccessoriesRow />
       {/* <InteriorAccessoriesRow></InteriorAccessoriesRow> */}
       {/* <CarCareRow></CarCareRow> */}
       {/* <WheelsAndTiresRow></WheelsAndTiresRow> */}

@@ -13,11 +13,11 @@ import BagsAndShoes from './pages/Buyers/Category/BagsAndShoes/BagsAndShoes'
 import Cart from './pages/Buyers/Cart/CartPage'
 import LoginPage from './pages/Buyers/Login/LoginPage'
 import SignupPage from './pages/Buyers/Signup/SignupPage'
-import Help from './pages/Buyers/Help'
+import CustomerService from './pages/Buyers/Aacount/CustomerService'
 import PaymentSuccessful from './pages/Buyers/PaymentSuccessful'
 import Checkout from './pages/Buyers/Checkout/Checkout'
-import Account from './pages/Buyers/Account'
-import ReviewPage from './pages/Buyers/ReviewPage'
+import MyAccount from './components/Account/MyAccount'
+import PendingReviews from './pages/Buyers/Aacount/PendingReviews'
 import ProductDetails from './pages/Buyers/Product-Details/ProductDetails'
 import ProductCatalogue from './pages/Buyers/Product-Catalogue/ProductCatalogue'
 import Electronics from './pages/Buyers/Category/Electronics'
@@ -68,6 +68,15 @@ import TwoStepVerification from './pages/Sellers/2-StepVerification/TwoStepVerif
 import Agreements from './pages/Sellers/Agreements/Agreements'
 
 import CategoryPage from './pages/Buyers/Category/category/Category'
+import AacountLayout from "./components/Account/AacountLayout";
+import Orders from "./pages/Buyers/Aacount/Orders/Orders";
+import Payment from "./pages/Buyers/Aacount/Payments/Payment";
+import AddGiftCardorVoucher from "./pages/Buyers/Aacount/Payments/AddGiftCardorVoucher";
+import Transactions from "./pages/Buyers/Aacount/Payments/Transactions";
+import AccountManagement from "./pages/Buyers/Aacount/AccountManagement/AccountManagement";
+import EditShippingAddress from "./pages/Buyers/Aacount/EditShippingAddress";
+import WishList from "./pages/Buyers/Aacount/WishList";
+import RecentlyViewed from "./pages/Buyers/Aacount/RecentlyViewed";
 
 function App() {
   return (
@@ -134,8 +143,24 @@ function App() {
 
             <Route path="/productdetails" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/account" element={<Account />} />
+            <Route path="/help" element={<HelpCenter />} />
+            {/* Account route */}
+            <Route path="/account" element={<AacountLayout />}>
+              <Route path="" element={<MyAccount />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="pendingreviews" element={<PendingReviews />} />
+              <Route path="wishList" element={<WishList />} />
+              <Route path="recentlyViewed" element={<RecentlyViewed />} />
+              <Route path="customer-service" element={<CustomerService />} />
+              <Route path="payments" element={<Payment />} />
+              <Route path="addgiftcard-voucher" element={<AddGiftCardorVoucher />} />
+              <Route path="transactions" element={<Transactions />} />
+              <Route path="accountManagement" element={<AccountManagement />} />
+              <Route path="editShippingAddress" element={<EditShippingAddress />} />
+            </Route>
+
+
+
             <Route path="/app" element="#" />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/companyService" element={<CompanyService />} />
@@ -144,8 +169,8 @@ function App() {
 
             <Route path="/paymentSuccess" element={<PaymentSuccessful />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/reviews" element={<ReviewPage />} />
-            <Route path="/accountsettings" element={<Account />} />
+            {/* <Route path="/reviews" element={<ReviewPage />} /> */}
+            <Route path="/accountsettings" element={<AacountLayout />} />
             <Route path="/productcatalogue" element={<ProductCatalogue />} />
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/practiceCategory" element={<CategoryPage />} />

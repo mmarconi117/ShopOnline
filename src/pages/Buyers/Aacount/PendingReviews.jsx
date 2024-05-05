@@ -1,7 +1,6 @@
 import React from 'react';
-import AccountNavigation from "../../components/AccountNavigation/AccountNavigation";
 
-const ReviewPage = () => {
+const PendingReviews = () => {
     const reviewsData = [
       {
         id: 1,
@@ -21,7 +20,6 @@ const ReviewPage = () => {
     return (
       
         <div className="flex-grow flex bg-[#F5F5F9] min-h-screen items-start">
-          <AccountNavigation />
           <main className="bg-white grow m-4 lg:m-10 p-2 lg:p-8 flex flex-col">
             <h2 className='text-2xl leading-10 font-semibold text-center pb-6'>Pending reviews</h2>
             {reviewsData.map((review) => (
@@ -66,4 +64,4 @@ const ReviewPage = () => {
     );
 };
 
-export default ReviewPage;
+export default PendingReviews;

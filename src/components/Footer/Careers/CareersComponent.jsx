@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import Banner from './Banner';
+import { useEffect } from 'react';
 
 const CareersComponent = () => {
+    useEffect(() => {
+        // Scroll to the top of the page when the component mounts
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div id="careers-component">
             <Banner />

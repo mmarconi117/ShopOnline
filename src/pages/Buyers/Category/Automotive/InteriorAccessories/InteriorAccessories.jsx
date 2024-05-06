@@ -40,7 +40,7 @@ function InteriorAccessoriesRow() {
 
   return (
     <div className="relative w-full flex flex-col items-start gap-4 pt-8 px-10 pb-10 ">
-      <h1 className=" text-[#313133] font-Roboto font-medium text-base sm:text-[31px] sm:font-bold sm:leading-[37.2px]">
+      <h1 className=" text-[#313133] font-Roboto md:font-bold md:text-[31px] text-[21px] font-bold ">
         Interior Accessories
       </h1>
       <ul className="flex w-full items-start gap-2 sm:gap-6 min-[390px]:overflow-x-auto overflow-hidden">

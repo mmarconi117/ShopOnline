@@ -13,7 +13,7 @@ function Pagerow() {
     <div className="bg-[#FFFFFF] md:w-[100vw]   ">
       <div className=" flex flex-col md:flex-row justify-evenly p-10 text-[20px] gap-x-10 text-left items-center">
         {/* Automobile Category */}
-        <div className="flex flex-row md:items-center justify-center">
+        <div className="flex flex-row md:items-center justify-center items-center">
           <img src={Form} className="w-5 h-5" alt="Automobile Logo" />
           <div className="text-[#09618E] font-Roboto text-[31px] font-bold">
             Automotive
@@ -21,7 +21,7 @@ function Pagerow() {
         </div>
         
         {/* Other Categories */}
-        <div className="flex flex-row md:flex-row  gap-x-10 px-10 overflow-x-auto w-[100vw]">
+        <div className="flex flex-row md:flex-row  gap-x-10 px-10 overflow-x-auto w-[100vw] mt-5">
           <ExteriorAccessoriesview />
           <InteriorAccessoriesview />
           <CarCareview />

@@ -10,8 +10,8 @@ import WheelsAndTiresview from "./Pageviews/WheelsAndTiresview";
 
 function Pagerow() {
   return (
-    <div className="bg-[#FFFFFF] md:w-[100vw] md:h-[99px] h-[99px] overflow-x-auto">
-      <div className="flex flex-col md:flex-row justify-evenly p-10 text-[20px] gap-x-10 text-left">
+    <div className="bg-[#FFFFFF] md:w-[100vw]   ">
+      <div className=" flex flex-col md:flex-row justify-evenly p-10 text-[20px] gap-x-10 text-left items-center">
         {/* Automobile Category */}
         <div className="flex flex-row md:items-center justify-center">
           <img src={Form} className="w-5 h-5" alt="Automobile Logo" />
@@ -21,7 +21,7 @@ function Pagerow() {
         </div>
         
         {/* Other Categories */}
-        <div className="flex flex-row md:flex-row justify-center md:justify-start gap-x-10">
+        <div className="flex flex-row md:flex-row  gap-x-10 px-10 overflow-x-auto w-[100vw]">
           <ExteriorAccessoriesview />
           <InteriorAccessoriesview />
           <CarCareview />
@@ -30,7 +30,28 @@ function Pagerow() {
           <ElectronicsAndGadgetsview />
           <FluidAndChemicalsview />
           <AutoPartsview />
+
+          {/* <div>
+            Exterior accessories view
+          </div>
+          <div>
+            Exterior accessories view
+          </div>
+          <div>
+            Exterior accessories view
+          </div>
+          <div>
+            Exterior accessories view
+          </div>
+          <div>
+            Exterior accessories view
+          </div>
+          <div>
+            Exterior accessories view
+          </div> */}
+
         </div>
+
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ function AutomotiveSubCategory() {
       <ToolsAndEquipmentRow />
       <ElectronicsAndGadgetsRow />
       <FluidAndChemicalsRow />
-      {/* <AutoPartsRow></AutoPartsRow> */}
+      <AutoPartsRow />
     </div>
   )
 }

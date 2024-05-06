@@ -15,7 +15,7 @@ function AutomotiveSubCategory() {
       <ExteriorAccessoriesRow />
       <InteriorAccessoriesRow />
       <CarCareRow />
-      {/* <WheelsAndTiresRow></WheelsAndTiresRow> */}
+      <WheelsAndTiresRow />
       {/* <ToolsAndEquipmentRow></ToolsAndEquipmentRow> */}
       {/* <ElectronicsAndGadgetsRow></ElectronicsAndGadgetsRow> */}
       {/* <FluidAndChemicalsRow></FluidAndChemicalsRow> */}

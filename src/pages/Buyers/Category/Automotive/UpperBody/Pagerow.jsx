@@ -21,7 +21,7 @@ function Pagerow() {
         </div>
         
       
-        <div className="flex flex-row md:flex-row  gap-x-10 px-10 overflow-x-auto w-full mt-5">
+        <div className="flex flex-row md:flex-row  gap-x-10 px-10 overflow-x-auto w-full mt-5 whitespace-nowrap">
           <ExteriorAccessoriesview />
           <InteriorAccessoriesview />
           <CarCareview />

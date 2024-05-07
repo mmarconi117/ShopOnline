@@ -1,9 +1,9 @@
-import image1 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-37.jpg'
-import image2 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-38.jpg'
-import image3 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-39.jpg'
-import image4 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-40.jpg'
-import image5 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-41.jpg'
-import image6 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-42.jpg'
+import image1 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-37.svg'
+import image2 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-38.svg'
+import image3 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-39.svg'
+import image4 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-40.svg'
+import image5 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-41.svg'
+import image6 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-42.svg'
 
 const imagesList = [
   {

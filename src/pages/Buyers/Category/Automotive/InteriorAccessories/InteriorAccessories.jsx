@@ -53,7 +53,7 @@ function InteriorAccessoriesRow() {
             <img
               src={image.src}
               alt={image.alt}
-              className="min-h-[214px] object-cover rounded-[5px] w-full"
+              className="w-full h-[214px] object-cover rounded-[5px]"
             />
             <div className="flex flex-col justify-center items-start gap-3 sm:gap-4 font-Roboto">
               <p className="text-sm max-sm:tracking-[0.25px]">

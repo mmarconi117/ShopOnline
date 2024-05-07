@@ -12,14 +12,14 @@ function AutomotiveSubCategory() {
   return (
     <div className="">
       <UpperBody />
-      {/* <ExteriorAccessoriesRow /> */}
-      {/* <InteriorAccessoriesRow /> */}
-      {/* <CarCareRow /> */}
-      {/* <WheelsAndTiresRow /> */}
-      {/* <ToolsAndEquipmentRow /> */}
-      {/* <ElectronicsAndGadgetsRow /> */}
-      {/* <FluidAndChemicalsRow /> */}
-      {/* <AutoPartsRow /> */}
+      <ExteriorAccessoriesRow />
+      <InteriorAccessoriesRow />
+      <CarCareRow />
+      <WheelsAndTiresRow />
+      <ToolsAndEquipmentRow />
+      <ElectronicsAndGadgetsRow />
+      <FluidAndChemicalsRow />
+      <AutoPartsRow />
     </div>
   )
 }

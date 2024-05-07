@@ -5,8 +5,8 @@ function UpperBody(){
     return(
         <div className="">
             <Rectangle />
-            {/* <LowerRectangle></LowerRectangle> */}
-            {/* <Pagerow></Pagerow> */}
+            <LowerRectangle />
+            <Pagerow />
         </div>
     );
 }

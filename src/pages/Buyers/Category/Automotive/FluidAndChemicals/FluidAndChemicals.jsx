@@ -39,7 +39,7 @@ function FluidAndChemicalsRow() {
   })
 
   return (
-    <div className="relative w-full flex flex-col items-start gap-4 pt-8 px-10 pb-10  ">
+    <div className="relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-5 sm:pl-6  ">
       <h1 className=" text-[#313133] font-Roboto md:font-bold md:text-[31px] text-[21px] font-bold ">
         Fluid And Chemicals
       </h1>

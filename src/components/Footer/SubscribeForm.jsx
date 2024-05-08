@@ -14,6 +14,9 @@ const SubscribeForm = () => {
 
     if (isValidEmail(email)) {
       // Handle further actions like sending the email here
+      console.log('this is right')
+
+
     } else {
       setIsValid(false);
     }
@@ -23,7 +26,7 @@ const SubscribeForm = () => {
     setEmail(event.target.value);
     setIsValid(true); 
   };
-
+  console.log('let look at email==>',email)
   return (
     <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 justify-center min-w-[200px]">
       <div className="text-xl font-normal whitespace-normal leading-[120%] text-[#b7b9ba] text-center font-sansita-one">

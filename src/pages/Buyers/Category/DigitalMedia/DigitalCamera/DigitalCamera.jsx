@@ -16,12 +16,13 @@ function DigitalCameraRow() {
     return (
       <li
         key={imagesList[index % imagesList.length].id}
-        className="min-[391px]:hidden flex flex-col items-start bg-white min-w-[175px] min-h-[373px] sm:min-w-[219px] sm:h-auto p-2 pb-3 sm:p-[10px] sm:pb-[16px] rounded-[5px] border border-solid border-[#AEA9B1] gap-4 sm:gap-6"
+        className="min-[391px]:hidden flex flex-col items-start bg-white min-w-[175px] min-h-[373px] max-w-[250px] sm:min-w-[219px] sm:h-auto p-2 pb-3 sm:p-[10px] sm:pb-[16px] rounded-[5px] border border-solid border-[#AEA9B1] gap-4 sm:gap-6"
       >
+        
         <img
           src={imagesList[index % imagesList.length].src}
           alt={imagesList[index % imagesList.length].alt}
-          className="min-h-[214px] object-cover rounded-[5px]"
+          className="min-h-[214px] w-full h-full object-cover rounded-[5px]"
         />
         <div className="flex flex-col justify-center items-start gap-3 sm:gap-4 font-Roboto">
           <p className="text-sm max-sm:tracking-[0.25px]">
@@ -43,17 +44,17 @@ function DigitalCameraRow() {
       <h1 className=" text-[#313133] font-Roboto font-medium text-base sm:text-[31px] sm:font-bold sm:leading-[37.2px]">
         Digital Camera
       </h1>
-      <ul className="flex w-full items-start gap-2 sm:gap-6 min-[390px]:overflow-x-auto overflow-hidden">
+      <ul className="flex w-full items-start gap-2 sm:gap-6 sm:overflow-x-auto overflow-hidden pr-4" >
         {exploreItems}
         {imagesList.map((image) => (
           <li
             key={image.id}
-            className="max-[390px]:hidden flex flex-col items-start bg-white min-w-[175px] min-h-[373px] sm:min-w-[219px] sm:h-auto p-2 pb-3 sm:p-[10px] sm:pb-[16px] rounded-[5px] border border-solid border-[#AEA9B1] gap-4 sm:gap-6"
+            className="max-[390px]:hidden flex flex-col items-start bg-white  min-w-[175px] min-h-[373px] sm:min-w-[219px] sm:h-auto p-2 pb-3 sm:p-[10px] sm:pb-[16px] rounded-[5px] border border-solid border-[#AEA9B1] gap-4 sm:gap-6"
           >
             <img
               src={image.src}
               alt={image.alt}
-              className="min-h-[214px] object-cover rounded-[5px]"
+              className="min-h-[214px] h-[275px] w-[300px]  object-cover rounded-[5px]"
             />
             <div className="flex flex-col justify-center items-start gap-3 sm:gap-4 font-Roboto">
               <p className="text-sm max-sm:tracking-[0.25px]">

@@ -1,18 +1,18 @@
-import imagesList from './DollCornerRowImages.jsx'
-import arrow from '../../../../../assets/ICONS/RightPointer.svg'
-import { useState } from 'react'
+import imagesList from "./DollCornerRowImages.jsx";
+import arrow from "../../../../../assets/ICONS/RightPointer.svg";
+import { useState } from "react";
 function DollCornerRow() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const itemsPerSlide = 2
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const itemsPerSlide = 2;
 
-  const totalSlides = Math.ceil(imagesList.length / itemsPerSlide)
+  const totalSlides = Math.ceil(imagesList.length / itemsPerSlide);
 
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides)
-  }
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
+  };
 
   const exploreItems = Array.from({ length: itemsPerSlide }, (_, i) => {
-    const index = currentSlide * itemsPerSlide + i
+    const index = currentSlide * itemsPerSlide + i;
     return (
       <li
         key={imagesList[index % imagesList.length].id}
@@ -21,29 +21,29 @@ function DollCornerRow() {
         <img
           src={imagesList[index % imagesList.length].src}
           alt={imagesList[index % imagesList.length].alt}
-          className="min-h-[214px] object-cover rounded-[5px]"
+          className="w-full h-[214px] object-cover rounded-[5px]"
         />
         <div className="flex flex-col justify-center items-start gap-3 sm:gap-4 font-Roboto">
           <p className="text-sm max-sm:tracking-[0.25px]">
             {imagesList[index % imagesList.length].description}
           </p>
           <p className="text-sm max-sm:tracking-[0.25px]">
-            from{' '}
+            from{" "}
             <span className="text-[#09618E] text-xl font-bold leading-6 tracking-[0.15px]">
               ${imagesList[index % imagesList.length].price}
             </span>
           </p>
         </div>
       </li>
-    )
-  })
+    );
+  });
 
   return (
-    <div className="relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-4 pb-10 sm:pt-16 sm:pb-10 sm:pl-10 sm:pr-0">
+    <div className="relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-1 sm:pl-6">
       <h1 className=" text-[#313133] font-Roboto font-medium text-base sm:text-[31px] sm:font-bold sm:leading-[37.2px]">
         Doll Corner
       </h1>
-      <ul className="flex w-full items-start gap-2 sm:gap-6 min-[390px]:overflow-x-auto overflow-hidden">
+      <ul className="flex w-full items-start gap-2 sm:gap-4 min-[390px]:overflow-x-auto overflow-hidden">
         {exploreItems}
         {imagesList.map((image) => (
           <li
@@ -53,14 +53,14 @@ function DollCornerRow() {
             <img
               src={image.src}
               alt={image.alt}
-              className="min-h-[214px] object-cover rounded-[5px]"
+              className="w-full h-[214px] object-cover rounded-[5px]"
             />
             <div className="flex flex-col justify-center items-start gap-3 sm:gap-4 font-Roboto">
               <p className="text-sm max-sm:tracking-[0.25px]">
                 {image.description}
               </p>
               <p className="text-sm max-sm:tracking-[0.25px]">
-                from{' '}
+                from{" "}
                 <span className="text-[#09618E] text-xl font-bold leading-6 tracking-[0.15px]">
                   ${image.price}
                 </span>
@@ -77,7 +77,7 @@ function DollCornerRow() {
         <img src={arrow} alt="right-arrow" className="ml-[3px] w-6 h-7 " />
       </button>
     </div>
-  )
+  );
 }
 
-export default DollCornerRow
+export default DollCornerRow;

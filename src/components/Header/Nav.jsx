@@ -40,7 +40,7 @@ export default function Nav() {
         <Link to="/language" className="text-white mr-6">
           English/US
         </Link>
-        <Link to="/help" className="text-white mr-6">
+        <Link to="/help-center" className="text-white mr-6">
           Help
         </Link>
         {isAuthenticated ? (
@@ -77,7 +77,7 @@ export default function Nav() {
         <Link to="/language" className="text-white mr-6">
           English/US
         </Link>
-        <Link to="/help" className="text-white mr-6">
+        <Link to="/help-center" className="text-white mr-6">
           Help
         </Link>
         {isAuthenticated ? (

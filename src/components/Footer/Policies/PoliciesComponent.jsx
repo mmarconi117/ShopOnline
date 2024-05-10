@@ -2,10 +2,14 @@ import SideBar from './SideBar';
 import Banner from './Banner';
 import Policies from './Policies';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PoliciesComponent = () => {
     const [currentHash, setCurrentHash] = useState("");
+    useEffect(() => {
+        // Scroll to the top of the page when the component mounts
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div id="orders-policies-component">
             <Banner />

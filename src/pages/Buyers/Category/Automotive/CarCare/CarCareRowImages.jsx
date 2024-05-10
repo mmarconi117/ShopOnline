@@ -1,9 +1,9 @@
-import image1 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-7.jpg'
-import image2 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-8.jpg'
-import image3 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-9.jpg'
-import image4 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-10.jpg'
-import image5 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-11.jpg'
-import image6 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-12.jpg'
+import image1 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-7.svg'
+import image2 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-8.svg'
+import image3 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-9.svg'
+import image4 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-10.svg'
+import image5 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-11.svg'
+import image6 from '../../../../../assets/IMAGES/AutomotiveCategory/Rectangle 181-12.svg'
 
 const imagesList = [
   {

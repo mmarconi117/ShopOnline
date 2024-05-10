@@ -158,13 +158,13 @@ const Statements = () => {
           <p>SONNY Fulfillment Services fees</p>
           <p className="pl-8">$ {statements.fulfillmentServicesfees} {statements.categoryId}</p>
         </div>
-      )}
+
 
         <div className="flex justify-between items-center px-1">
           <p>Handling Service fees</p>
           <p className="pl-8">$ {statements.fulfillmentHandlingServiceFees} {statements.categoryId}</p>
         </div>
-      )}
+
 
         <div className="flex justify-between items-center px-1 py-2 text-lg sm:text-xl font-medium">
           <p>Total</p>

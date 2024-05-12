@@ -4,6 +4,7 @@ const SubscribeForm = () => {
   const [email, setEmail] = useState("");
   const [isValid, setIsValid] = useState(true);
 
+
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -15,7 +16,8 @@ const SubscribeForm = () => {
     if (isValidEmail(email)) {
       // Handle further actions like sending the email here
       console.log('this is right')
-
+      console.log('email->',email)
+      ////i'm thinking of installing emailjs npm////
 
     } else {
       setIsValid(false);

@@ -16,3 +16,19 @@
   font-family: 'Sansita One', sans-serif;
 }
 
+.font-Sansita {
+  font-family: 'Sansita One', sans-serif;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/path/to/roboto.woff2') format('woff2'),
+       url('/path/to/roboto.woff') format('woff');
+
+}
+
+.font-Roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+

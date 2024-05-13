@@ -61,6 +61,10 @@ import Body from './pages/Sellers/NotificationsSettings/components/Body'
 import HelpPage from './pages/Sellers/HelpPage'
 import CompanyService from './pages/Sellers/CompanyService'
 import LandingPageforSellers from './pages/Sellers/LandingPageforSellers'
+
+import SellerFooter from "./pages/Sellers/Footer/SellerFooter";
+
+
 import CompanyInfo from './pages/Sellers/CompanyInfo/CompanyInfo'
 import OnlineFulfillment from './pages/Sellers/OnlineFulfillment/OnlineFulfillment'
 import PaymentServices from './pages/Sellers/PaymentServices/PaymentServices'
@@ -77,6 +81,7 @@ import AccountManagement from "./pages/Buyers/Aacount/AccountManagement/AccountM
 import EditShippingAddress from "./pages/Buyers/Aacount/EditShippingAddress";
 import WishList from "./pages/Buyers/Aacount/WishList";
 import RecentlyViewed from "./pages/Buyers/Aacount/RecentlyViewed";
+
 
 function App() {
   return (
@@ -188,12 +193,14 @@ function App() {
           </Route>
 
           {/* Sellers Routers */}
-          <Route path="/sellers/*" element={<LandingPageforSellers />}>
+          <Route path="/sellers" element={<LandingPageforSellers />}>
+           
             <Route path="" element={<Homepage />} />
             <Route path="signup" element={<Signup />} />
             <Route path="login" element={<Login />} />
             <Route path="help" element={<HelpPage />} />
-
+           
+            <Route path="footer" element={<SellerFooter />} />
             {/* Analytics Routing */}
             <Route path="overview" element={<Overview />} />
             <Route path="payments" element={<Payments />} />

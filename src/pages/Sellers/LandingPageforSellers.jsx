@@ -1,8 +1,10 @@
 import * as React from "react";
 import { useState } from "react";
 import Sidebar from "./Sidebar/Sidebar";
-import Header from "./Header/Header"
+import Header from "./Header/Header";
+import Footer from "./Footer/SellerFooter";
 import { Routes, Route, useLocation, Outlet } from "react-router-dom";
+
 
 
 export default function LandingPageforSellers() {
@@ -19,10 +21,11 @@ export default function LandingPageforSellers() {
       <div className={`w-full flex items-stretch ${isSignupPage ? "" : "mt-[72px] md:mt-[107px]"} min-h-screen`}>
 
         {!isSignupPage && <Sidebar showBarIsTrue={showBar}/>}
-
+ 
         <div className={`${showBar ? "max-md:opacity-25" : "max-md:opacity-100"} flex flex-col items-stretch overflow-hidden grow`} onClick={showBar ? showSideBar : ()=>{}}>
 
           <Outlet />
+          <Footer />
 
         </div>
       </div>

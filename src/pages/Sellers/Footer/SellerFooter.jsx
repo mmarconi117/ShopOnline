@@ -30,12 +30,10 @@ const footerSectionsData = [
     title: "Product safety updates",
     link: "/#",
   },
-
   {
     title: "Policies",
     link: "/policies-component",
   },
-
   {
     title: "SONNY App",
     link: "/#",
@@ -68,90 +66,65 @@ const SellerFooter = () => {
   const onChange = (value) => {
     dispatch(setInput(value));
   };
+
   return (
     <>
-      <div className="flex flex-col  bg-white w-full  ">
-        <div className="grid grid-cols-4 gap-10 w-full px-[500px] mt-20">
+      <div className="flex flex-col bg-white w-full ">
+        <div className="grid md:grid-cols-4 grid-cols-2 gap-10 w-full md:px-10 md:gap-10 px-4 mt-10">
           {footerSectionsData.map((item, index) => (
-            <div key={index} className="">
+            <div key={index} className="text-center">
               <a href={item.link}>{item.title}</a>
             </div>
           ))}
         </div>
         <div className="flex flex-col gap-2 items-center mt-20">
-          <p className="font-Sansita One text-[#48464C] text-[25px]">
-            new to YORK SHOPPERS
+          <p className="font-Sansita One text-[#48464C] text-[20px]">
+            New to YORK SHOPPERS
           </p>
-          <p className="font-Roboto">
-            {" "}
+          <p className="font-Roboto text-center">
             Subscribe to our newsletter to get updates on our latest offers
           </p>
         </div>
-        <div className="flex justify-center mb-10 ">
-          <div
-            id="help-center-search-bar"
-            className="my-5 flex items-center w-[25%]"
-          >
-            <div className="border-black border rounded-md p-2  md:w-[100%] w-[400px] rounded-tr-none rounded-br-none relative ">
-              <input
-                value={inputValue}
-                onChange={(e) => onChange(e.target.value)}
-                type="text"
-                placeholder="Email"
-                className="outline-none bg-transparent placeholder-black w-full"
-              />
-            </div>
-            
-           
-            <div className="flex items-center pr-3 bg-[#EEC643] h-[45px] w-[109px] rounded-md p-4 rounded-tl-none rounded-bl-none ">
+        <div className="flex justify-center mt-8 mb-10 px-10">
+          <div className="flex flex-row md:flex-row  md:w-[50%] w-full">
+            <input
+              value={inputValue}
+              onChange={(e) => onChange(e.target.value)}
+              type="text"
+              placeholder="Email"
+              className="border-black border rounded-md p-2 w-full md:w-[75%] outline-none"
+            />
+            <div className="flex items-center justify-center bg-[#EEC643] h-[45px] w-[20%] md:w-[25%] rounded-md p-2  md:px-0 px-10">
               Subscribe
             </div>
           </div>
         </div>
       </div>
 
-      <div className="p-10 px-[450px] bg-[#1D1B20] text-white w-full  ">
-        <div className="flex flex-row gap-5 justify-center items-center">
+      <div className="p-6 md:p-10 bg-[#1D1B20] text-white">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4">
           {footerSection.map((item, index) => (
-            <div key={index} className="p-6">
+            <div key={index} className="p-3">
               <a href={item.link}>{item.title}</a>
             </div>
           ))}
         </div>
 
-        <div className="flex flex-row justify-center ">
-          <p>
-            <span class="">&#169;</span> 1998-2023, Yorkshoppers.com, Inc, or
-            its affiliates
-          </p>
+        <div className="flex justify-center mt-4 md:mt-6">
+          <p>&#169; 1998-2023, Yorkshoppers.com, Inc, or its affiliates</p>
         </div>
-        <div className="flex flex-row justify-center items-center gap-9 p-5">
-          <a
-            href="https://www.facebook.com/profile.php?id=61558045981585"
-            target="_blank"
-          >
-            <img src={facebook}></img>
+        <div className="flex justify-center items-center mt-4 md:mt-6 gap-4">
+          <a href="https://www.facebook.com/profile.php?id=61558045981585" target="_blank">
+            <img src={facebook} alt="Facebook" />
           </a>
-
-          <a
-            href="https://www.instagram.com/shop_online_new_york/"
-            target="_blank"
-          >
-            <img src={instagram}></img>
+          <a href="https://www.instagram.com/shop_online_new_york/" target="_blank">
+            <img src={instagram} alt="Instagram" />
           </a>
-
-          <a
-            href="https://www.linkedin.com/company/tonyllc/mycompany/"
-            target="_blank"
-          >
-            <img src={linkedin}></img>
+          <a href="https://www.linkedin.com/company/tonyllc/mycompany/" target="_blank">
+            <img src={linkedin} alt="LinkedIn" />
           </a>
-
-          <a
-            href="https://twitter.com/shoponlineny"
-            target="_blank"
-          >
-            <img src={twitter}></img>
+          <a href="https://twitter.com/shoponlineny" target="_blank">
+            <img src={twitter} alt="Twitter" />
           </a>
         </div>
       </div>

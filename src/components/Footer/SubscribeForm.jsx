@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 const SubscribeForm = () => {
   const [email, setEmail] = useState("");
   const [isValid, setIsValid] = useState(true);
+
+
 
 
   const isValidEmail = (email) => {
@@ -13,20 +16,43 @@ const SubscribeForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (isValidEmail(email)) {
+ 
+    
+    if (isValidEmail(email)===true) {
       // Handle further actions like sending the email here
+      setIsValid(true)
       console.log('this is right')
       console.log('email->',email)
       ////i'm thinking of installing emailjs npm////
+      const serviceID="service_v0cu1sb";
+      const templateID="template_sbrssjl";
+      ///form data parameter
+      const publicKey="kt0-H3pTQETucgU43";
+         ///dynamic template params///
+      const templateParams={
+        from_email:email
+
+      }
+      ///send emails///
+      emailjs.send(serviceID,templateID,templateParams,publicKey).then((response)=>{
+        console.log('success!!!!')
+        console.log('result is here->',response)
+        setEmail('')
+      }).catch((error)=>{
+        console.log('error email->',error)
+      })
+
+
 
     } else {
       setIsValid(false);
     }
+
   };
 
   const handleChange = (event) => {
     setEmail(event.target.value);
-    setIsValid(true); 
+    // setIsValid(true); 
   };
   console.log('let look at email==>',email)
   return (
@@ -43,6 +69,7 @@ const SubscribeForm = () => {
             value={email}
             type="email"
             id="email"
+            name="email"
             placeholder="Email"
             className="p-2 w-2/3 rounded-l-md outline-none"
           />

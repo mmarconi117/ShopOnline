@@ -4,7 +4,7 @@ import imagesList from './images';
 const OutdoorTools = () => {
     return (
         <>
-            <Card imagesList={imagesList} subCategory={'Outdoor Tools'} />
+            <Card imagesList={imagesList} subCategory={'Outdoor Tools'} isLast={true}/>
         </>
     );
 }

@@ -13,7 +13,7 @@ const PoliciesComponent = () => {
     return (
         <div id="orders-policies-component">
             <Banner />
-            <div className="flex my-10 ">
+            <div className="flex items-stretch my-10 ">
                 <SideBar setCurrentHash={setCurrentHash} />
                 <Policies currentHash={currentHash} />
             </div>

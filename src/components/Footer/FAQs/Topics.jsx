@@ -211,7 +211,7 @@ const Topics = ({ currentHash }) => {
                 marginLeft: '0',
                 marginRight: '0',
                 paddingBottom: '10px',
-                maxHeight: '62.3vh',
+                // maxHeight: '62.3vh',
                 overflowY: 'auto',
                 ...(window.innerWidth <= 768 && {
                     marginLeft: '0',

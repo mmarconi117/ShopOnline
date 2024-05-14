@@ -4,7 +4,7 @@ import imagesList from './images';
 const Wallpaper = () => {
     return (
         <>
-            <Card imagesList={imagesList} subCategory={'Wallpaper'} isLast={true} />
+            <Card imagesList={imagesList} subCategory={'Wallpaper'} isLast={false} />
         </>
     );
 }

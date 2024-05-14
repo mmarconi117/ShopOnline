@@ -1,8 +1,10 @@
+import banner from "../../../../../assets/IMAGES/JewelleryAndWatchesCategory/Rectangle 181-12.jpg"
 function Rectangle() {
   return (
-    <div
-      className="w-full sm:w-[95%] h-[184px] sm:h-[404px] bg-[#E2EFF6] mx-auto rounded-[12px]"
-    ></div>
+    <img
+      src={banner}    
+      className="object-cover min-h-[184px] max-h-[360px] w-full"
+    ></img>     
   );
 }
 

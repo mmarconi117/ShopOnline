@@ -70,8 +70,8 @@ const SellerFooter = () => {
   };
   return (
     <>
-      <div className="flex flex-col justify-center  bg-white w-full p-10 ">
-        <div className="grid grid-cols-4 gap-10 w-full">
+      <div className="flex flex-col  bg-white w-full  ">
+        <div className="grid grid-cols-4 gap-10 w-full px-[500px] mt-20">
           {footerSectionsData.map((item, index) => (
             <div key={index} className="">
               <a href={item.link}>{item.title}</a>
@@ -87,12 +87,12 @@ const SellerFooter = () => {
             Subscribe to our newsletter to get updates on our latest offers
           </p>
         </div>
-        <div className="flex justify-center ">
+        <div className="flex justify-center mb-10 ">
           <div
             id="help-center-search-bar"
             className="my-5 flex items-center w-[25%]"
           >
-            <div className="border-black border rounded-md p-2  md:w-[100%] w-[400px] rounded-tr-none rounded-br-none relative">
+            <div className="border-black border rounded-md p-2  md:w-[100%] w-[400px] rounded-tr-none rounded-br-none relative ">
               <input
                 value={inputValue}
                 onChange={(e) => onChange(e.target.value)}
@@ -101,8 +101,9 @@ const SellerFooter = () => {
                 className="outline-none bg-transparent placeholder-black w-full"
               />
             </div>
-
-            <div className="flex items-center pr-3 bg-[#EEC643] h-[45px] w-[109px] rounded-md p-4 rounded-tl-none rounded-bl-none">
+            
+           
+            <div className="flex items-center pr-3 bg-[#EEC643] h-[45px] w-[109px] rounded-md p-4 rounded-tl-none rounded-bl-none ">
               Subscribe
             </div>
           </div>

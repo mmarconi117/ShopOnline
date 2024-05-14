@@ -1,6 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setInput } from "../../../reducersAndActions/actions/helpCenterAction";
-import search from "../../../assets/ICONS/SearchIcons.svg";
+import facebook from "../../../assets/ICONS/facebook.svg";
+import instagram from "../../../assets/ICONS/instagram.svg";
+import linkedin from "../../../assets/ICONS/linkedin.svg";
+import twitter from "../../../assets/ICONS/twitter.svg";
+
 const footerSectionsData = [
   {
     title: "Help Center",
@@ -24,17 +28,36 @@ const footerSectionsData = [
   },
   {
     title: "Product safety updates",
-    link: "/policies",
+    link: "/#",
   },
 
   {
     title: "Policies",
-    link: "/policies",
+    link: "/policies-component",
   },
 
   {
     title: "SONNY App",
-    link: "/careers",
+    link: "/#",
+  },
+];
+
+const footerSection = [
+  {
+    title: "Conditions of Use",
+    link: "#",
+  },
+  {
+    title: "Privacy Notice",
+    link: "#",
+  },
+  {
+    title: "Legal",
+    link: "#",
+  },
+  {
+    title: "Your Ads Privacy Choices",
+    link: "#",
   },
 ];
 
@@ -84,8 +107,51 @@ const SellerFooter = () => {
             </div>
           </div>
         </div>
-        <div className=" flex flex-col gap-5 bg-[#1D1B20]">
+      </div>
 
+      <div className="p-10 px-[450px] bg-[#1D1B20] text-white w-full  ">
+        <div className="flex flex-row gap-5 justify-center items-center">
+          {footerSection.map((item, index) => (
+            <div key={index} className="p-6">
+              <a href={item.link}>{item.title}</a>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-row justify-center ">
+          <p>
+            <span class="">&#169;</span> 1998-2023, Yorkshoppers.com, Inc, or
+            its affiliates
+          </p>
+        </div>
+        <div className="flex flex-row justify-center items-center gap-9 p-5">
+          <a
+            href="https://www.facebook.com/profile.php?id=61558045981585"
+            target="_blank"
+          >
+            <img src={facebook}></img>
+          </a>
+
+          <a
+            href="https://www.instagram.com/shop_online_new_york/"
+            target="_blank"
+          >
+            <img src={instagram}></img>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/company/tonyllc/mycompany/"
+            target="_blank"
+          >
+            <img src={linkedin}></img>
+          </a>
+
+          <a
+            href="https://twitter.com/shoponlineny"
+            target="_blank"
+          >
+            <img src={twitter}></img>
+          </a>
         </div>
       </div>
     </>

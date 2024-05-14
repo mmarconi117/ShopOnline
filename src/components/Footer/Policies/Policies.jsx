@@ -325,7 +325,7 @@ const Policies = ({ currentHash }) => {
                 backgroundColor: 'white',
                 marginLeft: 0,
                 paddingBottom: '10px',
-                maxHeight: '82.5vh',
+                // maxHeight: '82.5vh',
                 overflowY: 'auto',
                
                 ...(window.innerWidth <= 768 && {

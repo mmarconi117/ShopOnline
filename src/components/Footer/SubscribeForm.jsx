@@ -17,10 +17,12 @@ const SubscribeForm = () => {
       // Handle further actions like sending the email here
       setIsValid(true)
       ////i'm thinking of installing emailjs npm////
-      const serviceID="service_v0cu1sb";
-      const templateID="template_sbrssjl";
-      const publicKey="kt0-H3pTQETucgU43";
+      /////serviceID,templateID, publicID will need to be replace with info from tonyrocksllc@gmail.com emailJS account
+      const serviceID="service_v0cu1sb";   ////
+      const templateID="template_sbrssjl";   ////
+      const publicKey="kt0-H3pTQETucgU43";   ////
          ///dynamic template params///
+        
       const templateParams={
         from_email:email
       }

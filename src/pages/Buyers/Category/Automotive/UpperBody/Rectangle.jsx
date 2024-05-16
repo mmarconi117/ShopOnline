@@ -1,8 +1,9 @@
+import bannerSVG from "../../Images/AutomativeCategory/image.png";
 function Rectangle() {
   return (
-    <div
-      className="w-full sm:w-[95%] h-[184px] sm:h-[404px] bg-[#E2EFF6] mx-auto rounded-[12px]"
-    ></div>
+    <div>
+      <img src={bannerSVG} alt="Banner" className="w-full md:max-h-[423px] xl:min-h-[423px] min-h-[157px]" />
+    </div>
   );
 }
 

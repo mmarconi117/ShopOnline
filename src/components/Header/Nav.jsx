@@ -41,7 +41,7 @@ export default function Nav() {
           English/US
         </Link> */}
         <DropdownCard />
-        <Link to="/help" className="text-white mr-6">
+        <Link to="/help-center" className="text-white mr-6">
           Help
         </Link>
         {isAuthenticated ? (
@@ -79,7 +79,7 @@ export default function Nav() {
           English/US
         </Link> */}
          <DropdownCard  />
-        <Link to="/help" className="text-white mr-6">
+        <Link to="/help-center" className="text-white mr-6">
           Help
         </Link>
         {isAuthenticated ? (

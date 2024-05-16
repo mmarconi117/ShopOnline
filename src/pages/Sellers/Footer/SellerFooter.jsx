@@ -36,7 +36,7 @@ const footerSectionsData = [
   },
   {
     title: "SONNY App",
-    link: "/#",
+    link: "/app",
   },
 ];
 

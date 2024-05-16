@@ -10,9 +10,7 @@ import rootReducer from "./reducersAndActions/reducers/index.jsx";
 const store = createStore(rootReducer);
 // console.warn(store);
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <Provider store={store}>
       <App />
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
 )

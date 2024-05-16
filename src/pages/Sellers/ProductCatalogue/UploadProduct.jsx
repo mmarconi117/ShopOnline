@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { UPLOAD_NEW_PRODUCT, UPLOAD_PRODUCT_IMAGES } from "../../../reducersAndActions/actions";
 import { resetUploadedProductImages} from '../../../reducersAndActions/actions/UploadNewProduct'
 import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 
 
 
@@ -19,10 +20,11 @@ function UploadProduct() {
     inventory: '',
     price: '',
   });
+  const [categories,setCategories]=useState([])
   const dispatch = useDispatch();
   const uploadedProductData = useSelector((state) => state.uploadNewProductReducer.productData) || productData;
   const uploadedImages = useSelector((state) => state.uploadNewProductReducer.productImages)
-
+  const [subCategory,setSubCategory]=useState([])
 
   const handleImageUpload = (event) => {
     const files = event.target.files;
@@ -51,6 +53,7 @@ function UploadProduct() {
       return
     }
     dispatch({ type: UPLOAD_NEW_PRODUCT, payload: productData });
+    
     alert("Product Added Successfully");
     setProductData({
       productName: '',
@@ -62,6 +65,27 @@ function UploadProduct() {
     });
     dispatch(resetUploadedProductImages());
   }  
+useEffect(()=>{
+  axios.get('http://localhost:8000/api/categories')
+            .then(res => {
+                console.log("Fetched categories:", res.data);  
+                setCategories(res.data); 
+            })
+            .catch(error => {
+                console.error('Error fetching categories:', error);
+            });
+},[])
+const getSubCategories=(subCategory,index)=>{
+  let subCategoryLength = subCategory.length;
+  if (index >= subCategoryLength) return [];
+  return [subCategory[index].subcategory_name, ...getSubCategories(subCategory, index + 1)];
+}
+const subCategoryList=(subCateg)=>{
+    let selectedIndex = categories.findIndex((data)=>data?.category_name===subCateg)
+        if(categories[selectedIndex]?.category_name===subCateg){
+        return getSubCategories(categories[selectedIndex]?.subcategories,0);
+        } 
+  }
 
   return (
     <div className="self-center flex flex-col   px-8 ">
@@ -190,9 +214,11 @@ function UploadProduct() {
                         onChange={(e) => setProductData({ ...productData, category: e.target.value })}
                       >
                         <option value="">Select</option>
-                        <option value="HomeAccessories">Home accessories</option>
-                        <option value="MobileAccessories">Mobile accessories</option>
-                        <option value="ComputerAccessories">Computer accessories</option>
+                        {
+                          categories.map((data)=>{
+                            return (<option value={data.category_name}>{data.category_name}</option>)
+                          })
+                        } 
                       </select>
                     </div>
                     <div className="w-full items-stretch flex grow basis-[0%] flex-col mt-6">
@@ -206,9 +232,10 @@ function UploadProduct() {
                         value={productData.subCategory}
                         onChange={(e) => setProductData({ ...productData, subCategory: e.target.value })}
                       >
-                        <option value="">Select</option>
-                        <option value="Apple">Apple</option>
-                        <option value="Hp">HP</option>
+                         <option value="">Select</option>
+                         {subCategoryList(productData.category)?.map((data)=>{
+                          return  <option value={data}>{data}</option>
+                        })} 
                       </select>
                     </div>
                   </div>

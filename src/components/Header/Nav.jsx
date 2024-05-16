@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setAuthenticated } from "../../reducersAndActions/actions/BuyersLoginFormAction";
-
+import DropdownCard from '../Header/DropDownCard'
 export default function Nav() {
   const [menu, setMenu] = useState("");
   const isAuthenticated = useSelector(
@@ -37,9 +37,10 @@ export default function Nav() {
         >
           Sell
         </Link>
-        <Link to="/language" className="text-white mr-6">
+        {/* <Link to="/language" className="text-white mr-6">
           English/US
-        </Link>
+        </Link> */}
+        <DropdownCard />
         <Link to="/help" className="text-white mr-6">
           Help
         </Link>
@@ -74,9 +75,10 @@ export default function Nav() {
         >
           Sell
         </Link>
-        <Link to="/language" className="text-white mr-6">
+        {/* <Link to="/language" className="text-white mr-6">
           English/US
-        </Link>
+        </Link> */}
+         <DropdownCard  />
         <Link to="/help" className="text-white mr-6">
           Help
         </Link>

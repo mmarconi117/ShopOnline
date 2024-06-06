@@ -39,7 +39,7 @@ function WheelsAndTiresRow() {
   })
 
   return (
-    <div className="relative w-full flex flex-col items-start gap-4 pt-8 px-10 pb-10">
+    <div className="relative w-full h-auto flex flex-col items-start gap-4 pt-8 px-5 sm:pl-6">
       <h1 className=" text-[#313133] font-Roboto md:font-bold md:text-[31px] text-[21px] font-bold ">
         Wheels And Tires
       </h1>
@@ -53,7 +53,7 @@ function WheelsAndTiresRow() {
             <img
               src={image.src}
               alt={image.alt}
-              className="min-h-[214px] object-cover rounded-[5px] w-full"
+              className="w-full h-[214px] object-cover rounded-[5px]"
             />
             <div className="flex flex-col justify-center items-start gap-3 sm:gap-4 font-Roboto">
               <p className="text-sm max-sm:tracking-[0.25px]">

@@ -78,7 +78,7 @@ const SideBar = ({ setCurrentHash }) => {
     const lastItem = items[lastIndex];
 
     return (
-        <div id="faq-sidebar-nav-component divide-y divide-solid" className="w-1/5 flex flex-col justify-center mb-12 hidden md:block">
+        <div id="faq-sidebar-nav-component divide-y divide-solid" className="w-1/5 flex flex-col justify-center  hidden md:block">
             <nav className="w-full">
                 <ul className="divide-y divide-solid m mt-0">
                     {navItems}

@@ -4,9 +4,9 @@ import Pagerow from "./Pagerow";
 function UpperBody(){
     return(
         <div className="">
-            <Rectangle></Rectangle>
-            <LowerRectangle></LowerRectangle>
-            <Pagerow></Pagerow>
+            <Rectangle />
+            <LowerRectangle />
+            <Pagerow />
         </div>
     );
 }

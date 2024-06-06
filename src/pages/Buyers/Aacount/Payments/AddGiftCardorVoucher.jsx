@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import giftCard from '../../../../assets/ICONS/giftCard.svg'
-import Voucher from '../../../../assets/ICONS/voucher.svg'
+// import giftCard from '../../../../assets/ICONS/giftCard.svg'
+// import Voucher from '../../../../assets/ICONS/voucher.svg'
 import GiftCardModal from './GiftCardModal'
 import VoucherCardModal from './VoucherCardModal'
 import ReloadBalanceModal from './ReloadBalanceModal'

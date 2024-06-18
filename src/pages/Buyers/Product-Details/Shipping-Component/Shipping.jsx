@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { increaseQuantity, decreaseQuantity } from '../../../../reducersAndActions/actions/shipAction';
@@ -22,6 +22,9 @@ const ShippingComponent = ({ quantity, increaseQuantity, decreaseQuantity, addTo
     const handleBuyNow = () => {
         navigate('/checkout');
     };
+
+
+
 
     return (
         <div id="shipping-component" className="min-w-max lg:min-w-[340px] 2xl:min-w-[400px] hidden lg:flex flex-col gap-6">

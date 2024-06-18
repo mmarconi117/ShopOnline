@@ -1,5 +1,5 @@
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 
 const SubscribeForm = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +22,7 @@ const SubscribeForm = () => {
       const templateID="template_sbrssjl";   ////
       const publicKey="kt0-H3pTQETucgU43";   ////
          ///dynamic template params///
-        
+
       const templateParams={
         from_email:email
       }
@@ -41,7 +41,7 @@ const SubscribeForm = () => {
 
   const handleChange = (event) => {
     setEmail(event.target.value);
-    // setIsValid(true); 
+    // setIsValid(true);
   };
   return (
     <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 justify-center min-w-[200px]">
